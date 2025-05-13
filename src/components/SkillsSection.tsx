@@ -1,5 +1,7 @@
 
-import { useState, useEffect } from 'react';
+import { useRef } from 'react';
+import { motion } from 'framer-motion';
+import useIntersectionObserver from '@/hooks/use-intersection-observer';
 
 interface Skill {
   category: string;
@@ -10,26 +12,10 @@ interface Skill {
 }
 
 const SkillsSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = document.getElementById('skills');
-      if (section) {
-        const sectionPosition = section.getBoundingClientRect();
-        if (sectionPosition.top < window.innerHeight * 0.75) {
-          setIsVisible(true);
-        }
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on mount
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const sectionRef = useRef(null);
+  const isVisible = useIntersectionObserver(sectionRef, {
+    threshold: 0.1,
+  });
 
   const skills: Skill[] = [
     {
@@ -74,15 +60,43 @@ const SkillsSection = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+  };
+
   return (
-    <section id="skills" className="py-20 bg-white">
+    <section id="skills" className="py-20 bg-white" ref={sectionRef}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & Technologies</h2>
           <div className="h-1 w-20 bg-orange-500 mx-auto"></div>
         </div>
         
-        <div className={`space-y-12 ${isVisible ? "slide-in active" : "slide-in"}`}>
+        <motion.div
+          className="space-y-12"
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
+          variants={containerVariants}
+        >
           {skills.map((skillGroup, index) => (
             <div key={index}>
               <h3 className="text-xl font-semibold text-gray-800 mb-6 text-center">
@@ -90,25 +104,30 @@ const SkillsSection = () => {
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-items-center">
                 {skillGroup.items.map((skill, skillIndex) => (
-                  <div 
+                  <motion.div 
                     key={skillIndex}
                     className="flex flex-col items-center"
-                    style={{ animationDelay: `${skillIndex * 0.1}s` }}
+                    variants={itemVariants}
+                    whileHover={{ 
+                      y: -5,
+                      transition: { type: "spring", stiffness: 300 }
+                    }}
                   >
                     <div className="p-4 bg-gray-50 rounded-lg shadow-sm border border-gray-100 mb-3 w-20 h-20 flex items-center justify-center tech-icon">
-                      <img
+                      <motion.img
                         src={skill.icon}
                         alt={skill.name}
                         className="w-10 h-10"
+                        whileHover={{ rotate: 10, scale: 1.1 }}
                       />
                     </div>
                     <span className="text-gray-700 text-sm">{skill.name}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

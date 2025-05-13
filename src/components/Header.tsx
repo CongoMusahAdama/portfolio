@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X, Github, Twitter, Linkedin } from "lucide-react";
+import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
@@ -33,13 +33,13 @@ const Header = () => {
       label: "GitHub"
     },
     { 
-      icon: <Twitter className="w-5 h-5" />, 
+      icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>, 
       href: "https://twitter.com/1real_vee",
-      label: "Twitter"
+      label: "X"
     },
     { 
       icon: <Linkedin className="w-5 h-5" />, 
-      href: "https://linkedin.com/in/congomusahadama",
+      href: "https://linkedin.com/in/musah-congo-766bb3224",
       label: "LinkedIn"
     }
   ];
