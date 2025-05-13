@@ -9,25 +9,23 @@ interface HeroSectionProps {
 
 const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
-    <section id="hero" className="relative bg-white min-h-screen pt-24 flex items-center overflow-hidden">
+<section id="hero" className="relative bg-white min-h-screen pt-24 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 z-10 py-16 lg:py-20">
-        <div className="grid grid-cols-1 gap-10 lg:gap-16 items-center">
-          {/* Top-right positioned profile image for all screen sizes */}
-          <div className="absolute top-32 right-10 lg:right-20 z-10">
-            <motion.div 
-              className="w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-full border-4 border-orange-500/20 p-1 overflow-hidden"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-            >
-              <img 
-                src={profileImage} 
-                alt="Congo Musah Adama" 
-                className="w-full h-full object-cover rounded-full"
-              />
-            </motion.div>
-            <div className="absolute inset-0 bg-orange-500/10 rounded-full blur-3xl -z-10"></div>
-          </div>
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {/* Profile image second, text content first */}
+          <motion.div 
+            className="relative w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 mx-auto lg:mx-0 order-last lg:order-none"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="absolute inset-0 rounded-full border-4 border-orange-500/20 animate-spin"></div>
+            <img 
+              src={profileImage} 
+              alt="Congo Musah Adama" 
+              className="relative w-full h-full object-cover rounded-full border-4 border-transparent"
+            />
+          </motion.div>
           
           <motion.div 
             className="pt-0 lg:pt-0 max-w-2xl"
