@@ -34,31 +34,23 @@ const TestimonialsSection = () => {
     };
   }, []);
 
-  // Sample testimonials
+  // Updated testimonials with the new people
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: "Alex Johnson",
-      role: "Project Manager",
-      company: "TechCorp",
-      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+      name: "Kwame Oteng",
+      role: "Founder",
+      company: "Mizrmo Technologies",
+      avatar: "/lovable-uploads/dd834d92-de8f-4f21-9878-9cc88ffbb39e.png",
       content: "Highly impressed with the APIs and backend development. Congo delivered scalable solutions that perfectly matched our requirements. Truly professional!",
     },
     {
       id: 2,
-      name: "Sara Williams",
-      role: "CTO",
-      company: "StartupHub",
-      content: "Working with Congo was a pleasure. His knowledge of backend systems and database optimization helped us improve our application performance by 40%.",
-      avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-    },
-    {
-      id: 3,
-      name: "Michael Chen",
-      role: "Lead Developer",
-      company: "InnoTech Solutions",
+      name: "Jerry Temakloe",
+      role: "Founder & Creative Entrepreneur",
+      company: "Carve Studio",
       content: "Congo's expertise in microservices architecture transformed our monolithic application into a scalable, maintainable system. His documentation skills are excellent too!",
-      avatar: "https://randomuser.me/api/portraits/men/36.jpg",
+      avatar: "/lovable-uploads/e7a271ed-34b5-4117-b716-6c44c58df08d.png",
     },
   ];
 
@@ -73,7 +65,7 @@ const TestimonialsSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 5000);
+    }, 7000); // Increased from 5000 to 7000 for slower testimonial rotation
     
     return () => clearInterval(interval);
   }, []);
@@ -86,12 +78,13 @@ const TestimonialsSection = () => {
           <div className="h-1 w-20 bg-orange-500 mx-auto"></div>
         </div>
         
-        <div className={`max-w-4xl mx-auto ${isVisible ? "slide-in active" : "slide-in"}`}>
+        <div className={`max-w-4xl mx-auto ${isVisible ? "slide-in active" : "slide-in"}`}
+             style={{ transitionDelay: '0.4s' }}> {/* Added delay to the testimonial animation */}
           <div className="relative">
             {testimonials.map((testimonial, index) => (
               <div 
                 key={testimonial.id}
-                className={`transition-opacity duration-500 ${
+                className={`transition-opacity duration-700 ${/* Increased duration from 500 to 700 */
                   currentSlide === index ? 'opacity-100' : 'opacity-0 absolute top-0 left-0'
                 }`}
                 style={{ display: currentSlide === index ? 'block' : 'none' }}

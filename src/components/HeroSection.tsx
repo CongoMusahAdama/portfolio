@@ -35,12 +35,22 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight">
+            <motion.h1 
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+            >
               Congo Musah Adama
-            </h1>
-            <h2 className="text-xl md:text-2xl text-orange-500 font-medium mt-2 md:mt-4">
+            </motion.h1>
+            <motion.h2 
+              className="text-xl md:text-2xl text-orange-500 font-medium mt-2 md:mt-4"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+            >
               Software Engineer
-            </h2>
+            </motion.h2>
             
             <p className="text-gray-600 mt-6 text-lg max-w-xl">
               Highly motivated and experienced software engineer with a strong passion for building scalable, efficient, and reliable systems that solves felt needs and drives business growth.
@@ -66,8 +76,6 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           </motion.div>
         </div>
       </div>
-      
-      <div className="wave-animation"></div>
     </section>
   );
 };
