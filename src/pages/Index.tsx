@@ -11,8 +11,8 @@ import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 
 const Index = () => {
-  // Profile image from uploaded file
-  const profileImage = "/lovable-uploads/029b5b72-9c92-4d9b-b312-ed2509b5ce91.png";
+  // Updated profile image from newly uploaded file
+  const profileImage = "/lovable-uploads/ab149927-f1a6-4430-8f59-4d2305fbf800.png";
 
   useEffect(() => {
     // Animation for elements with .slide-in class

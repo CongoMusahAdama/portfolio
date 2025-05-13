@@ -36,12 +36,13 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             transition={{ delay: 0.2, duration: 0.8 }}
           >
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              Congo Musah Adama
+              <span className="bg-gradient-to-r from-orange-500 to-pink-600 text-transparent bg-clip-text">Hey, I'm </span>
+              <span className="text-gray-800">Congo Musah Adama</span>
             </motion.h1>
             <motion.h2 
               className="text-xl md:text-2xl text-orange-500 font-medium mt-2 md:mt-4"
@@ -67,7 +68,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                   View Projects
                 </Button>
               </a>
-              <a href="https://drive.google.com/file/d/1jQl6Cr0qJSIT_6ljixZxE2dXHgGQKu7J/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+              <a href="https://drive.google.com/file/d/1N-cUtJDkeZUsxsmsdNnRl3fTpaIpd9NC/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-50 py-2 px-6 rounded-md font-medium">
                   <Download className="mr-2 h-4 w-4" /> Download Resume
                 </Button>
