@@ -21,30 +21,30 @@ const ProjectsSection = () => {
     threshold: 0.1,
   });
   
-  // Updated projects data with WeBarb, AgriLync, and Mizrmo Carpool
+  // Updated projects data with WeBarb, AgriLync, and Mizrmo Carpool with updated tech stacks
   const projects: Project[] = [
     {
       id: 1,
       title: "WeBarb",
       description: "WeBarb connects you with top-rated barbers for a professional haircut experience. Book appointments easily, pay securely, and enjoy grooming wherever you are.",
-      image: "https://raw.githubusercontent.com/swagger-api/swagger.io/wordpress/images/assets/SW-logo-clr.png", // Replace with actual WeBarb image
-      technologies: ["Node.js", "Express", "React", "MongoDB"],
+      image: "/lovable-uploads/0852344e-6dcc-405e-a758-c92f8d7a864c.png",
+      technologies: ["MongoDB", "Express", "JavaScript", "Node.js", "React", "Vite"],
       githubUrl: "https://github.com/CongoMusahAdama",
     },
     {
       id: 2,
       title: "AgriLync",
       description: "AgriLync is an AI-powered platform aimed at transforming African agriculture and improving financial access.",
-      image: "https://img.freepik.com/free-vector/organic-flat-farming-profession-illustration_23-2148897195.jpg",
-      technologies: ["Python", "FastAPI", "PostgreSQL", "Redis"],
+      image: "/lovable-uploads/5cf43abd-b0cc-4f69-a5df-d706bdb893c3.png",
+      technologies: ["MongoDB", "Express", "TypeScript", "React", "Vite"],
       githubUrl: "https://github.com/CongoMusahAdama",
     },
     {
       id: 3,
       title: "Mizrmo Carpool",
       description: "A carpool platform for finding and sharing rides. Users can create ride offers or join existing ones for efficient transportation.",
-      image: "https://img.freepik.com/free-vector/car-sharing-service-illustration_23-2148970361.jpg",
-      technologies: ["Laravel", "MySQL", "Vue.js", "Tailwind CSS"],
+      image: "/lovable-uploads/670ee96c-9dfb-46dd-820c-83129ee2f871.png",
+      technologies: ["Flutter", "Nest.js", "Node.js", "TypeScript", "PostgreSQL"],
       githubUrl: "https://github.com/CongoMusahAdama",
     },
   ];

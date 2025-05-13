@@ -43,7 +43,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             </h2>
             
             <p className="text-gray-600 mt-6 text-lg max-w-xl">
-              Highly motivated and experienced software engineer with a strong passion for building scalable, efficient, and reliable systems.
+              Highly motivated and experienced software engineer with a strong passion for building scalable, efficient, and reliable systems that solves felt needs and drives business growth.
             </p>
             
             <div className="flex items-center mt-4 text-gray-600">
@@ -57,7 +57,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                   View Projects
                 </Button>
               </a>
-              <a href="https://resume.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://drive.google.com/file/d/1jQl6Cr0qJSIT_6ljixZxE2dXHgGQKu7J/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-50 py-2 px-6 rounded-md font-medium">
                   <Download className="mr-2 h-4 w-4" /> Download Resume
                 </Button>
