@@ -20,10 +20,10 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             transition={{ duration: 0.6 }}
           >
             {/* Outer spinning border - continuous smooth animation */}
-            <div className="absolute inset-[-8px] rounded-full border-4 border-orange-500 opacity-70 animate-spin-slow"></div>
+            <div className="absolute inset-[-4px] rounded-full border-2 border-orange-500 opacity-80 animate-spin-slow"></div>
             
             {/* Inner spinning border - opposite direction */}
-            <div className="absolute inset-[-4px] rounded-full border-2 border-orange-400 opacity-60 animate-spin-reverse"></div>
+            <div className="absolute inset-[-2px] rounded-full border-1 border-orange-400 opacity-70 animate-spin-reverse"></div>
             
             <img 
               src={profileImage} 

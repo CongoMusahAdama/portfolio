@@ -142,8 +142,8 @@ export default {
 				'fade-in-up': 'fade-in-up 0.5s ease-out',
 				'fade-in': 'fade-in 0.7s ease-out',
 				'wave': 'wave 15s ease-in-out infinite',
-				'spin-slow': 'spin-slow 15s linear infinite',
-				'spin-reverse': 'spin-reverse 12s linear infinite'
+				'spin-slow': 'spin-slow 8s linear infinite',
+				'spin-reverse': 'spin-reverse 6s linear infinite'
 			}
 		}
 	},
