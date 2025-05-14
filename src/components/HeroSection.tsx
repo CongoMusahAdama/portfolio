@@ -45,7 +45,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               transition={{ delay: 0.4, duration: 0.8 }}
             >
               <span className="bg-gradient-to-r from-orange-500 to-pink-600 text-transparent bg-clip-text">Hey, I'm </span>
-              <span className="bg-gradient-to-r from-orange-500 to-pink-600 text-transparent bg-clip-text">Congo Musah Adama</span>
+              <span className="text-black">Congo Musah Adama</span>
             </motion.h1>
             <motion.h2 
               className="text-xl md:text-2xl text-orange-500 font-medium mt-2 md:mt-4"
