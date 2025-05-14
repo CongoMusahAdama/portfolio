@@ -3,6 +3,7 @@ import { Github, Mail, MapPin } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const resumeUrl = "https://drive.google.com/file/d/1N-cUtJDkeZUsxsmsdNnRl3fTpaIpd9NC/view?usp=sharing";
   
   return (
     <footer className="bg-gray-50 border-t border-gray-100 py-12">
@@ -105,7 +106,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-3">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                <a href="https://resume.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-orange-500 transition-colors">View Resume</a>
+                <a href={resumeUrl} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-orange-500 transition-colors">View Resume</a>
               </li>
             </ul>
           </div>

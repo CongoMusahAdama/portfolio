@@ -41,20 +41,21 @@ const SkillsSection = () => {
       items: [
         { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
         { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+        { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
       ],
     },
     {
-      category: "Others",
+      category: "Cloud & DevOps",
       items: [
         { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
         { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+        { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
       ],
     },
     {
       category: "Currently Learning",
       items: [
         { name: "Flutter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
-        { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
         { name: "Machine Learning", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
       ],
     },
@@ -92,17 +93,17 @@ const SkillsSection = () => {
         </div>
         
         <motion.div
-          className="space-y-12"
+          className="space-y-16"
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
           variants={containerVariants}
         >
           {skills.map((skillGroup, index) => (
-            <div key={index}>
-              <h3 className="text-xl font-semibold text-gray-800 mb-6 text-center">
+            <div key={index} className="px-4">
+              <h3 className="text-xl font-semibold text-gray-800 mb-8 text-center">
                 {skillGroup.category}
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-items-center">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-items-center">
                 {skillGroup.items.map((skill, skillIndex) => (
                   <motion.div 
                     key={skillIndex}
@@ -121,7 +122,7 @@ const SkillsSection = () => {
                         whileHover={{ rotate: 10, scale: 1.1 }}
                       />
                     </div>
-                    <span className="text-gray-700 text-sm">{skill.name}</span>
+                    <span className="text-gray-700 text-sm font-medium">{skill.name}</span>
                   </motion.div>
                 ))}
               </div>

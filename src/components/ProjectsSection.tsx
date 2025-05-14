@@ -21,7 +21,6 @@ const ProjectsSection = () => {
     threshold: 0.1,
   });
   
-  // Updated projects data with WeBarb, AgriLync, and Mizrmo Carpool with updated tech stacks
   const projects: Project[] = [
     {
       id: 1,
@@ -55,6 +54,7 @@ const ProjectsSection = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
+        duration: 0.5
       },
     },
   };
@@ -91,17 +91,25 @@ const ProjectsSection = () => {
               key={project.id}
               className="bg-white rounded-lg overflow-hidden shadow-md border border-gray-100 transition-all duration-300 hover:shadow-lg"
               variants={itemVariants}
-              whileHover={{ y: -10 }}
+              whileHover={{ 
+                y: -10,
+                transition: { duration: 0.3, ease: "easeOut" } 
+              }}
             >
-              <div className="h-48 overflow-hidden bg-gray-100">
+              <motion.div className="h-48 overflow-hidden bg-gray-100">
                 <motion.img 
                   src={project.image} 
                   alt={project.title}
                   className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    transition: { duration: 0.4 } 
+                  }}
+                  initial={{ opacity: 0.9 }}
+                  animate={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
                 />
-              </div>
+              </motion.div>
               
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h3>
@@ -146,6 +154,23 @@ const ProjectsSection = () => {
               </div>
             </motion.div>
           ))}
+        </motion.div>
+        
+        <motion.div 
+          className="mt-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+        >
+          <a 
+            href="https://github.com/CongoMusahAdama"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-orange-500 hover:text-orange-600 font-medium"
+          >
+            <span className="mr-2">...and more</span>
+            <Github className="w-5 h-5" />
+          </a>
         </motion.div>
       </div>
     </section>
