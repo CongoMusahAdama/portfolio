@@ -126,6 +126,14 @@ export default {
 					'0%': { transform: 'translateX(0)' },
 					'50%': { transform: 'translateX(-25%)' },
 					'100%': { transform: 'translateX(0)' }
+				},
+				'spin-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'spin-reverse': {
+					'0%': { transform: 'rotate(360deg)' },
+					'100%': { transform: 'rotate(0deg)' }
 				}
 			},
 			animation: {
@@ -133,7 +141,9 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in-up': 'fade-in-up 0.5s ease-out',
 				'fade-in': 'fade-in 0.7s ease-out',
-				'wave': 'wave 15s ease-in-out infinite'
+				'wave': 'wave 15s ease-in-out infinite',
+				'spin-slow': 'spin-slow 15s linear infinite',
+				'spin-reverse': 'spin-reverse 12s linear infinite'
 			}
 		}
 	},

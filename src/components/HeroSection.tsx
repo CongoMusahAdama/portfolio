@@ -19,27 +19,11 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
           >
-            {/* Outer spinning border - slower and more visible */}
-            <motion.div 
-              className="absolute inset-0 rounded-full border-4 border-orange-500 opacity-70"
-              animate={{ rotate: 360 }}
-              transition={{ 
-                duration: 15, 
-                repeat: Infinity, 
-                ease: "linear",
-              }}
-            ></motion.div>
+            {/* Outer spinning border - continuous smooth animation */}
+            <div className="absolute inset-[-8px] rounded-full border-4 border-orange-500 opacity-70 animate-spin-slow"></div>
             
-            {/* Inner spinning border - different direction and speed for effect */}
-            <motion.div 
-              className="absolute inset-2 rounded-full border-2 border-orange-400 opacity-50"
-              animate={{ rotate: -360 }}
-              transition={{ 
-                duration: 12, 
-                repeat: Infinity, 
-                ease: "linear" 
-              }}
-            ></motion.div>
+            {/* Inner spinning border - opposite direction */}
+            <div className="absolute inset-[-4px] rounded-full border-2 border-orange-400 opacity-60 animate-spin-reverse"></div>
             
             <img 
               src={profileImage} 
