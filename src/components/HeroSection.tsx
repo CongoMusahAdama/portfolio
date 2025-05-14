@@ -12,22 +12,39 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
     <section id="hero" className="relative bg-white min-h-screen pt-24 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 z-10 py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Profile image second, text content first */}
+          {/* Profile image with enhanced spinning animation */}
           <motion.div 
             className="relative w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 mx-auto lg:mx-0 order-last lg:order-none"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
           >
+            {/* Outer spinning border - slower and more visible */}
             <motion.div 
-              className="absolute inset-0 rounded-full border-4 border-orange-500/30"
+              className="absolute inset-0 rounded-full border-4 border-orange-500 opacity-70"
               animate={{ rotate: 360 }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              transition={{ 
+                duration: 15, 
+                repeat: Infinity, 
+                ease: "linear",
+              }}
             ></motion.div>
+            
+            {/* Inner spinning border - different direction and speed for effect */}
+            <motion.div 
+              className="absolute inset-2 rounded-full border-2 border-orange-400 opacity-50"
+              animate={{ rotate: -360 }}
+              transition={{ 
+                duration: 12, 
+                repeat: Infinity, 
+                ease: "linear" 
+              }}
+            ></motion.div>
+            
             <img 
               src={profileImage} 
               alt="Congo Musah Adama" 
-              className="relative w-full h-full object-cover rounded-full border-4 border-transparent"
+              className="relative w-full h-full object-cover rounded-full border-4 border-white shadow-lg"
             />
           </motion.div>
           
@@ -44,7 +61,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               transition={{ delay: 0.4, duration: 0.8 }}
             >
               <span className="bg-gradient-to-r from-orange-500 to-pink-600 text-transparent bg-clip-text">Hey, I'm </span>
-              <span className="text-gray-800">Congo Musah Adama</span>
+              <span className="bg-gradient-to-r from-orange-500 to-pink-600 text-transparent bg-clip-text">Congo Musah Adama</span>
             </motion.h1>
             <motion.h2 
               className="text-xl md:text-2xl text-orange-500 font-medium mt-2 md:mt-4"

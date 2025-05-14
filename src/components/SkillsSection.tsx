@@ -33,7 +33,7 @@ const SkillsSection = () => {
         { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
         { name: "FastAPI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
         { name: "Django", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
-        { name: "Laravel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" },
+        { name: "Laravel", icon: "/lovable-uploads/45b9016d-6f41-4e74-9e2d-14e144508968.png" },
       ],
     },
     {
@@ -49,7 +49,7 @@ const SkillsSection = () => {
       items: [
         { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
         { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-        { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
+        { name: "AWS", icon: "/lovable-uploads/7a3ccb94-8f5d-44e0-97b9-1611fc4e75e9.png" },
       ],
     },
     {
@@ -103,7 +103,7 @@ const SkillsSection = () => {
               <h3 className="text-xl font-semibold text-gray-800 mb-8 text-center">
                 {skillGroup.category}
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-items-center">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-items-center max-w-6xl mx-auto">
                 {skillGroup.items.map((skill, skillIndex) => (
                   <motion.div 
                     key={skillIndex}
@@ -118,11 +118,11 @@ const SkillsSection = () => {
                       <motion.img
                         src={skill.icon}
                         alt={skill.name}
-                        className="w-10 h-10"
+                        className="w-10 h-10 object-contain"
                         whileHover={{ rotate: 10, scale: 1.1 }}
                       />
                     </div>
-                    <span className="text-gray-700 text-sm font-medium">{skill.name}</span>
+                    <span className="text-gray-700 text-sm font-medium text-center">{skill.name}</span>
                   </motion.div>
                 ))}
               </div>
