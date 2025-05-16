@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Download, MapPin } from "lucide-react";
+import { Download, MapPin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface HeroSectionProps {
@@ -60,9 +60,15 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               Highly motivated and experienced software engineer with a strong passion for building scalable, efficient, and reliable systems that solves felt needs and drives business growth.
             </p>
             
-            <div className="flex items-center mt-4 text-gray-600">
-              <MapPin className="w-5 h-5 text-orange-500 mr-2" />
-              <span>Takoradi, Ghana</span>
+            <div className="flex flex-col gap-2 mt-4">
+              <div className="flex items-center text-gray-600">
+                <MapPin className="w-5 h-5 text-orange-500 mr-2" />
+                <span>Takoradi, Ghana</span>
+              </div>
+              <div className="flex items-center text-gray-600">
+                <Mail className="w-5 h-5 text-orange-500 mr-2" />
+                <a href="mailto:amusahcongo@gmail.com" className="hover:text-orange-500 transition-colors">amusahcongo@gmail.com</a>
+              </div>
             </div>
             
             <div className="mt-8 flex flex-wrap gap-4">
