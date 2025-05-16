@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import { Mail, Phone, WhatsApp } from "lucide-react";
+import { Mail, Phone, MessageCircle } from "lucide-react";
 
 const ContactSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -56,7 +56,7 @@ const ContactSection = () => {
               {/* WhatsApp Contact */}
               <div className="flex items-center p-4 border border-gray-100 rounded-lg hover:bg-orange-50 transition-colors">
                 <div className="h-12 w-12 flex items-center justify-center bg-orange-100 rounded-full text-orange-500 mr-4">
-                  <WhatsApp className="h-6 w-6" />
+                  <MessageCircle className="h-6 w-6" />
                 </div>
                 <div>
                   <h3 className="text-lg font-medium text-gray-900">WhatsApp</h3>
