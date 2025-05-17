@@ -1,19 +1,12 @@
 
 import { MessageCircle } from "lucide-react";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 const ContactSection = () => {
-  const [qrCode, setQrCode] = useState<string | null>(null);
   const whatsappNumber = "233509154727";
   const whatsappMessage = "Hello I want to GetInTouch!";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
-  useEffect(() => {
-    // Generate QR code using Google Charts API
-    const qrUrl = `https://chart.googleapis.com/chart?cht=qr&chl=${encodeURIComponent(whatsappUrl)}&chs=300x300&chld=L|0`;
-    setQrCode(qrUrl);
-  }, [whatsappUrl]);
 
   return (
     <section id="contact" className="bg-gray-50 py-16 md:py-24">
@@ -34,31 +27,35 @@ const ContactSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          {qrCode && (
-            <motion.div 
-              className="bg-white p-4 rounded-xl shadow-lg mb-6"
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.2 }}
-            >
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp chat">
-                <img 
-                  src={qrCode} 
-                  alt="WhatsApp QR Code" 
-                  className="w-64 h-64 md:w-72 md:h-72" 
-                />
-              </a>
-            </motion.div>
-          )}
-          
-          <a 
-            href={whatsappUrl} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-full font-medium hover:bg-green-600 transition-colors"
+          <motion.div 
+            className="bg-white p-4 rounded-xl shadow-lg mb-6"
+            whileHover={{ scale: 1.03 }}
+            transition={{ duration: 0.2 }}
           >
-            <MessageCircle className="w-5 h-5" />
-            Chat on WhatsApp
-          </a>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp chat">
+              <img 
+                src="/lovable-uploads/764f9228-d9ad-428d-ab65-0610222686ec.png" 
+                alt="WhatsApp QR Code" 
+                className="w-64 h-64 md:w-72 md:h-72" 
+              />
+            </a>
+          </motion.div>
+          
+          <Button 
+            asChild 
+            variant="default" 
+            className="bg-orange-500 hover:bg-orange-600 transition-colors"
+          >
+            <a 
+              href={whatsappUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Chat on WhatsApp
+            </a>
+          </Button>
         </motion.div>
       </div>
     </section>
