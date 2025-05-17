@@ -1,75 +1,65 @@
 
-import { useRef } from 'react';
-import { Mail, Phone, MessageCircle } from "lucide-react";
-import useIntersectionObserver from '@/hooks/use-intersection-observer';
+import { MessageCircle } from "lucide-react";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const ContactSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const isIntersecting = useIntersectionObserver(sectionRef, { threshold: 0.1 });
-  
+  const [qrCode, setQrCode] = useState<string | null>(null);
+  const whatsappNumber = "233509154727";
+  const whatsappMessage = "Hello I want to GetInTouch!";
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+  useEffect(() => {
+    // Generate QR code using Google Charts API
+    const qrUrl = `https://chart.googleapis.com/chart?cht=qr&chl=${encodeURIComponent(whatsappUrl)}&chs=300x300&chld=L|0`;
+    setQrCode(qrUrl);
+  }, [whatsappUrl]);
+
   return (
-    <section 
-      ref={sectionRef} 
-      id="contact" 
-      className="py-20 bg-gray-50"
-    >
+    <section id="contact" className="bg-gray-50 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
-          <div className="h-1 w-20 bg-orange-500 mx-auto"></div>
-          <p className="mt-4 text-gray-600 max-w-lg mx-auto">
-            Feel free to reach out through any of these channels. I'm always open to new opportunities and collaborations.
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Get In Touch
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Scan or tap the QR code to start a conversation with me on WhatsApp. I'm looking forward to discussing how we can work together.
           </p>
         </div>
-        
-        <div className={`max-w-lg mx-auto grid grid-cols-1 gap-6 md:grid-cols-3 ${isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"} transition-all duration-700 ease-in-out`}>
-          {/* Phone Contact */}
-          <div className="flex flex-col items-center p-6 rounded-lg hover:bg-orange-50 transition-colors border border-gray-100">
-            <div className="h-12 w-12 flex items-center justify-center bg-orange-100 rounded-full text-orange-500 mb-4">
-              <Phone className="h-5 w-5" />
-            </div>
-            <h3 className="text-base font-medium text-gray-900">Phone (Call)</h3>
-            <p className="text-sm text-gray-600 mt-1">
-              <a href="tel:+233531878243" className="hover:text-orange-500 transition-colors">
-                +233 531 878 243
+
+        <motion.div 
+          className="max-w-md mx-auto flex flex-col items-center justify-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          {qrCode && (
+            <motion.div 
+              className="bg-white p-4 rounded-xl shadow-lg mb-6"
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.2 }}
+            >
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp chat">
+                <img 
+                  src={qrCode} 
+                  alt="WhatsApp QR Code" 
+                  className="w-64 h-64 md:w-72 md:h-72" 
+                />
               </a>
-            </p>
-          </div>
+            </motion.div>
+          )}
           
-          {/* WhatsApp Contact */}
-          <div className="flex flex-col items-center p-6 rounded-lg hover:bg-orange-50 transition-colors border border-gray-100">
-            <div className="h-12 w-12 flex items-center justify-center bg-orange-100 rounded-full text-orange-500 mb-4">
-              <MessageCircle className="h-5 w-5" />
-            </div>
-            <h3 className="text-base font-medium text-gray-900">WhatsApp</h3>
-            <p className="text-sm text-gray-600 mt-1">
-              <a 
-                href="https://wa.me/233509154727" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-orange-500 transition-colors"
-              >
-                0509154727
-              </a>
-            </p>
-          </div>
-          
-          {/* Email Contact */}
-          <div className="flex flex-col items-center p-6 rounded-lg hover:bg-orange-50 transition-colors border border-gray-100">
-            <div className="h-12 w-12 flex items-center justify-center bg-orange-100 rounded-full text-orange-500 mb-4">
-              <Mail className="h-5 w-5" />
-            </div>
-            <h3 className="text-base font-medium text-gray-900">Email</h3>
-            <p className="text-sm text-gray-600 mt-1">
-              <a 
-                href="mailto:amusahcongo@gmail.com" 
-                className="hover:text-orange-500 transition-colors"
-              >
-                amusahcongo@gmail.com
-              </a>
-            </p>
-          </div>
-        </div>
+          <a 
+            href={whatsappUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-full font-medium hover:bg-green-600 transition-colors"
+          >
+            <MessageCircle className="w-5 h-5" />
+            Chat on WhatsApp
+          </a>
+        </motion.div>
       </div>
     </section>
   );
