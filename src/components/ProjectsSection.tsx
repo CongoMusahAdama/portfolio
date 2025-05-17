@@ -139,18 +139,33 @@ const ProjectsSection = () => {
                     <span>GitHub</span>
                   </motion.a>
                   
-                  {project.demoUrl && (
-                    <motion.a 
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-0">
-                        Live Demo →
-                      </Button>
-                    </motion.a>
-                  )}
+                  <div className="flex gap-4">
+                    {project.demoUrl && (
+                      <motion.a 
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-0">
+                          Live Demo →
+                        </Button>
+                      </motion.a>
+                    )}
+
+                    {project.websiteUrl && (
+                      <motion.a 
+                        href={project.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-0">
+                          Live Site →
+                        </Button>
+                      </motion.a>
+                    )}
+                  </div>
                 </div>
               </div>
             </motion.div>
