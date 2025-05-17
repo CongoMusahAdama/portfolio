@@ -28,7 +28,7 @@ const ContactSection = () => {
           viewport={{ once: true }}
         >
           <motion.div 
-            className="bg-white p-4 rounded-xl shadow-lg mb-6"
+            className="bg-white p-3 rounded-xl shadow-lg mb-5"
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.2 }}
           >
@@ -36,7 +36,7 @@ const ContactSection = () => {
               <img 
                 src="/lovable-uploads/764f9228-d9ad-428d-ab65-0610222686ec.png" 
                 alt="WhatsApp QR Code" 
-                className="w-64 h-64 md:w-72 md:h-72" 
+                className="w-48 h-48 md:w-52 md:h-52" 
               />
             </a>
           </motion.div>
