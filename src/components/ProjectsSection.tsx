@@ -1,4 +1,3 @@
-
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
@@ -13,6 +12,7 @@ interface Project {
   technologies: string[];
   githubUrl: string;
   demoUrl?: string;
+  websiteUrl?: string;
 }
 
 const ProjectsSection = () => {
@@ -26,23 +26,25 @@ const ProjectsSection = () => {
       id: 1,
       title: "WeBarb",
       description: "WeBarb connects you with top-rated barbers for a professional haircut experience. Book appointments easily, pay securely, and enjoy grooming wherever you are.",
-      image: "/lovable-uploads/0852344e-6dcc-405e-a758-c92f8d7a864c.png",
+      image: "/lovable-uploads/webarb.png",
       technologies: ["MongoDB", "Express", "JavaScript", "Node.js", "React", "Vite"],
       githubUrl: "https://github.com/CongoMusahAdama",
+      websiteUrl: "https://webarb.netlify.app",
     },
     {
       id: 2,
       title: "AgriLync",
       description: "AgriLync is an AI-powered platform aimed at transforming African agriculture and improving financial access.",
-      image: "/lovable-uploads/5cf43abd-b0cc-4f69-a5df-d706bdb893c3.png",
+      image: "/lovable-uploads/agrilync.png",
       technologies: ["MongoDB", "Express", "TypeScript", "React", "Vite"],
       githubUrl: "https://github.com/CongoMusahAdama",
+      websiteUrl: "https://v0-agri-lync-platform-design.vercel.app"
     },
     {
       id: 3,
       title: "Mizrmo Carpool",
       description: "A carpool platform for finding and sharing rides. Users can create ride offers or join existing ones for efficient transportation.",
-      image: "/lovable-uploads/mizrmo.jpg",
+      image: "/lovable-uploads/mizrmo.png",
       technologies: ["Flutter", "Nest.js", "Node.js", "TypeScript", "PostgreSQL"],
       githubUrl: "https://github.com/CongoMusahAdama",
     },
@@ -54,20 +56,19 @@ const ProjectsSection = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        duration: 0.5
+        duration: 0.7,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
+    hidden: { x: -50, opacity: 0 },
     visible: {
-      y: 0,
+      x: 0,
       opacity: 1,
       transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
+        duration: 0.6,
+        ease: "easeOut",
       },
     },
   };

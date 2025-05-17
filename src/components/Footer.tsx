@@ -1,9 +1,9 @@
 
-import { Github, Mail, MapPin } from "lucide-react";
+import { Github, Mail, MapPin, Phone } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const resumeUrl = "https://drive.google.com/file/d/1N-cUtJDkeZUsxsmsdNnRl3fTpaIpd9NC/view?usp=sharing";
+  const resumeUrl = "https://drive.google.com/file/d/1Flz4tEcDGKviJe_XV-k8Pam3ya0V5RVi/view?usp=sharing";
   
   return (
     <footer className="bg-gray-50 border-t border-gray-100 py-12">
@@ -82,20 +82,16 @@ const Footer = () => {
                   Testimonials
                 </a>
               </li>
-              <li>
-                <a 
-                  href="#contact" 
-                  className="text-gray-600 hover:text-orange-500 transition-colors"
-                >
-                  Contact
-                </a>
-              </li>
             </ul>
           </div>
           
           <div>
             <h3 className="font-semibold text-gray-800 mb-4">Contact Info</h3>
             <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <Phone className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                <a href="tel:+233531878243" className="text-gray-600 hover:text-orange-500 transition-colors">+233 531 878 243</a>
+              </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
                 <a href="mailto:amusahcongo@gmail.com" className="text-gray-600 hover:text-orange-500 transition-colors">amusahcongo@gmail.com</a>
