@@ -3,7 +3,7 @@ import { Github, Mail, MapPin, Phone } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const resumeUrl = "https://drive.google.com/file/d/1Flz4tEcDGKviJe_XV-k8Pam3ya0V5RVi/view?usp=sharing";
+  const resumeUrl = "https://drive.google.com/file/d/1gejHNj4tP7kpchFHv0vUlJy4n-cpl31e/view?usp=sharing";
   
   return (
     <footer className="bg-gray-50 border-t border-gray-100 py-12">

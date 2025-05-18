@@ -77,7 +77,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                   View Projects
                 </Button>
               </a>
-              <a href="https://drive.google.com/file/d/1Flz4tEcDGKviJe_XV-k8Pam3ya0V5RVi/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+              <a href="https://drive.google.com/file/d/1gejHNj4tP7kpchFHv0vUlJy4n-cpl31e/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-50 py-2 px-6 rounded-md font-medium">
                   <Download className="mr-2 h-4 w-4" /> Download Resume
                 </Button>
