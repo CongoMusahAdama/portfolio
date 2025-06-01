@@ -42,7 +42,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
+              transition={{ delay: 2.5, duration: 0.8 }}
             >
               <span className="bg-gradient-to-r from-orange-500 to-pink-600 text-transparent bg-clip-text">Hey, I'm </span>
               <span className="text-black">Congo Musah Adama</span>

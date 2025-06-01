@@ -55,13 +55,13 @@ const ProjectsSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.3,
         duration: 0.7,
       },
     },
   };
 
-  const itemVariants = {
+  const leftVariants = {
     hidden: { x: -50, opacity: 0 },
     visible: {
       x: 0,
@@ -73,16 +73,31 @@ const ProjectsSection = () => {
     },
   };
 
+  const rightVariants = {
+    hidden: { x: 50, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <section id="projects" className="py-20 bg-gray-50" ref={sectionRef}>
+    <section id="projects" className="relative py-20 bg-gray-50" ref={sectionRef}>
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Projects</h2>
           <div className="h-1 w-20 bg-orange-500 mx-auto"></div>
         </div>
+
+        {/* Decorative Triangle */}
+        <div className="absolute top-0 left-0 w-40 h-40 md:w-56 md:h-56 bg-orange-500 clip-triangle opacity-20 -z-10"></div>
         
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="flex flex-col gap-12 relative z-10"
           variants={containerVariants}
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
@@ -90,82 +105,64 @@ const ProjectsSection = () => {
           {projects.map((project) => (
             <motion.div 
               key={project.id}
-              className="bg-white rounded-lg overflow-hidden shadow-md border border-gray-100 transition-all duration-300 hover:shadow-lg"
-              variants={itemVariants}
+              className="flex flex-col items-center bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+              }}
               whileHover={{ 
-                y: -10,
+                y: -6,
                 transition: { duration: 0.3, ease: "easeOut" } 
               }}
             >
-              <motion.div className="h-48 overflow-hidden bg-gray-100">
-                <motion.img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                  whileHover={{ 
-                    scale: 1.05,
-                    transition: { duration: 0.4 } 
-                  }}
-                  initial={{ opacity: 0.9 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                
-                <div className="flex flex-wrap gap-2 mb-6">
+              <motion.img 
+                src={project.image} 
+                alt={project.title}
+                className="w-full h-48 object-cover"
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { duration: 0.4 } 
+                }}
+                initial={{ opacity: 0.9 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+              <div className="p-6 w-full max-w-4xl">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">{project.title}</h3>
+                <p className="text-gray-700 mb-6">{project.description}</p>
+                <div className="flex flex-wrap gap-3 mb-6">
                   {project.technologies.map((tech, techIndex) => (
                     <span 
                       key={techIndex}
-                      className="bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded"
+                      className="bg-orange-100 text-orange-700 text-sm px-3 py-1 rounded-lg"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                
-                <div className="flex justify-between items-center">
+                <div className="flex gap-6">
+                  {project.websiteUrl && (
+                    <motion.a 
+                      href={project.websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Button className="bg-orange-600 hover:bg-orange-700 text-white py-3 px-8 rounded-lg font-semibold">
+                        Live App
+                      </Button>
+                    </motion.a>
+                  )}
                   <motion.a 
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-gray-700 hover:text-orange-500 transition-colors"
+                    className="flex items-center text-gray-800 hover:text-orange-600 transition-colors font-semibold"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <Github className="w-5 h-5 mr-1" />
-                    <span>GitHub</span>
+                    <Github className="w-6 h-6 mr-2" />
+                    <span>Learn More</span>
                   </motion.a>
-                  
-                  <div className="flex gap-4">
-                    {project.demoUrl && (
-                      <motion.a 
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-0">
-                          Live Demo →
-                        </Button>
-                      </motion.a>
-                    )}
-
-                    {project.websiteUrl && (
-                      <motion.a 
-                        href={project.websiteUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-0">
-                          Live Site →
-                        </Button>
-                      </motion.a>
-                    )}
-                  </div>
                 </div>
               </div>
             </motion.div>
@@ -173,7 +170,7 @@ const ProjectsSection = () => {
         </motion.div>
         
         <motion.div 
-          className="mt-12 text-center"
+          className="mt-16 text-center relative z-10"
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ delay: 0.6, duration: 0.5 }}
@@ -182,10 +179,10 @@ const ProjectsSection = () => {
             href="https://github.com/CongoMusahAdama"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-orange-500 hover:text-orange-600 font-medium"
+            className="inline-flex items-center text-orange-600 hover:text-orange-700 font-semibold"
           >
             <span className="mr-2">...and more</span>
-            <Github className="w-5 h-5" />
+            <Github className="w-6 h-6" />
           </a>
         </motion.div>
       </div>
