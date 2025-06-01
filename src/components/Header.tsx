@@ -9,8 +9,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrollPosition(currentScrollY);
+      setScrollPosition(window.scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -57,7 +56,7 @@ const Header = () => {
             href="#" 
             className="font-bold text-xl md:text-2xl text-orange-500 hover:text-orange-600 transition-colors"
           >
-            Congo<span className="text-gray-900">.dev</span>
+            Congo<span className="text-gray-800">.dev</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -104,7 +103,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 py-4 px-4 shadow-lg animate-fade-in">
+        <div className="md:hidden bg-white border-t border-gray-100 py-4 px-4 shadow-lg animate-fade-in">
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -119,7 +118,7 @@ const Header = () => {
             ))}
           </ul>
           
-          <div className="flex items-center gap-6 mt-6 py-2 border-t border-gray-200">
+          <div className="flex items-center gap-6 mt-6 py-2 border-t border-gray-100">
             {socialLinks.map((link) => (
               <a 
                 key={link.href}
