@@ -57,34 +57,18 @@ const ProjectsSection = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.3,
-<<<<<<< HEAD
-        duration: 0.7,
-=======
         duration: 1,
->>>>>>> 39de518be6e348419bacd25f2d40c0db5c7027dc
       },
     },
   };
 
-  const leftVariants = {
+  const itemVariants = {
     hidden: { x: -50, opacity: 0 },
     visible: {
       x: 0,
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const rightVariants = {
-    hidden: { x: 50, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
         ease: "easeOut",
       },
     },
@@ -97,9 +81,6 @@ const ProjectsSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Projects</h2>
           <div className="h-1 w-20 bg-orange-500 mx-auto"></div>
         </div>
-
-        {/* Decorative Triangle */}
-        <div className="absolute top-0 left-0 w-40 h-40 md:w-56 md:h-56 bg-orange-500 clip-triangle opacity-20 -z-10"></div>
         
         <motion.div 
           className="space-y-8"
@@ -227,25 +208,14 @@ const ProjectsSection = () => {
                   {projects[2].technologies.map((tech, techIndex) => (
                     <span 
                       key={techIndex}
-                      className="bg-orange-100 text-orange-700 text-sm px-3 py-1 rounded-lg"
+                      className="bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-6">
-                  {project.websiteUrl && (
-                    <motion.a 
-                      href={project.websiteUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <Button className="bg-orange-600 hover:bg-orange-700 text-white py-3 px-8 rounded-lg font-semibold">
-                        Live App
-                      </Button>
-                    </motion.a>
-                  )}
+                
+                <div className="flex justify-between items-center">
                   <motion.a 
                     href={projects[2].githubUrl}
                     target="_blank"
@@ -253,8 +223,8 @@ const ProjectsSection = () => {
                     className="flex items-center text-gray-300 hover:text-orange-500 transition-colors duration-300"
                     whileHover={{ scale: 1.05 }}
                   >
-                    <Github className="w-6 h-6 mr-2" />
-                    <span>Learn More</span>
+                    <Github className="w-5 h-5 mr-1" />
+                    <span>GitHub</span>
                   </motion.a>
                 </div>
               </div>
@@ -263,7 +233,7 @@ const ProjectsSection = () => {
         </motion.div>
         
         <motion.div 
-          className="mt-16 text-center relative z-10"
+          className="mt-12 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ delay: 0.8, duration: 0.5 }}
@@ -272,10 +242,10 @@ const ProjectsSection = () => {
             href="https://github.com/CongoMusahAdama"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-orange-600 hover:text-orange-700 font-semibold"
+            className="inline-flex items-center text-orange-500 hover:text-orange-600 font-medium"
           >
             <span className="mr-2">...and more</span>
-            <Github className="w-6 h-6" />
+            <Github className="w-5 h-5" />
           </a>
         </motion.div>
       </div>
