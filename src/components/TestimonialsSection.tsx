@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface Testimonial {
   id: number;
@@ -9,31 +10,12 @@ interface Testimonial {
   company: string;
   avatar: string;
   content: string;
+  rating: number;
 }
 
 const TestimonialsSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
   
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = document.getElementById('testimonials');
-      if (section) {
-        const sectionPosition = section.getBoundingClientRect();
-        if (sectionPosition.top < window.innerHeight * 0.75) {
-          setIsVisible(true);
-        }
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on mount
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   // Updated testimonials with the new people
   const testimonials: Testimonial[] = [
     {
@@ -43,6 +25,7 @@ const TestimonialsSection = () => {
       company: "Mizrmo Technologies",
       avatar: "/lovable-uploads/dd834d92-de8f-4f21-9878-9cc88ffbb39e.png",
       content: "Highly impressed with the APIs and backend development. Congo delivered scalable solutions that perfectly matched our requirements. Truly professional!",
+      rating: 5,
     },
     {
       id: 2,
@@ -51,6 +34,7 @@ const TestimonialsSection = () => {
       company: "Carve Studio",
       content: "Congo's expertise in microservices architecture transformed our monolithic application into a scalable, maintainable system. His documentation skills are excellent too!",
       avatar: "/lovable-uploads/e7a271ed-34b5-4117-b716-6c44c58df08d.png",
+      rating: 5,
     },
   ];
 
@@ -65,80 +49,73 @@ const TestimonialsSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 7000); // Increased from 5000 to 7000 for slower testimonial rotation
+    }, 7000);
     
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section id="testimonials" className="py-20 bg-white">
+    <section id="testimonials" className="py-20 bg-gradient-to-b from-black to-gray-900">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Testimonials</h2>
-          <div className="h-1 w-20 bg-orange-500 mx-auto"></div>
+        <div className="text-center mb-16">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-white mb-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            What My <span className="text-orange-500">Clients Say</span>
+          </motion.h2>
+          <motion.p 
+            className="text-gray-400 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            Hear from clients who have experienced the quality and professionalism of my work.
+          </motion.p>
         </div>
         
-        <div className={`max-w-4xl mx-auto ${isVisible ? "slide-in active" : "slide-in"}`}
-             style={{ transitionDelay: '0.4s' }}> {/* Added delay to the testimonial animation */}
-          <div className="relative">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={testimonial.id}
-                className={`transition-opacity duration-700 ${/* Increased duration from 500 to 700 */
-                  currentSlide === index ? 'opacity-100' : 'opacity-0 absolute top-0 left-0'
-                }`}
-                style={{ display: currentSlide === index ? 'block' : 'none' }}
-              >
-                <div className="bg-gray-50 rounded-lg p-8 shadow-sm border border-gray-100 relative">
-                  <Quote className="w-10 h-10 text-orange-200 absolute -top-4 left-6" />
-                  <div className="text-gray-700 text-lg leading-relaxed italic mb-6">
-                    "{testimonial.content}"
-                  </div>
-                  
-                  <div className="flex items-center">
-                    <img 
-                      src={testimonial.avatar} 
-                      alt={testimonial.name} 
-                      className="w-14 h-14 rounded-full object-cover mr-4"
-                    />
-                    <div>
-                      <h4 className="font-semibold text-gray-800">{testimonial.name}</h4>
-                      <p className="text-gray-600 text-sm">{testimonial.role}, {testimonial.company}</p>
-                    </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={testimonial.id}
+              className="relative"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2, duration: 0.6 }}
+            >
+              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 hover:border-orange-500/50 transition-all duration-300 h-full">
+                <div className="flex items-center mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-orange-500 fill-current" />
+                  ))}
+                </div>
+                
+                <Quote className="w-8 h-8 text-orange-500/50 mb-4" />
+                
+                <p className="text-gray-300 leading-relaxed mb-6 italic">
+                  "{testimonial.content}"
+                </p>
+                
+                <div className="flex items-center">
+                  <img 
+                    src={testimonial.avatar} 
+                    alt={testimonial.name} 
+                    className="w-12 h-12 rounded-full object-cover mr-4 border-2 border-orange-500/30"
+                  />
+                  <div>
+                    <h4 className="font-semibold text-white">{testimonial.name}</h4>
+                    <p className="text-orange-400 text-sm">{testimonial.role}</p>
+                    <p className="text-gray-400 text-xs">{testimonial.company}</p>
                   </div>
                 </div>
               </div>
-            ))}
-            
-            <button 
-              onClick={prevSlide}
-              className="absolute top-1/2 -left-5 md:-left-10 -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-orange-50 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="w-5 h-5 text-gray-700" />
-            </button>
-            
-            <button 
-              onClick={nextSlide}
-              className="absolute top-1/2 -right-5 md:-right-10 -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-orange-50 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="w-5 h-5 text-gray-700" />
-            </button>
-          </div>
-          
-          <div className="flex justify-center space-x-2 mt-6">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                  currentSlide === index ? 'bg-orange-500' : 'bg-gray-300'
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
