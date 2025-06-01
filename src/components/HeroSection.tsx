@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Download, MapPin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
@@ -12,7 +11,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
     <section id="hero" className="relative bg-white min-h-screen pt-24 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 z-10 py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Text content on the left */}
+          {/* Text content on the left */}
           <motion.div 
             className="pt-0 lg:pt-0 max-w-2xl order-first"
             initial={{ opacity: 0, y: 20 }}
@@ -36,11 +35,11 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             >
               Software Engineer
             </motion.h2>
-            
+
             <p className="text-gray-600 mt-6 text-lg max-w-xl">
               Highly motivated and experienced software engineer with a strong passion for building scalable, efficient, and reliable systems that solves felt needs and drives business growth.
             </p>
-            
+
             <div className="flex flex-col gap-2 mt-4">
               <div className="flex items-center text-gray-600">
                 <MapPin className="w-5 h-5 text-orange-500 mr-2" />
@@ -51,7 +50,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                 <a href="mailto:amusahcongo@gmail.com" className="hover:text-orange-500 transition-colors">amusahcongo@gmail.com</a>
               </div>
             </div>
-            
+
             <div className="mt-8 flex flex-wrap gap-4">
               <a href="#projects">
                 <Button className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-6 rounded-md font-medium">
@@ -73,16 +72,17 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
           >
-            {/* Outer spinning border - continuous smooth animation */}
-            <div className="absolute inset-[-4px] rounded-full border-2 border-orange-500 opacity-80 animate-spin-slow"></div>
-            
-            {/* Inner spinning border - opposite direction */}
-            <div className="absolute inset-[-2px] rounded-full border-1 border-orange-400 opacity-70 animate-spin-reverse"></div>
-            
+            {/* Outer spinning border */}
+            <div className="absolute inset-[-4px] rounded-full border-2 border-orange-500 opacity-80 animate-spin-slow z-0"></div>
+
+            {/* Inner spinning border - reverse direction */}
+            <div className="absolute inset-[-2px] rounded-full border border-orange-400 opacity-70 animate-spin-reverse z-0"></div>
+
+            {/* Profile image */}
             <img 
               src={profileImage} 
               alt="Congo Musah Adama" 
-              className="relative w-full h-full object-cover rounded-full border-4 border-white shadow-lg"
+              className="relative w-full h-full object-cover rounded-full border-4 border-white shadow-lg z-10"
             />
           </motion.div>
         </div>

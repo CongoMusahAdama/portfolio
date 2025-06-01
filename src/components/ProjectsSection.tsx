@@ -17,10 +17,8 @@ interface Project {
 
 const ProjectsSection = () => {
   const sectionRef = useRef(null);
-  const isVisible = useIntersectionObserver(sectionRef, {
-    threshold: 0.1,
-  });
-  
+  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
+
   const projects: Project[] = [
     {
       id: 1,
@@ -50,27 +48,13 @@ const ProjectsSection = () => {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        duration: 1,
-      },
-    },
-  };
-
   const itemVariants = {
-    hidden: { x: -50, opacity: 0 },
+    hidden: { opacity: 0, y: 50 },
     visible: {
-      x: 0,
       opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
   };
 
   return (
@@ -80,164 +64,72 @@ const ProjectsSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-orange-900">Projects</h2>
           <div className="h-1 w-20 bg-orange-500 mx-auto"></div>
         </div>
-        
-        <motion.div 
-          className="space-y-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isVisible ? "visible" : "hidden"}
-        >
-          {/* First two projects side by side */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            {projects.slice(0, 2).map((project) => (
-              <motion.div 
-                key={project.id}
-                className="bg-white rounded-lg overflow-hidden shadow-md border border-gray-200 transition-all duration-500 hover:shadow-lg"
-                variants={itemVariants}
-                whileHover={{ 
-                  y: -10,
-                  transition: { duration: 0.5, ease: "easeOut" } 
-                }}
-              >
-                <motion.div className="h-48 overflow-hidden bg-white">
-                  <motion.img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                    whileHover={{ 
-                      scale: 1.05,
-                      transition: { duration: 0.6 } 
-                    }}
-                    initial={{ opacity: 0.9 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                  />
-                </motion.div>
-                
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-orange-900 mb-2">{project.title}</h3>
-                  <p className="text-orange-900 mb-4">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span 
-                        key={techIndex}
-                        className="bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className="flex justify-between items-center">
-                    <motion.a 
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-orange-800 hover:text-orange-600 transition-colors duration-300"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <Github className="w-5 h-5 mr-1" />
-                      <span>GitHub</span>
-                    </motion.a>
-                    
-                    <div className="flex gap-4">
-                      {project.demoUrl && (
-                        <motion.a 
-                          href={project.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-0">
-                            Live Demo →
-                          </Button>
-                        </motion.a>
-                      )}
 
-                      {project.websiteUrl && (
-                        <motion.a 
-                          href={project.websiteUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-0 transition-colors duration-300">
-                            Live Site →
-                          </Button>
-                        </motion.a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Third project centered */}
-          <div className="flex justify-center">
-            <motion.div 
-              className="bg-white rounded-lg overflow-hidden shadow-md border border-gray-200 transition-all duration-500 hover:shadow-lg max-w-md w-full"
+        <div className="space-y-20">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              className={`flex flex-col-reverse md:flex-row ${index % 2 === 1 ? "md:flex-row-reverse" : ""} items-center gap-8`}
               variants={itemVariants}
-              whileHover={{ 
-                y: -10,
-                transition: { duration: 0.5, ease: "easeOut" } 
-              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
             >
-              <motion.div className="h-48 overflow-hidden bg-white">
-                <motion.img 
-                  src={projects[2].image} 
-                  alt={projects[2].title}
-                  className="w-full h-full object-cover"
-                  whileHover={{ 
-                    scale: 1.05,
-                    transition: { duration: 0.6 } 
-                  }}
-                  initial={{ opacity: 0.9 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                />
-              </motion.div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-orange-900 mb-2">{projects[2].title}</h3>
-                <p className="text-orange-900 mb-4">{projects[2].description}</p>
-                
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {projects[2].technologies.map((tech, techIndex) => (
-                    <span 
-                      key={techIndex}
-                      className="bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded"
-                    >
+              {/* Text */}
+              <div className="flex-1 text-orange-900">
+                <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
+                <p className="mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech, idx) => (
+                    <span key={idx} className="bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded">
                       {tech}
                     </span>
                   ))}
                 </div>
-                
-                <div className="flex justify-between items-center">
-                  <motion.a 
-                    href={projects[2].githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-orange-800 hover:text-orange-600 transition-colors duration-300"
-                    whileHover={{ scale: 1.05 }}
-                  >
+
+                <div className="flex gap-4 items-center flex-wrap">
+                  <a href={project.githubUrl} target="_blank" className="text-orange-700 hover:text-orange-600 flex items-center">
                     <Github className="w-5 h-5 mr-1" />
-                    <span>GitHub</span>
-                  </motion.a>
+                    GitHub
+                  </a>
+
+                  {project.websiteUrl && (
+                    <a href={project.websiteUrl} target="_blank">
+                      <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-0">
+                        Live Site →
+                      </Button>
+                    </a>
+                  )}
+
+                  {project.demoUrl && (
+                    <a href={project.demoUrl} target="_blank">
+                      <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-0">
+                        Live Demo →
+                      </Button>
+                    </a>
+                  )}
                 </div>
               </div>
+
+              {/* Image */}
+              <div className="flex-1">
+                <motion.img
+                  src={project.image}
+                  alt={project.title}
+                  className="rounded-lg shadow-lg object-cover w-full h-64 md:h-80 transition-transform duration-700 hover:scale-105"
+                />
+              </div>
             </motion.div>
-          </div>  
-        </motion.div>
-        
-        <motion.div 
-          className="mt-12 text-center"
+          ))}
+        </div>
+
+        <motion.div
+          className="mt-16 text-center"
           initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ delay: 0.8, duration: 0.5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
         >
-          <a 
+          <a
             href="https://github.com/CongoMusahAdama"
             target="_blank"
             rel="noopener noreferrer"
