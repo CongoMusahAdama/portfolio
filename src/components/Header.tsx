@@ -19,12 +19,11 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { title: "Home", href: "#hero" },
-    { title: "Services", href: "#services" },
-    { title: "Portfolio", href: "#projects" },
     { title: "About", href: "#about" },
+    { title: "Skills", href: "#skills" },
+    { title: "Projects", href: "#projects" },
+    { title: "Testimonials", href: "#testimonials" },
     { title: "Contact", href: "#contact" },
-    { title: "Pages", href: "#testimonials" },
   ];
 
   const socialLinks = [
@@ -48,21 +47,16 @@ const Header = () => {
   return (
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrollPosition > 50 ? "bg-gray-900/95 shadow-2xl backdrop-blur-sm py-3" : "bg-transparent py-5"
+        scrollPosition > 50 ? "bg-white/95 shadow-md backdrop-blur-sm py-3" : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
           <a 
             href="#" 
-            className="font-bold text-xl md:text-2xl text-orange-500 hover:text-orange-400 transition-colors"
+            className="font-bold text-xl md:text-2xl text-orange-500 hover:text-orange-600 transition-colors"
           >
-            <span className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-sm">C</span>
-              </div>
-              Congo
-            </span>
+            Congo<span className="text-gray-800">.dev</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -72,10 +66,9 @@ const Header = () => {
                 <li key={link.href}>
                   <a 
                     href={link.href}
-                    className="text-white hover:text-orange-400 transition-colors font-medium relative group"
+                    className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
                   >
                     {link.title}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 </li>
               ))}
@@ -88,22 +81,18 @@ const Header = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-orange-400 transition-colors"
+                  className="text-gray-600 hover:text-orange-500 transition-colors"
                   aria-label={link.label}
                 >
                   {link.icon}
                 </a>
               ))}
             </div>
-
-            <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105">
-              Get In Touch
-            </Button>
           </nav>
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-white hover:text-orange-400 transition-colors"
+            className="md:hidden text-gray-700 hover:text-orange-500 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -114,13 +103,13 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-gray-900/95 border-t border-gray-700/50 py-4 px-4 shadow-lg animate-fade-in backdrop-blur-sm">
+        <div className="md:hidden bg-white border-t border-gray-100 py-4 px-4 shadow-lg animate-fade-in">
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a 
                   href={link.href}
-                  className="block text-white hover:text-orange-400 transition-colors font-medium py-2"
+                  className="block text-gray-700 hover:text-orange-500 transition-colors font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.title}
@@ -129,14 +118,14 @@ const Header = () => {
             ))}
           </ul>
           
-          <div className="flex items-center gap-6 mt-6 py-2 border-t border-gray-700/50">
+          <div className="flex items-center gap-6 mt-6 py-2 border-t border-gray-100">
             {socialLinks.map((link) => (
               <a 
                 key={link.href}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-orange-400 transition-colors"
+                className="text-gray-600 hover:text-orange-500 transition-colors"
                 aria-label={link.label}
               >
                 {link.icon}
