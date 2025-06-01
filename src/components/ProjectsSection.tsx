@@ -1,3 +1,4 @@
+
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
@@ -56,7 +57,11 @@ const ProjectsSection = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.3,
+<<<<<<< HEAD
         duration: 0.7,
+=======
+        duration: 1,
+>>>>>>> 39de518be6e348419bacd25f2d40c0db5c7027dc
       },
     },
   };
@@ -67,7 +72,7 @@ const ProjectsSection = () => {
       x: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.8,
         ease: "easeOut",
       },
     },
@@ -86,10 +91,10 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="relative py-20 bg-gray-50" ref={sectionRef}>
+    <section id="projects" className="py-20 bg-gray-800" ref={sectionRef}>
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Projects</h2>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Projects</h2>
           <div className="h-1 w-20 bg-orange-500 mx-auto"></div>
         </div>
 
@@ -97,41 +102,129 @@ const ProjectsSection = () => {
         <div className="absolute top-0 left-0 w-40 h-40 md:w-56 md:h-56 bg-orange-500 clip-triangle opacity-20 -z-10"></div>
         
         <motion.div 
-          className="flex flex-col gap-12 relative z-10"
+          className="space-y-8"
           variants={containerVariants}
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
         >
-          {projects.map((project) => (
+          {/* First two projects side by side */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            {projects.slice(0, 2).map((project) => (
+              <motion.div 
+                key={project.id}
+                className="bg-gray-700 rounded-lg overflow-hidden shadow-md border border-gray-600 transition-all duration-500 hover:shadow-lg"
+                variants={itemVariants}
+                whileHover={{ 
+                  y: -10,
+                  transition: { duration: 0.5, ease: "easeOut" } 
+                }}
+              >
+                <motion.div className="h-48 overflow-hidden bg-gray-600">
+                  <motion.img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                    whileHover={{ 
+                      scale: 1.05,
+                      transition: { duration: 0.6 } 
+                    }}
+                    initial={{ opacity: 0.9 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </motion.div>
+                
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
+                  <p className="text-gray-300 mb-4">{project.description}</p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span 
+                        key={techIndex}
+                        className="bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex justify-between items-center">
+                    <motion.a 
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-gray-300 hover:text-orange-500 transition-colors duration-300"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Github className="w-5 h-5 mr-1" />
+                      <span>GitHub</span>
+                    </motion.a>
+                    
+                    <div className="flex gap-4">
+                      {project.demoUrl && (
+                        <motion.a 
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-0">
+                            Live Demo →
+                          </Button>
+                        </motion.a>
+                      )}
+
+                      {project.websiteUrl && (
+                        <motion.a 
+                          href={project.websiteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-gray-600 p-0 transition-colors duration-300">
+                            Live Site →
+                          </Button>
+                        </motion.a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Third project centered */}
+          <div className="flex justify-center">
             <motion.div 
-              key={project.id}
-              className="flex flex-col items-center bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: { opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
-              }}
+              className="bg-gray-700 rounded-lg overflow-hidden shadow-md border border-gray-600 transition-all duration-500 hover:shadow-lg max-w-md w-full"
+              variants={itemVariants}
               whileHover={{ 
-                y: -6,
-                transition: { duration: 0.3, ease: "easeOut" } 
+                y: -10,
+                transition: { duration: 0.5, ease: "easeOut" } 
               }}
             >
-              <motion.img 
-                src={project.image} 
-                alt={project.title}
-                className="w-full h-48 object-cover"
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.4 } 
-                }}
-                initial={{ opacity: 0.9 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-              <div className="p-6 w-full max-w-4xl">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-4">{project.title}</h3>
-                <p className="text-gray-700 mb-6">{project.description}</p>
-                <div className="flex flex-wrap gap-3 mb-6">
-                  {project.technologies.map((tech, techIndex) => (
+              <motion.div className="h-48 overflow-hidden bg-gray-600">
+                <motion.img 
+                  src={projects[2].image} 
+                  alt={projects[2].title}
+                  className="w-full h-full object-cover"
+                  whileHover={{ 
+                    scale: 1.05,
+                    transition: { duration: 0.6 } 
+                  }}
+                  initial={{ opacity: 0.9 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                />
+              </motion.div>
+              
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-white mb-2">{projects[2].title}</h3>
+                <p className="text-gray-300 mb-4">{projects[2].description}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {projects[2].technologies.map((tech, techIndex) => (
                     <span 
                       key={techIndex}
                       className="bg-orange-100 text-orange-700 text-sm px-3 py-1 rounded-lg"
@@ -154,10 +247,10 @@ const ProjectsSection = () => {
                     </motion.a>
                   )}
                   <motion.a 
-                    href={project.githubUrl}
+                    href={projects[2].githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-gray-800 hover:text-orange-600 transition-colors font-semibold"
+                    className="flex items-center text-gray-300 hover:text-orange-500 transition-colors duration-300"
                     whileHover={{ scale: 1.05 }}
                   >
                     <Github className="w-6 h-6 mr-2" />
@@ -166,14 +259,14 @@ const ProjectsSection = () => {
                 </div>
               </div>
             </motion.div>
-          ))}
+          </div>
         </motion.div>
         
         <motion.div 
           className="mt-16 text-center relative z-10"
           initial={{ opacity: 0, y: 20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
+          transition={{ delay: 0.8, duration: 0.5 }}
         >
           <a 
             href="https://github.com/CongoMusahAdama"
