@@ -12,28 +12,9 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
     <section id="hero" className="relative bg-white min-h-screen pt-24 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 z-10 py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Profile image with enhanced spinning animation */}
+            {/* Text content on the left */}
           <motion.div 
-            className="relative w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 mx-auto lg:mx-0 order-last lg:order-none"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-          >
-            {/* Outer spinning border - continuous smooth animation */}
-            <div className="absolute inset-[-4px] rounded-full border-2 border-orange-500 opacity-80 animate-spin-slow"></div>
-            
-            {/* Inner spinning border - opposite direction */}
-            <div className="absolute inset-[-2px] rounded-full border-1 border-orange-400 opacity-70 animate-spin-reverse"></div>
-            
-            <img 
-              src={profileImage} 
-              alt="Congo Musah Adama" 
-              className="relative w-full h-full object-cover rounded-full border-4 border-white shadow-lg"
-            />
-          </motion.div>
-          
-          <motion.div 
-            className="pt-0 lg:pt-0 max-w-2xl"
+            className="pt-0 lg:pt-0 max-w-2xl order-first"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -83,6 +64,26 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                 </Button>
               </a>
             </div>
+          </motion.div>
+
+          {/* Profile image on the right */}
+          <motion.div 
+            className="relative w-56 h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 mx-auto lg:mx-0 order-last"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Outer spinning border - continuous smooth animation */}
+            <div className="absolute inset-[-4px] rounded-full border-2 border-orange-500 opacity-80 animate-spin-slow"></div>
+            
+            {/* Inner spinning border - opposite direction */}
+            <div className="absolute inset-[-2px] rounded-full border-1 border-orange-400 opacity-70 animate-spin-reverse"></div>
+            
+            <img 
+              src={profileImage} 
+              alt="Congo Musah Adama" 
+              className="relative w-full h-full object-cover rounded-full border-4 border-white shadow-lg"
+            />
           </motion.div>
         </div>
       </div>

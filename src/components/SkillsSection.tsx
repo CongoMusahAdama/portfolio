@@ -93,7 +93,7 @@ const SkillsSection = () => {
         </div>
         
         <motion.div
-          className="space-y-16"
+        className="space-y-16 max-w-6xl mx-auto"
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
           variants={containerVariants}
@@ -103,7 +103,7 @@ const SkillsSection = () => {
               <h3 className="text-xl font-semibold text-gray-800 mb-8 text-center">
                 {skillGroup.category}
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-items-center max-w-6xl mx-auto">
+               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 justify-items-center">
                 {skillGroup.items.map((skill, skillIndex) => (
                   <motion.div 
                     key={skillIndex}
@@ -114,7 +114,7 @@ const SkillsSection = () => {
                       transition: { type: "spring", stiffness: 300 }
                     }}
                   >
-                    <div className="p-4 bg-gray-50 rounded-lg shadow-sm border border-gray-100 mb-3 w-20 h-20 flex items-center justify-center tech-icon">
+                    <div className="p-4 bg-white-800 rounded-lg shadow-sm border white- mb-3 w-20 h-20 flex items-center justify-center tech-icon">
                       <motion.img
                         src={skill.icon}
                         alt={skill.name}
@@ -122,7 +122,7 @@ const SkillsSection = () => {
                         whileHover={{ rotate: 10, scale: 1.1 }}
                       />
                     </div>
-                    <span className="text-gray-700 text-sm font-medium text-center">{skill.name}</span>
+                    <span className="text-gray-800 text-sm font-medium text-center">{skill.name}</span>
                   </motion.div>
                 ))}
               </div>
