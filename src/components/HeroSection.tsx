@@ -20,7 +20,8 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
         backgroundAttachment: 'fixed'
       }}
     >
-      <div className="container mx-auto px-4 md:px-6 z-10 py-16 lg:py-20">
+      <div className="absolute inset-0 bg-background/60 dark:bg-background/80" />
+      <div className="container mx-auto px-4 md:px-6 z-10 py-16 lg:py-20 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Text content on the left */}
           <motion.div 
@@ -36,7 +37,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               transition={{ delay: 0.4, duration: 0.8 }}
             >
               <span className="bg-gradient-to-r from-orange-500 to-pink-600 text-transparent bg-clip-text">Hey, I'm </span>
-              <span className="text-black">Congo Musah Adama</span>
+              <span className="text-foreground">Congo Musah Adama</span>
             </motion.h1>
             <motion.h2 
               className="text-xl md:text-2xl text-orange-500 font-medium mt-2 md:mt-4"
@@ -47,16 +48,16 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               Software Engineer
             </motion.h2>
 
-            <p className="text-gray-600 mt-6 text-lg max-w-xl">
+            <p className="text-muted-foreground mt-6 text-lg max-w-xl">
               Highly motivated and experienced software engineer with a strong passion for building scalable, efficient, and reliable systems that solves felt needs and drives business growth.
             </p>
 
             <div className="flex flex-col gap-2 mt-4">
-              <div className="flex items-center text-gray-600">
+              <div className="flex items-center text-muted-foreground">
                 <MapPin className="w-5 h-5 text-orange-500 mr-2" />
                 <span>Takoradi, Ghana</span>
               </div>
-              <div className="flex items-center text-gray-600">
+              <div className="flex items-center text-muted-foreground">
                 <Mail className="w-5 h-5 text-orange-500 mr-2" />
                 <a href="mailto:amusahcongo@gmail.com" className="hover:text-orange-500 transition-colors">amusahcongo@gmail.com</a>
               </div>
@@ -69,7 +70,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                 </Button>
               </a>
               <a href="https://drive.google.com/file/d/1gejHNj4tP7kpchFHv0vUlJy4n-cpl31e/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-50 py-2 px-6 rounded-md font-medium">
+                <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-50 dark:hover:bg-orange-950 py-2 px-6 rounded-md font-medium">
                   <Download className="mr-2 h-4 w-4" /> Download Resume
                 </Button>
               </a>
@@ -93,7 +94,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             <img 
               src={profileImage} 
               alt="Congo Musah Adama" 
-              className="relative w-full h-full object-cover rounded-full border-4 border-white shadow-lg z-10"
+              className="relative w-full h-full object-cover rounded-full border-4 border-background shadow-lg z-10"
             />
           </motion.div>
         </div>

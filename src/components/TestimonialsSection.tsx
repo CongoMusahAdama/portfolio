@@ -71,27 +71,27 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section id="testimonials" className="py-20 bg-white">
+    <section id="testimonials" className="py-20 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Testimonials</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Testimonials</h2>
           <div className="h-1 w-20 bg-orange-500 mx-auto"></div>
         </div>
         
         <div className={`max-w-4xl mx-auto ${isVisible ? "slide-in active" : "slide-in"}`}
-             style={{ transitionDelay: '0.4s' }}> {/* Added delay to the testimonial animation */}
+             style={{ transitionDelay: '0.4s' }}>
           <div className="relative">
             {testimonials.map((testimonial, index) => (
               <div 
                 key={testimonial.id}
-                className={`transition-opacity duration-700 ${/* Increased duration from 500 to 700 */
+                className={`transition-opacity duration-700 ${
                   currentSlide === index ? 'opacity-100' : 'opacity-0 absolute top-0 left-0'
                 }`}
                 style={{ display: currentSlide === index ? 'block' : 'none' }}
               >
-                <div className="bg-gray-50 rounded-lg p-8 shadow-sm border border-gray-100 relative">
+                <div className="bg-muted/50 rounded-lg p-8 shadow-sm border border-border relative">
                   <Quote className="w-10 h-10 text-orange-200 absolute -top-4 left-6" />
-                  <div className="text-gray-700 text-lg leading-relaxed italic mb-6">
+                  <div className="text-muted-foreground text-lg leading-relaxed italic mb-6">
                     "{testimonial.content}"
                   </div>
                   
@@ -102,8 +102,8 @@ const TestimonialsSection = () => {
                       className="w-14 h-14 rounded-full object-cover mr-4"
                     />
                     <div>
-                      <h4 className="font-semibold text-gray-800">{testimonial.name}</h4>
-                      <p className="text-gray-600 text-sm">{testimonial.role}, {testimonial.company}</p>
+                      <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
+                      <p className="text-muted-foreground text-sm">{testimonial.role}, {testimonial.company}</p>
                     </div>
                   </div>
                 </div>
@@ -112,18 +112,18 @@ const TestimonialsSection = () => {
             
             <button 
               onClick={prevSlide}
-              className="absolute top-1/2 -left-5 md:-left-10 -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-orange-50 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50"
+              className="absolute top-1/2 -left-5 md:-left-10 -translate-y-1/2 bg-background rounded-full p-2 shadow-md hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 border border-border"
               aria-label="Previous testimonial"
             >
-              <ChevronLeft className="w-5 h-5 text-gray-700" />
+              <ChevronLeft className="w-5 h-5 text-foreground" />
             </button>
             
             <button 
               onClick={nextSlide}
-              className="absolute top-1/2 -right-5 md:-right-10 -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-orange-50 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50"
+              className="absolute top-1/2 -right-5 md:-right-10 -translate-y-1/2 bg-background rounded-full p-2 shadow-md hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 border border-border"
               aria-label="Next testimonial"
             >
-              <ChevronRight className="w-5 h-5 text-gray-700" />
+              <ChevronRight className="w-5 h-5 text-foreground" />
             </button>
           </div>
           
@@ -133,7 +133,7 @@ const TestimonialsSection = () => {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                  currentSlide === index ? 'bg-orange-500' : 'bg-gray-300'
+                  currentSlide === index ? 'bg-orange-500' : 'bg-muted-foreground'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

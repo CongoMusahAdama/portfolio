@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,7 +48,7 @@ const Header = () => {
   return (
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrollPosition > 50 ? "bg-white/95 shadow-md backdrop-blur-sm py-3" : "bg-transparent py-5"
+        scrollPosition > 50 ? "bg-background/95 shadow-md backdrop-blur-sm py-3" : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
@@ -56,7 +57,7 @@ const Header = () => {
             href="#" 
             className="font-bold text-xl md:text-2xl text-orange-500 hover:text-orange-600 transition-colors"
           >
-            CMA<span className="text-gray-800">.dev</span>
+            CMA<span className="text-foreground">.dev</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -66,7 +67,7 @@ const Header = () => {
                 <li key={link.href}>
                   <a 
                     href={link.href}
-                    className="text-gray-700 hover:text-orange-500 transition-colors font-medium"
+                    className="text-foreground hover:text-orange-500 transition-colors font-medium"
                   >
                     {link.title}
                   </a>
@@ -81,35 +82,39 @@ const Header = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-orange-500 transition-colors"
+                  className="text-muted-foreground hover:text-orange-500 transition-colors"
                   aria-label={link.label}
                 >
                   {link.icon}
                 </a>
               ))}
+              <ThemeToggle />
             </div>
           </nav>
 
           {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden text-gray-700 hover:text-orange-500 transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button 
+              className="text-foreground hover:text-orange-500 transition-colors"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 py-4 px-4 shadow-lg animate-fade-in">
+        <div className="md:hidden bg-background border-t border-border py-4 px-4 shadow-lg animate-fade-in">
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a 
                   href={link.href}
-                  className="block text-gray-700 hover:text-orange-500 transition-colors font-medium py-2"
+                  className="block text-foreground hover:text-orange-500 transition-colors font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.title}
@@ -118,14 +123,14 @@ const Header = () => {
             ))}
           </ul>
           
-          <div className="flex items-center gap-6 mt-6 py-2 border-t border-gray-100">
+          <div className="flex items-center gap-6 mt-6 py-2 border-t border-border">
             {socialLinks.map((link) => (
               <a 
                 key={link.href}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-orange-500 transition-colors"
+                className="text-muted-foreground hover:text-orange-500 transition-colors"
                 aria-label={link.label}
               >
                 {link.icon}

@@ -1,3 +1,4 @@
+
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
@@ -58,10 +59,10 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-white" ref={sectionRef}>
+    <section id="projects" className="py-20 bg-muted/50" ref={sectionRef}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-orange-900">Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Projects</h2>
           <div className="h-1 w-20 bg-orange-500 mx-auto"></div>
         </div>
 
@@ -76,26 +77,26 @@ const ProjectsSection = () => {
               viewport={{ once: true, amount: 0.3 }}
             >
               {/* Text */}
-              <div className="flex-1 text-orange-900">
+              <div className="flex-1 text-foreground">
                 <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
-                <p className="mb-4">{project.description}</p>
+                <p className="mb-4 text-muted-foreground">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, idx) => (
-                    <span key={idx} className="bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded">
+                    <span key={idx} className="bg-orange-100 dark:bg-orange-950 text-orange-700 dark:text-orange-300 text-xs px-2 py-1 rounded">
                       {tech}
                     </span>
                   ))}
                 </div>
 
                 <div className="flex gap-4 items-center flex-wrap">
-                  <a href={project.githubUrl} target="_blank" className="text-orange-700 hover:text-orange-600 flex items-center">
+                  <a href={project.githubUrl} target="_blank" className="text-orange-500 hover:text-orange-600 flex items-center">
                     <Github className="w-5 h-5 mr-1" />
                     GitHub
                   </a>
 
                   {project.websiteUrl && (
                     <a href={project.websiteUrl} target="_blank">
-                      <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-0">
+                      <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 dark:hover:bg-orange-950 p-0">
                         Live Site →
                       </Button>
                     </a>
@@ -103,7 +104,7 @@ const ProjectsSection = () => {
 
                   {project.demoUrl && (
                     <a href={project.demoUrl} target="_blank">
-                      <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-0">
+                      <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 dark:hover:bg-orange-950 p-0">
                         Live Demo →
                       </Button>
                     </a>

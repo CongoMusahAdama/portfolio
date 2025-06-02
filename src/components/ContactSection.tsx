@@ -9,13 +9,13 @@ const ContactSection = () => {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
-    <section id="contact" className="bg-gray-50 py-16 md:py-24">
+    <section id="contact" className="bg-muted/50 py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Get In Touch
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             Scan or tap the QR code to start a conversation with me on WhatsApp. I'm looking forward to discussing how we can work together.
           </p>
         </div>
@@ -28,7 +28,7 @@ const ContactSection = () => {
           viewport={{ once: true }}
         >
           <motion.div 
-            className="bg-white p-3 rounded-xl shadow-lg mb-5"
+            className="bg-background p-3 rounded-xl shadow-lg mb-5 border border-border"
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.2 }}
           >
