@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Download, MapPin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
@@ -8,7 +9,17 @@ interface HeroSectionProps {
 
 const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
-    <section id="hero" className="relative bg-white min-h-screen pt-24 overflow-hidden">
+    <section 
+      id="hero" 
+      className="relative min-h-screen pt-24 overflow-hidden"
+      style={{
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('/lovable-uploads/551b2be4-1ad9-4401-8a29-a851eb72bb85.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}
+    >
       <div className="container mx-auto px-4 md:px-6 z-10 py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Text content on the left */}

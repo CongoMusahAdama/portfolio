@@ -56,7 +56,7 @@ const Header = () => {
             href="#" 
             className="font-bold text-xl md:text-2xl text-orange-500 hover:text-orange-600 transition-colors"
           >
-            Congo<span className="text-gray-800">.dev</span>
+            CMA<span className="text-gray-800">.dev</span>
           </a>
 
           {/* Desktop Navigation */}
