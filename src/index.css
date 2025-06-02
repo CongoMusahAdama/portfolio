@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -80,32 +81,6 @@
   body {
     @apply bg-background text-foreground font-poppins;
   }
-}
-
-/* Hero section background responsiveness */
-@media (max-width: 768px) {
-  #hero {
-    background-attachment: scroll !important;
-  }
-}
-
-#hero {
-  position: relative;
-}
-
-#hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: inherit;
-  background-size: inherit;
-  background-position: inherit;
-  background-repeat: inherit;
-  filter: brightness(1.05) contrast(1.1) saturate(0.9);
-  z-index: -1;
 }
 
 .wave-animation {

@@ -1,9 +1,7 @@
 
-import { useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Github } from "lucide-react";
-import useIntersectionObserver from '@/hooks/use-intersection-observer';
 
 interface Project {
   id: number;
@@ -13,133 +11,125 @@ interface Project {
   technologies: string[];
   githubUrl: string;
   demoUrl?: string;
-  websiteUrl?: string;
 }
 
 const ProjectsSection = () => {
-  const sectionRef = useRef(null);
-  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = document.getElementById('projects');
+      if (section) {
+        const sectionPosition = section.getBoundingClientRect();
+        if (sectionPosition.top < window.innerHeight * 0.75) {
+          setIsVisible(true);
+        }
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on mount
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
+  // Sample projects data
   const projects: Project[] = [
     {
       id: 1,
-      title: "WeBarb",
-      description: "WeBarb connects you with top-rated barbers for a professional haircut experience. Book appointments easily, pay securely, and enjoy grooming wherever you are.",
-      image: "/lovable-uploads/webarb.png",
-      technologies: ["MongoDB", "Express", "JavaScript", "Node.js", "React", "Vite"],
+      title: "Swagger APIs",
+      description: "APIs built and documented with Swagger for standardized API documentation and testing.",
+      image: "https://raw.githubusercontent.com/swagger-api/swagger.io/wordpress/images/assets/SW-logo-clr.png",
+      technologies: ["Node.js", "Express", "OpenAPI", "Swagger UI"],
       githubUrl: "https://github.com/CongoMusahAdama",
-      websiteUrl: "https://webarb.netlify.app",
     },
     {
       id: 2,
-      title: "AgriLync",
-      description: "AgriLync is an AI-powered platform aimed at transforming African agriculture and improving financial access.",
-      image: "/lovable-uploads/agrilync.png",
-      technologies: ["MongoDB", "Express", "TypeScript", "React", "Vite"],
+      title: "Agri-Nexus",
+      description: "An agricultural extension services API for farmers providing information on farming techniques, crop management, and market access.",
+      image: "https://img.freepik.com/free-vector/organic-flat-farming-profession-illustration_23-2148897195.jpg",
+      technologies: ["Python", "FastAPI", "PostgreSQL", "Redis"],
       githubUrl: "https://github.com/CongoMusahAdama",
-      websiteUrl: "https://v0-agri-lync-platform-design.vercel.app"
     },
     {
       id: 3,
       title: "Mizrmo Carpool",
       description: "A carpool platform for finding and sharing rides. Users can create ride offers or join existing ones for efficient transportation.",
-      image: "/lovable-uploads/mizrmo.png",
-      technologies: ["Flutter", "Nest.js", "Node.js", "TypeScript", "PostgreSQL"],
+      image: "https://img.freepik.com/free-vector/car-sharing-service-illustration_23-2148970361.jpg",
+      technologies: ["Laravel", "MySQL", "Vue.js", "Tailwind CSS"],
       githubUrl: "https://github.com/CongoMusahAdama",
     },
   ];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
-  };
-
   return (
-    <section id="projects" className="py-20 bg-muted/50" ref={sectionRef}>
+    <section id="projects" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Projects</h2>
           <div className="h-1 w-20 bg-orange-500 mx-auto"></div>
         </div>
-
-        <div className="space-y-20">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <motion.div
+            <div 
               key={project.id}
-              className={`flex flex-col-reverse md:flex-row ${index % 2 === 1 ? "md:flex-row-reverse" : ""} items-center gap-8`}
-              variants={itemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              className={`bg-white rounded-lg overflow-hidden shadow-md border border-gray-100 transition-all duration-300 hover:shadow-lg ${
+                isVisible ? "slide-in active" : "slide-in"
+              }`}
+              style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              {/* Text */}
-              <div className="flex-1 text-foreground">
-                <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
-                <p className="mb-4 text-muted-foreground">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, idx) => (
-                    <span key={idx} className="bg-orange-100 dark:bg-orange-950 text-orange-700 dark:text-orange-300 text-xs px-2 py-1 rounded">
+              <div className="h-48 overflow-hidden bg-gray-100">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h3>
+                <p className="text-gray-600 mb-4">{project.description}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span 
+                      key={techIndex}
+                      className="bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded"
+                    >
                       {tech}
                     </span>
                   ))}
                 </div>
-
-                <div className="flex gap-4 items-center flex-wrap">
-                  <a href={project.githubUrl} target="_blank" className="text-orange-500 hover:text-orange-600 flex items-center">
+                
+                <div className="flex justify-between items-center">
+                  <a 
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-gray-700 hover:text-orange-500 transition-colors"
+                  >
                     <Github className="w-5 h-5 mr-1" />
-                    GitHub
+                    <span>GitHub</span>
                   </a>
-
-                  {project.websiteUrl && (
-                    <a href={project.websiteUrl} target="_blank">
-                      <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 dark:hover:bg-orange-950 p-0">
-                        Live Site →
-                      </Button>
-                    </a>
-                  )}
-
+                  
                   {project.demoUrl && (
-                    <a href={project.demoUrl} target="_blank">
-                      <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 dark:hover:bg-orange-950 p-0">
+                    <a 
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 p-0">
                         Live Demo →
                       </Button>
                     </a>
                   )}
                 </div>
               </div>
-
-              {/* Image */}
-              <div className="flex-1">
-                <motion.img
-                  src={project.image}
-                  alt={project.title}
-                  className="rounded-lg shadow-lg object-cover w-full h-64 md:h-80 transition-transform duration-700 hover:scale-105"
-                />
-              </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-
-        <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-        >
-          <a
-            href="https://github.com/CongoMusahAdama"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center text-orange-500 hover:text-orange-600 font-medium"
-          >
-            <span className="mr-2">...and more</span>
-            <Github className="w-5 h-5" />
-          </a>
-        </motion.div>
       </div>
     </section>
   );
