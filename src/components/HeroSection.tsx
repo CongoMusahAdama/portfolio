@@ -20,14 +20,14 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
         backgroundAttachment: 'fixed'
       }}
     >
-      {/* Enhanced overlay for better visibility in both themes */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/85 via-white/75 to-white/70 dark:from-gray-900/90 dark:via-gray-900/80 dark:to-gray-900/75" />
+      {/* Enhanced overlay for better background visibility */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/60 to-white/50 dark:from-gray-900/75 dark:via-gray-900/65 dark:to-gray-900/60" />
       
       {/* Additional contrast overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
       
       {/* Subtle pattern overlay for texture */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.2)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.15)_0%,transparent_50%)]" />
       
       <div className="container mx-auto px-4 md:px-6 z-10 py-16 lg:py-20 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -48,7 +48,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               <span className="text-foreground drop-shadow-lg">Congo Musah Adama</span>
             </motion.h1>
             <motion.h2 
-              className="text-xl md:text-2xl text-orange-500 font-medium mt-2 md:mt-4 drop-shadow-lg"
+              className="text-xl md:text-2xl text-orange-600 dark:text-orange-400 font-semibold mt-2 md:mt-4 drop-shadow-md bg-white/80 dark:bg-gray-900/80 px-3 py-1 rounded-lg backdrop-blur-sm border border-orange-200 dark:border-orange-700"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
