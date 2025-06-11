@@ -57,7 +57,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             </motion.h2>
 
             <p className="text-muted-foreground mt-6 text-lg max-w-xl drop-shadow-lg font-medium">
-              Highly motivated and experienced software engineer with a strong passion for building scalable, efficient, and reliable systems that solves felt needs and drives business growth.
+              Passionate about turning real-world problems into impactful digital solutions that drive growth, success, and meaningful impact, one code at a time
             </p>
 
             <div className="flex flex-col gap-2 mt-4">
