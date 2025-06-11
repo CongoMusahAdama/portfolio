@@ -2,6 +2,7 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Github } from "lucide-react";
 import useIntersectionObserver from '@/hooks/use-intersection-observer';
 
@@ -14,6 +15,7 @@ interface Project {
   githubUrl: string;
   demoUrl?: string;
   websiteUrl?: string;
+  status?: string;
 }
 
 const ProjectsSection = () => {
@@ -23,6 +25,16 @@ const ProjectsSection = () => {
   const projects: Project[] = [
     {
       id: 1,
+      title: "RealRate",
+      description: "We're revolutionizing real estate in Ghana with artificial intelligence—providing accurate property valuations and helping Ghanaians make informed decisions about their most important investments.",
+      image: "/lovable-uploads/f81f65ea-a756-49a4-81e3-44dd7f494cf0.png",
+      technologies: ["FastAPI", "Voting Regression Model"],
+      githubUrl: "https://github.com/CongoMusahAdama/rrate",
+      websiteUrl: "https://realrate.netlify.app/",
+      status: "Under Development"
+    },
+    {
+      id: 2,
       title: "WeBarb",
       description: "WeBarb connects you with top-rated barbers for a professional haircut experience. Book appointments easily, pay securely, and enjoy grooming wherever you are.",
       image: "/lovable-uploads/webarb.png",
@@ -31,7 +43,7 @@ const ProjectsSection = () => {
       websiteUrl: "https://webarb.netlify.app",
     },
     {
-      id: 2,
+      id: 3,
       title: "AgriLync",
       description: "AgriLync is an AI-powered platform aimed at transforming African agriculture and improving financial access.",
       image: "/lovable-uploads/agrilync.png",
@@ -40,7 +52,7 @@ const ProjectsSection = () => {
       websiteUrl: "https://v0-agri-lync-platform-design.vercel.app"
     },
     {
-      id: 3,
+      id: 4,
       title: "Mizrmo Carpool",
       description: "A carpool platform for finding and sharing rides. Users can create ride offers or join existing ones for efficient transportation.",
       image: "/lovable-uploads/mizrmo.png",
@@ -78,7 +90,14 @@ const ProjectsSection = () => {
             >
               {/* Text */}
               <div className="flex-1 text-foreground">
-                <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
+                <div className="flex items-center gap-3 mb-2">
+                  <h3 className="text-2xl font-semibold">{project.title}</h3>
+                  {project.status && (
+                    <Badge variant="outline" className="bg-orange-50 dark:bg-orange-950 text-orange-700 dark:text-orange-300 border-orange-200 dark:border-orange-800">
+                      🔧 {project.status}
+                    </Badge>
+                  )}
+                </div>
                 <p className="mb-4 text-muted-foreground">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, idx) => (

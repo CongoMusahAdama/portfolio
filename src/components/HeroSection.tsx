@@ -21,10 +21,13 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
       }}
     >
       {/* Enhanced overlay for better visibility in both themes */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/70 to-white/60 dark:from-gray-900/85 dark:via-gray-900/75 dark:to-gray-900/65" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/85 via-white/75 to-white/70 dark:from-gray-900/85 dark:via-gray-900/75 dark:to-gray-900/65" />
+      
+      {/* Additional dark overlay for light mode text visibility */}
+      <div className="absolute inset-0 bg-black/15 dark:bg-black/5" />
       
       {/* Additional subtle pattern overlay for texture */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
       
       <div className="container mx-auto px-4 md:px-6 z-10 py-16 lg:py-20 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -42,10 +45,10 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               transition={{ delay: 0.4, duration: 0.8 }}
             >
               <span className="bg-gradient-to-r from-orange-500 to-pink-600 text-transparent bg-clip-text">Hey, I'm </span>
-              <span className="text-foreground drop-shadow-sm">Congo Musah Adama</span>
+              <span className="text-foreground drop-shadow-lg">Congo Musah Adama</span>
             </motion.h1>
             <motion.h2 
-              className="text-xl md:text-2xl text-orange-500 font-medium mt-2 md:mt-4 drop-shadow-sm"
+              className="text-xl md:text-2xl text-orange-500 font-medium mt-2 md:mt-4 drop-shadow-lg"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
@@ -53,18 +56,18 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               Software Engineer
             </motion.h2>
 
-            <p className="text-muted-foreground mt-6 text-lg max-w-xl drop-shadow-sm">
+            <p className="text-muted-foreground mt-6 text-lg max-w-xl drop-shadow-lg font-medium">
               Highly motivated and experienced software engineer with a strong passion for building scalable, efficient, and reliable systems that solves felt needs and drives business growth.
             </p>
 
             <div className="flex flex-col gap-2 mt-4">
               <div className="flex items-center text-muted-foreground">
                 <MapPin className="w-5 h-5 text-orange-500 mr-2" />
-                <span className="drop-shadow-sm">Takoradi, Ghana</span>
+                <span className="drop-shadow-lg font-medium">Takoradi, Ghana</span>
               </div>
               <div className="flex items-center text-muted-foreground">
                 <Mail className="w-5 h-5 text-orange-500 mr-2" />
-                <a href="mailto:amusahcongo@gmail.com" className="hover:text-orange-500 transition-colors drop-shadow-sm">amusahcongo@gmail.com</a>
+                <a href="mailto:amusahcongo@gmail.com" className="hover:text-orange-500 transition-colors drop-shadow-lg font-medium">amusahcongo@gmail.com</a>
               </div>
             </div>
 
@@ -75,7 +78,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                 </Button>
               </a>
               <a href="https://drive.google.com/file/d/1gejHNj4tP7kpchFHv0vUlJy4n-cpl31e/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-50 dark:hover:bg-orange-950 py-2 px-6 rounded-md font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-lg">
+                <Button variant="outline" className="border-orange-500 text-orange-500 hover:bg-orange-50 dark:hover:bg-orange-950 py-2 px-6 rounded-md font-medium bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm shadow-lg">
                   <Download className="mr-2 h-4 w-4" /> Download Resume
                 </Button>
               </a>
