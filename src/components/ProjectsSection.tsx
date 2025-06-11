@@ -26,7 +26,7 @@ const ProjectsSection = () => {
     {
       id: 1,
       title: "RealRate",
-      description: "We're revolutionizing real estate in Ghana with artificial intelligence—providing accurate property valuations and helping Ghanaians make informed decisions about their most important investments.",
+      description: "AI powered real estate platform providing accurate property price predictions and helping you find your dream home in Ghana",
       image: "/lovable-uploads/f81f65ea-a756-49a4-81e3-44dd7f494cf0.png",
       technologies: ["FastAPI", "Voting Regression Model"],
       githubUrl: "https://github.com/CongoMusahAdama/rrate",
