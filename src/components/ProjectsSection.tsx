@@ -27,7 +27,7 @@ const ProjectsSection = () => {
       id: 1,
       title: "RealRate",
       description: "AI powered real estate platform providing accurate property price predictions and helping you find your dream home in Ghana",
-      image: "/lovable-uploads/f81f65ea-a756-49a4-81e3-44dd7f494cf0.png",
+      image: "/lovable-uploads/067f6480-76cb-4a27-a4c3-2388ff2fbd51.png",
       technologies: ["FastAPI", "Voting Regression Model"],
       githubUrl: "https://github.com/CongoMusahAdama/rrate",
       websiteUrl: "https://realrate.netlify.app/",
