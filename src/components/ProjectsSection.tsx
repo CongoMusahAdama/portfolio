@@ -1,4 +1,3 @@
-
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
@@ -30,7 +29,6 @@ const ProjectsSection = () => {
       image: "/lovable-uploads/067f6480-76cb-4a27-a4c3-2388ff2fbd51.png",
       technologies: ["FastAPI", "Voting Regression Model"],
       githubUrl: "https://github.com/CongoMusahAdama/rrate",
-      websiteUrl: "https://realrate.netlify.app/",
       status: "Under Development"
     },
     {
