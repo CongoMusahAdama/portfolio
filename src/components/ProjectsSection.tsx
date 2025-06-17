@@ -1,8 +1,9 @@
+
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Github } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import useIntersectionObserver from '@/hooks/use-intersection-observer';
 
 interface Project {
@@ -69,73 +70,76 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-muted/50" ref={sectionRef}>
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Projects</h2>
-          <div className="h-1 w-20 bg-orange-500 mx-auto"></div>
+    <section id="projects" className="py-20 bg-muted/30" ref={sectionRef}>
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">Featured Projects</h2>
+          <div className="w-20 h-1 bg-orange mx-auto mb-8"></div>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            A collection of projects that showcase my skills and passion for creating digital solutions
+          </p>
         </div>
 
-        <div className="space-y-20">
-          {projects.map((project, index) => (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {projects.map((project) => (
             <motion.div
               key={project.id}
-              className={`flex flex-col-reverse md:flex-row ${index % 2 === 1 ? "md:flex-row-reverse" : ""} items-center gap-8`}
+              className="bg-background rounded-lg shadow-sm border border-border overflow-hidden hover:shadow-md transition-all duration-300"
               variants={itemVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
+              whileHover={{ y: -5 }}
             >
-              {/* Text */}
-              <div className="flex-1 text-foreground">
-                <div className="flex items-center gap-3 mb-2">
-                  <h3 className="text-2xl font-semibold">{project.title}</h3>
-                  {project.status && (
-                    <Badge variant="outline" className="bg-orange-50 dark:bg-orange-950 text-orange-700 dark:text-orange-300 border-orange-200 dark:border-orange-800">
-                      🔧 {project.status}
-                    </Badge>
-                  )}
-                </div>
-                <p className="mb-4 text-muted-foreground">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
+              <div className="relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                />
+                {project.status && (
+                  <Badge className="absolute top-4 right-4 bg-orange text-orange-foreground">
+                    🔧 {project.status}
+                  </Badge>
+                )}
+              </div>
+              
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-foreground mb-3">{project.title}</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, idx) => (
-                    <span key={idx} className="bg-orange-100 dark:bg-orange-950 text-orange-700 dark:text-orange-300 text-xs px-2 py-1 rounded">
+                    <span key={idx} className="bg-muted text-muted-foreground text-xs px-3 py-1 rounded-full">
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex gap-4 items-center flex-wrap">
-                  <a href={project.githubUrl} target="_blank" className="text-orange-500 hover:text-orange-600 flex items-center">
-                    <Github className="w-5 h-5 mr-1" />
-                    GitHub
+                <div className="flex gap-4 items-center">
+                  <a href={project.githubUrl} target="_blank" className="flex items-center text-muted-foreground hover:text-foreground transition-colors">
+                    <Github className="w-4 h-4 mr-2" />
+                    <span className="text-sm">Code</span>
                   </a>
 
                   {project.websiteUrl && (
                     <a href={project.websiteUrl} target="_blank">
-                      <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 dark:hover:bg-orange-950 p-0">
-                        Live Site →
+                      <Button variant="ghost" size="sm" className="text-orange hover:text-orange/80 p-0">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live Demo
                       </Button>
                     </a>
                   )}
 
                   {project.demoUrl && (
                     <a href={project.demoUrl} target="_blank">
-                      <Button variant="ghost" className="text-orange-500 hover:text-orange-600 hover:bg-orange-50 dark:hover:bg-orange-950 p-0">
-                        Live Demo →
+                      <Button variant="ghost" size="sm" className="text-orange hover:text-orange/80 p-0">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live Demo
                       </Button>
                     </a>
                   )}
                 </div>
-              </div>
-
-              {/* Image */}
-              <div className="flex-1">
-                <motion.img
-                  src={project.image}
-                  alt={project.title}
-                  className="rounded-lg shadow-lg object-cover w-full h-64 md:h-80 transition-transform duration-700 hover:scale-105"
-                />
               </div>
             </motion.div>
           ))}
@@ -151,9 +155,9 @@ const ProjectsSection = () => {
             href="https://github.com/CongoMusahAdama"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-orange-500 hover:text-orange-600 font-medium"
+            className="inline-flex items-center text-orange hover:text-orange/80 font-medium"
           >
-            <span className="mr-2">...and more</span>
+            <span className="mr-2">View all projects</span>
             <Github className="w-5 h-5" />
           </a>
         </motion.div>

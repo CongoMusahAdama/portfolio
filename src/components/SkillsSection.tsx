@@ -86,43 +86,45 @@ const SkillsSection = () => {
 
   return (
     <section id="skills" className="py-20 bg-background" ref={sectionRef}>
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Skills & Technologies</h2>
-          <div className="h-1 w-20 bg-orange-500 mx-auto"></div>
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">Tech Stack</h2>
+          <div className="w-20 h-1 bg-orange mx-auto mb-8"></div>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Technologies I work with to build amazing digital experiences
+          </p>
         </div>
         
         <motion.div
-        className="space-y-16 max-w-6xl mx-auto"
+          className="space-y-16 max-w-6xl mx-auto"
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
           variants={containerVariants}
         >
           {skills.map((skillGroup, index) => (
-            <div key={index} className="px-4">
-              <h3 className="text-xl font-semibold text-foreground mb-8 text-center">
+            <div key={index} className="text-center">
+              <h3 className="text-2xl font-semibold text-foreground mb-8">
                 {skillGroup.category}
               </h3>
-               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 justify-items-center">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 justify-items-center">
                 {skillGroup.items.map((skill, skillIndex) => (
                   <motion.div 
                     key={skillIndex}
-                    className="flex flex-col items-center"
+                    className="flex flex-col items-center group"
                     variants={itemVariants}
                     whileHover={{ 
-                      y: -5,
+                      y: -10,
                       transition: { type: "spring", stiffness: 300 }
                     }}
                   >
-                    <div className="p-4 bg-background rounded-lg shadow-sm border border-border mb-3 w-20 h-20 flex items-center justify-center tech-icon">
-                      <motion.img
+                    <div className="w-20 h-20 bg-muted/50 rounded-xl border border-border flex items-center justify-center mb-4 group-hover:border-orange/50 transition-colors duration-300">
+                      <img
                         src={skill.icon}
                         alt={skill.name}
-                        className="w-10 h-10 object-contain"
-                        whileHover={{ rotate: 10, scale: 1.1 }}
+                        className="w-12 h-12 object-contain"
                       />
                     </div>
-                    <span className="text-foreground text-sm font-medium text-center">{skill.name}</span>
+                    <span className="text-foreground font-medium text-center">{skill.name}</span>
                   </motion.div>
                 ))}
               </div>

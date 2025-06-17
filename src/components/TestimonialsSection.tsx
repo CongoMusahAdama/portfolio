@@ -27,14 +27,13 @@ const TestimonialsSection = () => {
     };
     
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on mount
+    handleScroll();
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  // Updated testimonials with the new people
   const testimonials: Testimonial[] = [
     {
       id: 1,
@@ -65,17 +64,20 @@ const TestimonialsSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 7000); // Increased from 5000 to 7000 for slower testimonial rotation
+    }, 7000);
     
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section id="testimonials" className="py-20 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Testimonials</h2>
-          <div className="h-1 w-20 bg-orange-500 mx-auto"></div>
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">Testimonials</h2>
+          <div className="w-20 h-1 bg-orange mx-auto mb-8"></div>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            What clients say about working with me
+          </p>
         </div>
         
         <div className={`max-w-4xl mx-auto ${isVisible ? "slide-in active" : "slide-in"}`}
@@ -90,8 +92,8 @@ const TestimonialsSection = () => {
                 style={{ display: currentSlide === index ? 'block' : 'none' }}
               >
                 <div className="bg-muted/50 rounded-lg p-8 shadow-sm border border-border relative">
-                  <Quote className="w-10 h-10 text-orange-200 absolute -top-4 left-6" />
-                  <div className="text-muted-foreground text-lg leading-relaxed italic mb-6">
+                  <Quote className="w-12 h-12 text-orange/20 absolute -top-6 left-8" />
+                  <div className="text-muted-foreground text-lg leading-relaxed italic mb-8 pt-6">
                     "{testimonial.content}"
                   </div>
                   
@@ -99,11 +101,11 @@ const TestimonialsSection = () => {
                     <img 
                       src={testimonial.avatar} 
                       alt={testimonial.name} 
-                      className="w-14 h-14 rounded-full object-cover mr-4"
+                      className="w-16 h-16 rounded-full object-cover mr-4"
                     />
                     <div>
-                      <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-                      <p className="text-muted-foreground text-sm">{testimonial.role}, {testimonial.company}</p>
+                      <h4 className="font-semibold text-foreground text-lg">{testimonial.name}</h4>
+                      <p className="text-muted-foreground">{testimonial.role}, {testimonial.company}</p>
                     </div>
                   </div>
                 </div>
@@ -112,7 +114,7 @@ const TestimonialsSection = () => {
             
             <button 
               onClick={prevSlide}
-              className="absolute top-1/2 -left-5 md:-left-10 -translate-y-1/2 bg-background rounded-full p-2 shadow-md hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 border border-border"
+              className="absolute top-1/2 -left-6 -translate-y-1/2 bg-background rounded-full p-3 shadow-md hover:bg-muted transition-colors border border-border"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5 text-foreground" />
@@ -120,20 +122,20 @@ const TestimonialsSection = () => {
             
             <button 
               onClick={nextSlide}
-              className="absolute top-1/2 -right-5 md:-right-10 -translate-y-1/2 bg-background rounded-full p-2 shadow-md hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50 border border-border"
+              className="absolute top-1/2 -right-6 -translate-y-1/2 bg-background rounded-full p-3 shadow-md hover:bg-muted transition-colors border border-border"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-5 h-5 text-foreground" />
             </button>
           </div>
           
-          <div className="flex justify-center space-x-2 mt-6">
+          <div className="flex justify-center space-x-2 mt-8">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                  currentSlide === index ? 'bg-orange-500' : 'bg-muted-foreground'
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  currentSlide === index ? 'bg-orange' : 'bg-muted-foreground/30'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

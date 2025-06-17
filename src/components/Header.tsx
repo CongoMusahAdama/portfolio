@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu, X, Github, Linkedin } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Header = () => {
@@ -20,6 +19,7 @@ const Header = () => {
   }, []);
 
   const navLinks = [
+    { title: "Home", href: "#hero" },
     { title: "About", href: "#about" },
     { title: "Skills", href: "#skills" },
     { title: "Projects", href: "#projects" },
@@ -48,26 +48,26 @@ const Header = () => {
   return (
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrollPosition > 50 ? "bg-background/95 shadow-md backdrop-blur-sm py-3" : "bg-transparent py-5"
+        scrollPosition > 50 ? "bg-background/95 shadow-sm backdrop-blur-sm border-b border-border" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <a 
             href="#" 
-            className="font-bold text-xl md:text-2xl text-orange-500 hover:text-orange-600 transition-colors"
+            className="font-bold text-xl text-foreground hover:text-orange transition-colors"
           >
-            CMA<span className="text-foreground">.dev</span>
+            Congo Musah Adama
           </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <ul className="flex gap-6">
+            <ul className="flex gap-8">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a 
                     href={link.href}
-                    className="text-foreground hover:text-orange-500 transition-colors font-medium"
+                    className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm"
                   >
                     {link.title}
                   </a>
@@ -75,14 +75,14 @@ const Header = () => {
               ))}
             </ul>
             
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 ml-4">
               {socialLinks.map((link) => (
                 <a 
                   key={link.href}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-orange-500 transition-colors"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
                   aria-label={link.label}
                 >
                   {link.icon}
@@ -96,7 +96,7 @@ const Header = () => {
           <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
             <button 
-              className="text-foreground hover:text-orange-500 transition-colors"
+              className="text-foreground hover:text-orange transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -108,13 +108,13 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-background border-t border-border py-4 px-4 shadow-lg animate-fade-in">
+        <div className="md:hidden bg-background border-t border-border py-4 px-6 shadow-lg animate-fade-in">
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a 
                   href={link.href}
-                  className="block text-foreground hover:text-orange-500 transition-colors font-medium py-2"
+                  className="block text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.title}
@@ -130,7 +130,7 @@ const Header = () => {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-orange-500 transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label={link.label}
               >
                 {link.icon}

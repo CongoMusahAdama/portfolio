@@ -9,14 +9,15 @@ const ContactSection = () => {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
-    <section id="contact" className="bg-muted/50 py-16 md:py-24">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+    <section id="contact" className="py-20 bg-muted/30">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Get In Touch
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Scan or tap the QR code to start a conversation with me on WhatsApp. I'm looking forward to discussing how we can work together.
+          <div className="w-20 h-1 bg-orange mx-auto mb-8"></div>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Ready to start a project together? Let's discuss how we can bring your ideas to life.
           </p>
         </div>
 
@@ -28,7 +29,7 @@ const ContactSection = () => {
           viewport={{ once: true }}
         >
           <motion.div 
-            className="bg-background p-3 rounded-xl shadow-lg mb-5 border border-border"
+            className="bg-background p-6 rounded-xl shadow-sm border border-border mb-8"
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.2 }}
           >
@@ -36,7 +37,7 @@ const ContactSection = () => {
               <img 
                 src="/lovable-uploads/764f9228-d9ad-428d-ab65-0610222686ec.png" 
                 alt="WhatsApp QR Code" 
-                className="w-48 h-48 md:w-52 md:h-52" 
+                className="w-52 h-52" 
               />
             </a>
           </motion.div>
@@ -44,7 +45,7 @@ const ContactSection = () => {
           <Button 
             asChild 
             variant="default" 
-            className="bg-orange-500 hover:bg-orange-600 transition-colors"
+            className="bg-orange hover:bg-orange/90 text-orange-foreground px-8 py-3"
           >
             <a 
               href={whatsappUrl} 
