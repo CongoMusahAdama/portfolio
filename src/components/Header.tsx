@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X, Github, Linkedin } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Header = () => {
@@ -25,24 +25,6 @@ const Header = () => {
     { title: "Projects", href: "#projects" },
     { title: "Testimonials", href: "#testimonials" },
     { title: "Contact", href: "#contact" },
-  ];
-
-  const socialLinks = [
-    { 
-      icon: <Github className="w-5 h-5" />, 
-      href: "https://github.com/CongoMusahAdama",
-      label: "GitHub"
-    },
-    { 
-      icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>, 
-      href: "https://twitter.com/1real_vee",
-      label: "X"
-    },
-    { 
-      icon: <Linkedin className="w-5 h-5" />, 
-      href: "https://linkedin.com/in/musah-congo-766bb3224",
-      label: "LinkedIn"
-    }
   ];
 
   return (
@@ -76,18 +58,6 @@ const Header = () => {
             </ul>
             
             <div className="flex items-center gap-4 ml-4">
-              {socialLinks.map((link) => (
-                <a 
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                  aria-label={link.label}
-                >
-                  {link.icon}
-                </a>
-              ))}
               <ThemeToggle />
             </div>
           </nav>
@@ -122,21 +92,6 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          
-          <div className="flex items-center gap-6 mt-6 py-2 border-t border-border">
-            {socialLinks.map((link) => (
-              <a 
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label={link.label}
-              >
-                {link.icon}
-              </a>
-            ))}
-          </div>
         </div>
       )}
     </header>

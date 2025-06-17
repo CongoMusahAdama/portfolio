@@ -94,7 +94,7 @@ const TestimonialsSection = () => {
                 <div className="bg-muted/50 rounded-lg p-8 shadow-sm border border-border relative">
                   <Quote className="w-12 h-12 text-orange/20 absolute -top-6 left-8" />
                   <div className="text-muted-foreground text-lg leading-relaxed italic mb-8 pt-6">
-                    "{testimonial.content}"
+                    {testimonial.content}
                   </div>
                   
                   <div className="flex items-center">

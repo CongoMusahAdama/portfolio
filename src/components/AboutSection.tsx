@@ -15,9 +15,30 @@ const AboutSection = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">About Me</h2>
           <div className="w-20 h-1 bg-orange mx-auto mb-12"></div>
           
-          <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-            I'm a self-taught software engineer with strong expertise in Python, Node.js, FastAPI, Django, and Laravel. I love building robust APIs, microservices, and cloud-connected systems. I'm based in Takoradi, Ghana, and always open to collaboration.
-          </p>
+          <div className="text-base text-muted-foreground leading-relaxed mb-12 space-y-6">
+            <p>
+              I'm a self-taught Software Engineer based in Takoradi, Ghana, with strong expertise in Python, Node.js, FastAPI, Django, and Laravel. I specialize in building robust APIs, microservices, and cloud-connected systems that power impactful digital experiences.
+            </p>
+            
+            <p className="font-semibold">
+              But my journey doesn't end at code.
+            </p>
+            
+            <p>
+              Outside of software development, I actively manage social media platforms and lead community-driven projects. I'm also an agritech innovator passionate about building digital solutions that empower farmers and transform agricultural systems.
+            </p>
+            
+            <blockquote className="border-l-4 border-orange pl-6 italic text-muted-foreground/90 my-8">
+              <p className="mb-4">
+                "If a man is called to be a street sweeper, he should sweep streets even as Michelangelo painted, or Beethoven composed music, or Shakespeare wrote poetry. He should sweep streets so well that all the hosts of heaven and earth will pause to say, here lived a great street sweeper who did his job well."
+              </p>
+              <footer className="text-sm font-medium">— Martin Luther King Jr.</footer>
+            </blockquote>
+            
+            <p>
+              These words deeply inspire me — to pursue excellence in every field I commit to, whether in engineering or beyond.
+            </p>
+          </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div 

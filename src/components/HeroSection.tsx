@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Download, MapPin, Mail } from "lucide-react";
+import { Download, MapPin, Mail, Github, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface HeroSectionProps {
@@ -8,6 +8,24 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ profileImage }: HeroSectionProps) => {
+  const socialLinks = [
+    { 
+      icon: <Github className="w-5 h-5" />, 
+      href: "https://github.com/CongoMusahAdama",
+      label: "GitHub"
+    },
+    { 
+      icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>, 
+      href: "https://twitter.com/1real_vee",
+      label: "X"
+    },
+    { 
+      icon: <Linkedin className="w-5 h-5" />, 
+      href: "https://linkedin.com/in/musah-congo-766bb3224",
+      label: "LinkedIn"
+    }
+  ];
+
   return (
     <section 
       id="hero" 
@@ -27,9 +45,30 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               <img 
                 src={profileImage} 
                 alt="Congo Musah Adama" 
-                className="relative w-full h-full object-cover rounded-3xl shadow-2xl z-10"
+                className="relative w-full h-full object-cover rounded-3xl shadow-2xl z-10 transform scale-x-[-1]"
               />
             </div>
+            
+            {/* Social Media Icons under profile */}
+            <motion.div 
+              className="flex justify-center gap-4 mt-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+            >
+              {socialLinks.map((link) => (
+                <a 
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-background/80 backdrop-blur-sm border border-border rounded-full text-muted-foreground hover:text-orange hover:bg-orange/10 transition-all duration-300 shadow-sm"
+                  aria-label={link.label}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </motion.div>
           </motion.div>
 
           {/* Text content on the right */}
@@ -46,7 +85,20 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               transition={{ delay: 0.4, duration: 0.8 }}
             >
               <span className="text-foreground">Hi I'm </span>
-              <span className="text-orange">Congo</span>
+              <motion.span 
+                className="text-orange"
+                animate={{
+                  scale: [1, 1.05, 1],
+                  color: ["#f97316", "#ea580c", "#f97316"]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                Congo
+              </motion.span>
             </motion.h1>
             
             <motion.h2 
