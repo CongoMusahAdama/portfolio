@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
@@ -11,8 +10,8 @@ import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 
 const Index = () => {
-  // Updated profile image from newly uploaded file
-  const profileImage = "/lovable-uploads/prof.jpg";
+  // Updated profile image to the new uploaded file
+  const profileImage = "/lovable-uploads/d51f7576-dd9d-4647-ae97-24a43a1f93ee.png";
 
   useEffect(() => {
     // Animation for elements with .slide-in class
