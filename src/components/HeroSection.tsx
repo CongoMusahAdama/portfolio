@@ -45,7 +45,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               <img 
                 src={profileImage} 
                 alt="Congo Musah Adama" 
-                className="relative w-full h-full object-cover rounded-3xl shadow-2xl z-10 transform scale-x-[-1]"
+                className="relative w-full h-full object-cover rounded-3xl shadow-2xl z-10"
               />
             </div>
             
@@ -86,18 +86,47 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             >
               <span className="text-foreground">Hi I'm </span>
               <motion.span 
-                className="text-orange"
+                className="text-orange inline-block relative"
                 animate={{
-                  scale: [1, 1.05, 1],
-                  color: ["#f97316", "#ea580c", "#f97316"]
+                  scale: [1, 1.1, 1],
+                  textShadow: [
+                    "0 0 0px rgb(249 115 22 / 0)",
+                    "0 0 20px rgb(249 115 22 / 0.5)",
+                    "0 0 0px rgb(249 115 22 / 0)"
+                  ]
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 2.5,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
+                style={{
+                  background: "linear-gradient(45deg, #f97316, #ea580c, #f97316)",
+                  backgroundSize: "200% 200%",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
               >
-                Congo
+                <motion.span
+                  animate={{
+                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  style={{
+                    background: "linear-gradient(45deg, #f97316, #ea580c, #dc2626, #ea580c, #f97316)",
+                    backgroundSize: "400% 400%",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  Congo
+                </motion.span>
               </motion.span>
             </motion.h1>
             

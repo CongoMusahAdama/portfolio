@@ -24,6 +24,7 @@ const Header = () => {
     { title: "Skills", href: "#skills" },
     { title: "Projects", href: "#projects" },
     { title: "Testimonials", href: "#testimonials" },
+    { title: "Blog", href: "https://dev.to/congomusah", external: true },
     { title: "Contact", href: "#contact" },
   ];
 
@@ -49,6 +50,7 @@ const Header = () => {
                 <li key={link.href}>
                   <a 
                     href={link.href}
+                    {...(link.external && { target: "_blank", rel: "noopener noreferrer" })}
                     className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm"
                   >
                     {link.title}
@@ -84,6 +86,7 @@ const Header = () => {
               <li key={link.href}>
                 <a 
                   href={link.href}
+                  {...(link.external && { target: "_blank", rel: "noopener noreferrer" })}
                   className="block text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
