@@ -117,11 +117,11 @@ const SkillsSection = () => {
                       transition: { type: "spring", stiffness: 300 }
                     }}
                   >
-                    <div className="w-20 h-20 bg-muted/50 rounded-xl border border-border flex items-center justify-center mb-4 group-hover:border-orange/50 transition-colors duration-300">
+                    <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
                       <img
                         src={skill.icon}
                         alt={skill.name}
-                        className="w-12 h-12 object-contain"
+                        className="w-16 h-16 object-contain filter drop-shadow-sm"
                       />
                     </div>
                     <span className="text-foreground font-medium text-center">{skill.name}</span>
