@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 
 const AboutSection = () => {
@@ -25,7 +24,7 @@ const AboutSection = () => {
             </p>
             
             <p>
-              Outside of software development, I actively manage social media platforms and lead community-driven projects. I'm also an agritech innovator passionate about building digital solutions that empower farmers and transform agricultural systems.
+              Outside of software development, I'm an agricultural innovator dedicated to transforming food systems through technology, and a product thinker passionate about creating user-centered solutions across diverse industries. I enjoy bridging ideas, design, and strategy to build products that solve real-world problems and create meaningful impact.
             </p>
             
             <blockquote className="border-l-4 border-orange pl-6 italic text-muted-foreground/90 my-8">
