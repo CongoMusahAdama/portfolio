@@ -13,13 +13,6 @@ const About = () => {
 
   const timelineData = [
     {
-      type: "education",
-      year: "2021 – Present",
-      title: "University of Energy and Natural Resources",
-      subtitle: "BSc Agricultural Science and Technology",
-      icon: "🎓"
-    },
-    {
       type: "work",
       year: "Oct 2024 – Present",
       title: "Association of Ghana Startups",
@@ -117,8 +110,6 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">About Me</h1>
-              <div className="w-20 h-1 bg-orange mb-8"></div>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Musah Congo Adama is a versatile and self-taught full stack developer with over three years of experience building scalable web applications and integrating machine learning solutions for real-world impact.
               </p>
@@ -151,6 +142,10 @@ const About = () => {
               
               <p>
                 In 2022, I returned to software development while combining academics and exploring tech opportunities. Today, I continue to grow as a backend engineer while contributing to mission-driven organizations across Africa.
+              </p>
+
+              <p>
+                Outside of software development, I'm an agricultural innovator dedicated to transforming food systems through technology, and a product thinker passionate about creating user-centered solutions across diverse industries. I enjoy bridging ideas, design, and strategy to build products that solve real-world problems and create meaningful impact.
               </p>
             </div>
           </motion.div>
@@ -193,7 +188,7 @@ const About = () => {
                   {/* Content */}
                   <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
                     <motion.div
-                      className="bg-background border border-border rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                      className="p-6"
                       whileHover={{ y: -4 }}
                     >
                       <div className="flex items-center gap-3 mb-2">
