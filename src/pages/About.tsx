@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import Header from "@/components/Header";
@@ -110,45 +109,25 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Musah Congo Adama is a versatile and self-taught full stack developer with over three years of experience building scalable web applications and integrating machine learning solutions for real-world impact.
-              </p>
+              <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-6">
+                <p>
+                  My journey into web and mobile development started in 2020 when a masquerade club I joined organized a WordPress course with iCode. I built my first website using a WordPress theme and PHP.
+                </p>
+                
+                <p>
+                  In 2021, I enrolled at the University of Energy and Natural Resources to study BSc. Agricultural Science and Technology.
+                </p>
+                
+                <p>
+                  In 2022, I returned to software development while combining academics and exploring tech opportunities. Today, I continue to grow as a backend engineer while contributing to mission-driven organizations across Africa.
+                </p>
+
+                <p>
+                  Outside of software development, I'm an agricultural innovator dedicated to transforming food systems through technology, and a product thinker passionate about creating user-centered solutions across diverse industries. I enjoy bridging ideas, design, and strategy to build products that solve real-world problems and create meaningful impact.
+                </p>
+              </div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* My Story Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-6">
-          <motion.div
-            className="max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 text-center">My Story</h2>
-            <div className="w-20 h-1 bg-orange mx-auto mb-12"></div>
-            
-            <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-6">
-              <p>
-                My journey into web and mobile development started in 2020 when a masquerade club I joined organized a WordPress course with iCode. I built my first website using a WordPress theme and PHP.
-              </p>
-              
-              <p>
-                In 2021, I enrolled at the University of Energy and Natural Resources to study BSc. Agricultural Science and Technology.
-              </p>
-              
-              <p>
-                In 2022, I returned to software development while combining academics and exploring tech opportunities. Today, I continue to grow as a backend engineer while contributing to mission-driven organizations across Africa.
-              </p>
-
-              <p>
-                Outside of software development, I'm an agricultural innovator dedicated to transforming food systems through technology, and a product thinker passionate about creating user-centered solutions across diverse industries. I enjoy bridging ideas, design, and strategy to build products that solve real-world problems and create meaningful impact.
-              </p>
-            </div>
-          </motion.div>
         </div>
       </section>
 
