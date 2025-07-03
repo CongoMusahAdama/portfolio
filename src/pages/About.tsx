@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import Header from "@/components/Header";
@@ -109,6 +110,7 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-8">MY STORY</h2>
               <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-6">
                 <p>
                   My journey into web and mobile development started in 2020 when a masquerade club I joined organized a WordPress course with iCode. I built my first website using a WordPress theme and PHP.
