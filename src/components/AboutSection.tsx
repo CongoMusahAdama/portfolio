@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 
 const AboutSection = () => {
@@ -41,14 +42,14 @@ const AboutSection = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div 
-              className="p-8 bg-background rounded-lg shadow-sm border border-border hover:shadow-md transition-all duration-300"
+              className="flex flex-col items-center group"
               whileHover={{ y: -8 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="w-16 h-16 bg-orange/10 rounded-lg flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
-                  className="w-8 h-8 text-orange" 
+                  className="w-full h-full text-orange filter drop-shadow-sm" 
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor" 
@@ -62,14 +63,14 @@ const AboutSection = () => {
             </motion.div>
             
             <motion.div 
-              className="p-8 bg-background rounded-lg shadow-sm border border-border hover:shadow-md transition-all duration-300"
+              className="flex flex-col items-center group"
               whileHover={{ y: -8 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="w-16 h-16 bg-orange/10 rounded-lg flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
-                  className="w-8 h-8 text-orange" 
+                  className="w-full h-full text-orange filter drop-shadow-sm" 
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor" 
@@ -83,14 +84,14 @@ const AboutSection = () => {
             </motion.div>
             
             <motion.div 
-              className="p-8 bg-background rounded-lg shadow-sm border border-border hover:shadow-md transition-all duration-300"
+              className="flex flex-col items-center group"
               whileHover={{ y: -8 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="w-16 h-16 bg-orange/10 rounded-lg flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
-                  className="w-8 h-8 text-orange" 
+                  className="w-full h-full text-orange filter drop-shadow-sm" 
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor" 

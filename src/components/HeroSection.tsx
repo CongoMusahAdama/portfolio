@@ -1,13 +1,25 @@
 
 import { Button } from "@/components/ui/button";
 import { Download, MapPin, Mail, Github, Linkedin } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 interface HeroSectionProps {
   profileImage: string;
 }
 
 const HeroSection = ({ profileImage }: HeroSectionProps) => {
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+  const titles = ["Software Engineer", "Product Strategy Thinker"];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
+    }, 4500); // 4.5 seconds for each title
+
+    return () => clearInterval(interval);
+  }, [titles.length]);
+
   const socialLinks = [
     { 
       icon: <Github className="w-5 h-5" />, 
@@ -130,14 +142,24 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               </motion.span>
             </motion.h1>
             
-            <motion.h2 
-              className="text-2xl lg:text-3xl text-muted-foreground font-medium mb-6"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-            >
-              Software Engineer
-            </motion.h2>
+            {/* Rotating titles */}
+            <div className="text-2xl lg:text-3xl font-medium mb-6 h-12 flex items-center">
+              <AnimatePresence mode="wait">
+                <motion.h2
+                  key={currentTitleIndex}
+                  initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
+                  transition={{ 
+                    duration: 0.6,
+                    ease: "easeInOut"
+                  }}
+                  className="text-muted-foreground absolute"
+                >
+                  {titles[currentTitleIndex]}
+                </motion.h2>
+              </AnimatePresence>
+            </div>
 
             <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-lg">
               Passionate about turning real-world problems into impactful digital solutions that drive growth, success, and meaningful impact, one code at a time

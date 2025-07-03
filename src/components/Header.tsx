@@ -2,10 +2,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,13 +21,13 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { title: "Home", href: "#hero" },
-    { title: "About", href: "#about" },
-    { title: "Skills", href: "#skills" },
-    { title: "Projects", href: "#projects" },
-    { title: "Testimonials", href: "#testimonials" },
+    { title: "Home", href: "/", external: false },
+    { title: "About", href: "/about", external: false },
+    { title: "Skills", href: "/#skills", external: false },
+    { title: "Projects", href: "/#projects", external: false },
+    { title: "Testimonials", href: "/#testimonials", external: false },
     { title: "Blog", href: "https://dev.to/congomusah", external: true },
-    { title: "Contact", href: "#contact" },
+    { title: "Contact", href: "/#contact", external: false },
   ];
 
   return (
@@ -36,25 +38,37 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          <a 
-            href="#" 
+          <Link 
+            to="/" 
             className="font-bold text-xl text-foreground hover:text-orange transition-colors"
           >
             Congo Musah Adama
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             <ul className="flex gap-8">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a 
-                    href={link.href}
-                    {...(link.external && { target: "_blank", rel: "noopener noreferrer" })}
-                    className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm"
-                  >
-                    {link.title}
-                  </a>
+                  {link.external ? (
+                    <a 
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm"
+                    >
+                      {link.title}
+                    </a>
+                  ) : (
+                    <Link 
+                      to={link.href}
+                      className={`text-muted-foreground hover:text-foreground transition-colors font-medium text-sm ${
+                        location.pathname === link.href ? 'text-orange' : ''
+                      }`}
+                    >
+                      {link.title}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -84,14 +98,27 @@ const Header = () => {
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a 
-                  href={link.href}
-                  {...(link.external && { target: "_blank", rel: "noopener noreferrer" })}
-                  className="block text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.title}
-                </a>
+                {link.external ? (
+                  <a 
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.title}
+                  </a>
+                ) : (
+                  <Link 
+                    to={link.href}
+                    className={`block text-muted-foreground hover:text-foreground transition-colors font-medium py-2 ${
+                      location.pathname === link.href ? 'text-orange' : ''
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.title}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
