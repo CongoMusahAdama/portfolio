@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
@@ -80,7 +79,7 @@ const Services = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.3,
         delayChildren: 0.2,
       },
     },
@@ -99,11 +98,14 @@ const Services = () => {
     },
   };
 
+  const whatsappNumber = "233509154727";
+  const whatsappMessage = "Hello I want to GetInTouch!";
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
       <section className="pt-24 pb-16 bg-background">
         <div className="container mx-auto px-6">
           <motion.div
@@ -123,7 +125,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Services Section */}
       <section className="py-20 bg-muted/30" ref={servicesRef}>
         <div className="container mx-auto px-6">
           <motion.div
@@ -157,7 +158,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Process Section */}
       <section className="py-20 bg-background" ref={processRef}>
         <div className="container mx-auto px-6">
           <motion.div
@@ -181,6 +181,7 @@ const Services = () => {
                 key={index}
                 className="flex flex-col md:flex-row items-start gap-6"
                 variants={itemVariants}
+                custom={index}
               >
                 <div className="flex items-center gap-4 md:flex-col md:text-center md:min-w-[120px]">
                   <div className="w-16 h-16 bg-orange/10 rounded-2xl flex items-center justify-center">
@@ -199,7 +200,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Why Work With Me Section */}
       <section className="py-20 bg-muted/30" ref={benefitsRef}>
         <div className="container mx-auto px-6">
           <motion.div
@@ -236,7 +236,6 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Contact CTA Section */}
       <section className="py-20 bg-background" ref={contactRef}>
         <div className="container mx-auto px-6">
           <motion.div
@@ -253,30 +252,42 @@ const Services = () => {
               Let's discuss your ideas and create something amazing together.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
-              <Button asChild size="lg" className="bg-orange hover:bg-orange/90">
+            <motion.div 
+              className="max-w-md mx-auto flex flex-col items-center justify-center"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isContactVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <motion.div 
+                className="bg-background p-6 rounded-xl shadow-sm border border-border mb-8"
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.2 }}
+              >
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp chat">
+                  <img 
+                    src="/lovable-uploads/764f9228-d9ad-428d-ab65-0610222686ec.png" 
+                    alt="WhatsApp QR Code" 
+                    className="w-52 h-52" 
+                  />
+                </a>
+              </motion.div>
+              
+              <Button 
+                asChild 
+                variant="default" 
+                className="bg-orange hover:bg-orange/90 text-orange-foreground px-8 py-3"
+              >
                 <a 
-                  href="https://wa.me/233553797995" 
+                  href={whatsappUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  Contact on WhatsApp
+                  Chat on WhatsApp
                 </a>
               </Button>
-
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-32 h-32 bg-white p-2 rounded-lg">
-                  <img 
-                    src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://wa.me/233553797995" 
-                    alt="WhatsApp QR Code" 
-                    className="w-full h-full"
-                  />
-                </div>
-                <span className="text-sm text-muted-foreground">Scan to connect</span>
-              </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
