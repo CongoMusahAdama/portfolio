@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
@@ -5,7 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Button } from "@/components/ui/button";
-import { Code, Bot, Search, Lightbulb, Palette, TestTube, Headphones, Check, MessageCircle } from "lucide-react";
+import { Code, Bot, Check, MessageCircle } from "lucide-react";
 import useIntersectionObserver from "@/hooks/use-intersection-observer";
 
 const Services = () => {
@@ -36,32 +37,27 @@ const Services = () => {
     {
       number: "01",
       title: "Discovery",
-      description: "I start by understanding your business, goals, and requirements through in-depth consultation.",
-      icon: Search
+      description: "I start by understanding your business, goals, and requirements through in-depth consultation."
     },
     {
       number: "02", 
       title: "Planning",
-      description: "We develop a strategic roadmap with timelines, milestones, and deliverables.",
-      icon: Lightbulb
+      description: "We develop a strategic roadmap with timelines, milestones, and deliverables."
     },
     {
       number: "03",
       title: "Design & Development", 
-      description: "I create user-friendly designs and develop robust solutions with attention to detail.",
-      icon: Palette
+      description: "I create user-friendly designs and develop robust solutions with attention to detail."
     },
     {
       number: "04",
       title: "Testing & Launch",
-      description: "I rigorously test for bugs, performance, and cross-device compatibility before launch.",
-      icon: TestTube
+      description: "I rigorously test for bugs, performance, and cross-device compatibility before launch."
     },
     {
       number: "05",
       title: "Support & Maintenance",
-      description: "I offer ongoing support, updates, and performance optimization.",
-      icon: Headphones
+      description: "I offer ongoing support, updates, and performance optimization."
     }
   ];
 
@@ -85,6 +81,17 @@ const Services = () => {
     },
   };
 
+  const processContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.4,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
   const itemVariants = {
     hidden: { y: 30, opacity: 0 },
     visible: {
@@ -94,6 +101,7 @@ const Services = () => {
         type: "spring",
         stiffness: 100,
         damping: 15,
+        duration: 0.8,
       },
     },
   };
@@ -174,7 +182,7 @@ const Services = () => {
             className="max-w-4xl mx-auto space-y-12"
             initial="hidden"
             animate={isProcessVisible ? "visible" : "hidden"}
-            variants={containerVariants}
+            variants={processContainerVariants}
           >
             {processSteps.map((step, index) => (
               <motion.div
@@ -183,15 +191,12 @@ const Services = () => {
                 variants={itemVariants}
               >
                 <div className="flex items-center gap-4 md:flex-col md:text-center md:min-w-[120px]">
-                  <div className="w-16 h-16 bg-orange/10 rounded-2xl flex items-center justify-center">
-                    <step.icon className="w-8 h-8 text-orange" />
-                  </div>
-                  <span className="text-2xl font-bold text-orange md:mt-2">Step {step.number}</span>
+                  <span className="text-xl font-bold text-orange">Step {step.number}</span>
                 </div>
                 
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-foreground mb-3">{step.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm">{step.description}</p>
                 </div>
               </motion.div>
             ))}
