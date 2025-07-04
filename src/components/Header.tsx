@@ -23,6 +23,7 @@ const Header = () => {
   const navLinks = [
     { title: "Home", href: "/", external: false },
     { title: "About", href: "/about", external: false },
+    { title: "Services", href: "/services", external: false },
     { title: "Skills", href: "/#skills", external: false },
     { title: "Projects", href: "/#projects", external: false },
     { title: "Testimonials", href: "/#testimonials", external: false },
