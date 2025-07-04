@@ -61,7 +61,7 @@ const ServicesSection = () => {
         </div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12"
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto mb-12"
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
           variants={containerVariants}
@@ -69,11 +69,10 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="group p-8 rounded-2xl bg-background shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50"
+              className="group text-center"
               variants={itemVariants}
-              whileHover={{ y: -8 }}
             >
-              <div className="mb-6">
+              <div className="mb-6 flex justify-center">
                 <div className="w-16 h-16 bg-orange/10 rounded-2xl flex items-center justify-center group-hover:bg-orange/20 transition-colors duration-300">
                   <service.icon className="w-8 h-8 text-orange" />
                 </div>

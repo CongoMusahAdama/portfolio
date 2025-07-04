@@ -135,11 +135,10 @@ const Services = () => {
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="group p-8 rounded-2xl bg-background shadow-lg hover:shadow-xl transition-all duration-300 border border-border/50"
+                className="group text-center"
                 variants={itemVariants}
-                whileHover={{ y: -8 }}
               >
-                <div className="mb-6">
+                <div className="mb-6 flex justify-center">
                   <div className="w-20 h-20 bg-orange/10 rounded-2xl flex items-center justify-center group-hover:bg-orange/20 transition-colors duration-300">
                     <service.icon className="w-10 h-10 text-orange" />
                   </div>
@@ -172,7 +171,7 @@ const Services = () => {
           </motion.div>
 
           <motion.div
-            className="max-w-4xl mx-auto space-y-8"
+            className="max-w-4xl mx-auto space-y-12"
             initial="hidden"
             animate={isProcessVisible ? "visible" : "hidden"}
             variants={containerVariants}
@@ -180,7 +179,7 @@ const Services = () => {
             {processSteps.map((step, index) => (
               <motion.div
                 key={index}
-                className="flex flex-col md:flex-row items-start gap-6 p-6 rounded-2xl bg-muted/30 hover:bg-muted/50 transition-colors duration-300"
+                className="flex flex-col md:flex-row items-start gap-6"
                 variants={itemVariants}
               >
                 <div className="flex items-center gap-4 md:flex-col md:text-center md:min-w-[120px]">
@@ -223,7 +222,7 @@ const Services = () => {
               {benefits.map((benefit, index) => (
                 <motion.div
                   key={index}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-background border border-border/50"
+                  className="flex items-center gap-4"
                   variants={itemVariants}
                 >
                   <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
@@ -268,7 +267,7 @@ const Services = () => {
               </Button>
 
               <div className="flex flex-col items-center gap-2">
-                <div className="w-32 h-32 bg-white p-2 rounded-lg shadow-lg">
+                <div className="w-32 h-32 bg-white p-2 rounded-lg">
                   <img 
                     src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://wa.me/233553797995" 
                     alt="WhatsApp QR Code" 
