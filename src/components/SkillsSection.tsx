@@ -63,7 +63,7 @@ const SkillsSection = () => {
         { name: "Trello", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" },
         { name: "Notion", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg" },
         { name: "Slack", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" },
-        { name: "Discord", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discord/discord-original.svg" },
+        { name: "Discord", icon: "/lovable-uploads/052398b2-6e66-408c-9a29-d8dcb1746e3c.png" },
       ],
     },
     {

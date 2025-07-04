@@ -79,14 +79,14 @@ const Services = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.2,
         delayChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
@@ -181,7 +181,6 @@ const Services = () => {
                 key={index}
                 className="flex flex-col md:flex-row items-start gap-6"
                 variants={itemVariants}
-                custom={index}
               >
                 <div className="flex items-center gap-4 md:flex-col md:text-center md:min-w-[120px]">
                   <div className="w-16 h-16 bg-orange/10 rounded-2xl flex items-center justify-center">
