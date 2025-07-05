@@ -14,6 +14,17 @@ const About = () => {
   const timelineData = [
     {
       type: "work",
+      year: "May 2025 – Present",
+      title: "Duapa Werkspace",
+      subtitle: "Fullstack Developer",
+      achievements: [
+        "Enhance digital finance , improving system efficiency by 45%",
+        "Supported program facilitation, boostin participant engagement by 35% and streamline communication workflow ",
+      ],
+      icon: "💼"
+    },
+    {
+      type: "work",
       year: "Oct 2024 – Present",
       title: "Association of Ghana Startups",
       subtitle: "Backend Developer (NSP)",
