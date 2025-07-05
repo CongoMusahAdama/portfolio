@@ -72,7 +72,7 @@ const TestimonialsSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 7000);
+    }, 12000); // Increased from 7000ms to 12000ms for more reading time
     
     return () => clearInterval(interval);
   }, []);
@@ -88,12 +88,12 @@ const TestimonialsSection = () => {
           </p>
         </div>
         
-        <div className={`max-w-4xl mx-auto ${isVisible ? "opacity-100" : "opacity-0"} transition-opacity duration-500`}>
+        <div className={`max-w-4xl mx-auto transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}>
           <div className="relative">
             {testimonials.map((testimonial, index) => (
               <div 
                 key={testimonial.id}
-                className={`transition-opacity duration-300 ${
+                className={`transition-opacity duration-1000 ease-in-out ${
                   currentSlide === index ? 'opacity-100' : 'opacity-0 absolute top-0 left-0'
                 }`}
                 style={{ display: currentSlide === index ? 'block' : 'none' }}
@@ -121,7 +121,7 @@ const TestimonialsSection = () => {
             
             <button 
               onClick={prevSlide}
-              className="absolute top-1/2 -left-6 -translate-y-1/2 bg-background rounded-full p-3 shadow-md hover:bg-muted transition-colors border border-border"
+              className="absolute top-1/2 -left-6 -translate-y-1/2 bg-background rounded-full p-3 shadow-md hover:bg-muted transition-colors duration-300 border border-border"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5 text-foreground" />
@@ -129,7 +129,7 @@ const TestimonialsSection = () => {
             
             <button 
               onClick={nextSlide}
-              className="absolute top-1/2 -right-6 -translate-y-1/2 bg-background rounded-full p-3 shadow-md hover:bg-muted transition-colors border border-border"
+              className="absolute top-1/2 -right-6 -translate-y-1/2 bg-background rounded-full p-3 shadow-md hover:bg-muted transition-colors duration-300 border border-border"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-5 h-5 text-foreground" />
@@ -141,7 +141,7 @@ const TestimonialsSection = () => {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
+                className={`w-3 h-3 rounded-full transition-colors duration-300 ${
                   currentSlide === index ? 'bg-orange' : 'bg-muted-foreground/30'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
