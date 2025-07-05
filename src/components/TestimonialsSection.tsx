@@ -55,7 +55,7 @@ const TestimonialsSection = () => {
       id: 3,
       name: "Prof. Daniel Addo-Mensah",
       role: "Lecturer & Head of Industrial Attachment",
-      company: "University of Education and Resources",
+      company: "University of Energy and Natural Resources",
       content: "Congo's ability to turn impactful ideas into digital platforms is insane — from understanding users' pain points to going further using the 5 WHYs and 4 Us to build solutions they want, not just what he wants.",
       avatar: "/lovable-uploads/5548e7ab-7bc7-436a-877b-caab2b5d82c6.png",
     },
@@ -88,13 +88,12 @@ const TestimonialsSection = () => {
           </p>
         </div>
         
-        <div className={`max-w-4xl mx-auto ${isVisible ? "slide-in active" : "slide-in"}`}
-             style={{ transitionDelay: '0.4s' }}>
+        <div className={`max-w-4xl mx-auto ${isVisible ? "opacity-100" : "opacity-0"} transition-opacity duration-500`}>
           <div className="relative">
             {testimonials.map((testimonial, index) => (
               <div 
                 key={testimonial.id}
-                className={`transition-opacity duration-700 ${
+                className={`transition-opacity duration-300 ${
                   currentSlide === index ? 'opacity-100' : 'opacity-0 absolute top-0 left-0'
                 }`}
                 style={{ display: currentSlide === index ? 'block' : 'none' }}
@@ -102,7 +101,7 @@ const TestimonialsSection = () => {
                 <div className="py-8 px-4 relative">
                   <Quote className="w-12 h-12 text-orange/20 absolute -top-2 left-4" />
                   <div className="text-muted-foreground text-lg leading-relaxed italic mb-8 pt-6 text-center">
-                    "{testimonial.content}"
+                    {testimonial.content}
                   </div>
                   
                   <div className="flex flex-col items-center text-center">
