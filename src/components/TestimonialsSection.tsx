@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Testimonial {
   id: number;
@@ -99,8 +99,7 @@ const TestimonialsSection = () => {
                 style={{ display: currentSlide === index ? 'block' : 'none' }}
               >
                 <div className="py-8 px-4 relative">
-                  <Quote className="w-12 h-12 text-orange/20 absolute -top-2 left-4" />
-                  <div className="text-muted-foreground text-lg leading-relaxed italic mb-8 pt-6 text-center">
+                  <div className="text-muted-foreground text-lg leading-relaxed italic mb-8 text-center">
                     {testimonial.content}
                   </div>
                   
