@@ -51,6 +51,14 @@ const TestimonialsSection = () => {
       content: "Congo's expertise in microservices architecture transformed our monolithic application into a scalable, maintainable system. His documentation skills are excellent too!",
       avatar: "/lovable-uploads/e7a271ed-34b5-4117-b716-6c44c58df08d.png",
     },
+    {
+      id: 3,
+      name: "Prof. Daniel Addo-Mensah",
+      role: "Lecturer & Head of Industrial Attachment",
+      company: "University of Education and Resources",
+      content: "Congo's ability to turn impactful ideas into digital platforms is insane — from understanding users' pain points to going further using the 5 WHYs and 4 Us to build solutions they want, not just what he wants.",
+      avatar: "/lovable-uploads/5548e7ab-7bc7-436a-877b-caab2b5d82c6.png",
+    },
   ];
 
   const nextSlide = () => {
@@ -91,21 +99,22 @@ const TestimonialsSection = () => {
                 }`}
                 style={{ display: currentSlide === index ? 'block' : 'none' }}
               >
-                <div className="bg-muted/50 rounded-lg p-8 shadow-sm border border-border relative">
-                  <Quote className="w-12 h-12 text-orange/20 absolute -top-6 left-8" />
-                  <div className="text-muted-foreground text-lg leading-relaxed italic mb-8 pt-6">
-                    {testimonial.content}
+                <div className="py-8 px-4 relative">
+                  <Quote className="w-12 h-12 text-orange/20 absolute -top-2 left-4" />
+                  <div className="text-muted-foreground text-lg leading-relaxed italic mb-8 pt-6 text-center">
+                    "{testimonial.content}"
                   </div>
                   
-                  <div className="flex items-center">
+                  <div className="flex flex-col items-center text-center">
                     <img 
                       src={testimonial.avatar} 
                       alt={testimonial.name} 
-                      className="w-16 h-16 rounded-full object-cover mr-4"
+                      className="w-20 h-20 rounded-full object-cover mb-4 border-2 border-orange/20"
                     />
                     <div>
-                      <h4 className="font-semibold text-foreground text-lg">{testimonial.name}</h4>
-                      <p className="text-muted-foreground">{testimonial.role}, {testimonial.company}</p>
+                      <h4 className="font-semibold text-foreground text-xl mb-1">{testimonial.name}</h4>
+                      <p className="text-muted-foreground">{testimonial.role}</p>
+                      <p className="text-muted-foreground text-sm">{testimonial.company}</p>
                     </div>
                   </div>
                 </div>
