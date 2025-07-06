@@ -105,16 +105,14 @@ const Services = () => {
     },
   };
 
-  const imageVariants = {
-    hidden: { x: 50, opacity: 0 },
+  const backgroundVariants = {
+    hidden: { opacity: 0, scale: 1.1 },
     visible: {
-      x: 0,
       opacity: 1,
+      scale: 1,
       transition: {
-        type: "spring",
-        stiffness: 80,
-        damping: 20,
-        duration: 1,
+        duration: 1.2,
+        ease: "easeOut",
       },
     },
   };
@@ -146,25 +144,45 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-muted/30" ref={servicesRef}>
-        <div className="container mx-auto px-6">
+      <section className="py-20 relative overflow-hidden" ref={servicesRef}>
+        {/* Background Image with Overlay */}
+        <motion.div
+          className="absolute inset-0 z-0"
+          initial="hidden"
+          animate={isServicesVisible ? "visible" : "hidden"}
+          variants={backgroundVariants}
+        >
+          <img 
+            src="/lovable-uploads/7c7d21a9-be7a-46ca-ae6b-2990651a150f.png" 
+            alt="Professional developer working on web and mobile applications" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/85 backdrop-blur-[1px]"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/90"></div>
+        </motion.div>
+
+        {/* Content */}
+        <div className="container mx-auto px-6 relative z-10">
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto items-center"
+            className="max-w-4xl mx-auto"
             initial="hidden"
             animate={isServicesVisible ? "visible" : "hidden"}
             variants={containerVariants}
           >
-            {/* Services Content */}
-            <motion.div className="space-y-12" variants={itemVariants}>
+            <div className="space-y-16">
               {services.map((service, index) => (
-                <div key={index} className="group">
-                  <div className="mb-6 flex items-start gap-4">
-                    <div className="w-16 h-16 bg-orange/10 rounded-2xl flex items-center justify-center group-hover:bg-orange/20 transition-colors duration-300 flex-shrink-0 mt-1">
-                      <service.icon className="w-8 h-8 text-orange" />
+                <motion.div
+                  key={index}
+                  className="group bg-background/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-border/50 hover:bg-background/90 transition-all duration-300"
+                  variants={itemVariants}
+                >
+                  <div className="flex items-start gap-6">
+                    <div className="w-20 h-20 bg-orange/10 rounded-2xl flex items-center justify-center group-hover:bg-orange/20 transition-colors duration-300 flex-shrink-0">
+                      <service.icon className="w-10 h-10 text-orange" />
                     </div>
                     
                     <div className="flex-1">
-                      <h3 className="text-2xl font-semibold text-foreground mb-4 group-hover:text-orange transition-colors duration-300">
+                      <h3 className="text-2xl lg:text-3xl font-semibold text-foreground mb-4 group-hover:text-orange transition-colors duration-300">
                         {service.title}
                       </h3>
                       
@@ -173,24 +191,9 @@ const Services = () => {
                       </p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </motion.div>
-
-            {/* Services Image */}
-            <motion.div 
-              className="flex justify-center lg:justify-end order-first lg:order-last"
-              variants={imageVariants}
-            >
-              <div className="relative">
-                <img 
-                  src="/lovable-uploads/7c7d21a9-be7a-46ca-ae6b-2990651a150f.png" 
-                  alt="Professional developer working on web and mobile applications" 
-                  className="w-full max-w-md h-auto rounded-2xl shadow-lg"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-orange/5 to-transparent rounded-2xl"></div>
-              </div>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
