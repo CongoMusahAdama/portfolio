@@ -179,7 +179,7 @@ const Services = () => {
 
             {/* Services Image */}
             <motion.div 
-              className="flex justify-center lg:justify-end order-first lg:order-last"
+              className="hidden lg:flex justify-center lg:justify-end order-first lg:order-last"
               variants={imageVariants}
             >
               <div className="relative">
