@@ -135,11 +135,11 @@ const Services = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
               My Services
             </h1>
             <div className="w-20 h-1 bg-orange mx-auto mb-8"></div>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               Comprehensive development solutions to transform your ideas into powerful digital experiences
             </p>
           </motion.div>
@@ -164,11 +164,11 @@ const Services = () => {
                     </div>
                     
                     <div className="flex-1">
-                      <h3 className="text-2xl font-semibold text-foreground mb-4 group-hover:text-orange transition-colors duration-300">
+                      <h3 className="text-xl font-semibold text-foreground mb-4 group-hover:text-orange transition-colors duration-300">
                         {service.title}
                       </h3>
                       
-                      <p className="text-muted-foreground leading-relaxed text-lg">
+                      <p className="text-muted-foreground leading-relaxed">
                         {service.description}
                       </p>
                     </div>
@@ -203,7 +203,7 @@ const Services = () => {
             animate={isProcessVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">My Process</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">My Process</h2>
             <div className="w-20 h-1 bg-orange mx-auto"></div>
           </motion.div>
 
@@ -220,12 +220,12 @@ const Services = () => {
                 variants={itemVariants}
               >
                 <div className="flex items-center gap-4 md:flex-col md:text-center md:min-w-[120px]">
-                  <span className="text-xl font-bold text-orange">Step {step.number}</span>
+                  <span className="text-sm font-medium text-orange">Step {step.number}</span>
                 </div>
                 
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">{step.description}</p>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -241,7 +241,7 @@ const Services = () => {
             animate={isBenefitsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">Why Work With Me</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Why Work With Me</h2>
             <div className="w-20 h-1 bg-orange mx-auto"></div>
           </motion.div>
 
@@ -277,11 +277,11 @@ const Services = () => {
             animate={isContactVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
               Ready to Start Your Project?
             </h2>
             <div className="w-20 h-1 bg-orange mx-auto mb-8"></div>
-            <p className="text-xl text-muted-foreground mb-12">
+            <p className="text-lg text-muted-foreground mb-12">
               Let's discuss your ideas and create something amazing together.
             </p>
 
