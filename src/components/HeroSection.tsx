@@ -45,9 +45,47 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
     >
       <div className="container mx-auto px-6 z-10 py-20 lg:py-32 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-          {/* Text content on the left */}
+          {/* Profile image on the left */}
           <motion.div 
-            className="text-left order-last lg:order-first"
+            className="relative w-80 h-80 mx-auto lg:mx-0 order-first lg:order-first"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="relative w-full h-full">
+              <div className="absolute inset-0 bg-gradient-to-br from-orange/20 to-orange/10 rounded-3xl transform rotate-6"></div>
+              <img 
+                src={profileImage} 
+                alt="Congo Musah Adama" 
+                className="relative w-full h-full object-cover rounded-3xl shadow-2xl z-10"
+              />
+            </div>
+            
+            {/* Social Media Icons under profile */}
+            <motion.div 
+              className="flex justify-center gap-4 mt-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+            >
+              {socialLinks.map((link) => (
+                <a 
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-background/80 backdrop-blur-sm border border-border rounded-full text-muted-foreground hover:text-orange hover:bg-orange/10 transition-all duration-300 shadow-sm"
+                  aria-label={link.label}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Text content on the right */}
+          <motion.div 
+            className="text-left order-last lg:order-last"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -58,7 +96,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              <span className="text-foreground">Hey There,<br />I'm </span>
+              <span className="text-foreground">Hi I'm </span>
               <motion.span 
                 className="text-orange inline-block relative"
                 animate={{
@@ -106,7 +144,6 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             
             {/* Rotating titles */}
             <div className="text-2xl lg:text-3xl font-medium mb-6 h-12 flex items-center">
-              <span className="text-muted-foreground mr-3">I design & provide excellent</span>
               <AnimatePresence mode="wait">
                 <motion.h2
                   key={currentTitleIndex}
@@ -117,7 +154,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                     duration: 0.6,
                     ease: "easeInOut"
                   }}
-                  className="text-orange font-semibold absolute"
+                  className="text-muted-foreground absolute"
                 >
                   {titles[currentTitleIndex]}
                 </motion.h2>
@@ -127,24 +164,6 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-lg">
               Passionate about turning real-world problems into impactful digital solutions that drive growth, success, and meaningful impact, one code at a time
             </p>
-
-            {/* Experience stats */}
-            <motion.div 
-              className="flex items-center gap-6 mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-            >
-              <div className="text-center">
-                <div className="text-3xl font-bold text-orange">3+</div>
-                <div className="text-sm text-muted-foreground uppercase tracking-wide">Years<br />Experience</div>
-              </div>
-              <div className="w-px h-12 bg-border"></div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-orange">15+</div>
-                <div className="text-sm text-muted-foreground uppercase tracking-wide">Projects<br />Completed</div>
-              </div>
-            </motion.div>
 
             <div className="flex flex-col gap-3 mb-8">
               <div className="flex items-center text-muted-foreground">
@@ -169,69 +188,6 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                 </Button>
               </a>
             </div>
-          </motion.div>
-
-          {/* Profile image on the right */}
-          <motion.div 
-            className="relative w-80 h-80 mx-auto lg:mx-0 order-first lg:order-last"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-          >
-            {/* Decorative background elements */}
-            <div className="absolute inset-0 -z-10">
-              <div className="absolute top-8 right-8 w-24 h-6 bg-orange/30 rounded-full transform rotate-45"></div>
-              <div className="absolute top-16 right-4 w-32 h-4 bg-orange/20 rounded-full transform rotate-12"></div>
-              <div className="absolute bottom-20 right-12 w-20 h-8 bg-orange/25 rounded-full transform -rotate-45"></div>
-              <div className="absolute bottom-32 right-0 w-28 h-5 bg-orange/15 rounded-full transform rotate-30"></div>
-            </div>
-            
-            <div className="relative w-full h-full">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange/20 to-orange/10 rounded-3xl transform rotate-6"></div>
-              <img 
-                src={profileImage} 
-                alt="Congo Musah Adama" 
-                className="relative w-full h-full object-cover rounded-3xl shadow-2xl z-10"
-              />
-            </div>
-            
-            {/* Social Media Icons under profile */}
-            <motion.div 
-              className="flex justify-center gap-4 mt-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-            >
-              {socialLinks.map((link) => (
-                <a 
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-background/80 backdrop-blur-sm border border-border rounded-full text-muted-foreground hover:text-orange hover:bg-orange/10 transition-all duration-300 shadow-sm"
-                  aria-label={link.label}
-                >
-                  {link.icon}
-                </a>
-              ))}
-            </motion.div>
-
-            {/* Achievement badge - positioned like in the reference */}
-            <motion.div 
-              className="absolute -top-4 -right-4 bg-background border border-border rounded-lg p-3 shadow-lg"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1, duration: 0.6 }}
-            >
-              <div className="text-center">
-                <div className="w-8 h-8 bg-orange/10 rounded-full flex items-center justify-center mb-1">
-                  <div className="w-4 h-4 bg-orange rounded-full"></div>
-                </div>
-                <div className="text-xs font-semibold text-foreground">TOP CERTIFIED</div>
-                <div className="text-xs text-muted-foreground">FRONTEND &</div>
-                <div className="text-xs text-muted-foreground">UI/UX DESIGNER</div>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </div>
