@@ -48,7 +48,7 @@ const ProjectsSection = () => {
       image: "/lovable-uploads/agrilync.png",
       technologies: ["MongoDB", "Express", "TypeScript", "React", "Vite"],
       githubUrl: "https://github.com/CongoMusahAdama",
-      websiteUrl: "https://v0-agri-lync-platform-design.vercel.app"
+      websiteUrl: "https://agri-lync.netlify.app"
     },
     {
       id: 4,
