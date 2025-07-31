@@ -2,12 +2,13 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,15 +21,44 @@ const Header = () => {
     };
   }, []);
 
+  const handleSectionClick = (href: string) => {
+    // Close mobile menu
+    setIsMenuOpen(false);
+    
+    // If we're not on the homepage, navigate there first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    } else {
+      // We're already on homepage, just scroll
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  };
+
   const navLinks = [
-    { title: "Home", href: "/", external: false },
-    { title: "About", href: "/about", external: false },
-    { title: "Services", href: "/services", external: false },
-    { title: "Skills", href: "/#skills", external: false },
-    { title: "Projects", href: "/#projects", external: false },
-    { title: "Testimonials", href: "/#testimonials", external: false },
-    { title: "Blog", href: "https://dev.to/congomusah", external: true },
-    { title: "Contact", href: "/#contact", external: false },
+    { title: "Home", href: "/", external: false, isSection: false },
+    { title: "About", href: "/about", external: false, isSection: false },
+    { title: "Services", href: "/services", external: false, isSection: false },
+    { title: "Skills", href: "#skills", external: false, isSection: true },
+    { title: "Projects", href: "#projects", external: false, isSection: true },
+    { title: "Testimonials", href: "#testimonials", external: false, isSection: true },
+    { title: "Blog", href: "https://dev.to/congomusah", external: true, isSection: false },
+    { title: "Contact", href: "#contact", external: false, isSection: true },
   ];
 
   return (
@@ -60,6 +90,13 @@ const Header = () => {
                     >
                       {link.title}
                     </a>
+                  ) : link.isSection ? (
+                    <button
+                      onClick={() => handleSectionClick(link.href)}
+                      className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm cursor-pointer"
+                    >
+                      {link.title}
+                    </button>
                   ) : (
                     <Link 
                       to={link.href}
@@ -109,6 +146,13 @@ const Header = () => {
                   >
                     {link.title}
                   </a>
+                ) : link.isSection ? (
+                  <button
+                    onClick={() => handleSectionClick(link.href)}
+                    className="block text-left w-full text-muted-foreground hover:text-foreground transition-colors font-medium py-2 cursor-pointer"
+                  >
+                    {link.title}
+                  </button>
                 ) : (
                   <Link 
                     to={link.href}

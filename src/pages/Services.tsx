@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
@@ -106,6 +105,20 @@ const Services = () => {
     },
   };
 
+  const imageVariants = {
+    hidden: { x: 50, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        damping: 20,
+        duration: 1,
+      },
+    },
+  };
+
   const whatsappNumber = "233509154727";
   const whatsappMessage = "Hello I want to GetInTouch!";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
@@ -122,11 +135,11 @@ const Services = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
               My Services
             </h1>
             <div className="w-20 h-1 bg-orange mx-auto mb-8"></div>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               Comprehensive development solutions to transform your ideas into powerful digital experiences
             </p>
           </motion.div>
@@ -136,32 +149,48 @@ const Services = () => {
       <section className="py-20 bg-muted/30" ref={servicesRef}>
         <div className="container mx-auto px-6">
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto items-center"
             initial="hidden"
             animate={isServicesVisible ? "visible" : "hidden"}
             variants={containerVariants}
           >
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                className="group text-center"
-                variants={itemVariants}
-              >
-                <div className="mb-6 flex justify-center">
-                  <div className="w-20 h-20 bg-orange/10 rounded-2xl flex items-center justify-center group-hover:bg-orange/20 transition-colors duration-300">
-                    <service.icon className="w-10 h-10 text-orange" />
+            {/* Services Content */}
+            <motion.div className="space-y-12" variants={itemVariants}>
+              {services.map((service, index) => (
+                <div key={index} className="group">
+                  <div className="mb-6 flex items-start gap-4">
+                    <div className="w-16 h-16 bg-orange/10 rounded-2xl flex items-center justify-center group-hover:bg-orange/20 transition-colors duration-300 flex-shrink-0 mt-1">
+                      <service.icon className="w-8 h-8 text-orange" />
+                    </div>
+                    
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-foreground mb-4 group-hover:text-orange transition-colors duration-300">
+                        {service.title}
+                      </h3>
+                      
+                      <p className="text-muted-foreground leading-relaxed">
+                        {service.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                
-                <h3 className="text-2xl font-semibold text-foreground mb-4 group-hover:text-orange transition-colors duration-300">
-                  {service.title}
-                </h3>
-                
-                <p className="text-muted-foreground leading-relaxed text-lg">
-                  {service.description}
-                </p>
-              </motion.div>
-            ))}
+              ))}
+            </motion.div>
+
+            {/* Services Image */}
+            <motion.div 
+              className="hidden lg:flex justify-center lg:justify-end order-first lg:order-last"
+              variants={imageVariants}
+            >
+              <div className="relative">
+                <img 
+                  src="/lovable-uploads/7c7d21a9-be7a-46ca-ae6b-2990651a150f.png" 
+                  alt="Professional developer working on web and mobile applications" 
+                  className="w-full max-w-md h-auto rounded-2xl shadow-lg"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-orange/5 to-transparent rounded-2xl"></div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -174,7 +203,7 @@ const Services = () => {
             animate={isProcessVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">My Process</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">My Process</h2>
             <div className="w-20 h-1 bg-orange mx-auto"></div>
           </motion.div>
 
@@ -191,12 +220,12 @@ const Services = () => {
                 variants={itemVariants}
               >
                 <div className="flex items-center gap-4 md:flex-col md:text-center md:min-w-[120px]">
-                  <span className="text-xl font-bold text-orange">Step {step.number}</span>
+                  <span className="text-sm font-medium text-orange">Step {step.number}</span>
                 </div>
                 
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">{step.description}</p>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -212,7 +241,7 @@ const Services = () => {
             animate={isBenefitsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">Why Work With Me</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Why Work With Me</h2>
             <div className="w-20 h-1 bg-orange mx-auto"></div>
           </motion.div>
 
@@ -248,11 +277,11 @@ const Services = () => {
             animate={isContactVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
               Ready to Start Your Project?
             </h2>
             <div className="w-20 h-1 bg-orange mx-auto mb-8"></div>
-            <p className="text-xl text-muted-foreground mb-12">
+            <p className="text-lg text-muted-foreground mb-12">
               Let's discuss your ideas and create something amazing together.
             </p>
 
