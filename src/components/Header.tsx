@@ -64,7 +64,7 @@ const Header = () => {
   return (
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrollPosition > 50 ? "bg-background/95 shadow-sm backdrop-blur-sm border-b border-border" : "bg-transparent"
+                        scrollPosition > 50 ? "bg-background/95 shadow-sm backdrop-blur-sm" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 py-4">
@@ -132,7 +132,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-background border-t border-border py-4 px-6 shadow-lg animate-fade-in">
+                    <div className="md:hidden bg-background py-4 px-6 shadow-lg animate-fade-in">
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>

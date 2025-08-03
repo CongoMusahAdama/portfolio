@@ -6,7 +6,7 @@ const Footer = () => {
   const resumeUrl = "https://drive.google.com/file/d/1gejHNj4tP7kpchFHv0vUlJy4n-cpl31e/view?usp=sharing";
   
   return (
-    <footer className="bg-background border-t border-border py-16">
+    <footer className="bg-background py-16">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
@@ -108,7 +108,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-border mt-12 pt-8 text-center">
+                  <div className="mt-12 pt-8 text-center">
           <p className="text-muted-foreground">
             © {currentYear} Congo Musah Adama. All rights reserved.
           </p>

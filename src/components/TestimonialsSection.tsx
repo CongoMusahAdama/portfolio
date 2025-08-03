@@ -121,7 +121,7 @@ const TestimonialsSection = () => {
             
             <button 
               onClick={prevSlide}
-              className="absolute top-1/2 -left-6 -translate-y-1/2 bg-background rounded-full p-3 shadow-md hover:bg-muted transition-colors duration-300 border border-border"
+              className="absolute top-1/2 -left-6 -translate-y-1/2 bg-background rounded-full p-3 shadow-md hover:bg-muted transition-colors duration-300"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5 text-foreground" />
@@ -129,7 +129,7 @@ const TestimonialsSection = () => {
             
             <button 
               onClick={nextSlide}
-              className="absolute top-1/2 -right-6 -translate-y-1/2 bg-background rounded-full p-3 shadow-md hover:bg-muted transition-colors duration-300 border border-border"
+              className="absolute top-1/2 -right-6 -translate-y-1/2 bg-background rounded-full p-3 shadow-md hover:bg-muted transition-colors duration-300"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-5 h-5 text-foreground" />

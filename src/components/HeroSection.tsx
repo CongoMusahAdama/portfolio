@@ -74,7 +74,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-background/80 backdrop-blur-sm border border-border rounded-full text-muted-foreground hover:text-orange hover:bg-orange/10 transition-all duration-300 shadow-sm"
+                  className="p-3 bg-background/80 backdrop-blur-sm rounded-full text-muted-foreground hover:text-orange hover:bg-orange/10 transition-all duration-300 shadow-sm"
                   aria-label={link.label}
                 >
                   {link.icon}
@@ -183,7 +183,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                 </Button>
               </a>
               <a href="https://drive.google.com/file/d/1gejHNj4tP7kpchFHv0vUlJy4n-cpl31e/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" className="border-border text-foreground hover:bg-muted px-8 py-3 rounded-md font-medium">
+                <Button variant="outline" className="text-foreground hover:bg-muted px-8 py-3 rounded-md font-medium">
                   <Download className="mr-2 h-4 w-4" /> Download CV
                 </Button>
               </a>

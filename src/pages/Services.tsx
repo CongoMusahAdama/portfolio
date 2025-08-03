@@ -292,7 +292,7 @@ const Services = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <motion.div 
-                className="bg-background p-6 rounded-xl shadow-sm border border-border mb-8"
+                className="bg-background p-6 rounded-xl shadow-sm mb-8"
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.2 }}
               >

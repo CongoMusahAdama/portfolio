@@ -84,7 +84,7 @@ const ProjectsSection = () => {
           {projects.map((project) => (
             <motion.div
               key={project.id}
-              className="bg-background rounded-lg shadow-sm border border-border overflow-hidden hover:shadow-md transition-all duration-300"
+              className="bg-background rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300"
               variants={itemVariants}
               initial="hidden"
               whileInView="visible"
