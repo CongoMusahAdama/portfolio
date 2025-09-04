@@ -3,7 +3,7 @@ import { Github, Mail, MapPin, Phone } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const resumeUrl = "https://drive.google.com/file/d/1gejHNj4tP7kpchFHv0vUlJy4n-cpl31e/view?usp=sharing";
+  const resumeUrl = "https://flowcv.com/resume/wtaak1n6a414";
   
   return (
     <footer className="bg-background py-16">

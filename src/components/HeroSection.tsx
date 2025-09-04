@@ -182,7 +182,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                   Get In Touch
                 </Button>
               </a>
-              <a href="https://drive.google.com/file/d/1gejHNj4tP7kpchFHv0vUlJy4n-cpl31e/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+              <a href="https://flowcv.com/resume/wtaak1n6a414" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="text-foreground hover:bg-muted px-8 py-3 rounded-md font-medium">
                   <Download className="mr-2 h-4 w-4" /> Download CV
                 </Button>
