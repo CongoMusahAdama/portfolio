@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Download, MapPin, Mail, Github, Linkedin } from "lucide-react";
+import { MapPin, Mail, Github, Linkedin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -11,6 +11,21 @@ interface HeroSectionProps {
 const HeroSection = ({ profileImage }: HeroSectionProps) => {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const titles = ["Software Engineer", "Product Strategy Thinker"];
+  const accentImage = "/lovable-uploads/image.png";
+  const accentTiles = [
+    {
+      className:
+        "hidden md:block top-6 right-32 w-40 h-40 rotate-3",
+    },
+    {
+      className:
+        "top-32 left-4 md:left-24 w-32 h-32 -rotate-2",
+    },
+    {
+      className:
+        "bottom-8 right-6 md:right-32 w-36 h-36 rotate-6",
+    },
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,8 +56,20 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
     <section 
       id="hero" 
-      className="relative min-h-screen pt-24 bg-background"
+      className="relative min-h-screen pt-24 bg-background overflow-hidden"
     >
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
+        {accentTiles.map((tile, index) => (
+          <img
+            key={index}
+            src={accentImage}
+            alt="hero accent"
+            className={`absolute rounded-3xl shadow-lg opacity-80 dark:opacity-60 mix-blend-multiply dark:mix-blend-screen blur-[0.2px] ${tile.className}`}
+          />
+        ))}
+      </div>
+
       <div className="container mx-auto px-6 z-10 py-20 lg:py-32 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           {/* Profile image on the left */}
@@ -168,7 +195,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             <div className="flex flex-col gap-3 mb-8">
               <div className="flex items-center text-muted-foreground">
                 <MapPin className="w-5 h-5 text-orange mr-3" />
-                <span className="font-medium">Takoradi, Ghana</span>
+                <span className="font-medium">Accra and Takoradi, Ghana • Freelancer</span>
               </div>
               <div className="flex items-center text-muted-foreground">
                 <Mail className="w-5 h-5 text-orange mr-3" />
@@ -182,9 +209,9 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                   Get In Touch
                 </Button>
               </a>
-              <a href="https://flowcv.com/resume/wtaak1n6a414" target="_blank" rel="noopener noreferrer">
+              <a href="#projects">
                 <Button variant="outline" className="text-foreground hover:bg-muted px-8 py-3 rounded-md font-medium">
-                  <Download className="mr-2 h-4 w-4" /> Download CV
+                  View Portfolio
                 </Button>
               </a>
             </div>

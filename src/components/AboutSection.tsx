@@ -17,7 +17,7 @@ const AboutSection = () => {
           
           <div className="text-base text-muted-foreground leading-relaxed mb-12 space-y-6">
             <p>
-              I'm a self-taught Software Engineer based in Takoradi, Ghana, with strong expertise in Python, Node.js, FastAPI, Django, and Laravel. I specialize in building robust APIs, microservices, and cloud-connected systems that power impactful digital experiences.
+              I'm a self-taught Software Engineer and Freelancer based in Accra and Takoradi, Ghana, with strong expertise in Python, Node.js, FastAPI, Django, and Laravel. I specialize in building robust APIs, microservices, and cloud-connected systems that power impactful digital experiences.
             </p>
             
             <p className="font-semibold">
@@ -36,7 +36,7 @@ const AboutSection = () => {
             </blockquote>
             
             <p>
-              These words deeply inspire me — to pursue excellence in every field I commit to, whether in engineering or beyond.
+              These words deeply inspire me — to pursue excellence in every field I commit to, whether in engineering or beyond. <span className="font-bold">Just build something.</span>
             </p>
           </div>
           

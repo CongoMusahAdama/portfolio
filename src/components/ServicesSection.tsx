@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Code, Bot } from 'lucide-react';
+import { Code, Bot, Brain } from 'lucide-react';
 import useIntersectionObserver from '@/hooks/use-intersection-observer';
 
 const ServicesSection = () => {
@@ -22,6 +22,11 @@ const ServicesSection = () => {
       icon: Bot,
       title: "Bot Development",
       description: "Web scraping bots and automation solutions to streamline your business processes and improve efficiency."
+    },
+    {
+      icon: Brain,
+      title: "AI & Machine Learning",
+      description: "Training AI models and integrating them in real-world applications to enhance business processes and deliver intelligent solutions."
     }
   ];
 
@@ -61,7 +66,7 @@ const ServicesSection = () => {
         </div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto mb-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto mb-12"
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
           variants={containerVariants}

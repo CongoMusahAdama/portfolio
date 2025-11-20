@@ -1,6 +1,7 @@
 
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -8,6 +9,7 @@ import useIntersectionObserver from "@/hooks/use-intersection-observer";
 
 const About = () => {
   const profileImage = "/lovable-uploads/d51f7576-dd9d-4647-ae97-24a43a1f93ee.png";
+  const resumeUrl = "https://flowcv.com/resume/wtaak1n6a414";
   const timelineRef = useRef(null);
   const isTimelineVisible = useIntersectionObserver(timelineRef, { threshold: 0.1 });
 
@@ -25,13 +27,13 @@ const About = () => {
     },
     {
       type: "work",
-      year: "Oct 2024 – Present",
+      year: "Oct 2024 – Oct 2025",
       title: "Association of Ghana Startups",
       subtitle: "Backend Developer (NSP)",
       achievements: [
         "Built scalable backend system powering a national startup portal",
         "Reduced page load times by 40%",
-        "Integrated CMS for 75% faster updates"
+        "Integrated CMS for 75% faster updates on the About/My Journey section"
       ],
       icon: "💼"
     },
@@ -155,7 +157,12 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">My Journey</h2>
-            <div className="w-20 h-1 bg-orange mx-auto"></div>
+            <div className="w-20 h-1 bg-orange mx-auto mb-6"></div>
+            <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" className="text-foreground hover:bg-muted px-8 py-3 rounded-md font-medium">
+                Download CV
+              </Button>
+            </a>
           </motion.div>
 
           <div className="max-w-6xl mx-auto relative">

@@ -61,6 +61,13 @@ const Header = () => {
     { title: "Contact", href: "#contact", external: false, isSection: true },
   ];
 
+  const navItemClasses = (isActive = false) =>
+    `px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${
+      isActive
+        ? "bg-orange/15 text-orange shadow-sm"
+        : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+    }`;
+
   return (
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -68,17 +75,17 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-6 py-4">
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between gap-4">
           <Link 
             to="/" 
-            className="font-bold text-xl text-foreground hover:text-orange transition-colors"
+            className="font-bold text-xl text-foreground hover:text-orange transition-colors flex-shrink-0"
           >
             Congo Musah Adama
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            <ul className="flex gap-8">
+          <nav className="hidden md:flex flex-1 justify-center">
+            <ul className="flex items-center gap-2 px-4 py-2 rounded-full border border-border/60 bg-background/70 backdrop-blur-sm shadow-sm">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   {link.external ? (
@@ -86,23 +93,22 @@ const Header = () => {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm"
+                      className={navItemClasses()}
                     >
                       {link.title}
                     </a>
                   ) : link.isSection ? (
                     <button
                       onClick={() => handleSectionClick(link.href)}
-                      className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm cursor-pointer"
+                      className={navItemClasses()}
+                      type="button"
                     >
                       {link.title}
                     </button>
                   ) : (
                     <Link 
                       to={link.href}
-                      className={`text-muted-foreground hover:text-foreground transition-colors font-medium text-sm ${
-                        location.pathname === link.href ? 'text-orange' : ''
-                      }`}
+                      className={navItemClasses(location.pathname === link.href)}
                     >
                       {link.title}
                     </Link>
@@ -110,11 +116,11 @@ const Header = () => {
                 </li>
               ))}
             </ul>
-            
-            <div className="flex items-center gap-4 ml-4">
-              <ThemeToggle />
-            </div>
           </nav>
+
+          <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
+          </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">

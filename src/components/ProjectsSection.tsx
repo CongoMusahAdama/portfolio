@@ -24,6 +24,15 @@ const ProjectsSection = () => {
 
   const projects: Project[] = [
     {
+      id: 0,
+      title: "Artisans Hub",
+      description: "A platform giving Ghanaian artisans the spotlight they deserve by helping them sell products, get booked for services, and secure funding through AI-matched investor connections tailored to their craft focus.",
+      image: "/lovable-uploads/Screenshot (366).png",
+      technologies: ["React", "TypeScript", "Node.js", "MongoDB", "AI Matching"],
+      githubUrl: "https://github.com/CongoMusahAdama/ArtisanHub",
+      websiteUrl: "https://artisanhubghana.netlify.app/",
+    },
+    {
       id: 1,
       title: "RealRate",
       description: "AI powered real estate platform providing accurate property price predictions and helping you find your dream home in Ghana",

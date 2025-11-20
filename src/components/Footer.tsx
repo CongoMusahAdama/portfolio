@@ -3,7 +3,6 @@ import { Github, Mail, MapPin, Phone } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const resumeUrl = "https://flowcv.com/resume/wtaak1n6a414";
   
   return (
     <footer className="bg-background py-16">
@@ -98,11 +97,11 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-orange mt-0.5 flex-shrink-0" />
-                <span className="text-muted-foreground">Takoradi, Ghana</span>
+                <span className="text-muted-foreground">Accra and Takoradi, Ghana • Freelancer</span>
               </li>
               <li className="flex items-start gap-3">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-orange mt-0.5 flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                <a href={resumeUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">Download CV</a>
+                <a href="#projects" className="text-muted-foreground hover:text-foreground transition-colors">View Portfolio</a>
               </li>
             </ul>
           </div>
