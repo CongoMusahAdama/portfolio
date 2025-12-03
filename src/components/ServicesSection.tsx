@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Code, Bot, Brain } from 'lucide-react';
 import useIntersectionObserver from '@/hooks/use-intersection-observer';
+import TechPattern from './TechPattern';
 
 const ServicesSection = () => {
   const sectionRef = useRef(null);
@@ -55,12 +56,17 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-20 bg-muted/30" ref={sectionRef}>
-      <div className="container mx-auto px-6">
+    <section
+      id="services"
+      className="py-12 bg-orange relative overflow-hidden"
+      ref={sectionRef}
+    >
+      <TechPattern />
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">What I Do</h2>
-          <div className="w-20 h-1 bg-orange mx-auto mb-8"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">What I Do</h2>
+          <div className="w-20 h-1 bg-white mx-auto mb-8"></div>
+          <p className="text-lg text-white max-w-2xl mx-auto">
             Specialized services to help bring your digital vision to life
           </p>
         </div>
@@ -78,16 +84,16 @@ const ServicesSection = () => {
               variants={itemVariants}
             >
               <div className="mb-6 flex justify-center">
-                <div className="w-16 h-16 bg-orange/10 rounded-2xl flex items-center justify-center group-hover:bg-orange/20 transition-colors duration-300">
-                  <service.icon className="w-8 h-8 text-orange" />
+                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
+                  <service.icon className="w-8 h-8 text-white" />
                 </div>
               </div>
-              
-              <h3 className="text-xl font-semibold text-foreground mb-4 group-hover:text-orange transition-colors duration-300">
+
+              <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-black/80 transition-colors duration-300">
                 {service.title}
               </h3>
-              
-              <p className="text-muted-foreground leading-relaxed">
+
+              <p className="text-white/90 leading-relaxed">
                 {service.description}
               </p>
             </motion.div>
@@ -100,7 +106,7 @@ const ServicesSection = () => {
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ delay: 0.8, duration: 0.6 }}
         >
-          <Button asChild size="lg" className="bg-orange hover:bg-orange/90">
+          <Button asChild size="lg" className="bg-white text-black hover:bg-white/90">
             <Link to="/services">
               See All Services
             </Link>

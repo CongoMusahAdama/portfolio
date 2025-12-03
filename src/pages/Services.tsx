@@ -7,13 +7,14 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { Button } from "@/components/ui/button";
 import { Code, Bot, Check, MessageCircle } from "lucide-react";
 import useIntersectionObserver from "@/hooks/use-intersection-observer";
+import TechPattern from "@/components/TechPattern";
 
 const Services = () => {
   const servicesRef = useRef(null);
   const processRef = useRef(null);
   const benefitsRef = useRef(null);
   const contactRef = useRef(null);
-  
+
   const isServicesVisible = useIntersectionObserver(servicesRef, { threshold: 0.1 });
   const isProcessVisible = useIntersectionObserver(processRef, { threshold: 0.1 });
   const isBenefitsVisible = useIntersectionObserver(benefitsRef, { threshold: 0.1 });
@@ -39,13 +40,13 @@ const Services = () => {
       description: "I start by understanding your business, goals, and requirements through in-depth consultation."
     },
     {
-      number: "02", 
+      number: "02",
       title: "Planning",
       description: "We develop a strategic roadmap with timelines, milestones, and deliverables."
     },
     {
       number: "03",
-      title: "Design & Development", 
+      title: "Design & Development",
       description: "I create user-friendly designs and develop robust solutions with attention to detail."
     },
     {
@@ -64,7 +65,7 @@ const Services = () => {
     "Custom solutions tailored to your specific needs",
     "Modern, responsive designs",
     "Clean, maintainable code",
-    "SEO-friendly practices", 
+    "SEO-friendly practices",
     "Ongoing support",
     "Transparent communication"
   ];
@@ -126,7 +127,7 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <section className="pt-24 pb-16 bg-background">
         <div className="container mx-auto px-6">
           <motion.div
@@ -162,12 +163,12 @@ const Services = () => {
                     <div className="w-16 h-16 bg-orange/10 rounded-2xl flex items-center justify-center group-hover:bg-orange/20 transition-colors duration-300 flex-shrink-0 mt-1">
                       <service.icon className="w-8 h-8 text-orange" />
                     </div>
-                    
+
                     <div className="flex-1">
                       <h3 className="text-xl font-semibold text-foreground mb-4 group-hover:text-orange transition-colors duration-300">
                         {service.title}
                       </h3>
-                      
+
                       <p className="text-muted-foreground leading-relaxed">
                         {service.description}
                       </p>
@@ -178,14 +179,14 @@ const Services = () => {
             </motion.div>
 
             {/* Services Image */}
-            <motion.div 
+            <motion.div
               className="hidden lg:flex justify-center lg:justify-end order-first lg:order-last"
               variants={imageVariants}
             >
               <div className="relative">
-                <img 
-                  src="/lovable-uploads/7c7d21a9-be7a-46ca-ae6b-2990651a150f.png" 
-                  alt="Professional developer working on web and mobile applications" 
+                <img
+                  src="/lovable-uploads/7c7d21a9-be7a-46ca-ae6b-2990651a150f.png"
+                  alt="Professional developer working on web and mobile applications"
                   className="w-full max-w-md h-auto rounded-2xl shadow-lg"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-orange/5 to-transparent rounded-2xl"></div>
@@ -222,7 +223,7 @@ const Services = () => {
                 <div className="flex items-center gap-4 md:flex-col md:text-center md:min-w-[120px]">
                   <span className="text-sm font-medium text-orange">Step {step.number}</span>
                 </div>
-                
+
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-foreground mb-2">{step.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{step.description}</p>
@@ -233,16 +234,17 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-muted/30" ref={benefitsRef}>
-        <div className="container mx-auto px-6">
+      <section className="py-12 bg-orange relative overflow-hidden" ref={benefitsRef}>
+        <TechPattern />
+        <div className="container mx-auto px-6 relative z-10">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={isBenefitsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Why Work With Me</h2>
-            <div className="w-20 h-1 bg-orange mx-auto"></div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Why Work With Me</h2>
+            <div className="w-20 h-1 bg-white mx-auto"></div>
           </motion.div>
 
           <motion.div
@@ -258,10 +260,10 @@ const Services = () => {
                   className="flex items-center gap-4"
                   variants={itemVariants}
                 >
-                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Check className="w-5 h-5 text-green-600" />
+                  <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Check className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-foreground font-medium">{benefit}</span>
+                  <span className="text-white font-medium">{benefit}</span>
                 </motion.div>
               ))}
             </div>
@@ -285,34 +287,34 @@ const Services = () => {
               Let's discuss your ideas and create something amazing together.
             </p>
 
-            <motion.div 
+            <motion.div
               className="max-w-md mx-auto flex flex-col items-center justify-center"
               initial={{ opacity: 0, y: 30 }}
               animate={isContactVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <motion.div 
+              <motion.div
                 className="bg-background p-6 rounded-xl shadow-sm mb-8"
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.2 }}
               >
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp chat">
-                  <img 
-                    src="/lovable-uploads/764f9228-d9ad-428d-ab65-0610222686ec.png" 
-                    alt="WhatsApp QR Code" 
-                    className="w-52 h-52" 
+                  <img
+                    src="/lovable-uploads/764f9228-d9ad-428d-ab65-0610222686ec.png"
+                    alt="WhatsApp QR Code"
+                    className="w-52 h-52"
                   />
                 </a>
               </motion.div>
-              
-              <Button 
-                asChild 
-                variant="default" 
+
+              <Button
+                asChild
+                variant="default"
                 className="bg-orange hover:bg-orange/90 text-orange-foreground px-8 py-3"
               >
-                <a 
-                  href={whatsappUrl} 
-                  target="_blank" 
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >

@@ -37,7 +37,7 @@
 
     --radius: 0.5rem;
 
-    --orange: 25 95% 53%;
+    --orange: 25 95% 45%;
     --orange-foreground: 0 0% 98%;
   }
 
@@ -70,7 +70,7 @@
     --input: 220 13% 18%;
     --ring: 0 0% 95%;
 
-    --orange: 25 95% 53%;
+    --orange: 25 95% 45%;
     --orange-foreground: 0 0% 98%;
   }
 }
