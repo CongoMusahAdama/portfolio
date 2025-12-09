@@ -36,26 +36,26 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
   }, [titles.length]);
 
   const socialLinks = [
-    { 
-      icon: <Github className="w-5 h-5" />, 
+    {
+      icon: <Github className="w-5 h-5" />,
       href: "https://github.com/CongoMusahAdama",
       label: "GitHub"
     },
-    { 
-      icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>, 
+    {
+      icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>,
       href: "https://twitter.com/1real_vee",
       label: "X"
     },
-    { 
-      icon: <Linkedin className="w-5 h-5" />, 
-      href: "https://linkedin.com/in/musah-congo-766bb3224",
+    {
+      icon: <Linkedin className="w-5 h-5" />,
+      href: "https://www.linkedin.com/in/congo-musah-ad-deen-766bb3224/",
       label: "LinkedIn"
     }
   ];
 
   return (
-    <section 
-      id="hero" 
+    <section
+      id="hero"
       className="relative min-h-screen pt-24 bg-background overflow-hidden"
     >
       <div className="absolute inset-0 -z-10 pointer-events-none">
@@ -73,7 +73,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
       <div className="container mx-auto px-6 z-10 py-20 lg:py-32 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           {/* Profile image on the left */}
-          <motion.div 
+          <motion.div
             className="relative w-80 h-80 mx-auto lg:mx-0 order-first lg:order-first"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -81,22 +81,22 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           >
             <div className="relative w-full h-full">
               <div className="absolute inset-0 bg-gradient-to-br from-orange/20 to-orange/10 rounded-3xl transform rotate-6"></div>
-              <img 
-                src={profileImage} 
-                alt="Congo Musah Adama" 
+              <img
+                src={profileImage}
+                alt="Congo Musah Adama"
                 className="relative w-full h-full object-cover rounded-3xl shadow-2xl z-10"
               />
             </div>
-            
+
             {/* Social Media Icons under profile */}
-            <motion.div 
+            <motion.div
               className="flex justify-center gap-4 mt-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
             >
               {socialLinks.map((link) => (
-                <a 
+                <a
                   key={link.href}
                   href={link.href}
                   target="_blank"
@@ -111,20 +111,20 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           </motion.div>
 
           {/* Text content on the right */}
-          <motion.div 
+          <motion.div
             className="text-left order-last lg:order-last"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            <motion.h1 
+            <motion.h1
               className="text-5xl lg:text-6xl font-bold leading-tight mb-6"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
               <span className="text-foreground">Hi I'm </span>
-              <motion.span 
+              <motion.span
                 className="text-orange inline-block relative"
                 animate={{
                   scale: [1, 1.1, 1],
@@ -168,7 +168,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                 </motion.span>
               </motion.span>
             </motion.h1>
-            
+
             {/* Rotating titles */}
             <div className="text-2xl lg:text-3xl font-medium mb-6 h-12 flex items-center">
               <AnimatePresence mode="wait">
@@ -177,7 +177,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                   initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
-                  transition={{ 
+                  transition={{
                     duration: 0.6,
                     ease: "easeInOut"
                   }}
