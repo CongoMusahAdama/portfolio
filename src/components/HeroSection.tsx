@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { MapPin, Mail, Github, Linkedin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -50,7 +49,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
       icon: <Linkedin className="w-5 h-5" />,
       href: "https://www.linkedin.com/in/congo-musah-ad-deen-766bb3224/",
       label: "LinkedIn"
-    }
+    },
   ];
 
   return (
@@ -74,7 +73,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
           {/* Profile image on the left */}
           <motion.div
-            className="relative w-80 h-80 mx-auto lg:mx-0 order-first lg:order-first"
+            className="relative w-64 h-64 md:w-80 md:h-80 mx-auto lg:mx-0 order-first lg:order-first"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
@@ -86,6 +85,8 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                 alt="Congo Musah Adama"
                 className="relative w-full h-full object-cover rounded-3xl shadow-2xl z-10"
               />
+
+              {/* Badges removed as requested */}
             </div>
 
             {/* Social Media Icons under profile */}
@@ -204,9 +205,9 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <a href="#contact">
+              <a href="https://flowcv.com/resume/wtaak1n6a414" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-orange hover:bg-orange/90 text-orange-foreground px-8 py-3 rounded-md font-medium">
-                  Get In Touch
+                  Download CV
                 </Button>
               </a>
               <a href="#projects">

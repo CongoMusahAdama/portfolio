@@ -108,7 +108,7 @@ const SkillsSection = () => {
             Technologies I work with to build amazing digital experiences
           </p>
         </div>
-        
+
         <motion.div
           className="space-y-16 max-w-6xl mx-auto"
           initial="hidden"
@@ -122,11 +122,11 @@ const SkillsSection = () => {
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 justify-items-center">
                 {skillGroup.items.map((skill, skillIndex) => (
-                  <motion.div 
+                  <motion.div
                     key={skillIndex}
                     className="flex flex-col items-center group"
                     variants={itemVariants}
-                    whileHover={{ 
+                    whileHover={{
                       y: -10,
                       transition: { type: "spring", stiffness: 300 }
                     }}

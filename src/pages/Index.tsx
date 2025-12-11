@@ -13,26 +13,27 @@ import ScrollToTop from '@/components/ScrollToTop';
 
 const Index = () => {
   // Updated profile image to the new uploaded file
+  // Updated profile image to the new uploaded file
   const profileImage = "/lovable-uploads/d51f7576-dd9d-4647-ae97-24a43a1f93ee.png";
 
   useEffect(() => {
     // Animation for elements with .slide-in class
     const handleScroll = () => {
       const elements = document.querySelectorAll('.slide-in');
-      
+
       elements.forEach((element) => {
         const elementPosition = element.getBoundingClientRect();
         const isVisible = elementPosition.top < window.innerHeight * 0.85;
-        
+
         if (isVisible) {
           element.classList.add('active');
         }
       });
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Check on initial load
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
