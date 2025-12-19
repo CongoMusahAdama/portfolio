@@ -16,6 +16,7 @@ interface Project {
   demoUrl?: string;
   websiteUrl?: string;
   status?: string;
+  rating?: number;
 }
 
 const ProjectsSection = () => {
@@ -31,6 +32,7 @@ const ProjectsSection = () => {
       technologies: ["React", "TypeScript", "Node.js", "MongoDB", "AI Matching"],
       githubUrl: "https://github.com/CongoMusahAdama/ArtisanHub",
       websiteUrl: "https://artisanhubghana.netlify.app/",
+      rating: 5
     },
     {
       id: 1,
@@ -39,7 +41,8 @@ const ProjectsSection = () => {
       image: "/lovable-uploads/067f6480-76cb-4a27-a4c3-2388ff2fbd51.png",
       technologies: ["FastAPI", "Voting Regression Model"],
       githubUrl: "https://github.com/CongoMusahAdama/rrate",
-      status: "Under Development"
+      status: "Under Development",
+      rating: 4
     },
     {
       id: 2,
@@ -49,6 +52,7 @@ const ProjectsSection = () => {
       technologies: ["MongoDB", "Express", "JavaScript", "Node.js", "React", "Vite"],
       githubUrl: "https://github.com/CongoMusahAdama",
       websiteUrl: "https://webarb.netlify.app",
+      rating: 5
     },
     {
       id: 3,
@@ -57,7 +61,8 @@ const ProjectsSection = () => {
       image: "/lovable-uploads/agrilync.png",
       technologies: ["MongoDB", "Express", "TypeScript", "React", "Vite"],
       githubUrl: "https://github.com/CongoMusahAdama",
-      websiteUrl: "https://agri-lync.netlify.app"
+      websiteUrl: "https://agri-lync.netlify.app",
+      rating: 5
     },
     {
       id: 4,
@@ -66,6 +71,7 @@ const ProjectsSection = () => {
       image: "/lovable-uploads/mizrmo.png",
       technologies: ["Flutter", "Nest.js", "Node.js", "TypeScript", "PostgreSQL"],
       githubUrl: "https://github.com/CongoMusahAdama",
+      rating: 4
     },
   ];
 
@@ -112,11 +118,27 @@ const ProjectsSection = () => {
                   </Badge>
                 )}
               </div>
-              
+
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-foreground mb-3">{project.title}</h3>
+                <div className="flex justify-between items-start mb-3">
+                  <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
+                  {project.rating && (
+                    <div className="flex gap-0.5 mt-1">
+                      {[...Array(5)].map((_, i) => (
+                        <svg
+                          key={i}
+                          className={`w-3.5 h-3.5 ${i < project.rating! ? 'text-orange fill-orange' : 'text-muted fill-muted'}`}
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                        </svg>
+                      ))}
+                    </div>
+                  )}
+                </div>
                 <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, idx) => (
                     <span key={idx} className="bg-muted text-muted-foreground text-xs px-3 py-1 rounded-full">

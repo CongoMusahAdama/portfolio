@@ -55,7 +55,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen pt-24 bg-background overflow-hidden"
+      className="relative min-h-screen pt-16 lg:pt-24 bg-background overflow-hidden"
     >
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
@@ -69,29 +69,27 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 z-10 py-20 lg:py-32 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+      <div className="container mx-auto px-6 z-10 py-12 lg:py-32 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto">
           {/* Profile image on the left */}
           <motion.div
-            className="relative w-64 h-64 md:w-80 md:h-80 mx-auto lg:mx-0 order-first lg:order-first"
+            className="flex flex-col items-center lg:items-start order-first"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="relative w-full h-full">
+            <div className="relative w-64 h-64 md:w-80 md:h-80">
               <div className="absolute inset-0 bg-gradient-to-br from-orange/20 to-orange/10 rounded-3xl transform rotate-6"></div>
               <img
                 src={profileImage}
                 alt="Congo Musah Adama"
                 className="relative w-full h-full object-cover rounded-3xl shadow-2xl z-10"
               />
-
-              {/* Badges removed as requested */}
             </div>
 
             {/* Social Media Icons under profile */}
             <motion.div
-              className="flex justify-center gap-4 mt-6"
+              className="flex justify-center lg:justify-start gap-4 mt-8 w-full"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
@@ -130,9 +128,9 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                 animate={{
                   scale: [1, 1.1, 1],
                   textShadow: [
-                    "0 0 0px rgb(249 115 22 / 0)",
-                    "0 0 20px rgb(249 115 22 / 0.5)",
-                    "0 0 0px rgb(249 115 22 / 0)"
+                    "0 0 0px rgb(25 209 230 / 0)",
+                    "0 0 20px rgb(25 209 230 / 0.5)",
+                    "0 0 0px rgb(25 209 230 / 0)"
                   ]
                 }}
                 transition={{
@@ -141,7 +139,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                   ease: "easeInOut"
                 }}
                 style={{
-                  background: "linear-gradient(45deg, #f97316, #ea580c, #f97316)",
+                  background: "linear-gradient(45deg, #19d1e6, #14a8b9, #19d1e6)",
                   backgroundSize: "200% 200%",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
@@ -158,7 +156,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                     ease: "linear"
                   }}
                   style={{
-                    background: "linear-gradient(45deg, #f97316, #ea580c, #dc2626, #ea580c, #f97316)",
+                    background: "linear-gradient(45deg, #19d1e6, #14a8b9, #108592, #14a8b9, #19d1e6)",
                     backgroundSize: "400% 400%",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
@@ -224,3 +222,4 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
 };
 
 export default HeroSection;
+

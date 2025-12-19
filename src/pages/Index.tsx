@@ -13,8 +13,7 @@ import ScrollToTop from '@/components/ScrollToTop';
 
 const Index = () => {
   // Updated profile image to the new uploaded file
-  // Updated profile image to the new uploaded file
-  const profileImage = "/lovable-uploads/d51f7576-dd9d-4647-ae97-24a43a1f93ee.png";
+  const profileImage = "/lovable-uploads/image copy 3.png";
 
   useEffect(() => {
     // Animation for elements with .slide-in class
