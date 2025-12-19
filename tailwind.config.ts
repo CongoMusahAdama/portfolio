@@ -66,7 +66,11 @@ export default {
 				orange: {
 					DEFAULT: 'hsl(var(--orange))',
 					foreground: 'hsl(var(--orange-foreground))'
-				}
+				},
+				cyan: {
+					DEFAULT: "hsl(var(--cyan))",
+					foreground: "hsl(var(--cyan-foreground))",
+				},
 			},
 			fontFamily: {
 				inter: ['Inter', 'sans-serif'],

@@ -24,7 +24,7 @@ const Header = () => {
   const handleSectionClick = (href: string) => {
     // Close mobile menu
     setIsMenuOpen(false);
-    
+
     // If we're not on the homepage, navigate there first
     if (location.pathname !== '/') {
       navigate('/');
@@ -32,7 +32,7 @@ const Header = () => {
       setTimeout(() => {
         const element = document.querySelector(href);
         if (element) {
-          element.scrollIntoView({ 
+          element.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
           });
@@ -42,7 +42,7 @@ const Header = () => {
       // We're already on homepage, just scroll
       const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({ 
+        element.scrollIntoView({
           behavior: 'smooth',
           block: 'start'
         });
@@ -62,22 +62,20 @@ const Header = () => {
   ];
 
   const navItemClasses = (isActive = false) =>
-    `px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${
-      isActive
-        ? "bg-orange/15 text-orange shadow-sm"
-        : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+    `px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${isActive
+      ? "bg-cyan/20 text-cyan shadow-sm"
+      : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
     }`;
 
   return (
-    <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-                        scrollPosition > 50 ? "bg-background/95 shadow-sm backdrop-blur-sm" : "bg-transparent"
-      }`}
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrollPosition > 50 ? "bg-background/95 shadow-sm backdrop-blur-sm" : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between gap-4">
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="font-bold text-xl text-foreground hover:text-orange transition-colors flex-shrink-0"
           >
             Congo Musah Adama
@@ -89,7 +87,7 @@ const Header = () => {
               {navLinks.map((link) => (
                 <li key={link.href}>
                   {link.external ? (
-                    <a 
+                    <a
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -106,7 +104,7 @@ const Header = () => {
                       {link.title}
                     </button>
                   ) : (
-                    <Link 
+                    <Link
                       to={link.href}
                       className={navItemClasses(location.pathname === link.href)}
                     >
@@ -125,7 +123,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
-            <button 
+            <button
               className="text-foreground hover:text-orange transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
@@ -138,12 +136,12 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-                    <div className="md:hidden bg-background py-4 px-6 shadow-lg animate-fade-in">
+        <div className="md:hidden bg-background py-4 px-6 shadow-lg animate-fade-in">
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
                 {link.external ? (
-                  <a 
+                  <a
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -160,11 +158,10 @@ const Header = () => {
                     {link.title}
                   </button>
                 ) : (
-                  <Link 
+                  <Link
                     to={link.href}
-                    className={`block text-muted-foreground hover:text-foreground transition-colors font-medium py-2 ${
-                      location.pathname === link.href ? 'text-orange' : ''
-                    }`}
+                    className={`block text-muted-foreground hover:text-foreground transition-colors font-medium py-2 ${location.pathname === link.href ? 'text-cyan' : ''
+                      }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.title}

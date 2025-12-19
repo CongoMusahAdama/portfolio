@@ -139,7 +139,7 @@ const Services = () => {
             <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
               My Services
             </h1>
-            <div className="w-20 h-1 bg-orange mx-auto mb-8"></div>
+            <div className="w-20 h-1 bg-cyan mx-auto mb-8"></div>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Comprehensive development solutions to transform your ideas into powerful digital experiences
             </p>
@@ -205,7 +205,7 @@ const Services = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">My Process</h2>
-            <div className="w-20 h-1 bg-orange mx-auto"></div>
+            <div className="w-20 h-1 bg-cyan mx-auto"></div>
           </motion.div>
 
           <motion.div
@@ -282,7 +282,7 @@ const Services = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
               Ready to Start Your Project?
             </h2>
-            <div className="w-20 h-1 bg-orange mx-auto mb-8"></div>
+            <div className="w-20 h-1 bg-cyan mx-auto mb-8"></div>
             <p className="text-lg text-muted-foreground mb-12">
               Let's discuss your ideas and create something amazing together.
             </p>

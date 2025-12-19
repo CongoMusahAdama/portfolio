@@ -132,7 +132,7 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">My Journey</h2>
-            <div className="w-20 h-1 bg-orange mx-auto mb-6"></div>
+            <div className="w-20 h-1 bg-cyan mx-auto mb-6"></div>
             <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className="text-foreground hover:bg-muted px-8 py-3 rounded-md font-medium">
                 Download CV

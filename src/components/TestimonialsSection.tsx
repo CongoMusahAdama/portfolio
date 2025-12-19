@@ -14,7 +14,7 @@ interface Testimonial {
 const TestimonialsSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const section = document.getElementById('testimonials');
@@ -25,10 +25,10 @@ const TestimonialsSection = () => {
         }
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     handleScroll();
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -73,7 +73,7 @@ const TestimonialsSection = () => {
     const interval = setInterval(() => {
       nextSlide();
     }, 12000); // Increased from 7000ms to 12000ms for more reading time
-    
+
     return () => clearInterval(interval);
   }, []);
 
@@ -82,31 +82,30 @@ const TestimonialsSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">Testimonials</h2>
-          <div className="w-20 h-1 bg-orange mx-auto mb-8"></div>
+          <div className="w-20 h-1 bg-cyan mx-auto mb-8"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             What clients say about working with me
           </p>
         </div>
-        
+
         <div className={`max-w-4xl mx-auto transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}>
           <div className="relative">
             {testimonials.map((testimonial, index) => (
-              <div 
+              <div
                 key={testimonial.id}
-                className={`transition-opacity duration-1000 ease-in-out ${
-                  currentSlide === index ? 'opacity-100' : 'opacity-0 absolute top-0 left-0'
-                }`}
+                className={`transition-opacity duration-1000 ease-in-out ${currentSlide === index ? 'opacity-100' : 'opacity-0 absolute top-0 left-0'
+                  }`}
                 style={{ display: currentSlide === index ? 'block' : 'none' }}
               >
                 <div className="py-8 px-4 relative">
                   <div className="text-muted-foreground text-lg leading-relaxed italic mb-8 text-center">
                     {testimonial.content}
                   </div>
-                  
+
                   <div className="flex flex-col items-center text-center">
-                    <img 
-                      src={testimonial.avatar} 
-                      alt={testimonial.name} 
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
                       className="w-20 h-20 rounded-full object-cover mb-4 border-2 border-orange/20"
                     />
                     <div>
@@ -118,16 +117,16 @@ const TestimonialsSection = () => {
                 </div>
               </div>
             ))}
-            
-            <button 
+
+            <button
               onClick={prevSlide}
               className="absolute top-1/2 -left-6 -translate-y-1/2 bg-background rounded-full p-3 shadow-md hover:bg-muted transition-colors duration-300"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5 text-foreground" />
             </button>
-            
-            <button 
+
+            <button
               onClick={nextSlide}
               className="absolute top-1/2 -right-6 -translate-y-1/2 bg-background rounded-full p-3 shadow-md hover:bg-muted transition-colors duration-300"
               aria-label="Next testimonial"
@@ -135,15 +134,14 @@ const TestimonialsSection = () => {
               <ChevronRight className="w-5 h-5 text-foreground" />
             </button>
           </div>
-          
+
           <div className="flex justify-center space-x-2 mt-8">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                  currentSlide === index ? 'bg-orange' : 'bg-muted-foreground/30'
-                }`}
+                className={`w-3 h-3 rounded-full transition-colors duration-300 ${currentSlide === index ? 'bg-orange' : 'bg-muted-foreground/30'
+                  }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}

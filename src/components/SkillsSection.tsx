@@ -103,7 +103,7 @@ const SkillsSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">Tech Stack</h2>
-          <div className="w-20 h-1 bg-orange mx-auto mb-8"></div>
+          <div className="w-20 h-1 bg-cyan mx-auto mb-8"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Technologies I work with to build amazing digital experiences
           </p>

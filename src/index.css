@@ -38,6 +38,8 @@
 
     --orange: 25 95% 45%;
     --orange-foreground: 0 0% 98%;
+    --cyan: 186 80% 50%;
+    --cyan-foreground: 0 0% 98%;
   }
 
   .dark {
@@ -71,6 +73,8 @@
 
     --orange: 25 95% 45%;
     --orange-foreground: 0 0% 98%;
+    --cyan: 186 80% 50%;
+    --cyan-foreground: 0 0% 98%;
   }
 }
 
