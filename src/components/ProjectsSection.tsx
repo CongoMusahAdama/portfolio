@@ -73,6 +73,16 @@ const ProjectsSection = () => {
       githubUrl: "https://github.com/CongoMusahAdama",
       rating: 4
     },
+    {
+      id: 5,
+      title: "SikaSoft",
+      description: "An all-in-one suite for financial management and operations. Lower costs, improve efficiency, and gain full control using Suite SikaSoft's unified platform tailored for Microfinance, Co-operative, and Susu institutions.",
+      image: "/lovable-uploads/sikasoft.png",
+      technologies: ["JavaScript", "AJAX", "jQuery", "PHP"],
+      githubUrl: "https://github.com/CongoMusahAdama",
+      websiteUrl: "https://sikasoftonline.com/",
+      rating: 5
+    },
   ];
 
   const itemVariants = {
