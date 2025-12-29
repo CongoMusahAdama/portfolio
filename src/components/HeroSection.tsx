@@ -36,17 +36,17 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
 
   const socialLinks = [
     {
-      icon: <Github className="w-5 h-5" />,
+      icon: <div className="p-2 bg-[#24292e] rounded-full text-white"><Github className="w-5 h-5" /></div>,
       href: "https://github.com/CongoMusahAdama",
       label: "GitHub"
     },
     {
-      icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>,
+      icon: <div className="p-2 bg-black rounded-full text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg></div>,
       href: "https://twitter.com/1real_vee",
       label: "X"
     },
     {
-      icon: <Linkedin className="w-5 h-5" />,
+      icon: <div className="p-2 bg-[#0077b5] rounded-full text-white"><Linkedin className="w-5 h-5" /></div>,
       href: "https://www.linkedin.com/in/congo-musah-ad-deen-766bb3224/",
       label: "LinkedIn"
     },
@@ -55,7 +55,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen pt-16 lg:pt-24 bg-background overflow-hidden"
+      className="relative min-h-screen pt-20 lg:pt-20 bg-background overflow-hidden"
     >
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
@@ -69,55 +69,17 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 z-10 py-12 lg:py-32 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto">
-          {/* Profile image on the left */}
+      <div className="container mx-auto px-6 z-10 py-2 lg:py-20 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-12 items-center max-w-6xl mx-auto">
+          {/* Text content on the left */}
           <motion.div
-            className="flex flex-col items-center lg:items-start order-first"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange/20 to-orange/10 rounded-3xl transform rotate-6"></div>
-              <img
-                src={profileImage}
-                alt="Congo Musah Adama"
-                className="relative w-full h-full object-cover rounded-3xl shadow-2xl z-10"
-              />
-            </div>
-
-            {/* Social Media Icons under profile */}
-            <motion.div
-              className="flex justify-center lg:justify-start gap-4 mt-8 w-full"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-            >
-              {socialLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-3 bg-background/80 backdrop-blur-sm rounded-full text-muted-foreground hover:text-orange hover:bg-orange/10 transition-all duration-300 shadow-sm"
-                  aria-label={link.label}
-                >
-                  {link.icon}
-                </a>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          {/* Text content on the right */}
-          <motion.div
-            className="text-left order-last lg:order-last"
+            className="text-left order-last lg:order-first"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
             <motion.h1
-              className="text-5xl lg:text-6xl font-bold leading-tight mb-6"
+              className="text-3xl lg:text-7xl font-bold leading-tight mb-1 lg:mb-4"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -126,7 +88,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               <motion.span
                 className="text-orange inline-block relative"
                 animate={{
-                  scale: [1, 1.1, 1],
+                  scale: [1, 1.05, 1],
                   textShadow: [
                     "0 0 0px rgb(25 209 230 / 0)",
                     "0 0 20px rgb(25 209 230 / 0.5)",
@@ -168,14 +130,14 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               </motion.span>
             </motion.h1>
 
-            {/* Rotating titles */}
-            <div className="text-2xl lg:text-3xl font-medium mb-6 h-12 flex items-center">
+            {/* Rotating titles with less margin */}
+            <div className="text-lg lg:text-3xl font-medium mb-1 lg:mb-4 h-6 lg:h-10 flex items-center relative">
               <AnimatePresence mode="wait">
                 <motion.h2
                   key={currentTitleIndex}
-                  initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+                  initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
+                  exit={{ opacity: 0, y: -10, filter: "blur(8px)" }}
                   transition={{
                     duration: 0.6,
                     ease: "easeInOut"
@@ -187,36 +149,118 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               </AnimatePresence>
             </div>
 
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-lg">
+            <p className="text-muted-foreground text-sm lg:text-lg leading-relaxed mb-3 lg:mb-6 max-w-lg">
               Passionate about turning real-world problems into impactful digital solutions that drive growth, success, and meaningful impact, one code at a time
             </p>
 
-            <div className="flex flex-col gap-3 mb-8">
-              <div className="flex items-center text-muted-foreground">
-                <MapPin className="w-5 h-5 text-orange mr-3" />
-                <span className="font-medium">Accra and Takoradi, Ghana • Freelancer</span>
+            <div className="flex flex-col gap-1 lg:gap-2 mb-4 lg:mb-8">
+              <div className="flex items-center text-muted-foreground text-[10px] lg:text-sm">
+                <MapPin className="w-3.5 h-3.5 text-orange mr-2" />
+                <span>Accra and Takoradi, Ghana • Freelancer</span>
               </div>
-              <div className="flex items-center text-muted-foreground">
-                <Mail className="w-5 h-5 text-orange mr-3" />
-                <a href="mailto:amusahcongo@gmail.com" className="hover:text-orange transition-colors font-medium">amusahcongo@gmail.com</a>
+              <div className="flex items-center text-muted-foreground text-[10px] lg:text-sm">
+                <Mail className="w-3.5 h-3.5 text-orange mr-2" />
+                <a href="mailto:amusahcongo@gmail.com" className="hover:text-orange transition-colors">amusahcongo@gmail.com</a>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-2 lg:gap-4">
               <a href="https://flowcv.com/resume/wtaak1n6a414" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-orange hover:bg-orange/90 text-orange-foreground px-8 py-3 rounded-md font-medium">
+                <Button className="bg-orange hover:bg-orange/90 text-orange-foreground px-5 lg:px-8 py-1.5 lg:py-3 rounded-full font-medium transition-all hover:scale-105 active:scale-95 shadow-lg shadow-orange/20 text-xs lg:text-base">
                   Download CV
                 </Button>
               </a>
               <a href="#projects">
-                <Button variant="outline" className="text-foreground hover:bg-muted px-8 py-3 rounded-md font-medium">
+                <Button variant="outline" className="text-foreground hover:bg-muted px-5 lg:px-8 py-1.5 lg:py-3 rounded-full font-medium transition-all hover:scale-105 active:scale-95 border-2 text-xs lg:text-base">
                   View Portfolio
                 </Button>
               </a>
             </div>
           </motion.div>
+
+          {/* Profile image on the right with capsule shape */}
+          <motion.div
+            className="flex flex-col items-center lg:items-end order-first lg:order-last relative"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex flex-row items-center gap-3 lg:gap-10">
+              <div className="relative w-40 h-[220px] md:w-80 md:h-[480px]">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange/20 to-cyan/10 rounded-[160px] transform rotate-3 border border-orange/20"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-cyan/20 to-orange/10 rounded-[160px] transform -rotate-2 border border-cyan/20"></div>
+                <div className="relative w-full h-full p-1 lg:p-2">
+                  <img
+                    src={profileImage}
+                    alt="Congo Musah Adama"
+                    className="w-full h-full object-cover object-[50%_top] rounded-[160px] shadow-2xl z-10 grayscale-[0.2] hover:grayscale-0 transition-all duration-500"
+                  />
+                </div>
+
+                {/* Floating elements like in the reference image side-style */}
+                <div className="absolute -top-3 -right-3 w-12 h-12 lg:w-24 lg:h-24 bg-orange/10 rounded-full blur-2xl animate-pulse"></div>
+                <div className="absolute -bottom-6 -left-6 w-16 h-16 lg:w-32 lg:h-32 bg-cyan/10 rounded-full blur-3xl animate-pulse delay-700"></div>
+              </div>
+
+              {/* Social Links on the right of the image - closer now */}
+              <div className="hidden lg:flex flex-col items-center gap-6">
+                <div className="w-[1px] h-12 bg-border mb-2" />
+                <span className="[writing-mode:vertical-lr] text-xs font-medium tracking-widest text-muted-foreground mb-4 uppercase whitespace-nowrap">Socials</span>
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-1 text-muted-foreground hover:text-orange transition-all duration-300 hover:scale-110 active:scale-95"
+                    aria-label={link.label}
+                  >
+                    {link.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Social Media Icons for mobile only */}
+            <motion.div
+              className="flex justify-center gap-2 mt-2 w-full lg:hidden"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+            >
+              {socialLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-1.5 transition-all duration-300 hover:scale-110 active:scale-95 scale-90"
+                  aria-label={link.label}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
       </div>
+
+      {/* Scroll Down Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-12 hidden lg:flex items-center gap-3 text-muted-foreground"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+      >
+        <div className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center p-1">
+          <motion.div
+            className="w-1 h-2 bg-orange rounded-full"
+            animate={{ y: [0, 16, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+        </div>
+        <span className="text-xs font-medium uppercase tracking-widest">Scroll down</span>
+      </motion.div>
     </section>
   );
 };
