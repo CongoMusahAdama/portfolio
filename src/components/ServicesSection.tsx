@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Code, Bot, Brain } from 'lucide-react';
+import { Code, Bot, Brain, Smartphone, Server, Database } from 'lucide-react';
 import useIntersectionObserver from '@/hooks/use-intersection-observer';
 import TechPattern from './TechPattern';
 
@@ -17,17 +17,26 @@ const ServicesSection = () => {
     {
       icon: Code,
       title: "Custom Web & Mobile Development",
-      description: "Full-stack development solutions tailored to your business needs, from responsive websites to scalable mobile applications."
     },
     {
       icon: Bot,
       title: "Bot Development",
-      description: "Web scraping bots and automation solutions to streamline your business processes and improve efficiency."
     },
     {
       icon: Brain,
       title: "AI & Machine Learning",
-      description: "Training AI models and integrating them in real-world applications to enhance business processes and deliver intelligent solutions."
+    },
+    {
+      icon: Smartphone,
+      title: "USSD for Business",
+    },
+    {
+      icon: Server,
+      title: "API Integration & Development",
+    },
+    {
+      icon: Database,
+      title: "Database Design & Management",
     }
   ];
 
@@ -58,21 +67,27 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="py-12 bg-orange relative overflow-hidden"
+      className="py-8 bg-orange relative overflow-hidden"
       ref={sectionRef}
     >
       <TechPattern />
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">What I Do</h2>
-          <div className="w-20 h-1 bg-white mx-auto mb-8"></div>
-          <p className="text-lg text-white max-w-2xl mx-auto">
-            Specialized services to help bring your digital vision to life
-          </p>
+        <div className="text-center mb-8">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">What I Do</h2>
+          <div className="w-16 h-1 bg-white mx-auto mb-6"></div>
+
+          <div className="max-w-3xl mx-auto text-white/95 text-base lg:text-lg leading-relaxed space-y-3 font-medium">
+            <p>
+              System architecture, networking and security. No one can touch me on that. But does anyone appreciate that? It's not magic, it's talent and sweat.
+            </p>
+            <p>
+              I make sure that one bad config on one key component doesn't bankrupt the entire company. That's what I do.
+            </p>
+          </div>
         </div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto mb-12"
+          className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-6 max-w-4xl mx-auto mb-8"
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
           variants={containerVariants}
@@ -83,19 +98,15 @@ const ServicesSection = () => {
               className="group text-center"
               variants={itemVariants}
             >
-              <div className="mb-6 flex justify-center">
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-                  <service.icon className="w-8 h-8 text-white" />
+              <div className="mb-2 flex justify-center">
+                <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300">
+                  <service.icon className="w-5 h-5 text-white" />
                 </div>
               </div>
 
-              <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-black/80 transition-colors duration-300">
+              <h3 className="text-sm lg:text-base font-bold text-white group-hover:text-white/90 transition-colors duration-300 px-1 leading-tight">
                 {service.title}
               </h3>
-
-              <p className="text-white/90 leading-relaxed">
-                {service.description}
-              </p>
             </motion.div>
           ))}
         </motion.div>
@@ -106,7 +117,7 @@ const ServicesSection = () => {
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ delay: 0.8, duration: 0.6 }}
         >
-          <Button asChild size="lg" className="bg-white text-black hover:bg-white/90">
+          <Button asChild size="default" className="bg-white text-black hover:bg-white/90 font-bold px-6 shadow-md h-10">
             <Link to="/services">
               See All Services
             </Link>

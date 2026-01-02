@@ -25,6 +25,16 @@ const ProjectsSection = () => {
 
   const projects: Project[] = [
     {
+      id: 6,
+      title: "Supreme Masqueraders Society Platform",
+      description: "A responsive digital hub showcasing history, events, and media with role-based dashboards for members and admins. Features include forums, donations, event management, and content moderation to strengthen community engagement.",
+      image: "/lovable-uploads/supreme-masqueraders.jpg",
+      technologies: ["React", "TypeScript", "Node.js", "Payment Integration", "Analytics"],
+      githubUrl: "https://github.com/CongoMusahAdama",
+      websiteUrl: "https://ssuprememasquraderssociety.netlify.app/",
+      rating: 5
+    },
+    {
       id: 0,
       title: "Artisans Hub",
       description: "A platform giving Ghanaian artisans the spotlight they deserve by helping them sell products, get booked for services, and secure funding through AI-matched investor connections tailored to their craft focus.",

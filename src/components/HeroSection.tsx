@@ -187,13 +187,11 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           >
             <div className="flex flex-row items-center gap-3 lg:gap-10">
               <div className="relative w-40 h-[220px] md:w-80 md:h-[480px]">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange/20 to-cyan/10 rounded-[160px] transform rotate-3 border border-orange/20"></div>
-                <div className="absolute inset-0 bg-gradient-to-tr from-cyan/20 to-orange/10 rounded-[160px] transform -rotate-2 border border-cyan/20"></div>
-                <div className="relative w-full h-full p-1 lg:p-2">
+                <div className="relative w-full h-full p-1 border-2 border-orange/30 rounded-[160px]">
                   <img
                     src={profileImage}
                     alt="Congo Musah Adama"
-                    className="w-full h-full object-cover object-[50%_top] rounded-[160px] shadow-2xl z-10 grayscale-[0.2] hover:grayscale-0 transition-all duration-500"
+                    className="w-full h-full object-cover object-[50%_top] rounded-[160px] shadow-2xl z-10 transition-all duration-500"
                   />
                 </div>
 

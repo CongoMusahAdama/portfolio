@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Button } from "@/components/ui/button";
-import { Code, Bot, Check, MessageCircle } from "lucide-react";
+import { Code, Bot, Check, MessageCircle, Smartphone, Server, Database, Brain } from "lucide-react";
 import useIntersectionObserver from "@/hooks/use-intersection-observer";
 import TechPattern from "@/components/TechPattern";
 
@@ -24,12 +24,32 @@ const Services = () => {
     {
       icon: Code,
       title: "Custom Web & Mobile Development",
-      description: "I build scalable, responsive web applications and mobile solutions tailored to your business needs. From concept to deployment, I handle the entire development lifecycle using modern technologies like React, Node.js, Python, and PHP to deliver robust, user-friendly applications."
+      description: "Scalable, responsive web and mobile solutions tailored to your needs using React, Node.js, Python, and PHP."
     },
     {
       icon: Bot,
-      title: "Bot Development (Web scraping & automation)",
-      description: "Automate repetitive tasks and extract valuable data with custom-built bots. I create web scraping solutions, data collection tools, and automation scripts that streamline your business processes, saving time and increasing efficiency while ensuring reliability and accuracy."
+      title: "Bot Development",
+      description: "Custom bots for web scraping, data extraction, and process automation to boost efficiency."
+    },
+    {
+      icon: Brain,
+      title: "AI & Machine Learning",
+      description: "Custom AI/ML models for automated decision-making and predictive analytics."
+    },
+    {
+      icon: Smartphone,
+      title: "USSD for Business",
+      description: "Secure, offline-accessible USSD applications for payments, surveys, and services on any mobile device."
+    },
+    {
+      icon: Server,
+      title: "API Integration & Development",
+      description: "Robust, secure RESTful and GraphQL APIs to connect systems and ensure reliable data flow."
+    },
+    {
+      icon: Database,
+      title: "Database Design & Management",
+      description: "Expert design, optimization, and security for efficient and protected data storage."
     }
   ];
 
