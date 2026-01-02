@@ -28,16 +28,7 @@ const AboutSection = () => {
               Outside of software development, I'm an agricultural innovator dedicated to transforming food systems through technology, and a product thinker passionate about creating user-centered solutions across diverse industries. I enjoy bridging ideas, design, and strategy to build products that solve real-world problems and create meaningful impact.
             </p>
 
-            <blockquote className="border-l-4 border-orange pl-6 italic text-muted-foreground/90 my-8">
-              <p className="mb-4">
-                "If a man is called to be a street sweeper, he should sweep streets even as Michelangelo painted, or Beethoven composed music, or Shakespeare wrote poetry. He should sweep streets so well that all the hosts of heaven and earth will pause to say, here lived a great street sweeper who did his job well."
-              </p>
-              <footer className="text-sm font-medium">— Martin Luther King Jr.</footer>
-            </blockquote>
 
-            <p>
-              These words deeply inspire me — to pursue excellence in every field I commit to, whether in engineering or beyond. <span className="font-bold">Just build something.</span>
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -1,69 +1,14 @@
 
 import { motion } from "framer-motion";
-import { useRef } from "react";
-import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import useIntersectionObserver from "@/hooks/use-intersection-observer";
 
 const About = () => {
   const profileImage = "/lovable-uploads/image copy 3.png";
   const resumeUrl = "https://flowcv.com/resume/wtaak1n6a414";
-  const timelineRef = useRef(null);
-  const isTimelineVisible = useIntersectionObserver(timelineRef, { threshold: 0.1 });
 
-  const timelineData = [
-    {
-      type: "work",
-      year: "May 2025 – Present",
-      title: "Duapa Werkspace",
-      subtitle: "Fullstack Developer",
-      icon: "💼"
-    },
-    {
-      type: "work",
-      year: "Oct 2024 – Oct 2025",
-      title: "Association of Ghana Startups",
-      subtitle: "Backend Developer (NSP)",
-      icon: "💼"
-    },
-    {
-      type: "work",
-      year: "Sept 2024 – Present",
-      title: "Mirzmo Technologies",
-      subtitle: "Backend Developer",
-      icon: "💼"
-    },
-    {
-      type: "work",
-      year: "June 2024 – Aug 2024",
-      title: "Mentor Me In-Tech (Lagos)",
-      subtitle: "Backend Developer",
-      icon: "💼"
-    },
-    {
-      type: "work",
-      year: "May 2024 – Sept 2024",
-      title: "Afrovivo (Remote)",
-      subtitle: "Backend Developer",
-      icon: "💼"
-    },
-    {
-      type: "work",
-      year: "May 2024 – Aug 2024",
-      title: "Carve Studio (Remote)",
-      subtitle: "Web Developer Intern",
-      icon: "💼"
-    },
-    {
-      type: "work",
-      year: "June 2023 – Feb 2024",
-      title: "WahalaGH",
-      subtitle: "Backend Developer",
-      icon: "💼"
-    }
-  ];
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -72,7 +17,7 @@ const About = () => {
       {/* Profile Section */}
       <section className="pt-24 pb-16 bg-background">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
             <motion.div
               className="relative w-80 h-80 mx-auto lg:mx-0"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -97,23 +42,27 @@ const About = () => {
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-8">MY STORY</h2>
               <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-6">
                 <p>
-                  My journey into web and mobile development started in 2020 when a masquerade club I joined organized a WordPress course with iCode. I built my first website using a WordPress theme and PHP.
+                  My journey into web and mobile development began in 2020, sparked by a simple opportunity—a WordPress training organized by a masquerade club I joined. Building my first website using WordPress and PHP showed me the power of technology to turn ideas into something real, useful, and far-reaching. That moment shaped the path I continue to walk today.
                 </p>
 
                 <p>
-                  In 2021, I enrolled at the University of Energy and Natural Resources to study BSc. Agricultural Science and Technology.
+                  In 2021, I enrolled at the University of Energy and Natural Resources to study BSc. Agricultural Science and Technology, where I gained firsthand exposure to real-world systems, communities, and challenges. Studying agriculture alongside technology deepened my understanding of how critical well-designed digital solutions are to solving practical problems, especially in emerging markets.
                 </p>
 
                 <p>
-                  In 2022, I returned to software development while combining academics and exploring tech opportunities. Today, I continue to grow as a backend engineer while contributing to mission-driven organizations across Africa.
+                  While in the university, I intentionally sought out remote software development internships and collaborative projects, working with companies both within and outside Ghana. These experiences strengthened my technical foundation, exposed me to distributed teams, and grounded me in industry-standard practices, including Agile development and the design of reliable, RESTful backend systems.
                 </p>
 
                 <p>
-                  During my NSS period at the Association of Ghana Startups, I helped entrepreneurs translate their ideas into a unified platform. My experience in software testing and quality assurance sparked a deep interest in product development, leading me to adopt various methodologies and AI tools like Antigravity and Cursor to build more effective and user-centric solutions.
+                  In 2022, I returned fully to software development, balancing academics with hands-on product work. Today, I continue to grow as a backend engineer, focused on building scalable, secure systems and contributing to mission-driven organizations across Africa.
                 </p>
 
                 <p>
-                  Outside of software development, I'm an agricultural innovator dedicated to transforming food systems through technology, and a product thinker passionate about creating user-centered solutions across diverse industries. I enjoy bridging ideas, design, and strategy to build products that solve real-world problems and create meaningful impact.
+                  During my National Service at the Association of Ghana Startups, I worked closely with entrepreneurs to transform ideas into unified digital platforms. Through backend development, testing, and quality assurance, I developed a strong product mindset—one rooted in clarity, collaboration, and delivering solutions that truly serve users.
+                </p>
+
+                <p>
+                  Beyond software engineering, I am an agricultural innovator committed to using technology to strengthen food systems and create lasting impact. I am passionate about bridging technology, strategy, and human needs to build products that solve real problems and improve lives.
                 </p>
               </div>
             </motion.div>
@@ -121,67 +70,33 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="py-20 bg-background" ref={timelineRef}>
+
+      {/* Quote Section */}
+      <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-6">
           <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">My Journey</h2>
-            <div className="w-20 h-1 bg-cyan mx-auto mb-6"></div>
-            <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="text-foreground hover:bg-muted px-8 py-3 rounded-md font-medium">
-                Download CV
-              </Button>
-            </a>
+            <blockquote className="border-l-4 border-orange pl-6 italic text-muted-foreground/90 my-8 text-left md:text-center md:border-l-0 md:border-t-4 md:pt-6">
+              <p className="mb-6 text-lg md:text-xl leading-relaxed">
+                "If a man is called to be a street sweeper, he should sweep streets even as Michelangelo painted, or Beethoven composed music, or Shakespeare wrote poetry. He should sweep streets so well that all the hosts of heaven and earth will pause to say, here lived a great street sweeper who did his job well."
+              </p>
+              <footer className="text-base font-semibold text-foreground">— Martin Luther King Jr.</footer>
+            </blockquote>
+
+            <p className="text-muted-foreground mt-8 text-lg">
+              These words deeply inspire me — to pursue excellence in every field I commit to, whether in engineering or beyond. <span className="font-bold text-foreground">Just build something.</span>
+            </p>
           </motion.div>
-
-          <div className="max-w-6xl mx-auto relative">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-0.5 w-0.5 h-full bg-border hidden md:block"></div>
-
-            <div className="space-y-12">
-              {timelineData.map((item, index) => (
-                <motion.div
-                  key={index}
-                  className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                    }`}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                >
-                  {/* Timeline dot */}
-                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-orange rounded-full border-4 border-background shadow-lg z-10"></div>
-
-                  {/* Content */}
-                  <div className={`w-full md:w-5/12 text-center ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                    <motion.div
-                      className="p-6"
-                      whileHover={{ y: -4 }}
-                    >
-                      <div className={`flex items-center justify-center gap-3 mb-2 ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}>
-                        <span className="text-2xl">{item.icon}</span>
-                        <span className="text-sm font-medium text-orange">{item.year}</span>
-                      </div>
-
-                      <h3 className="text-xl font-semibold text-foreground mb-2">{item.title}</h3>
-                      <p className="text-muted-foreground mb-0">{item.subtitle}</p>
-                    </motion.div>
-                  </div>
-
-                  {/* Spacer for opposite side */}
-                  <div className="hidden md:block w-5/12"></div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
+
+      {/* Timeline Section */}
+
 
       <Footer />
       <ScrollToTop />

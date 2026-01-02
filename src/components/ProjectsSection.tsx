@@ -68,7 +68,7 @@ const ProjectsSection = () => {
       id: 3,
       title: "AgriLync",
       description: "AgriLync is an AI-powered platform aimed at transforming African agriculture and improving financial access.",
-      image: "/lovable-uploads/agrilync.png",
+      image: "/lovable-uploads/agrilync-v2.png",
       technologies: ["MongoDB", "Express", "TypeScript", "React", "Vite"],
       githubUrl: "https://github.com/CongoMusahAdama",
       websiteUrl: "https://agri-lync.netlify.app",
