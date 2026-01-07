@@ -69,8 +69,8 @@ const SkillsSection = () => {
     {
       category: "Currently Learning",
       items: [
-        { name: "Flutter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
-        { name: "Machine Learning", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+        { name: "Product Management", icon: "/lovable-uploads/product-management.png" },
+        { name: "Machine Learning", icon: "/lovable-uploads/ml-brain.png" },
       ],
     },
   ];

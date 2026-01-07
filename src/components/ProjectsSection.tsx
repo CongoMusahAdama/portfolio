@@ -79,7 +79,7 @@ const ProjectsSection = () => {
       title: "Mizrmo Carpool",
       description: "A carpool platform for finding and sharing rides. Users can create ride offers or join existing ones for efficient transportation.",
       image: "/lovable-uploads/mizrmo.png",
-      technologies: ["Flutter", "Nest.js", "Node.js", "TypeScript", "PostgreSQL"],
+      technologies: ["Nest.js", "Node.js", "TypeScript", "PostgreSQL"],
       githubUrl: "https://github.com/CongoMusahAdama",
       rating: 4
     },
