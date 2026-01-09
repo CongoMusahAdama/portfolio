@@ -55,7 +55,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen pt-20 lg:pt-20 bg-background overflow-hidden"
+      className="relative min-h-[100dvh] pt-20 lg:pt-28 bg-background overflow-hidden flex flex-col justify-center"
     >
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
@@ -69,17 +69,17 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 z-10 py-2 lg:py-20 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-12 items-center max-w-6xl mx-auto">
+      <div className="container mx-auto px-6 z-10 py-4 lg:py-20 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-4 items-center max-w-5xl mx-auto">
           {/* Text content on the left */}
           <motion.div
-            className="text-left order-last lg:order-first"
+            className="text-left order-last lg:order-first mt-2 lg:mt-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
             <motion.h1
-              className="text-3xl lg:text-7xl font-bold leading-tight mb-1 lg:mb-4"
+              className="text-2xl lg:text-7xl font-bold leading-tight mb-1 lg:mb-4"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -131,7 +131,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             </motion.h1>
 
             {/* Rotating titles with less margin */}
-            <div className="text-lg lg:text-3xl font-medium mb-1 lg:mb-4 h-6 lg:h-10 flex items-center relative">
+            <div className="text-base lg:text-3xl font-medium mb-1 lg:mb-4 h-6 lg:h-10 flex items-center relative">
               <AnimatePresence mode="wait">
                 <motion.h2
                   key={currentTitleIndex}
@@ -186,18 +186,19 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             transition={{ duration: 0.6 }}
           >
             <div className="flex flex-row items-center gap-3 lg:gap-10">
-              <div className="relative w-40 h-[220px] md:w-80 md:h-[480px]">
-                <div className="relative w-full h-full p-1 border-2 border-orange/30 rounded-[160px]">
+              <div className="relative w-80 h-80 md:w-80 md:h-80">
+                <div className="relative w-full h-full">
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange/20 to-orange/10 rounded-3xl transform rotate-6 border-2 border-orange/10 backdrop-blur-sm"></div>
                   <img
                     src={profileImage}
                     alt="Congo Musah Adama"
-                    className="w-full h-full object-cover object-[50%_top] rounded-[160px] shadow-2xl z-10 transition-all duration-500"
+                    className="relative w-full h-full object-cover rounded-3xl shadow-2xl z-10"
                   />
-                </div>
 
-                {/* Floating elements like in the reference image side-style */}
-                <div className="absolute -top-3 -right-3 w-12 h-12 lg:w-24 lg:h-24 bg-orange/10 rounded-full blur-2xl animate-pulse"></div>
-                <div className="absolute -bottom-6 -left-6 w-16 h-16 lg:w-32 lg:h-32 bg-cyan/10 rounded-full blur-3xl animate-pulse delay-700"></div>
+                  {/* Subtle accent shadows/glows */}
+                  <div className="absolute -top-4 -right-4 w-12 h-12 lg:w-32 lg:h-32 bg-orange/5 rounded-full blur-3xl animate-pulse"></div>
+                  <div className="absolute -bottom-8 -left-8 w-16 h-16 lg:w-40 lg:h-40 bg-cyan/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                </div>
               </div>
 
               {/* Social Links on the right of the image - closer now */}
@@ -221,7 +222,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
 
             {/* Social Media Icons for mobile only */}
             <motion.div
-              className="flex justify-center gap-2 mt-2 w-full lg:hidden"
+              className="flex justify-center gap-4 mt-12 w-full lg:hidden"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}

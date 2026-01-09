@@ -120,11 +120,11 @@ const SkillsSection = () => {
               <h3 className="text-2xl font-semibold text-foreground mb-8">
                 {skillGroup.category}
               </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 justify-items-center">
+              <div className={`${skillGroup.category === "Currently Learning" ? "flex flex-wrap justify-center gap-8" : "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 justify-items-center"}`}>
                 {skillGroup.items.map((skill, skillIndex) => (
                   <motion.div
                     key={skillIndex}
-                    className="flex flex-col items-center group"
+                    className="flex flex-col items-center group min-w-[120px]"
                     variants={itemVariants}
                     whileHover={{
                       y: -10,

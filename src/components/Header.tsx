@@ -25,10 +25,8 @@ const Header = () => {
     // Close mobile menu
     setIsMenuOpen(false);
 
-    // If we're not on the homepage, navigate there first
     if (location.pathname !== '/') {
       navigate('/');
-      // Wait for navigation to complete, then scroll
       setTimeout(() => {
         const element = document.querySelector(href);
         if (element) {
@@ -83,7 +81,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex flex-1 justify-center">
-            <ul className="flex items-center gap-2 px-4 py-2 rounded-full border border-border/60 bg-background/70 backdrop-blur-sm shadow-sm">
+            <ul className="flex items-center gap-2 px-4 py-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   {link.external ? (

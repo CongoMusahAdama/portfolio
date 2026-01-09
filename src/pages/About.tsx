@@ -42,15 +42,15 @@ const About = () => {
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-8">MY STORY</h2>
               <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-6">
                 <p>
-                  My journey into web and mobile development began in 2020, sparked by a simple opportunity—a WordPress training organized by a masquerade club I joined. Building my first website using WordPress and PHP showed me the power of technology to turn ideas into something real, useful, and far-reaching. That moment shaped the path I continue to walk today.
+                  My journey into web and mobile development began in 2020, sparked by a simple opportunity a WordPress training organized by a masquerade club I joined. Building my first website using WordPress and PHP showed me the power of technology to turn ideas into something real, useful, and far-reaching.
                 </p>
 
                 <p>
-                  In 2021, I enrolled at the University of Energy and Natural Resources to study BSc. Agricultural Science and Technology, where I gained firsthand exposure to real-world systems, communities, and challenges. Studying agriculture alongside technology deepened my understanding of how critical well-designed digital solutions are to solving practical problems, especially in emerging markets.
+                  In 2021, I enrolled at the University of Energy and Natural Resources to study <span className="text-orange font-semibold">BSc. Agricultural Science and Technology</span>, where I gained firsthand exposure to real-world systems and communities. Studying agriculture alongside technology deepened my understanding of how critical well-designed digital solutions are to solving practical problems, especially in emerging markets.
                 </p>
 
                 <p>
-                  While in the university, I intentionally sought out remote software development internships and collaborative projects, working with companies both within and outside Ghana. These experiences strengthened my technical foundation, exposed me to distributed teams, and grounded me in industry-standard practices, including Agile development and the design of reliable, RESTful backend systems.
+                  While in the university, I intentionally sought out remote software development internships and collaborative projects, working with companies both within and outside Ghana. These experiences strengthened my technical foundation, exposed me to distributed teams, and grounded me in industry-standard practices, including Agile development and the design of reliable, <span className="text-orange font-semibold">RESTful backend systems</span>.
                 </p>
 
                 <p>
@@ -58,11 +58,11 @@ const About = () => {
                 </p>
 
                 <p>
-                  During my National Service at the Association of Ghana Startups, I worked closely with entrepreneurs to transform ideas into unified digital platforms. Through backend development, testing, and quality assurance, I developed a strong product mindset—one rooted in clarity, collaboration, and delivering solutions that truly serve users.
+                  During my National Service at the <span className="text-orange font-semibold">Association of Ghana Startups</span>, I worked closely with entrepreneurs to transform ideas into unified digital platforms. Through backend development, testing, and quality assurance, I developed a strong <span className="text-orange font-semibold">product mindset</span> one rooted in clarity, collaboration, and delivering solutions that truly serve users.
                 </p>
 
                 <p>
-                  Beyond software engineering, I am an agricultural innovator committed to using technology to strengthen food systems and create lasting impact. I am passionate about bridging technology, strategy, and human needs to build products that solve real problems and improve lives.
+                  Beyond software engineering, I am an <span className="text-orange font-semibold">agricultural innovator</span> committed to using technology to strengthen food systems and create lasting impact. I am passionate about bridging technology, strategy, and human needs to build products that solve real problems.
                 </p>
               </div>
             </motion.div>
@@ -89,7 +89,7 @@ const About = () => {
             </blockquote>
 
             <p className="text-muted-foreground mt-8 text-lg">
-              These words deeply inspire me — to pursue excellence in every field I commit to, whether in engineering or beyond. <span className="font-bold text-foreground">Just build something.</span>
+              These words deeply inspire me to pursue excellence in every field I commit to, whether in engineering or beyond. <span className="font-bold text-foreground">Just build something.</span>
             </p>
           </motion.div>
         </div>
