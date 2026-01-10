@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -61,7 +60,7 @@ const Header = () => {
 
   const navItemClasses = (isActive = false) =>
     `px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${isActive
-      ? "bg-cyan/20 text-cyan shadow-sm"
+      ? "bg-primary/10 text-primary shadow-sm"
       : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
     }`;
 
@@ -115,14 +114,13 @@ const Header = () => {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <ThemeToggle />
+            {/* Theme Toggle removed for strict dark mode */}
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
-            <ThemeToggle />
             <button
-              className="text-foreground hover:text-orange transition-colors"
+              className="text-foreground hover:text-primary transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >

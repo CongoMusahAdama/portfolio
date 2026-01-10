@@ -13,7 +13,7 @@ const AboutSection = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">About Me</h2>
-          <div className="w-20 h-1 bg-cyan mx-auto mb-12"></div>
+          <div className="w-20 h-1 bg-primary mx-auto mb-12"></div>
 
           <div className="text-base text-muted-foreground leading-relaxed mb-12 space-y-6">
             <p>
@@ -40,7 +40,7 @@ const AboutSection = () => {
               <div className="w-16 h-16 mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-full h-full text-orange filter drop-shadow-sm"
+                  className="w-full h-full text-primary filter drop-shadow-sm"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -61,7 +61,7 @@ const AboutSection = () => {
               <div className="w-16 h-16 mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-full h-full text-orange filter drop-shadow-sm"
+                  className="w-full h-full text-primary filter drop-shadow-sm"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -82,7 +82,7 @@ const AboutSection = () => {
               <div className="w-16 h-16 mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-full h-full text-orange filter drop-shadow-sm"
+                  className="w-full h-full text-primary filter drop-shadow-sm"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

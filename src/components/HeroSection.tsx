@@ -55,7 +55,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="relative min-h-[100dvh] pt-14 lg:pt-28 bg-background overflow-hidden flex flex-col justify-center"
+      className="relative min-h-[100dvh] pt-20 lg:pt-28 bg-background overflow-hidden flex flex-col justify-center"
     >
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
@@ -69,69 +69,72 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 z-10 py-1 lg:py-20 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4 items-center max-w-5xl mx-auto">
+      <div className="container mx-auto px-6 z-10 py-0 lg:py-20 relative max-w-[1200px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center">
           {/* Text content on the left */}
           <motion.div
-            className="text-left order-last lg:order-first mt-2 lg:mt-0"
+            className="text-left order-last lg:order-first mt-6 lg:mt-0 flex flex-col justify-center items-start"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
+            {/* Social Media Icons for mobile only - Horizontal row ABOVE text, Left Aligned */}
+            <motion.div
+              className="flex justify-start gap-4 mb-6 w-full lg:hidden"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
+              {socialLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 transition-all duration-300 hover:scale-110 active:scale-95 bg-muted/50 rounded-full text-muted-foreground hover:text-primary"
+                  aria-label={link.label}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </motion.div>
+
             <motion.h1
-              className="text-2xl lg:text-7xl font-bold leading-tight mb-1 lg:mb-4"
+              className="text-3xl sm:text-4xl lg:text-7xl font-bold leading-tight mb-2 lg:mb-6"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              <span className="text-foreground">Hi I'm </span>
+              <span className="text-foreground block mb-1 lg:mb-2">Hi I'm </span>
               <motion.span
-                className="text-orange inline-block relative"
+                className="text-primary inline-block relative text-5xl sm:text-6xl lg:text-8xl"
                 animate={{
-                  scale: [1, 1.05, 1],
+                  scale: [1, 1.02, 1],
                   textShadow: [
-                    "0 0 0px rgb(25 209 230 / 0)",
-                    "0 0 20px rgb(25 209 230 / 0.5)",
-                    "0 0 0px rgb(25 209 230 / 0)"
+                    "0 0 0px rgb(253 181 21 / 0)",
+                    "0 0 15px rgb(253 181 21 / 0.3)",
+                    "0 0 0px rgb(253 181 21 / 0)"
                   ]
                 }}
                 transition={{
-                  duration: 2.5,
+                  duration: 3,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
                 style={{
-                  background: "linear-gradient(45deg, #19d1e6, #14a8b9, #19d1e6)",
+                  backgroundImage: "linear-gradient(45deg, #fdb515, #ffcc00, #fdb515)",
                   backgroundSize: "200% 200%",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
                 }}
               >
-                <motion.span
-                  animate={{
-                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                  style={{
-                    background: "linear-gradient(45deg, #19d1e6, #14a8b9, #108592, #14a8b9, #19d1e6)",
-                    backgroundSize: "400% 400%",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
-                >
-                  Congo
-                </motion.span>
+                Congo
               </motion.span>
             </motion.h1>
 
-            {/* Rotating titles with less margin */}
-            <div className="text-base lg:text-3xl font-medium mb-1 lg:mb-4 h-6 lg:h-10 flex items-center relative">
+            {/* Rotating titles */}
+            <div className="text-base sm:text-xl lg:text-3xl font-medium mb-3 lg:mb-8 h-6 lg:h-12 flex items-center relative justify-start w-full">
               <AnimatePresence mode="wait">
                 <motion.h2
                   key={currentTitleIndex}
@@ -142,36 +145,36 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                     duration: 0.6,
                     ease: "easeInOut"
                   }}
-                  className="text-muted-foreground absolute"
+                  className="text-muted-foreground absolute left-0"
                 >
                   {titles[currentTitleIndex]}
                 </motion.h2>
               </AnimatePresence>
             </div>
 
-            <p className="text-muted-foreground text-sm lg:text-lg leading-relaxed mb-2 lg:mb-6 max-w-lg">
-              Passionate about turning real-world problems into impactful digital solutions that drive growth, success, and meaningful impact, one code at a time
+            <p className="text-muted-foreground text-sm sm:text-lg lg:text-xl leading-relaxed mb-4 lg:mb-10 max-w-[95%] lg:max-w-xl">
+              Passionate about turning real-world problems into impactful digital solutions that drive growth, success, and meaningful impact, one code at a time.
             </p>
 
-            <div className="flex flex-col gap-0.5 lg:gap-2 mb-2 lg:mb-8">
-              <div className="flex items-center text-muted-foreground text-[10px] lg:text-sm">
-                <MapPin className="w-3.5 h-3.5 text-orange mr-2" />
-                <span>Accra and Takoradi, Ghana • Freelancer</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-3 mb-6 lg:mb-12 w-full max-w-md lg:max-w-none">
+              <div className="flex items-center justify-start text-muted-foreground text-xs sm:text-base lg:text-base">
+                <MapPin className="w-4 h-4 lg:w-5 lg:h-5 text-primary mr-2 lg:mr-3" />
+                <span>Accra and Takoradi, Ghana</span>
               </div>
-              <div className="flex items-center text-muted-foreground text-[10px] lg:text-sm">
-                <Mail className="w-3.5 h-3.5 text-orange mr-2" />
-                <a href="mailto:amusahcongo@gmail.com" className="hover:text-orange transition-colors">amusahcongo@gmail.com</a>
+              <div className="flex items-center justify-start text-muted-foreground text-xs sm:text-base lg:text-base">
+                <Mail className="w-4 h-4 lg:w-5 lg:h-5 text-primary mr-2 lg:mr-3" />
+                <a href="mailto:amusahcongo@gmail.com" className="hover:text-primary transition-colors">amusahcongo@gmail.com</a>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-2 lg:gap-4">
-              <a href="https://flowcv.com/resume/wtaak1n6a414" target="_blank" rel="noopener noreferrer">
-                <Button className="bg-orange hover:bg-orange/90 text-orange-foreground px-5 lg:px-8 py-1.5 lg:py-3 rounded-full font-medium transition-all hover:scale-105 active:scale-95 shadow-lg shadow-orange/20 text-xs lg:text-base">
+            <div className="flex flex-row gap-3 lg:gap-5 w-full sm:w-auto justify-start">
+              <a href="https://flowcv.com/resume/wtaak1n6a414" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none">
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-3 py-2 lg:px-6 lg:py-4 h-auto rounded-full font-bold text-xs sm:text-sm lg:text-lg transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20 w-full min-h-[36px] lg:min-h-[48px]">
                   Download CV
                 </Button>
               </a>
-              <a href="#projects">
-                <Button variant="outline" className="text-foreground hover:bg-muted px-5 lg:px-8 py-1.5 lg:py-3 rounded-full font-medium transition-all hover:scale-105 active:scale-95 border-2 text-xs lg:text-base">
+              <a href="#projects" className="flex-1 sm:flex-none">
+                <Button variant="outline" className="text-foreground hover:bg-muted px-3 py-2 lg:px-6 lg:py-4 h-auto rounded-full font-bold text-xs sm:text-sm lg:text-lg transition-all hover:scale-105 active:scale-95 border-2 w-full min-h-[36px] lg:min-h-[48px]">
                   View Portfolio
                 </Button>
               </a>
@@ -180,38 +183,38 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
 
           {/* Profile image on the right with capsule shape */}
           <motion.div
-            className="flex flex-col items-center lg:items-end order-first lg:order-last relative"
+            className="flex flex-col lg:flex-row justify-center lg:justify-end order-first lg:order-last relative items-center"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex flex-row items-center gap-3 lg:gap-10">
-              <div className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80">
+            <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12 w-full justify-center">
+              <div className="relative w-[85vw] h-[85vw] max-w-[350px] max-h-[350px] lg:w-[450px] lg:h-[450px]">
                 <div className="relative w-full h-full">
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange/20 to-orange/10 rounded-3xl transform rotate-6 border-2 border-orange/10 backdrop-blur-sm"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/10 rounded-[2rem] lg:rounded-[3rem] transform rotate-6 border-2 border-primary/10 backdrop-blur-sm"></div>
                   <img
                     src={profileImage}
                     alt="Congo Musah Adama"
-                    className="relative w-full h-full object-cover rounded-3xl shadow-2xl z-10"
+                    className="relative w-full h-full object-cover rounded-[2rem] lg:rounded-[3rem] shadow-2xl z-10"
                   />
 
                   {/* Subtle accent shadows/glows */}
-                  <div className="absolute -top-4 -right-4 w-12 h-12 lg:w-32 lg:h-32 bg-orange/5 rounded-full blur-3xl animate-pulse"></div>
-                  <div className="absolute -bottom-8 -left-8 w-16 h-16 lg:w-40 lg:h-40 bg-cyan/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                  <div className="absolute -top-4 -right-4 w-20 h-20 lg:w-40 lg:h-40 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+                  <div className="absolute -bottom-8 -left-8 w-24 h-24 lg:w-48 lg:h-48 bg-primary/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
                 </div>
               </div>
 
-              {/* Social Links on the right of the image - closer now */}
-              <div className="hidden lg:flex flex-col items-center gap-6">
-                <div className="w-[1px] h-12 bg-border mb-2" />
-                <span className="[writing-mode:vertical-lr] text-xs font-medium tracking-widest text-muted-foreground mb-4 uppercase whitespace-nowrap">Socials</span>
+              {/* Social Links on the right of the image - pinned to container right */}
+              <div className="hidden lg:flex flex-col items-center gap-8">
+                <div className="w-[1px] h-20 bg-border mb-2" />
+                <span className="[writing-mode:vertical-lr] text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-4 uppercase whitespace-nowrap">Follow Me</span>
                 {socialLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-1 text-muted-foreground hover:text-orange transition-all duration-300 hover:scale-110 active:scale-95"
+                    className="p-2 text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110 active:scale-95 bg-muted/30 rounded-full"
                     aria-label={link.label}
                   >
                     {link.icon}
@@ -219,27 +222,6 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                 ))}
               </div>
             </div>
-
-            {/* Social Media Icons for mobile only */}
-            <motion.div
-              className="flex justify-center gap-4 mt-2 w-full lg:hidden"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-            >
-              {socialLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-1.5 transition-all duration-300 hover:scale-110 active:scale-95 scale-90"
-                  aria-label={link.label}
-                >
-                  {link.icon}
-                </a>
-              ))}
-            </motion.div>
           </motion.div>
         </div>
       </div>
@@ -253,7 +235,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
       >
         <div className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center p-1">
           <motion.div
-            className="w-1 h-2 bg-orange rounded-full"
+            className="w-1 h-2 bg-primary rounded-full"
             animate={{ y: [0, 16, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           />

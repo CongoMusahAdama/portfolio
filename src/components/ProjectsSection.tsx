@@ -25,6 +25,17 @@ const ProjectsSection = () => {
 
   const projects: Project[] = [
     {
+      id: 7,
+      title: "BrainBank",
+      description: "Idea management reimagined. BrainBank is a tool that helps you capture, organize, prioritize, and execute ideas in one focused space. Built for ambitious thinkers, entrepreneurs, students, and creatives who want clarity not clutter.",
+      image: "/lovable-uploads/brainbank.png",
+      technologies: ["React", "TypeScript", "TailwindCSS", "Vite"],
+      githubUrl: "https://github.com/CongoMusahAdama",
+      websiteUrl: "https://brainbanc.netlify.app/",
+      status: "Coming Soon",
+      rating: 5
+    },
+    {
       id: 6,
       title: "Supreme Masqueraders Society Platform",
       description: "A responsive digital hub showcasing history, events, and media with role-based dashboards for members and admins. Features include forums, donations, event management, and content moderation to strengthen community engagement.",
@@ -101,7 +112,7 @@ const ProjectsSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">Featured Projects</h2>
-          <div className="w-20 h-1 bg-cyan mx-auto mb-8"></div>
+          <div className="w-20 h-1 bg-[#fdb515] mx-auto mb-8"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A collection of projects that showcase my skills and passion for creating digital solutions
           </p>
@@ -140,7 +151,7 @@ const ProjectsSection = () => {
                   className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
                 />
                 {project.status && (
-                  <Badge className="absolute top-4 right-4 bg-orange text-orange-foreground">
+                  <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
                     🔧 {project.status}
                   </Badge>
                 )}
@@ -154,7 +165,7 @@ const ProjectsSection = () => {
                       {[...Array(5)].map((_, i) => (
                         <svg
                           key={i}
-                          className={`w-3.5 h-3.5 ${i < project.rating! ? 'text-orange fill-orange' : 'text-muted fill-muted'}`}
+                          className={`w-3.5 h-3.5 ${i < project.rating! ? 'text-primary fill-primary' : 'text-muted fill-muted'}`}
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
                         >
@@ -182,7 +193,7 @@ const ProjectsSection = () => {
 
                   {project.websiteUrl && (
                     <a href={project.websiteUrl} target="_blank">
-                      <Button variant="ghost" size="sm" className="text-orange hover:text-orange/80 p-0">
+                      <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80 p-0">
                         <ExternalLink className="w-4 h-4 mr-2" />
                         Live Demo
                       </Button>
@@ -191,7 +202,7 @@ const ProjectsSection = () => {
 
                   {project.demoUrl && (
                     <a href={project.demoUrl} target="_blank">
-                      <Button variant="ghost" size="sm" className="text-orange hover:text-orange/80 p-0">
+                      <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80 p-0">
                         <ExternalLink className="w-4 h-4 mr-2" />
                         Live Demo
                       </Button>
@@ -213,7 +224,7 @@ const ProjectsSection = () => {
             href="https://github.com/CongoMusahAdama"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-orange hover:text-orange/80 font-medium"
+            className="inline-flex items-center text-primary hover:text-primary/80 font-medium"
           >
             <span className="mr-2">View all projects</span>
             <Github className="w-5 h-5" />

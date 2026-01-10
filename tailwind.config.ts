@@ -73,7 +73,10 @@ export default {
 				},
 			},
 			fontFamily: {
-				inter: ['Inter', 'sans-serif'],
+				sans: ['Roboto', 'sans-serif'],
+				heading: ['Montserrat', 'sans-serif'],
+				subheading: ['"Exo 2"', 'sans-serif'],
+				inter: ['Inter', 'sans-serif'], // Keep just in case, but likely replacing usage
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

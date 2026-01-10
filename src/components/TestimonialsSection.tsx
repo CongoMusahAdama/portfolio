@@ -82,7 +82,7 @@ const TestimonialsSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">Testimonials</h2>
-          <div className="w-20 h-1 bg-cyan mx-auto mb-8"></div>
+          <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             What clients say about working with me
           </p>
@@ -106,7 +106,7 @@ const TestimonialsSection = () => {
                     <img
                       src={testimonial.avatar}
                       alt={testimonial.name}
-                      className="w-20 h-20 rounded-full object-cover mb-4 border-2 border-orange/20"
+                      className="w-20 h-20 rounded-full object-cover mb-4 border-2 border-primary/20"
                     />
                     <div>
                       <h4 className="font-semibold text-foreground text-xl mb-1">{testimonial.name}</h4>
@@ -140,7 +140,7 @@ const TestimonialsSection = () => {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors duration-300 ${currentSlide === index ? 'bg-orange' : 'bg-muted-foreground/30'
+                className={`w-3 h-3 rounded-full transition-colors duration-300 ${currentSlide === index ? 'bg-primary' : 'bg-muted-foreground/30'
                   }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
