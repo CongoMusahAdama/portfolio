@@ -55,7 +55,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="relative min-h-[100dvh] pt-14 lg:pt-28 bg-background overflow-hidden flex flex-col justify-center"
+      className="relative min-h-[100dvh] pt-14 lg:pt-28 pb-32 lg:pb-0 bg-background overflow-hidden flex flex-col justify-center"
     >
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
