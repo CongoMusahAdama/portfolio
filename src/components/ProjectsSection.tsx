@@ -95,14 +95,6 @@ const ProjectsSection = () => {
     },
   ];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
-  };
 
   return (
     <section id="projects" className="py-20 bg-muted/30" ref={sectionRef}>
@@ -116,14 +108,29 @@ const ProjectsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
               className="bg-background rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300"
-              variants={itemVariants}
+              variants={{
+                hidden: {
+                  opacity: 0,
+                  x: index % 2 === 0 ? -40 : 40,
+                  y: 20
+                },
+                visible: {
+                  opacity: 1,
+                  x: 0,
+                  y: 0,
+                  transition: {
+                    duration: 0.4,
+                    ease: "easeOut"
+                  }
+                }
+              }}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.1 }}
               whileHover={{ y: -5 }}
             >
               <div className="relative overflow-hidden">
