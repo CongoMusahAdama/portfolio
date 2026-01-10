@@ -55,7 +55,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="relative min-h-[100dvh] pt-20 lg:pt-28 bg-background overflow-hidden flex flex-col justify-center"
+      className="relative min-h-[100dvh] pt-14 lg:pt-28 bg-background overflow-hidden flex flex-col justify-center"
     >
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
@@ -70,17 +70,17 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
       </div>
 
       <div className="container mx-auto px-6 z-10 py-0 lg:py-20 relative max-w-[1200px]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16 items-center">
           {/* Text content on the left */}
           <motion.div
-            className="text-left order-last lg:order-first mt-6 lg:mt-0 flex flex-col justify-center items-start"
+            className="text-left order-last lg:order-first mt-2 lg:mt-0 flex flex-col justify-center items-start"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            {/* Social Media Icons for mobile only - Horizontal row ABOVE text, Left Aligned */}
+            {/* Social Media Icons for mobile only - Horizontal row ABOVE text, Centered below image */}
             <motion.div
-              className="flex justify-start gap-4 mb-6 w-full lg:hidden"
+              className="flex justify-center gap-4 my-3 w-full lg:hidden"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
@@ -100,7 +100,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             </motion.div>
 
             <motion.h1
-              className="text-3xl sm:text-4xl lg:text-7xl font-bold leading-tight mb-2 lg:mb-6"
+              className="text-3xl sm:text-4xl lg:text-7xl font-bold leading-tight mb-1 lg:mb-6"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -134,7 +134,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             </motion.h1>
 
             {/* Rotating titles */}
-            <div className="text-base sm:text-xl lg:text-3xl font-medium mb-3 lg:mb-8 h-6 lg:h-12 flex items-center relative justify-start w-full">
+            <div className="text-base sm:text-xl lg:text-3xl font-medium mb-2 lg:mb-8 h-6 lg:h-12 flex items-center relative justify-start w-full">
               <AnimatePresence mode="wait">
                 <motion.h2
                   key={currentTitleIndex}
@@ -152,11 +152,11 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               </AnimatePresence>
             </div>
 
-            <p className="text-muted-foreground text-sm sm:text-lg lg:text-xl leading-relaxed mb-4 lg:mb-10 max-w-[95%] lg:max-w-xl">
+            <p className="text-muted-foreground text-sm sm:text-lg lg:text-xl leading-snug mb-3 lg:mb-10 max-w-[95%] lg:max-w-xl">
               Passionate about turning real-world problems into impactful digital solutions that drive growth, success, and meaningful impact, one code at a time.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-3 mb-6 lg:mb-12 w-full max-w-md lg:max-w-none">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-3 mb-4 lg:mb-12 w-full max-w-md lg:max-w-none">
               <div className="flex items-center justify-start text-muted-foreground text-xs sm:text-base lg:text-base">
                 <MapPin className="w-4 h-4 lg:w-5 lg:h-5 text-primary mr-2 lg:mr-3" />
                 <span>Accra and Takoradi, Ghana</span>
@@ -189,7 +189,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             transition={{ duration: 0.6 }}
           >
             <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12 w-full justify-center">
-              <div className="relative w-[85vw] h-[85vw] max-w-[350px] max-h-[350px] lg:w-[450px] lg:h-[450px]">
+              <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-[450px] lg:h-[450px]">
                 <div className="relative w-full h-full">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/10 rounded-[2rem] lg:rounded-[3rem] transform rotate-6 border-2 border-primary/10 backdrop-blur-sm"></div>
                   <img
