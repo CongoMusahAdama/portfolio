@@ -55,7 +55,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="relative min-h-[100dvh] pt-20 lg:pt-28 bg-background overflow-hidden flex flex-col justify-center"
+      className="relative min-h-[100dvh] pt-14 lg:pt-28 bg-background overflow-hidden flex flex-col justify-center"
     >
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
@@ -69,8 +69,8 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 z-10 py-4 lg:py-20 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-4 items-center max-w-5xl mx-auto">
+      <div className="container mx-auto px-6 z-10 py-1 lg:py-20 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-4 items-center max-w-5xl mx-auto">
           {/* Text content on the left */}
           <motion.div
             className="text-left order-last lg:order-first mt-2 lg:mt-0"
@@ -149,11 +149,11 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               </AnimatePresence>
             </div>
 
-            <p className="text-muted-foreground text-sm lg:text-lg leading-relaxed mb-3 lg:mb-6 max-w-lg">
+            <p className="text-muted-foreground text-sm lg:text-lg leading-relaxed mb-2 lg:mb-6 max-w-lg">
               Passionate about turning real-world problems into impactful digital solutions that drive growth, success, and meaningful impact, one code at a time
             </p>
 
-            <div className="flex flex-col gap-1 lg:gap-2 mb-4 lg:mb-8">
+            <div className="flex flex-col gap-0.5 lg:gap-2 mb-2 lg:mb-8">
               <div className="flex items-center text-muted-foreground text-[10px] lg:text-sm">
                 <MapPin className="w-3.5 h-3.5 text-orange mr-2" />
                 <span>Accra and Takoradi, Ghana • Freelancer</span>
@@ -186,7 +186,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             transition={{ duration: 0.6 }}
           >
             <div className="flex flex-row items-center gap-3 lg:gap-10">
-              <div className="relative w-80 h-80 md:w-80 md:h-80">
+              <div className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80">
                 <div className="relative w-full h-full">
                   <div className="absolute inset-0 bg-gradient-to-br from-orange/20 to-orange/10 rounded-3xl transform rotate-6 border-2 border-orange/10 backdrop-blur-sm"></div>
                   <img
@@ -222,7 +222,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
 
             {/* Social Media Icons for mobile only */}
             <motion.div
-              className="flex justify-center gap-4 mt-12 w-full lg:hidden"
+              className="flex justify-center gap-4 mt-2 w-full lg:hidden"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
