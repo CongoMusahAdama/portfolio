@@ -67,18 +67,24 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="py-12 bg-primary relative overflow-hidden"
+      className="py-8 bg-orange relative overflow-hidden"
       ref={sectionRef}
     >
       <TechPattern />
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-4">
+        <div className="text-center mb-8">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">What I Do</h2>
           <div className="w-16 h-1 bg-white mx-auto mb-6"></div>
+
+          <div className="max-w-3xl mx-auto text-white/95 text-base lg:text-lg leading-relaxed space-y-3 font-medium">
+            <p>
+              System architecture, networking and security. No one can touch me on that. But does anyone appreciate that? It's not magic, it's talent and sweat.
+            </p>
+            <p>
+              I make sure that one bad config on one key component doesn't bankrupt the entire company. That's what I do.
+            </p>
+          </div>
         </div>
-
-
-
 
         <motion.div
           className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-6 max-w-4xl mx-auto mb-8"

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,52 +6,94 @@
 
 @layer base {
   :root {
-    --background: 0 0% 2%;
-    --foreground: 0 0% 100%;
+    --background: 0 0% 98%;
+    --foreground: 220 13% 18%;
 
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 18%;
 
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 18%;
 
-    --primary: 41 98% 54%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 220 13% 18%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 0% 16%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 220 13% 95%;
+    --secondary-foreground: 220 13% 18%;
 
-    --muted: 0 0% 16%;
-    --muted-foreground: 0 0% 63%;
+    --muted: 220 13% 95%;
+    --muted-foreground: 220 13% 45%;
 
-    --accent: 41 98% 54%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 220 13% 95%;
+    --accent-foreground: 220 13% 18%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 16%;
-    --input: 0 0% 16%;
-    --ring: 41 98% 54%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 220 13% 18%;
 
     --radius: 0.5rem;
 
-    --orange: 41 98% 54%;
-    --orange-foreground: 0 0% 0%;
+    --orange: 355 86% 62%;
+    --orange-foreground: 0 0% 100%;
     --cyan: 186 80% 50%;
-    --cyan-foreground: 0 0% 100%;
+    --cyan-foreground: 0 0% 98%;
   }
 
+  .dark {
+    --background: 220 13% 9%;
+    --foreground: 0 0% 95%;
+
+    --card: 220 13% 9%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 13% 9%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 0% 95%;
+    --primary-foreground: 220 13% 9%;
+
+    --secondary: 220 13% 14%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 220 13% 14%;
+    --muted-foreground: 220 13% 63%;
+
+    --accent: 220 13% 14%;
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 18%;
+    --input: 220 13% 18%;
+    --ring: 0 0% 95%;
+
+    --orange: 341 100% 64%;
+    --orange-foreground: 0 0% 98%;
+    --cyan: 186 80% 50%;
+    --cyan-foreground: 0 0% 98%;
+  }
+}
+
+@layer base {
   * {
     @apply border-border;
   }
 
   html {
     @apply scroll-smooth;
+    font-size: 16px;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans antialiased;
+    line-height: 1.6;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   h1,
@@ -60,10 +102,37 @@
   h4,
   h5,
   h6 {
-    @apply font-heading;
+    @apply text-foreground font-sans font-bold tracking-tight;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
   }
 }
 
+/* Mobile-First Utilities */
+@layer utilities {
+  .min-h-screen-dvh {
+    min-height: 100dvh;
+  }
+
+  .tap-highlight-none {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Hero section background responsiveness */
 @media (max-width: 768px) {
   #hero {
     background-attachment: scroll !important;
@@ -81,11 +150,22 @@
   transform: translateY(0);
 }
 
-.tech-icon {
-  transition: transform 0.3s ease, filter 0.3s ease;
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-200px * 8));
+  }
+
+  /* Adjust based on item width and count */
 }
 
-.tech-icon:hover {
-  transform: translateY(-5px);
-  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.pause-animation:hover .animate-scroll {
+  animation-play-state: paused;
 }

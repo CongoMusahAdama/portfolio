@@ -1,35 +1,20 @@
 import { Button } from "@/components/ui/button";
-import { MapPin, Mail, Github, Linkedin } from "lucide-react";
+import { MapPin, Mail, Github, Linkedin, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 interface HeroSectionProps {
-  profileImage: string;
+  profileImage?: string;
 }
 
 const HeroSection = ({ profileImage }: HeroSectionProps) => {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const titles = ["Software Engineer", "Product Strategy Thinker"];
-  const accentImage = "/lovable-uploads/image.png";
-  const accentTiles = [
-    {
-      className:
-        "hidden md:block top-6 right-32 w-40 h-40 rotate-3",
-    },
-    {
-      className:
-        "top-32 left-4 md:left-24 w-32 h-32 -rotate-2",
-    },
-    {
-      className:
-        "bottom-8 right-6 md:right-32 w-36 h-36 rotate-6",
-    },
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
-    }, 4500); // 4.5 seconds for each title
+    }, 4500);
 
     return () => clearInterval(interval);
   }, [titles.length]);
@@ -55,166 +40,130 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="relative min-h-[100dvh] pt-14 lg:pt-28 pb-32 lg:pb-0 bg-background overflow-hidden flex flex-col justify-center"
+      className="relative min-h-screen-dvh pt-24 pb-16 bg-background overflow-hidden flex flex-col items-center justify-center text-foreground transition-colors duration-500"
     >
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/70 to-background" />
-        {accentTiles.map((tile, index) => (
-          <img
-            key={index}
-            src={accentImage}
-            alt="hero accent"
-            className={`absolute rounded-3xl shadow-lg opacity-80 dark:opacity-60 mix-blend-multiply dark:mix-blend-screen blur-[0.2px] ${tile.className}`}
-          />
-        ))}
+      {/* Subtle Grid Pattern - Theme Aware */}
+      <div className="absolute inset-0 z-0 opacity-[0.1] dark:opacity-[0.05] pointer-events-none"
+        style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '32px 32px' }}>
       </div>
 
-      <div className="container mx-auto px-6 z-10 py-0 lg:py-20 relative max-w-[1200px]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16 items-center">
-          {/* Text content on the left */}
+      {/* Decorative Blob */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] -z-10 overflow-hidden pointer-events-none opacity-20 dark:opacity-10">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-gradient-to-br from-orange/20 to-cyan/20 rounded-full blur-[80px] md:blur-[100px]" />
+      </div>
+
+      <div className="container mx-auto px-5 md:px-6 z-10 flex flex-col items-center">
+        <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
+          {/* Announcement Pill - Theme Aware with Avatar */}
           <motion.div
-            className="text-left order-last lg:order-first mt-2 lg:mt-0 flex flex-col justify-center items-start"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="inline-flex items-center gap-2.5 pl-1.5 pr-3.5 py-1.5 rounded-full bg-card/50 backdrop-blur-sm border border-border shadow-sm text-muted-foreground hover:bg-muted md:hover:bg-muted transition-colors text-xs sm:text-sm font-medium mb-8 cursor-pointer group tap-highlight-none"
           >
-            {/* Social Media Icons for mobile only - Horizontal row ABOVE text, Centered below image */}
-            <motion.div
-              className="flex justify-center gap-4 my-3 w-full lg:hidden"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
+            <div className="relative flex-shrink-0 w-6 h-6 rounded-full overflow-hidden border border-white/20 shadow-inner">
+              <img
+                src="/lovable-uploads/image copy 3.png"
+                alt="Profile"
+                className="w-full h-full object-cover grayscale md:group-hover:grayscale-0 transition-all duration-500"
+              />
+            </div>
+            <span className="font-sans flex items-center gap-1.5">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-orange"></span>
+              </span>
+              Hi, I'm <span className="font-bold">Congo Musah</span>
+            </span>
+            <svg
+              className="w-3.5 h-3.5 transition-transform md:group-hover:translate-x-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              {socialLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 transition-all duration-300 hover:scale-110 active:scale-95 bg-muted/50 rounded-full text-muted-foreground hover:text-primary"
-                  aria-label={link.label}
-                >
-                  {link.icon}
-                </a>
-              ))}
-            </motion.div>
-
-            <motion.h1
-              className="text-3xl sm:text-4xl lg:text-7xl font-bold leading-tight mb-1 lg:mb-6"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-            >
-              <span className="text-foreground block mb-1 lg:mb-2">Hi I'm </span>
-              <motion.span
-                className="text-primary inline-block relative text-5xl sm:text-6xl lg:text-8xl"
-                animate={{
-                  scale: [1, 1.02, 1],
-                  textShadow: [
-                    "0 0 0px rgb(253 181 21 / 0)",
-                    "0 0 15px rgb(253 181 21 / 0.3)",
-                    "0 0 0px rgb(253 181 21 / 0)"
-                  ]
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                style={{
-                  backgroundImage: "linear-gradient(45deg, #fdb515, #ffcc00, #fdb515)",
-                  backgroundSize: "200% 200%",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                Congo
-              </motion.span>
-            </motion.h1>
-
-            {/* Rotating titles */}
-            <div className="text-base sm:text-xl lg:text-3xl font-medium mb-2 lg:mb-8 h-6 lg:h-12 flex items-center relative justify-start w-full">
-              <AnimatePresence mode="wait">
-                <motion.h2
-                  key={currentTitleIndex}
-                  initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -10, filter: "blur(8px)" }}
-                  transition={{
-                    duration: 0.6,
-                    ease: "easeInOut"
-                  }}
-                  className="text-muted-foreground absolute left-0"
-                >
-                  {titles[currentTitleIndex]}
-                </motion.h2>
-              </AnimatePresence>
-            </div>
-
-            <p className="text-muted-foreground text-sm sm:text-lg lg:text-xl leading-snug mb-3 lg:mb-10 max-w-[95%] lg:max-w-xl">
-              Passionate about turning real-world problems into impactful digital solutions that drive growth, success, and meaningful impact, one code at a time.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-3 mb-4 lg:mb-12 w-full max-w-md lg:max-w-none">
-              <div className="flex items-center justify-start text-muted-foreground text-xs sm:text-base lg:text-base">
-                <MapPin className="w-4 h-4 lg:w-5 lg:h-5 text-primary mr-2 lg:mr-3" />
-                <span>Accra and Takoradi, Ghana</span>
-              </div>
-              <div className="flex items-center justify-start text-muted-foreground text-xs sm:text-base lg:text-base">
-                <Mail className="w-4 h-4 lg:w-5 lg:h-5 text-primary mr-2 lg:mr-3" />
-                <a href="mailto:amusahcongo@gmail.com" className="hover:text-primary transition-colors">amusahcongo@gmail.com</a>
-              </div>
-            </div>
-
-            <div className="flex flex-row gap-3 lg:gap-5 w-full sm:w-auto justify-start">
-              <a href="https://flowcv.com/resume/wtaak1n6a414" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none">
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-3 py-2 lg:px-6 lg:py-4 h-auto rounded-full font-bold text-xs sm:text-sm lg:text-lg transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20 w-full min-h-[36px] lg:min-h-[48px]">
-                  Download CV
-                </Button>
-              </a>
-              <a href="#projects" className="flex-1 sm:flex-none">
-                <Button variant="outline" className="text-foreground hover:bg-muted px-3 py-2 lg:px-6 lg:py-4 h-auto rounded-full font-bold text-xs sm:text-sm lg:text-lg transition-all hover:scale-105 active:scale-95 border-2 w-full min-h-[36px] lg:min-h-[48px]">
-                  View Portfolio
-                </Button>
-              </a>
-            </div>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+            </svg>
           </motion.div>
 
-          {/* Profile image on the right with capsule shape */}
-          <motion.div
-            className="flex flex-col lg:flex-row justify-center lg:justify-end order-first lg:order-last relative items-center"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
+          <motion.h1
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-[1.1] md:leading-[1.0] mb-8 tracking-tight md:tracking-[-0.03em] max-w-4xl text-foreground"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
           >
-            <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12 w-full justify-center">
-              <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-[450px] lg:h-[450px]">
-                <div className="relative w-full h-full">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/10 rounded-[2rem] lg:rounded-[3rem] transform rotate-6 border-2 border-primary/10 backdrop-blur-sm"></div>
-                  <img
-                    src={profileImage}
-                    alt="Congo Musah Adama"
-                    className="relative w-full h-full object-cover rounded-[2rem] lg:rounded-[3rem] shadow-2xl z-10"
-                  />
+            Telling computers to do <span className="text-orange font-mono font-medium lowercase italic lg:mr-2 leading-none whitespace-nowrap">something</span>,
+            sometimes they listen.
+          </motion.h1>
 
-                  {/* Subtle accent shadows/glows */}
-                  <div className="absolute -top-4 -right-4 w-20 h-20 lg:w-40 lg:h-40 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
-                  <div className="absolute -bottom-8 -left-8 w-24 h-24 lg:w-48 lg:h-48 bg-primary/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-                </div>
+          <motion.div
+            className="h-6 md:h-8 mb-8 overflow-hidden flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={titles[currentTitleIndex]}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.5, ease: "circOut" }}
+                className="text-[10px] sm:text-xs md:text-sm lg:text-base font-mono font-bold text-orange uppercase tracking-[0.3em] md:tracking-[0.4em] drop-shadow-sm"
+              >
+                {titles[currentTitleIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </motion.div>
+
+          <motion.div
+            className="flex flex-row justify-center gap-3 lg:gap-5 mb-12 w-full sm:w-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+          >
+            <a href="https://flowcv.com/resume/wtaak1n6a414" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none">
+              <Button size="sm" className="w-full sm:w-auto h-11 md:h-14 bg-orange hover:bg-orange/90 text-white px-4 md:px-10 rounded-lg font-semibold transition-all md:hover:scale-[1.02] active:scale-95 shadow-lg shadow-orange/20 text-xs md:text-lg tracking-tight">
+                Download CV
+              </Button>
+            </a>
+            <a href="#projects" className="flex-1 sm:flex-none">
+              <Button size="sm" variant="outline" className="w-full sm:w-auto h-11 md:h-14 bg-card border border-border text-foreground hover:bg-muted md:hover:bg-muted px-4 md:px-10 rounded-lg font-semibold transition-all md:hover:scale-[1.02] active:scale-95 text-xs md:text-lg tracking-tight">
+                View Projects
+              </Button>
+            </a>
+          </motion.div>
+
+          {/* Contact Bar - Theme Aware */}
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-12 w-full pt-8 md:pt-12 border-t border-border/60"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.0, duration: 0.8 }}
+          >
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-bold font-sans">Location</span>
+              <div className="flex items-center text-center text-foreground font-semibold text-sm lg:text-base px-4">
+                <MapPin className="w-4 h-4 text-orange mr-2 flex-shrink-0" />
+                <span>Takoradi / Accra - Ghana • Freelancer</span>
               </div>
-
-              {/* Social Links on the right of the image - pinned to container right */}
-              <div className="hidden lg:flex flex-col items-center gap-8">
-                <div className="w-[1px] h-20 bg-border mb-2" />
-                <span className="[writing-mode:vertical-lr] text-xs font-semibold tracking-[0.2em] text-muted-foreground mb-4 uppercase whitespace-nowrap">Follow Me</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-bold font-sans">Drop an Email</span>
+              <div className="flex items-center text-foreground font-semibold text-sm lg:text-base">
+                <Mail className="w-4 h-4 text-orange mr-2 flex-shrink-0" />
+                <a href="mailto:amusahcongo@gmail.com" className="hover:text-orange transition-colors break-all">amusahcongo@gmail.com</a>
+              </div>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-bold font-sans">Socials</span>
+              <div className="flex gap-5 items-center">
                 {socialLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110 active:scale-95 bg-muted/30 rounded-full"
+                    className="text-muted-foreground md:hover:text-orange transition-all duration-300 transform md:hover:scale-110 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
                     aria-label={link.label}
                   >
                     {link.icon}
@@ -226,25 +175,25 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
         </div>
       </div>
 
-      {/* Scroll Down Indicator */}
+      {/* Scroll Down Indicator - Enhanced & Prominent */}
       <motion.div
-        className="absolute bottom-8 left-12 hidden lg:flex items-center gap-3 text-muted-foreground"
+        className="absolute bottom-48 lg:bottom-24 left-1/2 -translate-x-1/2 lg:left-12 lg:translate-x-0 flex items-center gap-5 text-muted-foreground/50 hover:text-orange transition-colors cursor-pointer group z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
+        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
       >
-        <div className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center p-1">
+        <div className="w-10 h-16 border-2 border-current rounded-full flex justify-center p-2.5 opacity-80 md:opacity-100 shadow-md">
           <motion.div
-            className="w-1 h-2 bg-primary rounded-full"
-            animate={{ y: [0, 16, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            className="w-2.5 h-3.5 bg-orange rounded-full shadow-[0_0_10px_rgba(255,102,102,0.5)]"
+            animate={{ y: [0, 24, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
-        <span className="text-xs font-medium uppercase tracking-widest">Scroll down</span>
+        <span className="text-xs md:text-base uppercase tracking-[0.3em] font-bold font-mono">Scroll</span>
       </motion.div>
     </section>
   );
 };
 
 export default HeroSection;
-

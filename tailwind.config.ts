@@ -73,10 +73,9 @@ export default {
 				},
 			},
 			fontFamily: {
-				sans: ['Roboto', 'sans-serif'],
-				heading: ['Montserrat', 'sans-serif'],
-				subheading: ['"Exo 2"', 'sans-serif'],
-				inter: ['Inter', 'sans-serif'], // Keep just in case, but likely replacing usage
+				sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+				mono: ['IBM Plex Mono', 'monospace'],
+				inter: ['Inter', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
