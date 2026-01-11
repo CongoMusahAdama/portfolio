@@ -133,37 +133,39 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             </a>
           </motion.div>
 
-          {/* Contact Bar - Theme Aware */}
+          {/* Contact Bar - Refined & Optimized */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-12 w-full pt-6 md:pt-8 border-t border-border/60"
+            className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 w-full pt-6 md:pt-8 border-t border-border/60"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.0, duration: 0.8 }}
           >
-            <div className="flex flex-col items-center gap-1.5 md:gap-2">
-              <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-bold font-sans">Location</span>
-              <div className="flex items-center text-center text-foreground font-semibold text-xs md:text-sm lg:text-base px-2">
+            <div className="flex flex-col items-center gap-1.5 md:gap-2 min-w-[140px]">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 font-bold font-mono">Location</span>
+              <div className="flex items-center text-center text-foreground font-semibold text-xs md:text-sm lg:text-base">
                 <MapPin className="w-3.5 h-3.5 text-orange mr-1.5 flex-shrink-0" />
-                <span>Takoradi / Accra • Freelancer</span>
+                <span>Takoradi / Accra</span>
               </div>
             </div>
-            <div className="flex flex-col items-center gap-1.5 md:gap-2">
-              <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-bold font-sans">Drop an Email</span>
+
+            <div className="flex flex-col items-center gap-1.5 md:gap-2 min-w-[140px]">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 font-bold font-mono">Drop an Email</span>
               <div className="flex items-center text-foreground font-semibold text-xs md:text-sm lg:text-base">
                 <Mail className="w-3.5 h-3.5 text-orange mr-1.5 flex-shrink-0" />
-                <a href="mailto:amusahcongo@gmail.com" className="hover:text-orange transition-colors break-all">amusahcongo@gmail.com</a>
+                <a href="mailto:amusahcongo@gmail.com" className="hover:text-orange transition-colors">amusahcongo@gmail.com</a>
               </div>
             </div>
-            <div className="flex flex-col items-center gap-1.5 md:gap-2">
-              <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-bold font-sans">Socials</span>
-              <div className="flex gap-4 md:gap-5 items-center">
+
+            <div className="flex flex-col items-center gap-1.5 md:gap-2 min-w-[140px]">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 font-bold font-mono">Socials</span>
+              <div className="flex gap-4 items-center">
                 {socialLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground md:hover:text-orange transition-all duration-300 transform md:hover:scale-110 p-1.5 min-w-[36px] min-h-[36px] flex items-center justify-center"
+                    className="text-muted-foreground md:hover:text-orange transition-all duration-300 transform md:hover:scale-110 p-1.5 min-w-[36px] min-h-[36px] flex items-center justify-center tap-highlight-none"
                     aria-label={link.label}
                   >
                     {link.icon}
