@@ -50,6 +50,7 @@ const Header = () => {
   const navLinks = [
     { title: "Home", href: "/", external: false, isSection: false },
     { title: "About", href: "/about", external: false, isSection: false },
+    { title: "Services", href: "/services", external: false, isSection: false },
     { title: "Projects", href: "#projects", external: false, isSection: true },
     { title: "Skills", href: "#skills", external: false, isSection: true },
     { title: "Testimonials", href: "#testimonials", external: false, isSection: true },
