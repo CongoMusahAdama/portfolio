@@ -41,7 +41,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen-dvh pt-36 md:pt-20 pb-32 md:pb-20 bg-background overflow-hidden flex flex-col items-center justify-start md:justify-center text-foreground transition-colors duration-500"
+      className="relative min-h-screen-dvh pt-28 md:pt-20 pb-12 md:pb-20 bg-background overflow-hidden flex flex-col items-center justify-start md:justify-center text-foreground transition-colors duration-500"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -121,7 +121,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           </motion.div>
 
           <motion.div
-            className="flex flex-row justify-center gap-3 lg:gap-5 mb-8 md:mb-10 w-full sm:w-auto mt-8 md:mt-0"
+            className="flex flex-row justify-center gap-3 lg:gap-5 mb-8 md:mb-10 w-full sm:w-auto mt-6 md:mt-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
@@ -140,7 +140,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
 
           {/* Contact Bar - Refined & Optimized */}
           <motion.div
-            className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 w-full pt-6 md:pt-8 border-t border-border/60 mt-8 md:mt-0"
+            className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 w-full pt-6 md:pt-8 border-t border-border/60 mt-6 md:mt-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.0, duration: 0.8 }}
