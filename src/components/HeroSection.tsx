@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Mail, Github, Linkedin, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import TechPattern from "./TechPattern";
 
 interface HeroSectionProps {
   profileImage?: string;
@@ -42,9 +43,26 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
       id="hero"
       className="relative min-h-screen-dvh pt-16 md:pt-20 pb-8 bg-background overflow-hidden flex flex-col items-center justify-center text-foreground transition-colors duration-500"
     >
-      {/* Subtle Grid Pattern - Theme Aware */}
-      <div className="absolute inset-0 z-0 opacity-[0.1] dark:opacity-[0.05] pointer-events-none"
-        style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '32px 32px' }}>
+      {/* Background Elements */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* Top-Left Pattern - Full Clarity */}
+        <div className="absolute -top-[10%] -left-[5%] w-[90%] md:w-[60%] h-[60%] md:h-auto rotate-[-15deg]">
+          <TechPattern />
+        </div>
+
+        {/* Left Side Middle Pattern - Full Clarity & Well Positioned */}
+        <div className="absolute top-[45%] -left-[10%] -translate-y-1/2 w-[80%] md:w-[45%] h-[45%] md:h-auto rotate-[5deg] hidden md:block">
+          <TechPattern />
+        </div>
+
+        {/* Bottom-Right Pattern - Full Clarity */}
+        <div className="absolute -bottom-[10%] -right-[15%] w-[110%] md:w-[70%] h-[70%] md:h-auto rotate-[15deg] hidden sm:block">
+          <TechPattern />
+        </div>
+
+        <div className="absolute inset-0 opacity-[0.08] dark:opacity-[0.05]"
+          style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+        </div>
       </div>
 
       {/* Decorative Blob */}
@@ -70,8 +88,8 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             </div>
             <span className="font-sans flex items-center gap-1.5">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-orange"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-pink opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-pink"></span>
               </span>
               Hi, I'm <span className="font-bold">Congo Musah</span>
             </span>
@@ -91,7 +109,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Telling computers to do <span className="text-orange font-mono font-medium lowercase italic lg:mr-2 leading-none whitespace-nowrap">something</span>,
+            Telling computers to do <span className="text-brand-pink font-mono font-medium lowercase italic lg:mr-2 leading-none whitespace-nowrap">something</span>,
             sometimes they listen.
           </motion.h1>
 
@@ -108,7 +126,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.5, ease: "circOut" }}
-                className="text-[10px] sm:text-xs md:text-sm lg:text-base font-mono font-bold text-orange uppercase tracking-[0.3em] md:tracking-[0.4em] drop-shadow-sm"
+                className="text-[10px] sm:text-xs md:text-sm lg:text-base font-mono font-bold text-brand-pink uppercase tracking-[0.3em] md:tracking-[0.4em] drop-shadow-sm"
               >
                 {titles[currentTitleIndex]}
               </motion.span>
@@ -122,7 +140,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             transition={{ delay: 0.8, duration: 0.6 }}
           >
             <a href="https://flowcv.com/resume/wtaak1n6a414" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none">
-              <Button size="sm" className="w-full sm:w-auto h-11 md:h-12 bg-orange hover:bg-orange/90 text-white px-4 md:px-8 rounded-lg font-semibold transition-all md:hover:scale-[1.02] active:scale-95 shadow-lg shadow-orange/20 text-xs md:text-base tracking-tight">
+              <Button size="sm" className="w-full sm:w-auto h-11 md:h-12 bg-brand-pink hover:bg-brand-pink/90 text-white px-4 md:px-8 rounded-lg font-semibold transition-all md:hover:scale-[1.02] active:scale-95 shadow-lg shadow-brand-pink/20 text-xs md:text-base tracking-tight">
                 Download CV
               </Button>
             </a>
@@ -143,7 +161,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             <div className="flex flex-col items-center gap-1.5 md:gap-2 min-w-[140px]">
               <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 font-bold font-mono">Location</span>
               <div className="flex items-center text-center text-foreground font-semibold text-xs md:text-sm lg:text-base">
-                <MapPin className="w-3.5 h-3.5 text-orange mr-1.5 flex-shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-brand-pink mr-1.5 flex-shrink-0" />
                 <span>Takoradi / Accra</span>
               </div>
             </div>
@@ -165,7 +183,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground md:hover:text-orange transition-all duration-300 transform md:hover:scale-110 p-1.5 min-w-[36px] min-h-[36px] flex items-center justify-center tap-highlight-none"
+                    className="text-muted-foreground md:hover:text-brand-pink transition-all duration-300 transform md:hover:scale-110 p-1.5 min-w-[36px] min-h-[36px] flex items-center justify-center tap-highlight-none"
                     aria-label={link.label}
                   >
                     {link.icon}
@@ -179,7 +197,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
 
       {/* Scroll Down Indicator - Enhanced & Prominent */}
       <motion.div
-        className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 lg:left-12 lg:translate-x-0 flex items-center gap-4 md:gap-5 text-muted-foreground/50 hover:text-orange transition-colors cursor-pointer group z-10"
+        className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 lg:left-12 lg:translate-x-0 flex items-center gap-4 md:gap-5 text-muted-foreground/50 hover:text-brand-pink transition-colors cursor-pointer group z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
@@ -187,7 +205,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
       >
         <div className="w-8 h-12 md:w-10 md:h-16 border-2 border-current rounded-full flex justify-center p-2 md:p-2.5 opacity-80 md:opacity-100 shadow-md">
           <motion.div
-            className="w-1.5 h-2 md:w-2.5 md:h-3.5 bg-orange rounded-full shadow-[0_0_10px_rgba(255,102,102,0.5)]"
+            className="w-1.5 h-2 md:w-2.5 md:h-3.5 bg-brand-pink rounded-full shadow-[0_0_10px_rgba(255,0,128,0.5)]"
             animate={{ y: [0, 16, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           />

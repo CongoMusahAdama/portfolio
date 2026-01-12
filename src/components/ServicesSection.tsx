@@ -67,62 +67,49 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="py-8 bg-orange relative overflow-hidden"
+      className="py-8 bg-background relative overflow-hidden flex items-center"
       ref={sectionRef}
     >
-      <TechPattern />
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">What I Do</h2>
-          <div className="w-16 h-1 bg-white mx-auto mb-6"></div>
-
-          <div className="max-w-3xl mx-auto text-white/95 text-base lg:text-lg leading-relaxed space-y-3 font-medium">
-            <p>
-              System architecture, networking and security. No one can touch me on that. But does anyone appreciate that? It's not magic, it's talent and sweat.
-            </p>
-            <p>
-              I make sure that one bad config on one key component doesn't bankrupt the entire company. That's what I do.
-            </p>
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 max-w-6xl mx-auto">
+          <div className="flex-shrink-0">
+            <h2 className="text-2xl lg:text-3xl font-bold text-foreground tracking-tight">What I Do</h2>
+            <div className="w-12 h-1 bg-brand-pink mt-2"></div>
           </div>
-        </div>
 
-        <motion.div
-          className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-6 max-w-4xl mx-auto mb-8"
-          initial="hidden"
-          animate={isVisible ? "visible" : "hidden"}
-          variants={containerVariants}
-        >
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              className="group text-center"
-              variants={itemVariants}
-            >
-              <div className="mb-2 flex justify-center">
-                <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300">
-                  <service.icon className="w-5 h-5 text-white" />
+          <motion.div
+            className="flex flex-wrap justify-center lg:justify-end gap-x-8 gap-y-4"
+            initial="hidden"
+            animate={isVisible ? "visible" : "hidden"}
+            variants={containerVariants}
+          >
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                className="flex items-center gap-3 group"
+                variants={itemVariants}
+              >
+                <div className="w-8 h-8 rounded-lg bg-brand-pink/10 flex items-center justify-center group-hover:bg-brand-pink transition-colors">
+                  <service.icon className="w-4 h-4 text-brand-pink group-hover:text-white transition-colors" />
                 </div>
-              </div>
+                <span className="text-xs sm:text-sm font-bold text-foreground">
+                  {service.title}
+                </span>
+              </motion.div>
+            ))}
+          </motion.div>
 
-              <h3 className="text-sm lg:text-base font-bold text-white group-hover:text-white/90 transition-colors duration-300 px-1 leading-tight">
-                {service.title}
-              </h3>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-        >
-          <Button asChild size="default" className="bg-white text-black hover:bg-white/90 font-bold px-6 shadow-md h-10">
-            <Link to="/services">
-              See All Services
-            </Link>
-          </Button>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: 0.8 }}
+            className="flex-shrink-0"
+          >
+            <Button asChild size="sm" className="bg-brand-pink hover:bg-brand-pink/90 text-white font-bold rounded-full text-[10px] px-4">
+              <Link to="/services">All Services</Link>
+            </Button>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

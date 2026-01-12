@@ -1,8 +1,8 @@
-const TechPattern = () => {
+const TechPattern = ({ className }: { className?: string }) => {
     return (
-        <svg className="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <svg className={`absolute inset-0 w-full h-full opacity-20 dark:opacity-30 pointer-events-none ${className || 'text-slate-900 dark:text-white'}`} xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
             {/* Left side - denser geometric network */}
-            <g stroke="white" fill="none" strokeWidth="1.5">
+            <g stroke="currentColor" fill="none" strokeWidth="1.5">
                 {/* Main triangular network - left side */}
                 <polygon points="50,80 150,40 120,180" opacity="0.6" />
                 <polygon points="150,40 250,100 120,180" opacity="0.5" />
@@ -20,7 +20,7 @@ const TechPattern = () => {
             </g>
 
             {/* Center - sparse geometric elements */}
-            <g stroke="white" fill="none" strokeWidth="1.5">
+            <g stroke="currentColor" fill="none" strokeWidth="1.5">
                 <polygon points="450,120 550,180 480,280" opacity="0.3" />
                 <polygon points="550,180 650,140 600,260" opacity="0.25" />
                 <polygon points="480,280 600,260 520,360" opacity="0.2" />
@@ -29,7 +29,7 @@ const TechPattern = () => {
             </g>
 
             {/* Right side - very sparse, fading out */}
-            <g stroke="white" fill="none" strokeWidth="1.2">
+            <g stroke="currentColor" fill="none" strokeWidth="1.2">
                 <polygon points="750,100 850,160 780,240" opacity="0.2" />
                 <polygon points="850,160 920,120 900,220" opacity="0.15" />
                 <line x1="750" y1="100" x2="920" y2="120" opacity="0.1" />
@@ -37,7 +37,7 @@ const TechPattern = () => {
             </g>
 
             {/* Connection nodes (small circles at vertices) */}
-            <g fill="white">
+            <g fill="currentColor">
                 {/* Left side nodes */}
                 <circle cx="50" cy="80" r="4" opacity="0.7" />
                 <circle cx="150" cy="40" r="4" opacity="0.7" />

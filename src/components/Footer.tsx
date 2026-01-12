@@ -47,13 +47,13 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col items-start text-left">
-            <h3 className="font-bold text-foreground mb-4 text-xs uppercase tracking-widest text-orange/80">Quick Links</h3>
+            <h3 className="font-bold text-foreground mb-4 text-xs uppercase tracking-widest text-brand-pink/80">Quick Links</h3>
             <ul className="space-y-3">
               {['About', 'Skills', 'Projects', 'Testimonials'].map((item) => (
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
-                    className="text-muted-foreground md:hover:text-orange transition-colors font-medium text-sm min-h-[40px] inline-flex items-center tap-highlight-none"
+                    className="text-muted-foreground md:hover:text-brand-pink transition-colors font-medium text-sm min-h-[40px] inline-flex items-center tap-highlight-none"
                   >
                     {item}
                   </a>
@@ -63,22 +63,22 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col items-start text-left">
-            <h3 className="font-bold text-foreground mb-4 text-xs uppercase tracking-widest text-orange/80">Contact Info</h3>
+            <h3 className="font-bold text-foreground mb-4 text-xs uppercase tracking-widest text-brand-pink/80">Contact Info</h3>
             <ul className="space-y-4">
               <li className="flex items-center gap-3 group">
-                <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-orange/10 text-orange">
+                <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-brand-pink/10 text-brand-pink">
                   <Phone className="w-4 h-4" />
                 </div>
                 <a href="tel:+233531878243" className="text-muted-foreground md:hover:text-foreground text-sm font-medium">+233 531 878 243</a>
               </li>
               <li className="flex items-center gap-3 group">
-                <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-orange/10 text-orange">
+                <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-brand-pink/10 text-brand-pink">
                   <Mail className="w-4 h-4" />
                 </div>
                 <a href="mailto:amusahcongo@gmail.com" className="text-muted-foreground md:hover:text-foreground text-sm font-medium">amusahcongo@gmail.com</a>
               </li>
               <li className="flex items-center gap-3 group">
-                <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-orange/10 text-orange">
+                <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-brand-pink/10 text-brand-pink">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <span className="text-muted-foreground text-sm font-medium">Accra & Takoradi, Ghana</span>

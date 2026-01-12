@@ -38,18 +38,19 @@ const About = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6 md:mb-8 tracking-tight">MY STORY</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 tracking-tight">MY STORY</h2>
+              <div className="w-16 h-1 bg-brand-pink mb-6 md:mb-8"></div>
               <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-5 sm:space-y-6 lg:text-base xl:text-lg">
                 <p>
                   My journey into web and mobile development began in 2020, sparked by a simple opportunity—a WordPress training organized by a masquerade club I joined. Building my first website using WordPress and PHP showed me the power of technology to turn ideas into something real, useful, and far-reaching.
                 </p>
 
                 <p>
-                  In 2021, I enrolled at the University of Energy and Natural Resources to study <span className="text-orange font-semibold">BSc. Agricultural Science and Technology</span>, where I gained firsthand exposure to real-world systems and communities. Studying agriculture alongside technology deepened my understanding of how critical well-designed digital solutions are to solving practical problems, especially in emerging markets.
+                  In 2021, I enrolled at the University of Energy and Natural Resources to study <span className="text-brand-pink font-semibold">BSc. Agricultural Science and Technology</span>, where I gained firsthand exposure to real-world systems and communities. Studying agriculture alongside technology deepened my understanding of how critical well-designed digital solutions are to solving practical problems, especially in emerging markets.
                 </p>
 
                 <p>
-                  While in the university, I intentionally sought out remote software development internships and collaborative projects, working with companies both within and outside Ghana. These experiences strengthened my technical foundation, exposed me to distributed teams, and grounded me in industry-standard practices, including Agile development and the design of reliable, <span className="text-orange font-semibold">RESTful backend systems</span>.
+                  While in the university, I intentionally sought out remote software development internships and collaborative projects, working with companies both within and outside Ghana. These experiences strengthened my technical foundation, exposed me to distributed teams, and grounded me in industry-standard practices, including Agile development and the design of reliable, <span className="text-brand-pink font-semibold">RESTful backend systems</span>.
                 </p>
 
                 <p>
@@ -57,7 +58,7 @@ const About = () => {
                 </p>
 
                 <p>
-                  During my National Service at the <span className="text-orange font-semibold">Association of Ghana Startups</span>, I worked closely with entrepreneurs to transform ideas into unified digital platforms. Through backend development, testing, and quality assurance, I developed a strong <span className="text-orange font-semibold">product mindset</span>—one rooted in clarity, collaboration, and delivering solutions that truly serve users.
+                  During my National Service at the <span className="text-brand-pink font-semibold">Association of Ghana Startups</span>, I worked closely with entrepreneurs to transform ideas into unified digital platforms. Through backend development, testing, and quality assurance, I developed a strong <span className="text-brand-pink font-semibold">product mindset</span>—one rooted in clarity, collaboration, and delivering solutions that truly serve users.
                 </p>
               </div>
             </motion.div>
@@ -76,7 +77,7 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <blockquote className="border-l-4 border-orange pl-5 md:pl-0 italic text-muted-foreground/90 my-8 text-left md:text-center md:border-l-0 md:border-t-4 md:pt-8">
+            <blockquote className="border-l-4 border-brand-pink pl-5 md:pl-0 italic text-muted-foreground/90 my-8 text-left md:text-center md:border-l-0 md:border-t-4 md:pt-8">
               <p className="mb-6 text-lg sm:text-xl md:text-2xl leading-relaxed">
                 "If a man is called to be a street sweeper, he should sweep streets even as Michelangelo painted, or Beethoven composed music, or Shakespeare wrote poetry. He should sweep streets so well that all the hosts of heaven and earth will pause to say, here lived a great street sweeper who did his job well."
               </p>

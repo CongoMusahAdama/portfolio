@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import SkillsSection from '@/components/SkillsSection';
+import LearningSection from '@/components/LearningSection';
 import ServicesSection from '@/components/ServicesSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
@@ -43,8 +44,9 @@ const Index = () => {
       <Header />
       <HeroSection profileImage={profileImage} />
       <AboutSection />
-      <SkillsSection />
       <ServicesSection />
+      <SkillsSection />
+      <LearningSection />
       <ProjectsSection />
       <TestimonialsSection />
       <ContactSection />

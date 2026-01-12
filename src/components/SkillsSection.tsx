@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import useIntersectionObserver from '@/hooks/use-intersection-observer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import TechPattern from './TechPattern';
 
 interface Skill {
   category: string;
@@ -34,20 +35,20 @@ const SkillsSection = () => {
   const scrollItems = [...allTech, ...allTech];
 
   return (
-    <section id="skills" className="py-20 md:py-24 bg-orange overflow-hidden text-white">
-      <div className="container mx-auto px-5 md:px-6 mb-12 md:mb-16">
+    <section id="skills" className="py-20 md:py-24 bg-orange relative overflow-hidden text-white">
+      <TechPattern className="text-white" />
+      <div className="container mx-auto px-5 md:px-6 mb-12 md:mb-16 relative z-10">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8 max-w-7xl mx-auto">
           <div className="text-left">
             <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-4 dark:text-background">Tech Stack</h2>
+            <div className="w-16 h-1 bg-brand-pink mb-6"></div>
             <p className="text-base sm:text-lg text-white/85 font-medium max-w-xl leading-relaxed">
               Equipped with a robust architectural toolkit and deep technical expertise in building scalable, resilient systems.
             </p>
           </div>
-          <div className="w-16 md:w-20 h-px bg-white/30 dark:bg-background/20"></div>
         </div>
       </div>
-
-      <div className="relative flex overflow-hidden">
+      <div className="relative flex overflow-hidden z-10">
         <div className="flex animate-scroll gap-12 sm:gap-16 lg:gap-24 items-center whitespace-nowrap py-8 md:py-10">
           {scrollItems.map((tech, index) => (
             <div
@@ -57,7 +58,7 @@ const SkillsSection = () => {
               <img
                 src={tech.icon}
                 alt={tech.name}
-                className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 object-contain grayscale brightness-0 invert opacity-80"
+                className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 object-contain filter drop-shadow-sm"
                 loading="lazy"
               />
               <span className="text-base sm:text-xl lg:text-2xl font-bold tracking-tight uppercase opacity-90">
