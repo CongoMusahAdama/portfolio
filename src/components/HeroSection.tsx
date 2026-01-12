@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Mail, Github, Linkedin, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import TechPattern from "./TechPattern";
+
 
 interface HeroSectionProps {
   profileImage?: string;
@@ -41,24 +41,11 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen-dvh pt-16 md:pt-20 pb-8 bg-background overflow-hidden flex flex-col items-center justify-center text-foreground transition-colors duration-500"
+      className="relative min-h-screen-dvh pt-36 md:pt-20 pb-32 md:pb-20 bg-background overflow-hidden flex flex-col items-center justify-start md:justify-center text-foreground transition-colors duration-500"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {/* Top-Left Pattern - Full Clarity */}
-        <div className="absolute -top-[10%] -left-[5%] w-[90%] md:w-[60%] h-[60%] md:h-auto rotate-[-15deg]">
-          <TechPattern />
-        </div>
-
-        {/* Left Side Middle Pattern - Full Clarity & Well Positioned */}
-        <div className="absolute top-[45%] -left-[10%] -translate-y-1/2 w-[80%] md:w-[45%] h-[45%] md:h-auto rotate-[5deg] hidden md:block">
-          <TechPattern />
-        </div>
-
-        {/* Bottom-Right Pattern - Full Clarity */}
-        <div className="absolute -bottom-[10%] -right-[15%] w-[110%] md:w-[70%] h-[70%] md:h-auto rotate-[15deg] hidden sm:block">
-          <TechPattern />
-        </div>
+        {/* Background Elements */}
 
         <div className="absolute inset-0 opacity-[0.08] dark:opacity-[0.05]"
           style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
@@ -134,7 +121,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           </motion.div>
 
           <motion.div
-            className="flex flex-row justify-center gap-3 lg:gap-5 mb-8 md:mb-10 w-full sm:w-auto"
+            className="flex flex-row justify-center gap-3 lg:gap-5 mb-8 md:mb-10 w-full sm:w-auto mt-8 md:mt-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
@@ -153,7 +140,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
 
           {/* Contact Bar - Refined & Optimized */}
           <motion.div
-            className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 w-full pt-6 md:pt-8 border-t border-border/60"
+            className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 w-full pt-6 md:pt-8 border-t border-border/60 mt-8 md:mt-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.0, duration: 0.8 }}

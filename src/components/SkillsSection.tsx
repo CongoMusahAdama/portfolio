@@ -35,13 +35,13 @@ const SkillsSection = () => {
   const scrollItems = [...allTech, ...allTech];
 
   return (
-    <section id="skills" className="py-20 md:py-24 bg-orange relative overflow-hidden text-white">
+    <section id="skills" className="py-20 md:py-14 bg-brand-pink relative overflow-hidden text-white">
       <TechPattern className="text-white" />
       <div className="container mx-auto px-5 md:px-6 mb-12 md:mb-16 relative z-10">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8 max-w-7xl mx-auto">
           <div className="text-left">
             <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-4 dark:text-background">Tech Stack</h2>
-            <div className="w-16 h-1 bg-brand-pink mb-6"></div>
+            <div className="w-16 h-1 bg-white mb-6"></div>
             <p className="text-base sm:text-lg text-white/85 font-medium max-w-xl leading-relaxed">
               Equipped with a robust architectural toolkit and deep technical expertise in building scalable, resilient systems.
             </p>
