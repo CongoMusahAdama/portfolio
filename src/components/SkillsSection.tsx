@@ -28,7 +28,7 @@ const SkillsSection = () => {
     { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
     { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
     { name: "AWS", icon: "/lovable-uploads/7a3ccb94-8f5d-44e0-97b9-1611fc4e75e9.png" },
-    { name: "NestJS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg" },
+    { name: "NestJS", icon: "/lovable-uploads/nestjs-logo.png" },
     { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
     { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
     { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
@@ -36,10 +36,10 @@ const SkillsSection = () => {
     { name: "Jira", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
     { name: "Notion", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg" },
     { name: "Trello", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" },
-    { name: "Cursor", icon: "https://avatars.githubusercontent.com/u/126786709?s=200&v=4" },
-    { name: "Antigravity", icon: "https://ui-avatars.com/api/?name=Antigravity&background=0D8ABC&color=fff&rounded=true&bold=true" },
+    { name: "Cursor", icon: "/lovable-uploads/cursor-logo.png" },
+    { name: "Antigravity", icon: "/lovable-uploads/antigravity-logo.png" },
     { name: "Slack", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" },
-    { name: "Discord", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/discordjs/discordjs-original.svg" },
+    { name: "Discord", icon: "/lovable-uploads/discord-logo.png" },
   ];
 
   // Double the array for seamless scrolling
