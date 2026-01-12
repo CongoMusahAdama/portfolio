@@ -6,7 +6,7 @@ const LearningSection = () => {
         {
             name: "Machine Learning",
             icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
-            color: "text-[#EE4C2C]"
+            color: "text-brand-pink"
         },
         {
             name: "Product Development",
@@ -36,14 +36,14 @@ const LearningSection = () => {
                         {learningItems.map((item, idx) => (
                             <div key={idx} className="flex items-center gap-2.5 group cursor-default">
                                 <div className="relative">
-                                    <div className="absolute inset-0 bg-orange/20 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    <div className="absolute inset-0 bg-brand-pink/20 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                                     <img
                                         src={item.icon}
                                         alt={item.name}
                                         className="w-5 h-5 sm:w-6 sm:h-6 object-contain relative z-10 filter transition-transform group-hover:scale-110"
                                     />
                                 </div>
-                                <span className="text-xs sm:text-sm font-bold text-foreground tracking-tight group-hover:text-orange transition-colors">
+                                <span className="text-xs sm:text-sm font-bold text-foreground tracking-tight group-hover:text-brand-pink transition-colors">
                                     {item.name}
                                 </span>
                             </div>

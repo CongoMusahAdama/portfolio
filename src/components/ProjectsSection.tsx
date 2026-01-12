@@ -258,7 +258,7 @@ const ProjectsSection = () => {
             href="https://github.com/CongoMusahAdama"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-orange hover:text-orange/80 font-medium"
+            className="inline-flex items-center text-brand-pink hover:text-brand-pink/80 font-medium"
           >
             <span className="mr-2">View all projects</span>
             <Github className="w-5 h-5" />

@@ -24,7 +24,7 @@ const About = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="relative aspect-square">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange/20 to-orange/10 rounded-3xl transform rotate-6 scale-95"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-pink/20 to-brand-pink/10 rounded-3xl transform rotate-6 scale-95"></div>
                 <img
                   src={profileImage}
                   alt="Congo Musah Adama"

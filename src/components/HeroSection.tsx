@@ -54,7 +54,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
 
       {/* Decorative Blob */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] -z-10 overflow-hidden pointer-events-none opacity-20 dark:opacity-10">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-gradient-to-br from-orange/20 to-cyan/20 rounded-full blur-[80px] md:blur-[100px]" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-gradient-to-br from-brand-pink/20 to-cyan/20 rounded-full blur-[80px] md:blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-5 md:px-6 z-10 flex flex-col items-center">
@@ -156,8 +156,8 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             <div className="flex flex-col items-center gap-1.5 md:gap-2 min-w-[140px]">
               <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 font-bold font-mono">Drop an Email</span>
               <div className="flex items-center text-foreground font-semibold text-xs md:text-sm lg:text-base">
-                <Mail className="w-3.5 h-3.5 text-orange mr-1.5 flex-shrink-0" />
-                <a href="mailto:amusahcongo@gmail.com" className="hover:text-orange transition-colors">amusahcongo@gmail.com</a>
+                <Mail className="w-3.5 h-3.5 text-brand-pink mr-1.5 flex-shrink-0" />
+                <a href="mailto:amusahcongo@gmail.com" className="hover:text-brand-pink transition-colors">amusahcongo@gmail.com</a>
               </div>
             </div>
 
