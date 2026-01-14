@@ -58,7 +58,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
       </div>
 
       <div className="container mx-auto px-5 md:px-6 z-10 flex flex-col items-center">
-        <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
+        <div className="flex flex-col items-center text-center max-w-7xl mx-auto">
           {/* Announcement Pill - Theme Aware with Avatar */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -91,13 +91,12 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           </motion.div>
 
           <motion.h1
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] md:leading-[1.0] mb-4 md:mb-6 tracking-tight md:tracking-[-0.03em] max-w-4xl text-foreground"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.2] md:leading-[1.1] mb-4 md:mb-6 tracking-normal md:tracking-wide w-full px-4 text-foreground"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Telling computers to do <span className="text-brand-pink font-mono font-medium lowercase italic lg:mr-2 leading-none whitespace-nowrap">something</span>,
-            sometimes they listen.
+            A product builder who&nbsp;uses <br /> <span className="text-brand-pink font-mono font-bold lowercase italic leading-none whitespace-nowrap">engineering</span> <span className="whitespace-nowrap">as a tool.</span>
           </motion.h1>
 
           <motion.div
