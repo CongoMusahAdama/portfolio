@@ -148,7 +148,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 font-bold font-mono">Location</span>
               <div className="flex items-center text-center text-foreground font-semibold text-xs md:text-sm lg:text-base">
                 <MapPin className="w-3.5 h-3.5 text-brand-pink mr-1.5 flex-shrink-0" />
-                <span>Takoradi / Accra</span>
+                <span>Takoradi / Accra / Freelancer</span>
               </div>
             </div>
 
@@ -183,7 +183,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
 
       {/* Scroll Down Indicator - Enhanced & Prominent */}
       <motion.div
-        className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 lg:left-12 lg:translate-x-0 flex items-center gap-4 md:gap-5 text-muted-foreground/50 hover:text-brand-pink transition-colors cursor-pointer group z-10"
+        className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 lg:left-12 lg:translate-x-0 hidden md:flex items-center gap-4 md:gap-5 text-muted-foreground/50 hover:text-brand-pink transition-colors cursor-pointer group z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}

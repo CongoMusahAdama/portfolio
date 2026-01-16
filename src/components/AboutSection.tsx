@@ -48,6 +48,17 @@ const AboutSection = () => {
                 <p>
                   Outside of software development, I'm an agricultural innovator and product thinker passionate about creating user-centered solutions across diverse industries.
                 </p>
+
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-pink/5 border border-brand-pink/10 text-[10px] sm:text-xs font-bold text-brand-pink uppercase tracking-wider">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-pink animate-pulse" />
+                    Mentor - GDIW 2025
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-pink/5 border border-brand-pink/10 text-[10px] sm:text-xs font-bold text-brand-pink uppercase tracking-wider">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-pink animate-pulse" />
+                    Community Builder
+                  </div>
+                </div>
               </div>
 
               <Link to="/about" className="inline-block w-full sm:w-auto">
