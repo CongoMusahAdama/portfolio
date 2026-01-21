@@ -46,7 +46,7 @@ const SkillsSection = () => {
   const scrollItems = [...allTech, ...allTech];
 
   return (
-    <section id="skills" className="py-20 md:py-14 bg-brand-orange relative overflow-hidden text-white">
+    <section id="skills" className="py-20 md:py-14 bg-brand-pink relative overflow-hidden text-white">
       <TechPattern className="text-white" />
       <div className="container mx-auto px-5 md:px-6 mb-12 md:mb-16 relative z-10">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8 max-w-7xl mx-auto">

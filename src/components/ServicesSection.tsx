@@ -74,7 +74,7 @@ const ServicesSection = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 max-w-6xl mx-auto">
           <div className="flex-shrink-0">
             <h2 className="text-2xl lg:text-3xl font-bold text-foreground tracking-tight">What I Do</h2>
-            <div className="w-12 h-1 bg-brand-orange mt-2"></div>
+            <div className="w-12 h-1 bg-brand-pink mt-2"></div>
           </div>
 
           <motion.div
@@ -89,8 +89,8 @@ const ServicesSection = () => {
                 className="flex items-center gap-3 group"
                 variants={itemVariants}
               >
-                <div className="w-8 h-8 rounded-lg bg-brand-orange/10 flex items-center justify-center group-hover:bg-brand-orange transition-colors">
-                  <service.icon className="w-4 h-4 text-brand-orange group-hover:text-white transition-colors" />
+                <div className="w-8 h-8 rounded-lg bg-brand-pink/10 flex items-center justify-center group-hover:bg-brand-pink transition-colors">
+                  <service.icon className="w-4 h-4 text-brand-pink group-hover:text-white transition-colors" />
                 </div>
                 <span className="text-xs sm:text-sm font-bold text-foreground">
                   {service.title}
@@ -105,7 +105,7 @@ const ServicesSection = () => {
             transition={{ delay: 0.8 }}
             className="flex-shrink-0"
           >
-            <Button asChild size="sm" className="bg-brand-orange hover:bg-brand-orange/90 text-white font-bold rounded-full text-[10px] px-4">
+            <Button asChild size="sm" className="bg-brand-pink hover:bg-brand-pink/90 text-white font-bold rounded-full text-[10px] px-4">
               <Link to="/services">All Services</Link>
             </Button>
           </motion.div>

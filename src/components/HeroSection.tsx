@@ -34,9 +34,12 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
         </div>
       </div>
 
-      {/* Decorative Blob */}
+      {/* Decorative Blobs */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] -z-10 overflow-hidden pointer-events-none opacity-20 dark:opacity-10">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-gradient-to-br from-brand-pink/20 to-cyan/20 rounded-full blur-[80px] md:blur-[100px]" />
+      </div>
+      <div className="absolute bottom-0 right-0 w-[300px] md:w-[500px] h-[500px] -z-10 overflow-hidden pointer-events-none opacity-20 dark:opacity-10">
+        <div className="absolute bottom-0 right-0 translate-x-1/3 translate-y-1/3 w-full h-full bg-brand-pink/10 rounded-full blur-[80px] md:blur-[120px]" />
       </div>
 
       <div className="container mx-auto px-5 md:px-6 z-10 flex flex-col items-center">
@@ -73,12 +76,12 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           </motion.div>
 
           <motion.h1
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.2] md:leading-[1.1] mb-5 md:mb-6 tracking-normal md:tracking-wide w-full px-4 text-foreground"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-mono font-bold leading-[1.2] md:leading-[1.1] mb-5 md:mb-6 tracking-normal md:tracking-wide w-full px-4 text-foreground"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            A product builder who&nbsp;uses <br /> <span className="text-brand-pink font-mono font-bold lowercase italic leading-none whitespace-nowrap">engineering</span> <span className="whitespace-nowrap">as a tool.</span>
+            A product builder who&nbsp;uses <br /> <span className="text-brand-pink font-bold lowercase italic leading-none whitespace-nowrap">engineering</span> <span className="whitespace-nowrap">as a tool.</span>
           </motion.h1>
 
           <motion.div
@@ -102,18 +105,18 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           </motion.div>
 
           <motion.div
-            className="flex flex-row justify-center gap-3 lg:gap-5 mb-8 md:mb-10 w-full sm:w-auto mt-8 md:mt-0"
+            className="flex flex-row justify-center gap-3 lg:gap-5 mb-8 md:mb-10 w-full sm:w-auto mt-10 md:mt-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
           >
             <a href="https://flowcv.com/resume/wtaak1n6a414" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none">
-              <Button size="sm" className="w-full sm:w-auto h-11 md:h-12 bg-brand-pink hover:bg-brand-pink/90 text-white px-4 md:px-8 rounded-lg font-semibold transition-all md:hover:scale-[1.02] active:scale-95 shadow-lg shadow-brand-pink/20 text-xs md:text-base tracking-tight">
+              <Button size="sm" className="w-full sm:w-auto h-11 md:h-12 bg-pink-600 hover:bg-pink-700 text-white px-4 md:px-8 rounded-lg font-bold transition-all md:hover:scale-[1.02] active:scale-95 shadow-lg shadow-brand-pink/20 text-xs md:text-base tracking-wide uppercase">
                 Download CV
               </Button>
             </a>
             <a href="#projects" className="flex-1 sm:flex-none">
-              <Button size="sm" variant="outline" className="w-full sm:w-auto h-11 md:h-12 bg-card border border-border text-foreground hover:bg-muted md:hover:bg-muted px-4 md:px-8 rounded-lg font-semibold transition-all md:hover:scale-[1.02] active:scale-95 text-xs md:text-base tracking-tight">
+              <Button size="sm" variant="outline" className="w-full sm:w-auto h-11 md:h-12 bg-card border-2 border-border text-foreground hover:bg-muted md:hover:bg-muted px-4 md:px-8 rounded-lg font-bold transition-all md:hover:scale-[1.02] active:scale-95 text-xs md:text-base tracking-wide uppercase">
                 View Projects
               </Button>
             </a>

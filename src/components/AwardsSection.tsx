@@ -30,7 +30,7 @@ const AwardsSection = () => {
         {
             title: "Community Builder",
             subtitle: "Tech Ecosystem",
-            logo: <Users className="w-8 h-8 text-brand-orange" />,
+            logo: <Users className="w-8 h-8 text-brand-pink" />,
             description: "Scaling digital communities for collaborative growth.",
             images: [] // To be added later
         },
@@ -82,7 +82,7 @@ const AwardsSection = () => {
                     <div className="space-y-3 md:space-y-4">
                         <h2 className="text-4xl md:text-6xl font-black text-foreground tracking-tighter uppercase leading-[0.9]">
                             Honors & <br />
-                            <span className="text-brand-orange">Recognitions</span>
+                            <span className="text-brand-pink">Recognitions</span>
                         </h2>
                         <div className="w-12 md:w-16 h-1.5 md:h-2 bg-foreground rounded-full"></div>
                     </div>
@@ -117,10 +117,10 @@ const AwardsSection = () => {
                             </div>
 
                             <div className="space-y-2 md:space-y-3">
-                                <h3 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight group-hover:text-brand-orange transition-colors leading-none">
+                                <h3 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight group-hover:text-brand-pink transition-colors leading-none">
                                     {award.title}
                                 </h3>
-                                <p className="text-brand-orange font-bold text-[10px] md:text-xs uppercase tracking-[0.25em]">
+                                <p className="text-brand-pink font-bold text-[10px] md:text-xs uppercase tracking-[0.25em]">
                                     {award.subtitle}
                                 </p>
                                 <div className="pt-1 md:pt-2">
@@ -129,7 +129,7 @@ const AwardsSection = () => {
                                     </p>
                                 </div>
                                 {award.images.length > 0 && (
-                                    <span className="inline-block mt-3 md:mt-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-foreground/30 group-hover:text-brand-orange transition-colors">
+                                    <span className="inline-block mt-3 md:mt-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-foreground/30 group-hover:text-brand-pink transition-colors">
                                         View Gallery ({award.images.length})
                                     </span>
                                 )}
@@ -150,7 +150,7 @@ const AwardsSection = () => {
                         onClick={closeModal}
                     >
                         <motion.button
-                            className="absolute top-4 right-4 md:top-6 md:right-6 z-[110] p-2 md:p-3 text-foreground hover:text-brand-orange transition-colors bg-white/10 rounded-full md:bg-transparent"
+                            className="absolute top-4 right-4 md:top-6 md:right-6 z-[110] p-2 md:p-3 text-foreground hover:text-brand-pink transition-colors bg-white/10 rounded-full md:bg-transparent"
                             onClick={closeModal}
                         >
                             <X className="w-6 h-6 md:w-8 md:h-8" />
@@ -169,7 +169,7 @@ const AwardsSection = () => {
                                 <img
                                     src={awards[selectedAward].images[currentImageIndex]}
                                     alt={`Recognition ${currentImageIndex + 1}`}
-                                    className="max-w-full max-h-[70vh] md:max-h-[80vh] object-contain rounded-xl md:rounded-2xl shadow-2xl shadow-brand-orange/10"
+                                    className="max-w-full max-h-[70vh] md:max-h-[80vh] object-contain rounded-xl md:rounded-2xl shadow-2xl shadow-brand-pink/10"
                                 />
 
                                 {/* Navigation Buttons */}
@@ -177,13 +177,13 @@ const AwardsSection = () => {
                                     <>
                                         <button
                                             onClick={prevImage}
-                                            className="absolute left-2 md:-left-16 top-1/2 -translate-y-1/2 p-2 md:p-3 text-foreground hover:text-brand-orange transition-colors bg-white/10 md:bg-transparent rounded-full"
+                                            className="absolute left-2 md:-left-16 top-1/2 -translate-y-1/2 p-2 md:p-3 text-foreground hover:text-brand-pink transition-colors bg-white/10 md:bg-transparent rounded-full"
                                         >
                                             <ChevronLeft className="w-8 h-8 md:w-10 md:h-10" />
                                         </button>
                                         <button
                                             onClick={nextImage}
-                                            className="absolute right-2 md:-right-16 top-1/2 -translate-y-1/2 p-2 md:p-3 text-foreground hover:text-brand-orange transition-colors bg-white/10 md:bg-transparent rounded-full"
+                                            className="absolute right-2 md:-right-16 top-1/2 -translate-y-1/2 p-2 md:p-3 text-foreground hover:text-brand-pink transition-colors bg-white/10 md:bg-transparent rounded-full"
                                         >
                                             <ChevronRight className="w-8 h-8 md:w-10 md:h-10" />
                                         </button>
@@ -195,14 +195,14 @@ const AwardsSection = () => {
                                 <h4 className="text-xl md:text-2xl font-black text-foreground tracking-tighter uppercase leading-tight">
                                     {awards[selectedAward].title}
                                 </h4>
-                                <p className="text-brand-orange font-bold text-xs md:text-sm uppercase tracking-widest">
+                                <p className="text-brand-pink font-bold text-xs md:text-sm uppercase tracking-widest">
                                     {awards[selectedAward].subtitle}
                                 </p>
                                 <div className="flex gap-1.5 md:gap-2 justify-center mt-3 md:mt-4">
                                     {awards[selectedAward].images.map((_, i) => (
                                         <div
                                             key={i}
-                                            className={`h-1 md:h-1.5 rounded-full transition-all duration-300 ${i === currentImageIndex ? 'w-6 md:w-8 bg-brand-orange' : 'w-1.5 md:w-2 bg-foreground/10'}`}
+                                            className={`h-1 md:h-1.5 rounded-full transition-all duration-300 ${i === currentImageIndex ? 'w-6 md:w-8 bg-brand-pink' : 'w-1.5 md:w-2 bg-foreground/10'}`}
                                         />
                                     ))}
                                 </div>

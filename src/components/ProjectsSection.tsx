@@ -1,18 +1,8 @@
-
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Github, ExternalLink, BookOpen, Clock, User, Target, Lightbulb, Zap } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import useIntersectionObserver from '@/hooks/use-intersection-observer';
-import { useState } from 'react';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface Project {
   id: number;
@@ -26,28 +16,11 @@ interface Project {
   websiteUrl?: string;
   status?: string;
   rating?: number;
-  caseStudy?: {
-    role: string;
-    date: string;
-    purpose: string;
-    summary: string;
-    problem: string;
-    whyItMatters: string;
-    solution: string;
-    learned: string;
-  };
 }
 
 const ProjectsSection = () => {
   const sectionRef = useRef(null);
   const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openCaseStudy = (project: Project) => {
-    setSelectedProject(project);
-    setIsModalOpen(true);
-  };
 
   const projects: Project[] = [
     {
@@ -60,59 +33,29 @@ const ProjectsSection = () => {
       githubUrl: "https://github.com/CongoMusahAdama/Brainbank",
       websiteUrl: "https://brainbanc.netlify.app/",
       status: "Coming Soon",
-      rating: 5,
-      caseStudy: {
-        role: "Builder",
-        date: "In Progress",
-        purpose: "Personal Second Brain",
-        summary: "Building a central vault where 'meh' thoughts get filtered and great ideas become real projects.",
-        problem: "Scattered ideas in notebooks and DMs usually die. There’s no easy way to capture, score, and track them in one place.",
-        whyItMatters: "Capturing a 'spark' instantly is the difference between a forgotten thought and a finished project.",
-        solution: "v1 adds an Idea Vault for instant capture, a Scoring System to prioritize by impact/feasibility, and a tracking system to turn ideas into milestones.",
-        learned: "Speed of capture is everything. If the UI takes more than two seconds to load, the idea is already gone."
-      }
+      rating: 5
     },
     {
       id: 6,
-      title: "Supreme Masqueraders Platform",
-      description: "A digital hub for the Supreme Masqueraders Society, bringing traditional community engagement into the digital age with dashboards and media management.",
+      title: "Supreme Masqueraders Society Platform",
+      description: "A responsive digital hub showcasing history, events, and media with role-based dashboards for members and admins. Features include forums, donations, event management, and content moderation to strengthen community engagement.",
       image: "/lovable-uploads/supreme-masqueraders.jpg",
       mobileImage: "/lovable-uploads/supreme-mobile.png",
-      technologies: ["React", "Node.js", "PostgreSQL"],
+      technologies: ["React", "TypeScript", "Node.js", "Payment Integration", "Analytics"],
       githubUrl: "https://github.com/CongoMusahAdama/sms",
       websiteUrl: "https://ssuprememasquraderssociety.netlify.app/",
-      rating: 5,
-      caseStudy: {
-        role: "Full Stack Engineer",
-        date: "Nov 2023",
-        purpose: "Community Organization",
-        summary: "I modernized the digital presence of a traditional society, making it easier for members to connect, share history, and manage events.",
-        problem: "The society relied on manual processes for everything—member records, donations, and event planning. It was slow and prone to errors.",
-        whyItMatters: "Preserving culture shouldn't be hard. By digitizing these processes, the society can focus more on their heritage and less on paperwork.",
-        solution: "Implemented a role-based dashboard system. Admins can manage content and funds, while members have a private space for community forums.",
-        learned: "Handling community data requires a high level of security and trust. I sharpened my skills in Auth and database relational design."
-      }
+      rating: 5
     },
     {
       id: 0,
       title: "Artisans Hub",
-      description: "A platform giving Ghanaian artisans the spotlight they deserve, connecting them with customers and AI-matched investors.",
+      description: "A platform giving Ghanaian artisans the spotlight they deserve by helping them sell products, get booked for services, and secure funding through AI-matched investor connections tailored to their craft focus.",
       image: "/lovable-uploads/Screenshot (366).png",
       mobileImage: "/lovable-uploads/artisans-hub-mobile.png",
-      technologies: ["React", "Express", "MongoDB", "AI"],
+      technologies: ["React", "TypeScript", "Node.js", "MongoDB", "AI Matching"],
       githubUrl: "https://github.com/CongoMusahAdama/ArtisanHub",
       websiteUrl: "https://artisanhubghana.netlify.app/",
-      rating: 5,
-      caseStudy: {
-        role: "Lead Architect",
-        date: "Aug 2023",
-        purpose: "Economic Empowerment",
-        summary: "This is more than a marketplace; it's an ecosystem for Ghanaian craftsmen to scale their businesses through technology.",
-        problem: "Talented artisans in Ghana have high-quality products but lack access to global markets and capital for expansion.",
-        whyItMatters: "Small businesses are the backbone of the economy. Helping them connect with investors literally changes lives.",
-        solution: "Created an AI-matching engine that analyzes artisan profiles and investor preferences to suggest the best financial matches.",
-        learned: "Integrating AI into a practical marketplace taught me how to handle non-structured data to produce meaningful results."
-      }
+      rating: 5
     },
     {
       id: 1,
@@ -166,7 +109,6 @@ const ProjectsSection = () => {
       rating: 5
     },
   ];
-
 
   return (
     <section id="projects" className="py-20 md:py-24 bg-muted/30" ref={sectionRef}>
@@ -265,7 +207,7 @@ const ProjectsSection = () => {
                     )}
                   </div>
                   <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 tracking-tight font-sans text-white">{project.title}</h3>
-                  <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-8 font-medium">
+                  <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-8 font-mono font-medium">
                     {project.description}
                   </p>
 
@@ -277,38 +219,25 @@ const ProjectsSection = () => {
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-x-8 gap-y-4 mt-auto pt-6 border-t border-white/5">
-                    {project.caseStudy && (
-                      <button
-                        onClick={() => openCaseStudy(project)}
-                        className="group relative inline-flex items-center gap-2.5 px-6 py-2 rounded-full bg-white/[0.03] border border-white/10 hover:border-brand-pink/50 hover:bg-brand-pink/5 transition-all duration-500 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-slate-300 hover:text-brand-pink tap-highlight-none"
-                      >
-                        <div className="absolute inset-x-4 top-0 bottom-0 bg-brand-pink/10 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-                        <BookOpen className="w-3.5 h-3.5 transition-transform duration-300 group-hover:scale-110" />
-                        <span className="relative z-10">Case Study</span>
-                      </button>
-                    )}
-
-                    <div className="flex items-center gap-6">
-                      {(project.websiteUrl || project.demoUrl) && (
-                        <a
-                          href={project.websiteUrl || project.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-brand-pink font-bold md:hover:text-brand-pink/80 transition-all font-sans text-[11px] uppercase tracking-widest min-h-[44px] tap-highlight-none"
-                        >
-                          Live Demo <ExternalLink className="w-4 h-4" />
-                        </a>
-                      )}
+                  <div className="flex flex-wrap items-center gap-6 mt-auto">
+                    {(project.websiteUrl || project.demoUrl) && (
                       <a
-                        href={project.githubUrl}
+                        href={project.websiteUrl || project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-slate-500 font-bold md:hover:text-white transition-colors font-sans text-[11px] uppercase tracking-widest min-h-[44px] tap-highlight-none"
+                        className="inline-flex items-center gap-2 text-brand-pink font-bold md:hover:text-brand-pink/80 transition-all font-sans text-[11px] uppercase tracking-widest min-h-[44px] tap-highlight-none"
                       >
-                        <Github className="w-4 h-4" /> Source Code
+                        Live Demo <ExternalLink className="w-4 h-4" />
                       </a>
-                    </div>
+                    )}
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-slate-500 font-bold md:hover:text-white transition-colors font-sans text-[11px] uppercase tracking-widest min-h-[44px] tap-highlight-none"
+                    >
+                      <Github className="w-4 h-4" /> Source
+                    </a>
                   </div>
                 </div>
               </div>
@@ -333,111 +262,6 @@ const ProjectsSection = () => {
           </a>
         </motion.div>
       </div>
-
-      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-3xl max-h-[90vh] p-0 overflow-hidden bg-[#0A0A0B] border-brand-pink/20 shadow-2xl rounded-[2rem]">
-          <ScrollArea className="h-full max-h-[90vh]">
-            {selectedProject && selectedProject.caseStudy && (
-              <div className="p-6 md:p-12">
-                <div className="flex flex-col items-center text-center mb-10">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-pink/10 text-brand-pink text-[10px] font-bold uppercase tracking-[0.2em] font-mono mb-4">
-                    Project Story
-                  </div>
-                  <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">{selectedProject.title}</h2>
-                  <p className="text-slate-500 font-mono text-xs uppercase tracking-widest">{selectedProject.caseStudy.purpose}</p>
-                </div>
-
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 py-6 border-y border-white/5">
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[10px] uppercase text-slate-500 font-bold font-mono tracking-tighter flex items-center gap-1.5">
-                      <User className="w-3 h-3" /> Role
-                    </span>
-                    <span className="text-white font-semibold text-sm">{selectedProject.caseStudy.role}</span>
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[10px] uppercase text-slate-500 font-bold font-mono tracking-tighter flex items-center gap-1.5">
-                      <Clock className="w-3 h-3" /> Date
-                    </span>
-                    <span className="text-white font-semibold text-sm">{selectedProject.caseStudy.date}</span>
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[10px] uppercase text-slate-500 font-bold font-mono tracking-tighter flex items-center gap-1.5">
-                      <Zap className="w-3 h-3" /> Tech
-                    </span>
-                    <div className="flex gap-1 overflow-hidden">
-                      <span className="text-white font-semibold text-sm truncate">{selectedProject.technologies[0]}, {selectedProject.technologies[1]}</span>
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[10px] uppercase text-slate-500 font-bold font-mono tracking-tighter flex items-center gap-1.5">
-                      <ExternalLink className="w-3 h-3" /> Link
-                    </span>
-                    <a href={selectedProject.websiteUrl || selectedProject.githubUrl} target="_blank" className="text-brand-pink font-semibold text-sm hover:underline">View Live</a>
-                  </div>
-                </div>
-
-                <div className="space-y-10">
-                  <section>
-                    <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
-                      Summary
-                    </h3>
-                    <p className="text-slate-400 leading-relaxed italic border-l-2 border-brand-pink pl-4">
-                      "{selectedProject.caseStudy.summary}"
-                    </p>
-                  </section>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <section>
-                      <h3 className="text-sm font-bold text-brand-pink uppercase tracking-widest mb-4 flex items-center gap-2">
-                        <Target className="w-4 h-4" /> The Problem
-                      </h3>
-                      <p className="text-slate-400 text-sm leading-relaxed">
-                        {selectedProject.caseStudy.problem}
-                      </p>
-                    </section>
-
-                    <section>
-                      <h3 className="text-sm font-bold text-cyan uppercase tracking-widest mb-4 flex items-center gap-2">
-                        <Lightbulb className="w-4 h-4" /> Why It Matters
-                      </h3>
-                      <p className="text-slate-400 text-sm leading-relaxed">
-                        {selectedProject.caseStudy.whyItMatters}
-                      </p>
-                    </section>
-                  </div>
-
-                  <section className="bg-white/5 p-6 rounded-2xl border border-white/5">
-                    <h3 className="text-lg font-bold text-white mb-3">The Solution</h3>
-                    <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                      {selectedProject.caseStudy.solution}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedProject.technologies.slice(0, 5).map(tech => (
-                        <span key={tech} className="px-2 py-1 rounded bg-black/50 text-slate-500 text-[9px] font-bold font-mono border border-white/5">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </section>
-
-                  <section>
-                    <h3 className="text-sm font-bold text-brand-pink uppercase tracking-widest mb-3">What I Learned</h3>
-                    <p className="text-slate-400 text-sm leading-relaxed">
-                      {selectedProject.caseStudy.learned}
-                    </p>
-                  </section>
-                </div>
-
-                <div className="mt-12 pt-8 border-t border-white/5 flex justify-center">
-                  <button onClick={() => setIsModalOpen(false)} className="text-slate-500 hover:text-white transition-colors text-xs font-bold uppercase tracking-widest">
-                    Back to Projects
-                  </button>
-                </div>
-              </div>
-            )}
-          </ScrollArea>
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };

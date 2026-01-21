@@ -17,7 +17,7 @@ const AboutSection = () => {
               transition={{ duration: 0.8 }}
               className="relative aspect-square max-w-[280px] sm:max-w-sm mx-auto lg:mx-0 mb-8 lg:mb-0"
             >
-              <div className="absolute inset-0 bg-brand-orange/10 rounded-2xl rotate-6 -z-10" />
+              <div className="absolute inset-0 bg-brand-pink/10 rounded-2xl rotate-6 -z-10" />
               <img
                 src="/lovable-uploads/image copy 3.png"
                 alt="Congo Musah Adama"
@@ -34,10 +34,10 @@ const AboutSection = () => {
               className="text-left"
             >
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 tracking-tight">About Me</h2>
-              <div className="w-16 h-1 bg-cyan mb-8"></div>
+              <div className="w-16 h-1 bg-brand-pink mb-8"></div>
 
               <div className="text-base sm:text-lg text-muted-foreground leading-relaxed space-y-6 mb-8">
-                <p className="text-lg font-semibold text-foreground italic border-l-4 border-brand-orange pl-4 bg-brand-orange/5 py-3 rounded-r-lg">
+                <p className="text-lg font-semibold text-foreground italic border-l-4 border-brand-pink pl-4 bg-brand-pink/5 py-3 rounded-r-lg">
                   "Passionate about turning real-world problems into impactful digital solutions that drive growth, success, and meaningful impact, one code at a time."
                 </p>
 
@@ -50,19 +50,19 @@ const AboutSection = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-3 pt-2">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-orange/5 border border-brand-orange/10 text-[10px] sm:text-xs font-bold text-brand-orange uppercase tracking-wider">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-pink/5 border border-brand-pink/10 text-[10px] sm:text-xs font-bold text-brand-pink uppercase tracking-wider">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-pink animate-pulse" />
                     Mentor - GDIW 2025
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-orange/5 border border-brand-orange/10 text-[10px] sm:text-xs font-bold text-brand-orange uppercase tracking-wider">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-pink/5 border border-brand-pink/10 text-[10px] sm:text-xs font-bold text-brand-pink uppercase tracking-wider">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-pink animate-pulse" />
                     Community Builder
                   </div>
                 </div>
               </div>
 
               <Link to="/about" className="inline-block w-full sm:w-auto">
-                <Button variant="outline" className="w-full sm:w-auto min-h-[48px] group border-brand-orange/20 md:hover:border-brand-orange text-brand-orange transition-all font-semibold tap-highlight-none active:scale-95">
+                <Button variant="outline" className="w-full sm:w-auto min-h-[48px] group border-brand-pink/20 md:hover:border-brand-pink text-brand-pink transition-all font-semibold tap-highlight-none active:scale-95">
                   Read My Story
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform md:group-hover:translate-x-1" />
                 </Button>
@@ -79,7 +79,7 @@ const AboutSection = () => {
               <div className="w-12 h-12 mb-5 md:hover:scale-110 transition-transform duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-full h-full text-brand-orange filter drop-shadow-sm"
+                  className="w-full h-full text-brand-pink filter drop-shadow-sm"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -100,7 +100,7 @@ const AboutSection = () => {
               <div className="w-12 h-12 mb-5 md:hover:scale-110 transition-transform duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-full h-full text-brand-orange filter drop-shadow-sm"
+                  className="w-full h-full text-brand-pink filter drop-shadow-sm"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -121,7 +121,7 @@ const AboutSection = () => {
               <div className="w-12 h-12 mb-5 md:hover:scale-110 transition-transform duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-full h-full text-brand-orange filter drop-shadow-sm"
+                  className="w-full h-full text-brand-pink filter drop-shadow-sm"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

@@ -25,7 +25,7 @@ const About = () => {
               className="mb-8 md:mb-12"
             >
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 tracking-tight">MY STORY</h2>
-              <div className="w-16 h-1 bg-brand-orange"></div>
+              <div className="w-16 h-1 bg-brand-pink"></div>
             </motion.div>
 
             <div className="block lg:block">
@@ -36,7 +36,7 @@ const About = () => {
                 transition={{ duration: 0.6 }}
               >
                 <div className="relative aspect-square">
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-brand-orange/10 rounded-3xl transform rotate-6 scale-95"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-pink/20 to-brand-pink/10 rounded-3xl transform rotate-6 scale-95"></div>
                   <img
                     src={profileImage}
                     alt="Congo Musah Adama"
@@ -56,11 +56,11 @@ const About = () => {
                 </p>
 
                 <p className="mb-6">
-                  In 2021, I enrolled at the University of Energy and Natural Resources to study <span className="text-brand-orange font-semibold">BSc. Agricultural Science and Technology</span>, where I gained firsthand exposure to real-world systems and communities. Studying agriculture alongside technology deepened my understanding of how critical well-designed digital solutions are to solving practical problems, especially in emerging markets.
+                  In 2021, I enrolled at the University of Energy and Natural Resources to study <span className="text-brand-pink font-semibold">BSc. Agricultural Science and Technology</span>, where I gained firsthand exposure to real-world systems and communities. Studying agriculture alongside technology deepened my understanding of how critical well-designed digital solutions are to solving practical problems, especially in emerging markets.
                 </p>
 
                 <p className="mb-6">
-                  While at the university, I intentionally sought out remote software development internships and collaborative projects, working with companies both within and outside Ghana. These experiences strengthened my technical foundation, exposed me to distributed teams, and grounded me in industry-standard practices, including Agile development and the design of reliable, <span className="text-brand-orange font-semibold">RESTful backend systems</span>.
+                  While at the university, I intentionally sought out remote software development internships and collaborative projects, working with companies both within and outside Ghana. These experiences strengthened my technical foundation, exposed me to distributed teams, and grounded me in industry-standard practices, including Agile development and the design of reliable, <span className="text-brand-pink font-semibold">RESTful backend systems</span>.
                 </p>
 
                 <p className="mb-6">
@@ -68,11 +68,11 @@ const About = () => {
                 </p>
 
                 <p className="mb-6">
-                  During my National Service at the <span className="text-brand-orange font-semibold">Association of Ghana Startups</span>, I worked closely with entrepreneurs to transform ideas into unified digital platforms. Through backend development, testing, and quality assurance, I developed a strong <span className="text-brand-orange font-semibold">product mindset</span>—one rooted in clarity, collaboration, and delivering solutions that truly serve users.
+                  During my National Service at the <span className="text-brand-pink font-semibold">Association of Ghana Startups</span>, I worked closely with entrepreneurs to transform ideas into unified digital platforms. Through backend development, testing, and quality assurance, I developed a strong <span className="text-brand-pink font-semibold">product mindset</span>—one rooted in clarity, collaboration, and delivering solutions that truly serve users.
                 </p>
 
                 <p>
-                  But my growth didn’t stop there. I believe progress is not linear, especially in a fast-evolving tech landscape. This mindset led me into <span className="text-brand-orange font-semibold">Machine Learning</span>, where I’m fascinated by the idea of teaching computers how to think, predict, and automate decisions. What excites me most is the process of instructing machines to perform meaningful tasks—sometimes they listen, sometimes they don’t, but either way, I stay committed to learning, experimenting, and improving.
+                  But my growth didn’t stop there. I believe progress is not linear, especially in a fast-evolving tech landscape. This mindset led me into <span className="text-brand-pink font-semibold">Machine Learning</span>, where I’m fascinated by the idea of teaching computers how to think, predict, and automate decisions. What excites me most is the process of instructing machines to perform meaningful tasks—sometimes they listen, sometimes they don’t, but either way, I stay committed to learning, experimenting, and improving.
                 </p>
               </motion.div>
             </div>
@@ -94,7 +94,7 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <blockquote className="border-l-4 border-brand-orange pl-5 md:pl-0 italic text-muted-foreground/90 my-8 text-left md:text-center md:border-l-0 md:border-t-4 md:pt-8">
+            <blockquote className="border-l-4 border-brand-pink pl-5 md:pl-0 italic text-muted-foreground/90 my-8 text-left md:text-center md:border-l-0 md:border-t-4 md:pt-8">
               <p className="mb-6 text-lg sm:text-xl md:text-2xl leading-relaxed">
                 "If a man is called to be a street sweeper, he should sweep streets even as Michelangelo painted, or Beethoven composed music, or Shakespeare wrote poetry. He should sweep streets so well that all the hosts of heaven and earth will pause to say, here lived a great street sweeper who did his job well."
               </p>
