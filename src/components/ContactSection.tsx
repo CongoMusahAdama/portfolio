@@ -1,5 +1,7 @@
 
-import { MessageCircle } from "lucide-react";
+
+// Contact Section Component
+import { MessageCircle, Github, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
@@ -58,6 +60,51 @@ const ContactSection = () => {
               Chat on WhatsApp
             </a>
           </Button>
+        </motion.div>
+
+        <motion.div
+          className="flex flex-col items-center gap-4 mt-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <span className="text-sm uppercase tracking-widest text-muted-foreground/60 font-bold font-mono">Follow Me</span>
+          <div className="flex gap-4 items-center justify-center">
+            <a
+              href="https://github.com/CongoMusahAdama"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-110 transition-transform duration-300"
+              aria-label="GitHub"
+            >
+              <div className="p-2.5 bg-[#24292e] rounded-full text-white shadow-lg shadow-black/10">
+                <Github className="w-5 h-5" />
+              </div>
+            </a>
+            <a
+              href="https://twitter.com/1real_vee"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-110 transition-transform duration-300"
+              aria-label="X"
+            >
+              <div className="p-2.5 bg-black rounded-full text-white shadow-lg shadow-black/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+              </div>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/congo-musah-ad-deen-766bb3224/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-110 transition-transform duration-300"
+              aria-label="LinkedIn"
+            >
+              <div className="p-2.5 bg-[#0077b5] rounded-full text-white shadow-lg shadow-[#0077b5]/20">
+                <Linkedin className="w-5 h-5" />
+              </div>
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MapPin, Mail, Github, Linkedin, ExternalLink } from "lucide-react";
+import { Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -19,24 +19,6 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
 
     return () => clearInterval(interval);
   }, [titles.length]);
-
-  const socialLinks = [
-    {
-      icon: <div className="p-2 bg-[#24292e] rounded-full text-white"><Github className="w-5 h-5" /></div>,
-      href: "https://github.com/CongoMusahAdama",
-      label: "GitHub"
-    },
-    {
-      icon: <div className="p-2 bg-black rounded-full text-white"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg></div>,
-      href: "https://twitter.com/1real_vee",
-      label: "X"
-    },
-    {
-      icon: <div className="p-2 bg-[#0077b5] rounded-full text-white"><Linkedin className="w-5 h-5" /></div>,
-      href: "https://www.linkedin.com/in/congo-musah-ad-deen-766bb3224/",
-      label: "LinkedIn"
-    },
-  ];
 
   return (
     <section
@@ -139,18 +121,12 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
 
           {/* Contact Bar - Refined & Optimized */}
           <motion.div
-            className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 w-full pt-6 md:pt-8 border-t border-border/60 mt-6 md:mt-0"
+            className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 w-full pt-4 mt-2 md:mt-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.0, duration: 0.8 }}
           >
-            <div className="flex flex-col items-center gap-1.5 md:gap-2 min-w-[140px]">
-              <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 font-bold font-mono">Location</span>
-              <div className="flex items-center text-center text-foreground font-semibold text-xs md:text-sm lg:text-base">
-                <MapPin className="w-3.5 h-3.5 text-brand-pink mr-1.5 flex-shrink-0" />
-                <span>Takoradi / Accra / Freelancer</span>
-              </div>
-            </div>
+
 
             <div className="flex flex-col items-center gap-1.5 md:gap-2 min-w-[140px]">
               <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 font-bold font-mono">Drop an Email</span>
@@ -160,23 +136,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-1.5 md:gap-2 min-w-[140px]">
-              <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 font-bold font-mono">Socials</span>
-              <div className="flex gap-4 items-center">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground md:hover:text-brand-pink transition-all duration-300 transform md:hover:scale-110 p-1.5 min-w-[36px] min-h-[36px] flex items-center justify-center tap-highlight-none"
-                    aria-label={link.label}
-                  >
-                    {link.icon}
-                  </a>
-                ))}
-              </div>
-            </div>
+
           </motion.div>
         </div>
       </div>

@@ -20,28 +20,34 @@ const Footer = () => {
                 href="https://github.com/CongoMusahAdama"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-muted/50 text-muted-foreground md:hover:text-foreground md:hover:bg-muted transition-all active:scale-90 tap-highlight-none"
+                className="hover:scale-110 transition-transform duration-300"
                 aria-label="GitHub"
               >
-                <Github className="w-5 h-5" />
+                <div className="p-2.5 bg-[#24292e] rounded-full text-white shadow-sm">
+                  <Github className="w-5 h-5" />
+                </div>
               </a>
               <a
                 href="https://twitter.com/1real_vee"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-muted/50 text-muted-foreground md:hover:text-foreground md:hover:bg-muted transition-all active:scale-90 tap-highlight-none"
+                className="hover:scale-110 transition-transform duration-300"
                 aria-label="X"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+                <div className="p-2.5 bg-black rounded-full text-white shadow-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+                </div>
               </a>
               <a
                 href="https://www.linkedin.com/in/congo-musah-ad-deen-766bb3224/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-muted/50 text-muted-foreground md:hover:text-foreground md:hover:bg-muted transition-all active:scale-90 tap-highlight-none"
+                className="hover:scale-110 transition-transform duration-300"
                 aria-label="LinkedIn"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                <div className="p-2.5 bg-[#0077b5] rounded-full text-white shadow-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </div>
               </a>
             </div>
           </div>
