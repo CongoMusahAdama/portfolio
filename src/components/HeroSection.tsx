@@ -23,7 +23,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen-dvh pt-28 md:pt-20 pb-12 md:pb-20 bg-background overflow-hidden flex flex-col items-center justify-start md:justify-center text-foreground transition-colors duration-500"
+      className="relative min-h-screen-dvh pt-20 md:pt-20 pb-12 md:pb-20 bg-background overflow-hidden flex flex-col items-center justify-center text-foreground transition-colors duration-500"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -46,7 +46,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-flex items-center gap-2.5 pl-1.5 pr-3.5 py-1.5 rounded-full bg-card/50 backdrop-blur-sm border border-border shadow-sm text-muted-foreground hover:bg-muted md:hover:bg-muted transition-colors text-xs sm:text-sm font-medium mb-4 md:mb-6 cursor-pointer group tap-highlight-none"
+            className="inline-flex items-center gap-2.5 pl-1.5 pr-3.5 py-1.5 rounded-full bg-card/50 backdrop-blur-sm border border-border shadow-sm text-muted-foreground hover:bg-muted md:hover:bg-muted transition-colors text-xs sm:text-sm font-medium mb-6 md:mb-6 cursor-pointer group tap-highlight-none"
           >
             <div className="relative flex-shrink-0 w-6 h-6 rounded-full overflow-hidden border border-white/20 shadow-inner">
               <img
@@ -73,7 +73,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           </motion.div>
 
           <motion.h1
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.2] md:leading-[1.1] mb-4 md:mb-6 tracking-normal md:tracking-wide w-full px-4 text-foreground"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.2] md:leading-[1.1] mb-5 md:mb-6 tracking-normal md:tracking-wide w-full px-4 text-foreground"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -82,7 +82,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           </motion.h1>
 
           <motion.div
-            className="h-6 md:h-8 mb-4 md:mb-6 overflow-hidden flex items-center justify-center"
+            className="h-6 md:h-8 mb-6 md:mb-6 overflow-hidden flex items-center justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
@@ -102,7 +102,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           </motion.div>
 
           <motion.div
-            className="flex flex-row justify-center gap-3 lg:gap-5 mb-8 md:mb-10 w-full sm:w-auto mt-6 md:mt-0"
+            className="flex flex-row justify-center gap-3 lg:gap-5 mb-8 md:mb-10 w-full sm:w-auto mt-8 md:mt-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6 }}
@@ -121,7 +121,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
 
           {/* Contact Bar - Refined & Optimized */}
           <motion.div
-            className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 w-full pt-4 mt-2 md:mt-0"
+            className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 w-full pt-6 mt-4 md:mt-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.0, duration: 0.8 }}
