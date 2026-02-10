@@ -27,7 +27,7 @@ const LearningSection = () => {
                 >
                     <div className="flex items-center gap-3">
                         <div className="w-1.5 h-1.5 rounded-full bg-brand-pink animate-pulse" />
-                        <h3 className="text-[10px] sm:text-xs uppercase tracking-[0.3em] font-bold text-muted-foreground/60 font-mono">
+                        <h3 className="text-[10px] sm:text-xs uppercase tracking-[0.3em] font-bold text-muted-foreground/60 font-display">
                             Currently Learning
                         </h3>
                     </div>

@@ -86,7 +86,7 @@ const Header = () => {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -10 }}
-                  className="font-bold text-lg lg:text-xl tracking-tight text-foreground hidden sm:block whitespace-nowrap"
+                  className="font-display font-bold text-lg lg:text-xl tracking-tight text-foreground hidden sm:block whitespace-nowrap"
                 >
                   Congo Musah Adama<span className="text-brand-pink">.</span>
                 </motion.span>

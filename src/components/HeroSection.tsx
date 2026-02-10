@@ -76,7 +76,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           </motion.div>
 
           <motion.h1
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-mono font-bold leading-[1.2] md:leading-[1.1] mb-5 md:mb-6 tracking-normal md:tracking-wide w-full px-4 text-foreground"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.2] md:leading-[1.1] mb-5 md:mb-6 tracking-normal md:tracking-wide w-full px-4 text-foreground"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}

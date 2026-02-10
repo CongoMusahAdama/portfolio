@@ -78,7 +78,7 @@ const AwardsSection = () => {
             </div>
 
             <div className="container mx-auto px-5 md:px-6 relative z-10">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 mb-12 md:mb-16 font-sans">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 mb-12 md:mb-16 font-display">
                     <div className="space-y-3 md:space-y-4">
                         <h2 className="text-4xl md:text-6xl font-black text-foreground tracking-tighter uppercase leading-[0.9]">
                             Honors & <br />

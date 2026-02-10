@@ -114,7 +114,7 @@ const ProjectsSection = () => {
     <section id="projects" className="py-20 md:py-24 bg-muted/30" ref={sectionRef}>
       <div className="container mx-auto px-5 md:px-6">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">Featured Projects</h2>
+          <h2 className="text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">Featured Projects</h2>
           <div className="w-16 h-1 bg-brand-pink mx-auto mb-6"></div>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             A collection of projects that showcase my skills and passion for creating digital solutions.
@@ -206,7 +206,7 @@ const ProjectsSection = () => {
                       </div>
                     )}
                   </div>
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 tracking-tight font-sans text-white">{project.title}</h3>
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-4 sm:mb-6 tracking-tight text-white">{project.title}</h3>
                   <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-8 font-mono font-medium">
                     {project.description}
                   </p>
@@ -225,7 +225,7 @@ const ProjectsSection = () => {
                         href={project.websiteUrl || project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-brand-pink font-bold md:hover:text-brand-pink/80 transition-all font-sans text-[11px] uppercase tracking-widest min-h-[44px] tap-highlight-none"
+                        className="inline-flex items-center gap-2 text-brand-pink font-bold md:hover:text-brand-pink/80 transition-all text-[11px] uppercase tracking-widest min-h-[44px] tap-highlight-none"
                       >
                         Live Demo <ExternalLink className="w-4 h-4" />
                       </a>

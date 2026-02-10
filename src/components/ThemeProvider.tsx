@@ -43,10 +43,27 @@ export function ThemeProvider({
         : 'light'
 
       root.classList.add(systemTheme)
-      return
+    } else {
+      root.classList.add(theme)
     }
 
-    root.classList.add(theme)
+    // Update metric theme-color for mobile browsers
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+    if (metaThemeColor) {
+      // Small timeout to ensure CSS variables are updated
+      setTimeout(() => {
+        const styles = getComputedStyle(root)
+        const bgColor = styles.getPropertyValue('--background').trim()
+        if (bgColor) {
+          // Check if bgColor is HSL (space separated) or just values
+          // If it's just numbers like "220 13% 5%", wrap in hsl()
+          // If it already has hsl(), use as is. 
+          // Based on index.css, it is value only.
+          const colorValue = bgColor.startsWith('hsl') ? bgColor : `hsl(${bgColor})`
+          metaThemeColor.setAttribute('content', colorValue)
+        }
+      }, 0)
+    }
   }, [theme])
 
   const value = {

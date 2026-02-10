@@ -76,6 +76,7 @@ export default {
 			fontFamily: {
 				sans: ['Plus Jakarta Sans', 'sans-serif'],
 				mono: ['IBM Plex Mono', 'monospace'],
+				display: ['Outfit', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
