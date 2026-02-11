@@ -10,7 +10,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="relative min-h-[85vh] md:min-h-screen bg-background pt-12 md:pt-20 pb-16 overflow-hidden flex flex-col items-center justify-start transition-colors duration-500"
+      className="relative min-h-[75vh] md:min-h-screen bg-background pt-24 md:pt-20 pb-8 md:pb-16 overflow-hidden flex flex-col items-center justify-start transition-colors duration-500"
     >
       <div className="container mx-auto px-6 z-20 flex flex-col items-center relative gap-0">
         {/* Intro Tagline */}
@@ -18,7 +18,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex items-center gap-2 mt-16 md:mt-12"
+          className="flex items-center gap-2 mt-4 md:mt-12"
         >
           <p className="text-[10px] md:text-xs font-bold text-foreground uppercase tracking-[0.2em] border-b border-brand-orange/30 pb-1">
             Hi, I am <span className="text-foreground">Congo Musah Adama</span>
