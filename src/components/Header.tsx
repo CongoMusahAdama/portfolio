@@ -88,7 +88,7 @@ const Header = () => {
                   exit={{ opacity: 0, x: -10 }}
                   className="font-display font-bold text-lg lg:text-xl tracking-tight text-foreground hidden sm:block whitespace-nowrap"
                 >
-                  Congo Musah Adama<span className="text-brand-pink">.</span>
+                  Congo Musah Adama<span className="text-brand-orange">.</span>
                 </motion.span>
               )}
             </AnimatePresence>
@@ -119,7 +119,7 @@ const Header = () => {
                   <Link
                     to={link.href}
                     className={`px-4 py-2 text-sm font-medium transition-colors ${location.pathname === link.href
-                      ? "text-brand-pink"
+                      ? "text-brand-orange"
                       : "text-muted-foreground hover:text-foreground"
                       }`}
                   >
@@ -129,7 +129,7 @@ const Header = () => {
                 {location.pathname === link.href && !link.isSection && !link.external && (
                   <motion.div
                     layoutId="nav-underline"
-                    className="absolute bottom-0 left-4 right-4 h-0.5 bg-brand-pink"
+                    className="absolute bottom-0 left-4 right-4 h-0.5 bg-brand-orange"
                   />
                 )}
               </div>
@@ -141,7 +141,7 @@ const Header = () => {
               <ThemeToggle />
             </div>
             <a href="#contact" onClick={(e) => { e.preventDefault(); handleSectionClick('#contact'); }}>
-              <Button size="sm" className="hidden md:flex bg-brand-pink hover:bg-brand-pink/90 text-white rounded-full px-5 font-semibold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-brand-pink/20">
+              <Button size="sm" className="hidden md:flex bg-brand-orange hover:bg-brand-orange/90 text-white rounded-full px-5 font-semibold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-brand-orange/20">
                 Talk to Me
               </Button>
             </a>
@@ -187,7 +187,7 @@ const Header = () => {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-between px-4 py-3 text-sm font-semibold text-foreground hover:bg-brand-pink/5 hover:text-brand-pink rounded-xl transition-all"
+                        className="flex items-center justify-between px-4 py-3 text-sm font-semibold text-foreground hover:bg-brand-orange/5 hover:text-brand-orange rounded-xl transition-all"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {link.title}
@@ -196,7 +196,7 @@ const Header = () => {
                     ) : link.isSection ? (
                       <button
                         onClick={() => handleSectionClick(link.href)}
-                        className="flex items-center w-full px-4 py-3 text-sm font-semibold text-foreground hover:bg-brand-pink/5 hover:text-brand-pink rounded-xl transition-all"
+                        className="flex items-center w-full px-4 py-3 text-sm font-semibold text-foreground hover:bg-brand-orange/5 hover:text-brand-orange rounded-xl transition-all"
                       >
                         {link.title}
                       </button>
@@ -204,8 +204,8 @@ const Header = () => {
                       <Link
                         to={link.href}
                         className={`flex items-center px-4 py-3 text-sm font-semibold rounded-xl transition-all ${location.pathname === link.href
-                          ? 'bg-brand-pink/10 text-brand-pink'
-                          : 'text-foreground hover:bg-brand-pink/5 hover:text-brand-pink'
+                          ? 'bg-brand-orange/10 text-brand-orange'
+                          : 'text-foreground hover:bg-brand-orange/5 hover:text-brand-orange'
                           }`}
                         onClick={() => setIsMenuOpen(false)}
                       >
@@ -217,7 +217,7 @@ const Header = () => {
                 <div className="mt-4 pt-4 border-t border-border/50">
                   <Button
                     onClick={() => handleSectionClick('#contact')}
-                    className="w-full bg-brand-pink hover:bg-brand-pink/90 text-white py-5 rounded-xl text-sm font-bold shadow-lg shadow-brand-pink/20"
+                    className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white py-5 rounded-xl text-sm font-bold shadow-lg shadow-brand-orange/20"
                   >
                     Get in Touch
                   </Button>

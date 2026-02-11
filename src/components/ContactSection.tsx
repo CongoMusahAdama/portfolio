@@ -17,7 +17,7 @@ const ContactSection = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Get In Touch
           </h2>
-          <div className="w-16 h-1 bg-brand-pink mx-auto mb-6"></div>
+          <div className="w-16 h-1 bg-brand-orange mx-auto mb-6"></div>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Ready to start a project together? Let's discuss how we can bring your ideas to life.
           </p>
@@ -48,7 +48,7 @@ const ContactSection = () => {
           <Button
             asChild
             variant="default"
-            className="w-full sm:w-auto min-h-[56px] bg-brand-pink hover:bg-brand-pink/90 text-white px-10 py-4 rounded-xl shadow-lg shadow-brand-pink/20 font-bold tracking-tight text-lg transition-all active:scale-95 tap-highlight-none"
+            className="w-full sm:w-auto min-h-[56px] bg-brand-orange hover:bg-brand-orange/90 text-white px-10 py-4 rounded-xl shadow-lg shadow-brand-orange/20 font-bold tracking-tight text-lg transition-all active:scale-95 tap-highlight-none"
           >
             <a
               href={whatsappUrl}

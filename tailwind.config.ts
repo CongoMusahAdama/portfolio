@@ -71,7 +71,7 @@ export default {
 					DEFAULT: "hsl(var(--cyan))",
 					foreground: "hsl(var(--cyan-foreground))",
 				},
-				"brand-pink": "#FF0080",
+				"brand-orange": "#ff5724",
 			},
 			fontFamily: {
 				sans: ['Plus Jakarta Sans', 'sans-serif'],

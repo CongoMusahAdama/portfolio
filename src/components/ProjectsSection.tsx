@@ -115,7 +115,7 @@ const ProjectsSection = () => {
       <div className="container mx-auto px-5 md:px-6">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">Featured Projects</h2>
-          <div className="w-16 h-1 bg-brand-pink mx-auto mb-6"></div>
+          <div className="w-16 h-1 bg-brand-orange mx-auto mb-6"></div>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             A collection of projects that showcase my skills and passion for creating digital solutions.
           </p>
@@ -125,7 +125,7 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              className="relative w-full rounded-[2rem] border border-white/10 shadow-3xl overflow-hidden bg-[#0A0A0B] group transition-all duration-700 hover:border-brand-pink/30"
+              className="relative w-full rounded-[2rem] border border-white/10 shadow-3xl overflow-hidden bg-[#0A0A0B] group transition-all duration-700 hover:border-brand-orange/30"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
@@ -188,7 +188,7 @@ const ProjectsSection = () => {
                 {/* Project Info - Taking remaining columns */}
                 <div className={`xl:col-span-2 p-8 sm:p-10 lg:p-16 flex flex-col justify-center border-white/10 ${index % 2 === 0 ? 'xl:order-2 xl:border-l' : 'xl:order-1 xl:border-r'}`}>
                   <div className="flex justify-between items-start mb-5 sm:mb-6">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-pink/10 text-brand-pink text-[9px] sm:text-[10px] font-bold uppercase tracking-widest w-fit font-mono">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-orange/10 text-brand-orange text-[9px] sm:text-[10px] font-bold uppercase tracking-widest w-fit font-mono">
                       {project.status || "Live Project"}
                     </div>
                     {project.rating && (
@@ -196,7 +196,7 @@ const ProjectsSection = () => {
                         {[...Array(5)].map((_, i) => (
                           <svg
                             key={i}
-                            className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${i < project.rating! ? 'text-brand-pink fill-brand-pink' : 'text-slate-700 fill-slate-700'}`}
+                            className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${i < project.rating! ? 'text-brand-orange fill-brand-orange' : 'text-slate-700 fill-slate-700'}`}
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                           >
@@ -225,7 +225,7 @@ const ProjectsSection = () => {
                         href={project.websiteUrl || project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-brand-pink font-bold md:hover:text-brand-pink/80 transition-all text-[11px] uppercase tracking-widest min-h-[44px] tap-highlight-none"
+                        className="inline-flex items-center gap-2 text-brand-orange font-bold md:hover:text-brand-orange/80 transition-all text-[11px] uppercase tracking-widest min-h-[44px] tap-highlight-none"
                       >
                         Live Demo <ExternalLink className="w-4 h-4" />
                       </a>
@@ -255,7 +255,7 @@ const ProjectsSection = () => {
             href="https://github.com/CongoMusahAdama"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-brand-pink hover:text-brand-pink/80 font-medium"
+            className="inline-flex items-center text-brand-orange hover:text-brand-orange/80 font-medium"
           >
             <span className="mr-2">View all projects</span>
             <Github className="w-5 h-5" />

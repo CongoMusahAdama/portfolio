@@ -36,10 +36,10 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
 
       {/* Decorative Blobs */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] -z-10 overflow-hidden pointer-events-none opacity-20 dark:opacity-10">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-gradient-to-br from-brand-pink/20 to-cyan/20 rounded-full blur-[80px] md:blur-[100px]" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-gradient-to-br from-brand-orange/20 to-cyan/20 rounded-full blur-[80px] md:blur-[100px]" />
       </div>
       <div className="absolute bottom-0 right-0 w-[300px] md:w-[500px] h-[500px] -z-10 overflow-hidden pointer-events-none opacity-20 dark:opacity-10">
-        <div className="absolute bottom-0 right-0 translate-x-1/3 translate-y-1/3 w-full h-full bg-brand-pink/10 rounded-full blur-[80px] md:blur-[120px]" />
+        <div className="absolute bottom-0 right-0 translate-x-1/3 translate-y-1/3 w-full h-full bg-brand-orange/10 rounded-full blur-[80px] md:blur-[120px]" />
       </div>
 
       <div className="container mx-auto px-5 md:px-6 z-10 flex flex-col items-center">
@@ -60,8 +60,8 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             </div>
             <span className="font-sans flex items-center gap-1.5">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-pink opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-pink"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-orange"></span>
               </span>
               Hi, I'm <span className="font-bold">Congo Musah</span>
             </span>
@@ -81,7 +81,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            A product builder who&nbsp;uses <br /> <span className="text-brand-pink font-bold lowercase italic leading-none whitespace-nowrap">engineering</span> <span className="whitespace-nowrap">as a tool.</span>
+            A product builder who&nbsp;uses <br /> <span className="text-brand-orange font-bold lowercase italic leading-none whitespace-nowrap">engineering</span> <span className="whitespace-nowrap">as a tool.</span>
           </motion.h1>
 
           <motion.div
@@ -97,7 +97,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.5, ease: "circOut" }}
-                className="text-[10px] sm:text-xs md:text-sm lg:text-base font-mono font-bold text-brand-pink uppercase tracking-[0.3em] md:tracking-[0.4em] drop-shadow-sm"
+                className="text-[10px] sm:text-xs md:text-sm lg:text-base font-mono font-bold text-brand-orange uppercase tracking-[0.3em] md:tracking-[0.4em] drop-shadow-sm"
               >
                 {titles[currentTitleIndex]}
               </motion.span>
@@ -111,7 +111,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             transition={{ delay: 0.8, duration: 0.6 }}
           >
             <a href="https://flowcv.com/resume/wtaak1n6a414" target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none">
-              <Button size="sm" className="w-full sm:w-auto h-11 md:h-12 bg-pink-600 hover:bg-pink-700 text-white px-4 md:px-8 rounded-lg font-bold transition-all md:hover:scale-[1.02] active:scale-95 shadow-lg shadow-brand-pink/20 text-xs md:text-base tracking-wide uppercase">
+              <Button size="sm" className="w-full sm:w-auto h-11 md:h-12 bg-brand-orange hover:bg-brand-orange/90 text-white px-4 md:px-8 rounded-lg font-bold transition-all md:hover:scale-[1.02] active:scale-95 shadow-lg shadow-brand-orange/20 text-xs md:text-base tracking-wide uppercase">
                 Download CV
               </Button>
             </a>
@@ -134,8 +134,8 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             <div className="flex flex-col items-center gap-1.5 md:gap-2 min-w-[140px]">
               <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 font-bold font-mono">Drop an Email</span>
               <div className="flex items-center text-foreground font-semibold text-xs md:text-sm lg:text-base">
-                <Mail className="w-3.5 h-3.5 text-brand-pink mr-1.5 flex-shrink-0" />
-                <a href="mailto:amusahcongo@gmail.com" className="hover:text-brand-pink transition-colors">amusahcongo@gmail.com</a>
+                <Mail className="w-3.5 h-3.5 text-brand-orange mr-1.5 flex-shrink-0" />
+                <a href="mailto:amusahcongo@gmail.com" className="hover:text-brand-orange transition-colors">amusahcongo@gmail.com</a>
               </div>
             </div>
 
@@ -146,7 +146,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
 
       {/* Scroll Down Indicator - Enhanced & Prominent */}
       <motion.div
-        className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 lg:left-12 lg:translate-x-0 hidden md:flex items-center gap-4 md:gap-5 text-muted-foreground/50 hover:text-brand-pink transition-colors cursor-pointer group z-10"
+        className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 lg:left-12 lg:translate-x-0 hidden md:flex items-center gap-4 md:gap-5 text-muted-foreground/50 hover:text-brand-orange transition-colors cursor-pointer group z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
@@ -154,14 +154,14 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
       >
         <div className="w-8 h-12 md:w-10 md:h-16 border-2 border-current rounded-full flex justify-center p-2 md:p-2.5 opacity-80 md:opacity-100 shadow-md">
           <motion.div
-            className="w-1.5 h-2 md:w-2.5 md:h-3.5 bg-brand-pink rounded-full shadow-[0_0_10px_rgba(255,0,128,0.5)]"
+            className="w-1.5 h-2 md:w-2.5 md:h-3.5 bg-brand-orange rounded-full shadow-[0_0_10px_rgba(255,87,36,0.5)]"
             animate={{ y: [0, 16, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
         <span className="text-[10px] md:text-sm uppercase tracking-[0.3em] font-bold font-mono">Scroll</span>
       </motion.div>
-    </section>
+    </section >
   );
 };
 

@@ -159,7 +159,7 @@ const Services = () => {
             <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
               My Services
             </h1>
-            <div className="w-20 h-1 bg-brand-pink mx-auto mb-8"></div>
+            <div className="w-20 h-1 bg-brand-orange mx-auto mb-8"></div>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Comprehensive development solutions to transform your ideas into powerful digital experiences
             </p>
@@ -180,12 +180,12 @@ const Services = () => {
               {services.map((service, index) => (
                 <div key={index} className="group">
                   <div className="mb-6 flex items-start gap-4">
-                    <div className="w-16 h-16 bg-brand-pink/10 rounded-2xl flex items-center justify-center group-hover:bg-brand-pink/20 transition-colors duration-300 flex-shrink-0 mt-1">
-                      <service.icon className="w-8 h-8 text-brand-pink" />
+                    <div className="w-16 h-16 bg-brand-orange/10 rounded-2xl flex items-center justify-center group-hover:bg-brand-orange/20 transition-colors duration-300 flex-shrink-0 mt-1">
+                      <service.icon className="w-8 h-8 text-brand-orange" />
                     </div>
 
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-foreground mb-4 group-hover:text-brand-pink transition-colors duration-300">
+                      <h3 className="text-xl font-semibold text-foreground mb-4 group-hover:text-brand-orange transition-colors duration-300">
                         {service.title}
                       </h3>
 
@@ -209,7 +209,7 @@ const Services = () => {
                   alt="Professional developer working on web and mobile applications"
                   className="w-full max-w-md h-auto rounded-2xl shadow-lg"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-brand-pink/5 to-transparent rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-brand-orange/5 to-transparent rounded-2xl"></div>
               </div>
             </motion.div>
           </motion.div>
@@ -225,7 +225,7 @@ const Services = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">My Process</h2>
-            <div className="w-20 h-1 bg-brand-pink mx-auto"></div>
+            <div className="w-20 h-1 bg-brand-orange mx-auto"></div>
           </motion.div>
 
           <motion.div
@@ -241,7 +241,7 @@ const Services = () => {
                 variants={itemVariants}
               >
                 <div className="flex items-center gap-4 md:flex-col md:text-center md:min-w-[120px]">
-                  <span className="text-sm font-medium text-brand-pink">Step {step.number}</span>
+                  <span className="text-sm font-medium text-brand-orange">Step {step.number}</span>
                 </div>
 
                 <div className="flex-1">
@@ -254,7 +254,7 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="py-12 bg-brand-pink relative overflow-hidden" ref={benefitsRef}>
+      <section className="py-12 bg-brand-orange relative overflow-hidden" ref={benefitsRef}>
         <TechPattern />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
@@ -302,7 +302,7 @@ const Services = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
               Ready to Start Your Project?
             </h2>
-            <div className="w-20 h-1 bg-brand-pink mx-auto mb-8"></div>
+            <div className="w-20 h-1 bg-brand-orange mx-auto mb-8"></div>
             <p className="text-lg text-muted-foreground mb-12">
               Let's discuss your ideas and create something amazing together.
             </p>
@@ -330,7 +330,7 @@ const Services = () => {
               <Button
                 asChild
                 variant="default"
-                className="bg-brand-pink hover:bg-brand-pink/90 text-white px-8 py-3"
+                className="bg-brand-orange hover:bg-brand-orange/90 text-white px-8 py-3"
               >
                 <a
                   href={whatsappUrl}
