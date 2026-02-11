@@ -18,7 +18,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 mt-16 md:mt-12"
         >
           <p className="text-[10px] md:text-xs font-bold text-foreground uppercase tracking-[0.2em] border-b border-brand-orange/30 pb-1">
             Hi, I am <span className="text-foreground">Congo Musah Adama</span>
@@ -163,18 +163,18 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4 }}
-          className="flex flex-col sm:flex-row items-center gap-4"
+          className="flex flex-row items-center gap-3 w-auto"
         >
           <Button
             onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 py-6 bg-brand-orange text-white hover:bg-brand-orange/90 rounded-none font-bold uppercase text-[10px] tracking-[0.2em] transition-all duration-300 shadow-[0_10px_20px_rgba(255,87,36,0.2)]"
+            className="px-6 py-5 bg-brand-orange text-white hover:bg-brand-orange/90 rounded-none font-bold uppercase text-[9px] tracking-[0.15em] transition-all duration-300 shadow-[0_10px_20px_rgba(255,87,36,0.2)]"
           >
             view projects
           </Button>
-          <a href="https://flowcv.com/resume/wtaak1n6a414" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+          <a href="https://flowcv.com/resume/wtaak1n6a414" target="_blank" rel="noopener noreferrer">
             <Button
               variant="outline"
-              className="w-full px-8 py-6 bg-transparent border-2 border-foreground text-foreground hover:bg-foreground hover:text-background rounded-none font-bold uppercase text-[10px] tracking-[0.2em] transition-all duration-300"
+              className="px-6 py-5 bg-transparent border-2 border-foreground text-foreground hover:bg-foreground hover:text-background rounded-none font-bold uppercase text-[9px] tracking-[0.15em] transition-all duration-300"
             >
               download cv
             </Button>
@@ -186,9 +186,9 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6 }}
-          className="flex flex-col items-center gap-6 mt-8 md:hidden"
+          className="flex flex-col items-center gap-6 md:hidden w-full pb-8"
         >
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-8 border-t border-border/50 pt-6 w-full justify-center">
             <a href="https://github.com/CongoMusahAdama" target="_blank" rel="noopener noreferrer">
               <Github className="w-5 h-5 text-foreground/60" />
             </a>
