@@ -10,7 +10,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] bg-background pt-20 md:pt-24 pb-20 overflow-hidden flex flex-col items-center justify-start transition-colors duration-500"
+      className="relative min-h-[85vh] md:min-h-screen bg-background pt-12 md:pt-16 pb-12 overflow-hidden flex flex-col items-center justify-start transition-colors duration-500"
     >
       <div className="container mx-auto px-6 z-20 flex flex-col items-center relative gap-0">
         {/* Intro Tagline */}
@@ -28,9 +28,9 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
         {/* Cinematic Headlines */}
         <div className="relative w-full flex flex-col items-center text-center">
           {/* Main Title - Outlined PRODUCT BUILDER with Shifting Reveal */}
-          <div className="overflow-hidden py-4">
+          <div className="overflow-hidden py-2">
             <motion.h1
-              className="text-[8vw] md:text-[6.5vw] font-display font-black leading-none tracking-tighter uppercase text-foreground z-10"
+              className="text-[8vw] md:text-[5.5vw] font-display font-black leading-none tracking-tighter uppercase text-foreground z-10"
               style={{
                 WebkitTextStroke: '1px currentColor',
                 WebkitTextFillColor: 'transparent',
@@ -89,14 +89,14 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             initial={{ opacity: 0, scale: 0.8, y: 40 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative mt-12 mb-10 group"
+            className="relative mt-6 mb-4 group"
           >
             <div className="relative">
               {/* Outer Decorative Ring */}
               <div className="absolute -inset-4 border border-border rounded-[3rem] md:rounded-[4rem] -z-10 group-hover:border-brand-orange/20 group-hover:scale-105 transition-all duration-700" />
 
               {/* Main Image Base */}
-              <div className="relative w-52 h-52 md:w-64 md:h-64 rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden bg-background border-2 border-border shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)] group-hover:shadow-[0_48px_80px_-16px_rgba(255,87,36,0.15)] transition-all duration-700">
+              <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden bg-background border-2 border-border shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)] group-hover:shadow-[0_48px_80px_-16px_rgba(255,87,36,0.15)] transition-all duration-700">
                 <img
                   src="/lovable-uploads/image copy 3.png"
                   alt="Congo Musah"
@@ -112,7 +112,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
       </div>
 
       {/* Footer Section - Improved Visibility */}
-      <div className="container mx-auto px-6 z-40 relative flex flex-col md:flex-row items-center justify-between mt-auto pb-12 w-full max-w-6xl gap-8">
+      <div className="container mx-auto px-6 z-40 relative flex flex-col md:flex-row items-center justify-between mt-auto pb-8 w-full max-w-6xl gap-6">
         <motion.div
           initial={{ opacity: 0, x: -15 }}
           animate={{ opacity: 1, x: 0 }}
@@ -141,7 +141,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
 
           {/* Integrated Scroll Indicator */}
           <motion.div
-            className="flex flex-col items-center gap-2 text-muted-foreground/30 hover:text-brand-orange transition-colors cursor-pointer mt-8 group/scroll"
+            className="flex flex-col items-center gap-2 text-muted-foreground/30 hover:text-brand-orange transition-colors cursor-pointer mt-4 group/scroll"
             onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
