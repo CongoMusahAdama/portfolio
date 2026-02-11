@@ -10,7 +10,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="relative min-h-[85vh] md:min-h-screen bg-background pt-12 md:pt-16 pb-12 overflow-hidden flex flex-col items-center justify-start transition-colors duration-500"
+      className="relative min-h-[85vh] md:min-h-screen bg-background pt-12 md:pt-20 pb-16 overflow-hidden flex flex-col items-center justify-start transition-colors duration-500"
     >
       <div className="container mx-auto px-6 z-20 flex flex-col items-center relative gap-0">
         {/* Intro Tagline */}
@@ -79,7 +79,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             transition={{ duration: 1, delay: 1.5 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight tracking-normal text-foreground z-20 -mt-2 md:-mt-4 max-w-4xl px-4 relative"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight tracking-normal text-foreground z-20 0 md:mt-2 max-w-4xl px-4 relative"
           >
             who uses <span className="text-brand-orange font-bold lowercase italic underline decoration-brand-orange/30 decoration-2 underline-offset-8">engineering</span> as a tool.
           </motion.h2>
@@ -89,7 +89,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             initial={{ opacity: 0, scale: 0.8, y: 40 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative mt-6 mb-4 group"
+            className="relative mt-12 mb-8 group"
           >
             <div className="relative">
               {/* Outer Decorative Ring */}
@@ -112,7 +112,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
       </div>
 
       {/* Footer Section - Improved Visibility */}
-      <div className="container mx-auto px-6 z-40 relative flex flex-col md:flex-row items-center justify-between mt-auto pb-8 w-full max-w-6xl gap-6">
+      <div className="container mx-auto px-6 z-40 relative flex flex-col md:flex-row items-center justify-between mt-auto pb-12 w-full max-w-6xl gap-6">
         <motion.div
           initial={{ opacity: 0, x: -15 }}
           animate={{ opacity: 1, x: 0 }}
