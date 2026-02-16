@@ -51,8 +51,9 @@ const SkillsSection = () => {
       <div className="container mx-auto px-5 md:px-6 mb-12 md:mb-16 relative z-10">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8 max-w-7xl mx-auto">
           <div className="text-left">
-            <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-4 dark:text-background">Tech Stack</h2>
-            <div className="w-16 h-1 bg-white mb-6"></div>
+            <h2 className="text-4xl lg:text-5xl font-black tracking-tight mb-12 text-white uppercase">
+              Tech <span className="curvy-underline curvy-underline-white">Stack</span>
+            </h2>
             <p className="text-base sm:text-lg text-white/85 font-medium max-w-xl leading-relaxed">
               Equipped with a robust architectural toolkit and deep technical expertise in building scalable, resilient systems.
             </p>

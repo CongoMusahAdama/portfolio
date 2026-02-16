@@ -13,8 +13,6 @@ import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 
 const Index = () => {
-  // Updated profile image to the new uploaded file
-  const profileImage = "/lovable-uploads/image copy 3.png";
 
   useEffect(() => {
     // Animation for elements with .slide-in class
@@ -42,7 +40,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <HeroSection profileImage={profileImage} />
+      <HeroSection />
       <AboutSection />
       <ServicesSection />
       <SkillsSection />

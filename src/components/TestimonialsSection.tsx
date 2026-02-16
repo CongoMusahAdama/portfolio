@@ -1,151 +1,141 @@
 
-import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Star } from 'lucide-react';
 
 interface Testimonial {
-  id: number;
+  id: string;
   name: string;
   role: string;
   company: string;
   avatar: string;
   content: string;
+  rating: number;
 }
 
 const TestimonialsSection = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = document.getElementById('testimonials');
-      if (section) {
-        const sectionPosition = section.getBoundingClientRect();
-        if (sectionPosition.top < window.innerHeight * 0.75) {
-          setIsVisible(true);
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   const testimonials: Testimonial[] = [
     {
-      id: 1,
+      id: "01",
       name: "Kwame Oteng",
       role: "Founder",
       company: "Mizrmo Technologies",
       avatar: "/lovable-uploads/dd834d92-de8f-4f21-9878-9cc88ffbb39e.png",
       content: "Highly impressed with the APIs and backend development. Congo delivered scalable solutions that perfectly matched our requirements. Truly professional!",
+      rating: 5,
     },
     {
-      id: 2,
+      id: "02",
       name: "Jerry Temakloe",
       role: "Founder & Creative Entrepreneur",
       company: "Carve Studio",
       content: "Congo's expertise in microservices architecture transformed our monolithic application into a scalable, maintainable system. His documentation skills are excellent too!",
       avatar: "/lovable-uploads/e7a271ed-34b5-4117-b716-6c44c58df08d.png",
+      rating: 5,
     },
     {
-      id: 3,
+      id: "03",
       name: "Prof. Daniel Addo-Mensah",
       role: "Lecturer & Head of Industrial Attachment",
-      company: "University of Energy and Natural Resources",
-      content: "Congo's ability to turn impactful ideas into digital platforms is insane — from understanding users' pain points to going further using the 5 WHYs and 4 Us to build solutions they want, not just what he wants.",
+      company: "UENR",
+      content: "Congo's ability to turn impactful ideas into digital platforms is insane — from understanding users' pain points to building solutions they actually want.",
       avatar: "/lovable-uploads/5548e7ab-7bc7-436a-877b-caab2b5d82c6.png",
+      rating: 5,
+    },
+    {
+      id: "04",
+      name: "Host of Kultural Kompass",
+      role: "Founder & Host",
+      company: "Kultural Kompass",
+      content: "I love the approach to product where ideas are easily turned into great digital solutions that resonate with the audience and target interests. Wonderful work!",
+      avatar: "/lovable-uploads/kultural.png",
+      rating: 5,
     },
   ];
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 12000); // Increased from 7000ms to 12000ms for more reading time
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section id="testimonials" className="py-20 bg-background">
+    <section id="testimonials" className="py-24 md:py-32 bg-background relative overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">Testimonials</h2>
-          <div className="w-20 h-1 bg-brand-orange mx-auto mb-8"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            What clients say about working with me
-          </p>
+        <div className="flex flex-col items-center text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="bg-brand-orange/10 text-brand-orange px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 flex items-center gap-2"
+          >
+            <span className="w-2 h-2 bg-brand-orange rounded-full animate-pulse" />
+            Loved by Partners Worldwide
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-6xl font-display font-black text-foreground uppercase tracking-tight max-w-3xl leading-[1.1]"
+          >
+            Don't Just Take My <br />
+            <span className="curvy-underline text-brand-orange">Work for It</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-muted-foreground mt-6 text-lg max-w-xl"
+          >
+            Real stories from visionary founders and industry leaders who transformed their digital presence.
+          </motion.p>
         </div>
 
-        <div className={`max-w-4xl mx-auto transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}>
-          <div className="relative">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={testimonial.id}
-                className={`transition-opacity duration-1000 ease-in-out ${currentSlide === index ? 'opacity-100' : 'opacity-0 absolute top-0 left-0'
-                  }`}
-                style={{ display: currentSlide === index ? 'block' : 'none' }}
-              >
-                <div className="py-8 px-4 relative">
-                  <div className="text-muted-foreground text-lg leading-relaxed italic mb-8 text-center">
-                    {testimonial.content}
-                  </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((t, idx) => (
+            <motion.div
+              key={t.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="bg-card border border-border/50 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:border-brand-orange/20 group"
+            >
+              <div className="flex gap-1 mb-6">
+                {[...Array(t.rating)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-brand-orange text-brand-orange" />
+                ))}
+              </div>
 
-                  <div className="flex flex-col items-center text-center">
-                    <img
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      className="w-20 h-20 rounded-full object-cover mb-4 border-2 border-brand-orange/20"
-                    />
-                    <div>
-                      <h4 className="font-semibold text-foreground text-xl mb-1">{testimonial.name}</h4>
-                      <p className="text-muted-foreground">{testimonial.role}</p>
-                      <p className="text-muted-foreground text-sm">{testimonial.company}</p>
-                    </div>
-                  </div>
+              <blockquote className="text-foreground/90 text-lg leading-relaxed mb-8 italic">
+                "{t.content}"
+              </blockquote>
+
+              <div className="flex items-center gap-4 pt-6 border-t border-border/50">
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  className="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                />
+                <div className="flex flex-col">
+                  <span className="font-bold text-foreground">{t.name}</span>
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
+                    {t.role}, {t.company}
+                  </span>
                 </div>
               </div>
-            ))}
+            </motion.div>
+          ))}
+        </div>
 
-            <button
-              onClick={prevSlide}
-              className="absolute top-1/2 -left-6 -translate-y-1/2 bg-background rounded-full p-3 shadow-md hover:bg-muted transition-colors duration-300"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="w-5 h-5 text-foreground" />
-            </button>
-
-            <button
-              onClick={nextSlide}
-              className="absolute top-1/2 -right-6 -translate-y-1/2 bg-background rounded-full p-3 shadow-md hover:bg-muted transition-colors duration-300"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="w-5 h-5 text-foreground" />
-            </button>
-          </div>
-
-          <div className="flex justify-center space-x-2 mt-8">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors duration-300 ${currentSlide === index ? 'bg-brand-orange' : 'bg-muted-foreground/30'
-                  }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
-            ))}
-          </div>
+        <div className="mt-20 flex flex-col items-center bg-brand-orange/5 border border-brand-orange/10 rounded-[32px] p-8 md:p-12 text-center max-w-4xl mx-auto">
+          <h3 className="text-2xl md:text-3xl font-display font-black text-foreground mb-4">
+            Ready to Build Something Extraordinary?
+          </h3>
+          <p className="text-muted-foreground mb-8 max-w-lg">
+            Join the ranks of visionaries who turned their ideas into impactful digital solutions.
+          </p>
+          <a
+            href="#contact"
+            className="bg-brand-orange text-white px-8 py-4 rounded-xl font-bold uppercase tracking-wider hover:bg-brand-orange/90 transition-all shadow-lg shadow-brand-orange/20"
+          >
+            Start Your Project Today
+          </a>
         </div>
       </div>
     </section>

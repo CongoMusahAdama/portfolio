@@ -33,8 +33,7 @@ const AboutSection = () => {
               transition={{ duration: 0.8 }}
               className="text-left"
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 tracking-tight">About Me</h2>
-              <div className="w-16 h-1 bg-brand-orange mb-8"></div>
+              <h2 className="text-3xl sm:text-4xl font-black text-foreground mb-12 tracking-tight uppercase">About <span className="curvy-underline text-brand-orange">Me</span></h2>
 
               <div className="text-base sm:text-lg text-muted-foreground leading-relaxed space-y-6 mb-8">
                 <p className="text-lg font-semibold text-foreground italic border-l-4 border-brand-orange pl-4 bg-brand-orange/5 py-3 rounded-r-lg">

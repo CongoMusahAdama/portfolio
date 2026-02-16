@@ -24,6 +24,16 @@ const ProjectsSection = () => {
 
   const projects: Project[] = [
     {
+      id: 8,
+      title: "Kultural Kompass",
+      description: "Exploring culture, truth, and the tensions that shape our world. A dynamic podcast platform featuring automated episode fetching, a custom video player, and a refined brand-aligned interface for community engagement.",
+      image: "/lovable-uploads/kultural project.png",
+      technologies: ["React", "TypeScript", "TailwindCSS", "YouTube API", "Netlify"],
+      githubUrl: "https://github.com/CongoMusahAdama/kultural",
+      websiteUrl: "https://kulturalkompass.netlify.app/",
+      rating: 5
+    },
+    {
       id: 7,
       title: "BrainBank",
       description: "Idea management reimagined. BrainBank is a tool that helps you capture, organize, prioritize, and execute ideas in one focused space. Built for ambitious thinkers, entrepreneurs, students, and creatives who want clarity not clutter.",
@@ -113,9 +123,10 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="py-20 md:py-24 bg-muted/30" ref={sectionRef}>
       <div className="container mx-auto px-5 md:px-6">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">Featured Projects</h2>
-          <div className="w-16 h-1 bg-brand-orange mx-auto mb-6"></div>
+        <div className="text-center mb-16 md:mb-20">
+          <h2 className="text-4xl lg:text-5xl font-display font-black text-foreground mb-4 uppercase">
+            Featured <span className="curvy-underline text-brand-orange">Projects</span>
+          </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             A collection of projects that showcase my skills and passion for creating digital solutions.
           </p>
@@ -154,12 +165,12 @@ const ProjectsSection = () => {
                   <div className="relative flex items-center justify-center gap-4 md:gap-8 w-full h-full z-10">
                     {/* Desktop Screenshot - Full Width on Mobile, Side-by-Side on Desktop */}
                     <motion.div
-                      className="relative w-full sm:w-[85%] xl:w-[75%] aspect-[16/11] rounded-xl overflow-hidden border border-white/10 shadow-3xl bg-black transition-all duration-500 md:group-hover:scale-[1.03]"
+                      className="relative w-full sm:w-[95%] xl:w-[90%] aspect-[16/10] rounded-xl overflow-hidden border border-white/10 shadow-3xl bg-black transition-all duration-500 md:group-hover:scale-[1.02]"
                     >
                       <img
                         src={project.image}
                         alt={`${project.title} Desktop`}
-                        className="w-full h-full object-contain"
+                        className="w-full h-full object-cover object-top"
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />

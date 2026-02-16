@@ -73,8 +73,7 @@ const ServicesSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 max-w-6xl mx-auto">
           <div className="flex-shrink-0">
-            <h2 className="text-2xl lg:text-3xl font-bold text-foreground tracking-tight">What I Do</h2>
-            <div className="w-12 h-1 bg-brand-orange mt-2"></div>
+            <h2 className="text-2xl lg:text-3xl font-black text-foreground tracking-tight uppercase">What I <span className="curvy-underline text-brand-orange">Do</span></h2>
           </div>
 
           <motion.div

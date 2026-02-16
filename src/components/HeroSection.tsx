@@ -2,17 +2,14 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Github } from "lucide-react";
 import { motion } from "framer-motion";
 
-interface HeroSectionProps {
-  profileImage?: string;
-}
 
-const HeroSection = ({ profileImage }: HeroSectionProps) => {
+const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[75vh] md:min-h-screen bg-background pt-24 md:pt-20 pb-8 md:pb-16 overflow-hidden flex flex-col items-center justify-start transition-colors duration-500"
+      className="relative min-h-screen lg:min-h-screen bg-background pt-20 md:pt-48 pb-12 md:pb-16 overflow-hidden flex flex-col items-center justify-center transition-colors duration-500"
     >
-      <div className="container mx-auto px-6 z-20 flex flex-col items-center relative gap-0">
+      <div className="container mx-auto px-6 z-20 flex flex-col items-center relative gap-0 mb-12 md:mb-0">
         {/* Intro Tagline */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -26,18 +23,18 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
         </motion.div>
 
         {/* Cinematic Headlines */}
-        <div className="relative w-full flex flex-col items-center text-center">
+        <div className="relative w-full flex flex-col items-center text-center mt-4 md:mt-0">
           {/* Main Title - Outlined PRODUCT BUILDER with Shifting Reveal */}
           <div className="overflow-hidden py-2">
             <motion.h1
-              className="text-[8vw] md:text-[5.5vw] font-display font-black leading-none tracking-tighter uppercase text-foreground z-10"
+              className="text-[10vw] md:text-[5.5vw] font-display font-black leading-none tracking-tighter uppercase text-foreground z-10"
               style={{
                 WebkitTextStroke: '1px currentColor',
                 WebkitTextFillColor: 'transparent',
                 opacity: 1
               }}
             >
-              {"PRODUCT BUILDER".split("").map((letter, index) => (
+              {"{ PRODUCT BUILDER }".split("").map((letter, index) => (
                 <motion.span
                   key={index}
                   initial={{ y: "100%", opacity: 0 }}
@@ -62,7 +59,7 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
                         }}
                         className="absolute inset-0 flex items-center justify-center"
                       >
-                        <div className="w-[5vw] h-[5vw] md:w-[3vw] md:h-[3vw] flex items-center justify-center rounded-full bg-background border-[1px] md:border-2 border-foreground shadow-sm">
+                        <div className="w-[6vw] h-[6vw] md:w-[3vw] md:h-[3vw] flex items-center justify-center rounded-full bg-background border-[1px] md:border-2 border-foreground shadow-sm">
                           <ArrowUpRight className="w-1/2 h-1/2 text-brand-orange" strokeWidth={3} />
                         </div>
                       </motion.div>
@@ -79,40 +76,16 @@ const HeroSection = ({ profileImage }: HeroSectionProps) => {
             initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
             animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             transition={{ duration: 1, delay: 1.5 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight tracking-normal text-foreground z-20 0 md:mt-2 max-w-4xl px-4 relative"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-black leading-snug tracking-normal text-foreground z-20 md:mt-2 max-w-4xl px-4 relative mt-4"
           >
             who uses <span className="text-brand-orange font-bold lowercase italic underline decoration-brand-orange/30 decoration-2 underline-offset-8">engineering</span> as a tool.
           </motion.h2>
 
-          {/* Portrait - Modern Floating Squircle Design */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 40 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative mt-12 mb-8 group"
-          >
-            <div className="relative">
-              {/* Outer Decorative Ring */}
-              <div className="absolute -inset-4 border border-border rounded-[3rem] md:rounded-[4rem] -z-10 group-hover:border-brand-orange/20 group-hover:scale-105 transition-all duration-700" />
-
-              {/* Main Image Base */}
-              <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden bg-background border-2 border-border shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)] group-hover:shadow-[0_48px_80px_-16px_rgba(255,87,36,0.15)] transition-all duration-700">
-                <img
-                  src="/lovable-uploads/image copy 3.png"
-                  alt="Congo Musah"
-                  className="w-full h-full object-cover transition-all duration-1000 scale-[1.02] group-hover:scale-110"
-                />
-
-                {/* Bottom Depth Fade */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
 
       {/* Footer Section - Improved Visibility */}
-      <div className="container mx-auto px-6 z-40 relative flex flex-col md:flex-row items-center justify-between mt-auto pb-12 w-full max-w-6xl gap-6">
+      <div className="container mx-auto px-6 z-40 relative flex flex-col md:flex-row items-center justify-between md:mt-auto mt-8 pb-12 w-full max-w-6xl gap-10 md:gap-6">
         <motion.div
           initial={{ opacity: 0, x: -15 }}
           animate={{ opacity: 1, x: 0 }}

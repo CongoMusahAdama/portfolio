@@ -82,9 +82,8 @@ const AwardsSection = () => {
                     <div className="space-y-3 md:space-y-4">
                         <h2 className="text-4xl md:text-6xl font-black text-foreground tracking-tighter uppercase leading-[0.9]">
                             Honors & <br />
-                            <span className="text-brand-orange">Recognitions</span>
+                            <span className="curvy-underline text-brand-orange">Recognitions</span>
                         </h2>
-                        <div className="w-12 md:w-16 h-1.5 md:h-2 bg-foreground rounded-full"></div>
                     </div>
                     <p className="text-muted-foreground text-base md:text-lg max-w-sm font-medium leading-tight">
                         A selection of milestones achieved through leadership and technical excellence. Click to view moments.
