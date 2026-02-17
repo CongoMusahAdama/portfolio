@@ -1,6 +1,5 @@
-
 import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
+import { Star, Quote } from 'lucide-react';
 
 interface Testimonial {
   id: string;
@@ -53,89 +52,62 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-24 md:py-32 bg-background relative overflow-hidden">
+    <section id="testimonials" className="py-20 md:py-32 bg-secondary/30">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col items-center text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="bg-brand-orange/10 text-brand-orange px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 flex items-center gap-2"
-          >
-            <span className="w-2 h-2 bg-brand-orange rounded-full animate-pulse" />
-            Loved by Partners Worldwide
-          </motion.div>
-
+        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-display font-black text-foreground uppercase tracking-tight max-w-3xl leading-[1.1]"
+            className="text-3xl md:text-5xl font-black text-foreground mb-6 uppercase tracking-tight"
           >
-            Don't Just Take My <br />
-            <span className="curvy-underline text-brand-orange">Work for It</span>
+            Kind Words <span className="text-brand-orange italic">From Clients</span>
           </motion.h2>
-
           <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-muted-foreground mt-6 text-lg max-w-xl"
+            transition={{ delay: 0.1 }}
+            className="text-muted-foreground text-lg"
           >
-            Real stories from visionary founders and industry leaders who transformed their digital presence.
+            Trusted by industry leaders and creative minds across the globe.
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((t, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {testimonials.map((t, index) => (
             <motion.div
               key={t.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-card border border-border/50 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:border-brand-orange/20 group"
+              transition={{ delay: index * 0.1 }}
+              className="bg-background p-8 rounded-2xl border border-border/50 hover:border-brand-orange/30 transition-all duration-300 shadow-sm flex flex-col justify-between"
             >
-              <div className="flex gap-1 mb-6">
-                {[...Array(t.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-brand-orange text-brand-orange" />
-                ))}
+              <div>
+                <div className="flex gap-1 mb-4">
+                  {[...Array(t.rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-brand-orange text-brand-orange" />
+                  ))}
+                </div>
+                <p className="text-foreground/80 leading-relaxed mb-8 italic">
+                  "{t.content}"
+                </p>
               </div>
 
-              <blockquote className="text-foreground/90 text-lg leading-relaxed mb-8 italic">
-                "{t.content}"
-              </blockquote>
-
-              <div className="flex items-center gap-4 pt-6 border-t border-border/50">
+              <div className="flex items-center gap-4">
                 <img
                   src={t.avatar}
                   alt={t.name}
-                  className="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                  className="w-12 h-12 rounded-full object-cover grayscale md:hover:grayscale-0 transition-all"
                 />
-                <div className="flex flex-col">
-                  <span className="font-bold text-foreground">{t.name}</span>
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
-                    {t.role}, {t.company}
-                  </span>
+                <div>
+                  <h4 className="font-bold text-foreground text-sm">{t.name}</h4>
+                  <p className="text-xs text-muted-foreground uppercase tracking-widest">{t.company}</p>
                 </div>
               </div>
             </motion.div>
           ))}
-        </div>
-
-        <div className="mt-20 flex flex-col items-center bg-brand-orange/5 border border-brand-orange/10 rounded-[32px] p-8 md:p-12 text-center max-w-4xl mx-auto">
-          <h3 className="text-2xl md:text-3xl font-display font-black text-foreground mb-4">
-            Ready to Build Something Extraordinary?
-          </h3>
-          <p className="text-muted-foreground mb-8 max-w-lg">
-            Join the ranks of visionaries who turned their ideas into impactful digital solutions.
-          </p>
-          <a
-            href="#contact"
-            className="bg-brand-orange text-white px-8 py-4 rounded-xl font-bold uppercase tracking-wider hover:bg-brand-orange/90 transition-all shadow-lg shadow-brand-orange/20"
-          >
-            Start Your Project Today
-          </a>
         </div>
       </div>
     </section>

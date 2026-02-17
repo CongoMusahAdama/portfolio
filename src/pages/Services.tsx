@@ -156,10 +156,9 @@ const Services = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-              My Services
+            <h1 className="text-3xl lg:text-4xl font-black text-foreground mb-12 uppercase">
+              My <span className="curvy-underline text-brand-orange">Services</span>
             </h1>
-            <div className="w-20 h-1 bg-brand-orange mx-auto mb-8"></div>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Comprehensive development solutions to transform your ideas into powerful digital experiences
             </p>
@@ -224,8 +223,7 @@ const Services = () => {
             animate={isProcessVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">My Process</h2>
-            <div className="w-20 h-1 bg-brand-orange mx-auto"></div>
+            <h2 className="text-3xl lg:text-4xl font-black text-foreground mb-12 uppercase">My <span className="curvy-underline text-brand-orange">Process</span></h2>
           </motion.div>
 
           <motion.div
@@ -263,8 +261,7 @@ const Services = () => {
             animate={isBenefitsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Why Work With Me</h2>
-            <div className="w-20 h-1 bg-white mx-auto"></div>
+            <h2 className="text-3xl lg:text-4xl font-black text-white mb-12 uppercase text-center">Why Work <span className="curvy-underline curvy-underline-white">With Me</span></h2>
           </motion.div>
 
           <motion.div
@@ -299,10 +296,9 @@ const Services = () => {
             animate={isContactVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-              Ready to Start Your Project?
+            <h2 className="text-3xl lg:text-4xl font-black text-foreground mb-12 uppercase">
+              Ready to <span className="curvy-underline text-brand-orange">Start?</span>
             </h2>
-            <div className="w-20 h-1 bg-brand-orange mx-auto mb-8"></div>
             <p className="text-lg text-muted-foreground mb-12">
               Let's discuss your ideas and create something amazing together.
             </p>

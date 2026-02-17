@@ -24,8 +24,7 @@ const About = () => {
               transition={{ duration: 0.6 }}
               className="mb-8 md:mb-12"
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 tracking-tight">MY STORY</h2>
-              <div className="w-16 h-1 bg-brand-orange"></div>
+              <h2 className="text-3xl sm:text-4xl font-black text-foreground mb-12 tracking-tight uppercase">MY <span className="curvy-underline text-brand-orange">STORY</span></h2>
             </motion.div>
 
             <div className="block lg:block">
