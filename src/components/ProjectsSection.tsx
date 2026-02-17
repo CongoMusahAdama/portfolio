@@ -24,10 +24,22 @@ const ProjectsSection = () => {
 
   const projects: Project[] = [
     {
+      id: 9,
+      title: "FLA Purchase",
+      description: "A bespoke tailoring and custom-print platform. Features real-time production tracking, secure escrow payments, and a seamless connection between clients and expert tailors.",
+      image: "/lovable-uploads/fla.png",
+      mobileImage: "/lovable-uploads/image copy 5.png",
+      technologies: ["React", "TypeScript", "TailwindCSS", "Node.js", "Escrow API"],
+      githubUrl: "https://github.com/CongoMusahAdama/fla",
+      websiteUrl: "https://fadlanstore.netlify.app/",
+      rating: 5
+    },
+    {
       id: 8,
       title: "Kultural Kompass",
-      description: "Exploring culture, truth, and the tensions that shape our world. A dynamic podcast platform featuring automated episode fetching, a custom video player, and a refined brand-aligned interface for community engagement.",
+      description: "Exploring culture, truth, and the tensions that shape our world. A dynamic podcast platform featuring automated episode fetching, a custom video player, and a refined brand-aligned interface.",
       image: "/lovable-uploads/kultural project.png",
+      mobileImage: "/lovable-uploads/Kultural mobile  4.png",
       technologies: ["React", "TypeScript", "TailwindCSS", "YouTube API", "Netlify"],
       githubUrl: "https://github.com/CongoMusahAdama/kultural",
       websiteUrl: "https://kulturalkompass.netlify.app/",
@@ -135,18 +147,18 @@ const ProjectsSection = () => {
         <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-16">
           {projects.map((project, index) => (<motion.div
             key={project.id}
-            className="relative w-full rounded-[2rem] border border-white/10 shadow-3xl overflow-hidden bg-[#0A0A0B] group transition-all duration-700 hover:border-brand-orange/30"
-            initial={{ opacity: 0, y: 50, scale: 0.98 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            className="relative w-full rounded-[2rem] border border-slate-200 dark:border-white/10 shadow-3xl overflow-hidden bg-white dark:bg-[#0A0A0B] group transition-all duration-300 hover:border-brand-orange/30 hover:shadow-2xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{
-              duration: 1,
-              ease: [0.16, 1, 0.3, 1],
-              delay: index * 0.05
+              duration: 0.5,
+              ease: "easeOut",
+              delay: index * 0.1
             }}
           >
             {/* Browser-style Title Bar - Always Dark */}
-            <div className="h-12 bg-white/[0.03] border-b border-white/10 flex items-center px-6 md:px-8 justify-between">
+            <div className="h-12 bg-slate-50 dark:bg-white/[0.03] border-b border-slate-200 dark:border-white/10 flex items-center px-6 md:px-8 justify-between">
               <div className="flex gap-2.5">
                 <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/40" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/40" />
@@ -159,7 +171,7 @@ const ProjectsSection = () => {
 
             <div className="grid grid-cols-1 xl:grid-cols-5 gap-0">
               {/* Project Visual - Theme Aware Mockup Background */}
-              <div className={`xl:col-span-3 relative bg-[#0D0D0E] p-4 sm:p-6 lg:p-12 flex items-center justify-center overflow-hidden ${index % 2 === 0 ? 'xl:order-1' : 'xl:order-2'}`}>
+              <div className={`xl:col-span-3 relative bg-slate-100 dark:bg-[#0D0D0E] p-4 sm:p-6 lg:p-12 flex items-center justify-center overflow-hidden ${index % 2 === 0 ? 'xl:order-1' : 'xl:order-2'}`}>
                 {/* Subtle Pattern Mesh */}
                 <div className="absolute inset-0 opacity-[0.03]"
                   style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }}
@@ -200,7 +212,7 @@ const ProjectsSection = () => {
               </div>
 
               {/* Project Info - Taking remaining columns */}
-              <div className={`xl:col-span-2 p-8 sm:p-10 lg:p-16 flex flex-col justify-center border-white/10 ${index % 2 === 0 ? 'xl:order-2 xl:border-l' : 'xl:order-1 xl:border-r'}`}>
+              <div className={`xl:col-span-2 p-8 sm:p-10 lg:p-16 flex flex-col justify-center border-slate-200 dark:border-white/10 ${index % 2 === 0 ? 'xl:order-2 xl:border-l' : 'xl:order-1 xl:border-r'}`}>
                 <div className="flex justify-between items-start mb-5 sm:mb-6">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-orange/10 text-brand-orange text-[9px] sm:text-[10px] font-bold uppercase tracking-widest w-fit font-mono">
                     {project.status || "Live Project"}
@@ -210,7 +222,7 @@ const ProjectsSection = () => {
                       {[...Array(5)].map((_, i) => (
                         <svg
                           key={i}
-                          className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${i < project.rating! ? 'text-brand-orange fill-brand-orange' : 'text-slate-700 fill-slate-700'}`}
+                          className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${i < project.rating! ? 'text-brand-orange fill-brand-orange' : 'text-slate-300 dark:text-slate-700 fill-slate-300 dark:fill-slate-700'}`}
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
                         >
@@ -220,14 +232,14 @@ const ProjectsSection = () => {
                     </div>
                   )}
                 </div>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-4 sm:mb-6 tracking-tight text-white">{project.title}</h3>
-                <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-8 font-mono font-medium">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-4 sm:mb-6 tracking-tight text-slate-900 dark:text-white">{project.title}</h3>
+                <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed mb-8 font-mono font-medium">
                   {project.description}
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-8 sm:mb-10">
                   {project.technologies.slice(0, 6).map((tech) => (
-                    <span key={tech} className="px-3 py-1 rounded bg-white/5 text-slate-300 text-[9px] sm:text-[10px] font-bold font-mono uppercase tracking-wider border border-white/5">
+                    <span key={tech} className="px-3 py-1 rounded bg-slate-100 border-slate-200 dark:bg-white/5 text-slate-700 dark:text-slate-300 text-[9px] sm:text-[10px] font-bold font-mono uppercase tracking-wider border dark:border-white/5">
                       {tech}
                     </span>
                   ))}
@@ -248,7 +260,7 @@ const ProjectsSection = () => {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-slate-500 font-bold md:hover:text-white transition-colors font-sans text-[11px] uppercase tracking-widest min-h-[44px] tap-highlight-none"
+                    className="inline-flex items-center gap-2 text-slate-500 font-bold md:hover:text-slate-900 dark:md:hover:text-white transition-colors font-sans text-[11px] uppercase tracking-widest min-h-[44px] tap-highlight-none"
                   >
                     <Github className="w-4 h-4" /> Source
                   </a>
