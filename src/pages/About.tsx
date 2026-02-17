@@ -6,7 +6,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import AwardsSection from "@/components/AwardsSection";
 
 const About = () => {
-  const profileImage = "/lovable-uploads/image copy 3.png";
+  const profileImage = "/lovable-uploads/profile.jpeg";
   const resumeUrl = "https://flowcv.com/resume/wtaak1n6a414";
 
 

@@ -19,7 +19,7 @@ const AboutSection = () => {
             >
               <div className="absolute inset-0 bg-brand-orange/10 rounded-2xl rotate-6 -z-10" />
               <img
-                src="/lovable-uploads/image copy 3.png"
+                src="/lovable-uploads/profile.jpeg"
                 alt="Congo Musah Adama"
                 className="w-full h-full object-cover rounded-2xl shadow-xl grayscale md:hover:grayscale-0 transition-all duration-700"
               />
