@@ -26,7 +26,7 @@ const HeroSection = () => {
             <img
               src="/lovable-uploads/profile.jpeg"
               alt="Profile"
-              className="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all"
+              className="w-full h-full object-cover rounded-full hover:scale-110 transition-all"
             />
           </div>
           <div className="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-brand-orange flex items-center justify-center border-2 border-background shadow-lg">

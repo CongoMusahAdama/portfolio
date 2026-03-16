@@ -1,13 +1,15 @@
-import { useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, Monitor, Smartphone, ChevronDown, CheckCircle2 } from "lucide-react";
 import useIntersectionObserver from '@/hooks/use-intersection-observer';
 
 interface Project {
   id: number;
   title: string;
   description: string;
+  problem?: string;
+  approach?: string;
   image: string;
   mobileImage?: string;
   technologies: string[];
@@ -18,15 +20,255 @@ interface Project {
   rating?: number;
 }
 
+const ProjectCard = ({ project, index }: { project: Project, index: number }) => {
+  const [activeView, setActiveView] = useState<'web' | 'mobile'>('web');
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className={`group grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start`}
+    >
+      {/* Image Showcase Section */}
+      <div className={`lg:col-span-7 relative ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'} lg:sticky lg:top-32`}>
+        {/* Background Glass Plate */}
+        <div className="absolute -inset-4 bg-brand-orange/5 dark:bg-white/[0.02] rounded-[2.5rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+        
+        {/* View Switcher Tabs - Hidden on mobile, shown on desktop */}
+        {project.mobileImage && (
+          <div className="absolute -top-12 left-0 right-0 hidden lg:flex justify-start gap-4 z-30">
+            <button
+              onClick={() => setActiveView('web')}
+              className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${
+                activeView === 'web' 
+                ? 'bg-brand-orange text-white shadow-lg shadow-brand-orange/20' 
+                : 'bg-muted/50 text-muted-foreground hover:bg-muted font-bold border border-border/50'
+              }`}
+            >
+              <Monitor className="w-3 h-3" /> Web View
+            </button>
+            <button
+              onClick={() => setActiveView('mobile')}
+              className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${
+                activeView === 'mobile' 
+                ? 'bg-brand-orange text-white shadow-lg shadow-brand-orange/20' 
+                : 'bg-muted/50 text-muted-foreground hover:bg-muted font-bold border border-border/50'
+              }`}
+            >
+              <Smartphone className="w-3 h-3" /> Mobile View
+            </button>
+          </div>
+        )}
+
+        <div className="relative aspect-[16/10] sm:aspect-[16/9.5] rounded-2xl overflow-hidden border border-border/50 bg-black/5 dark:bg-muted/40 shadow-2xl transition-all duration-700">
+          <AnimatePresence mode="wait">
+            {activeView === 'web' ? (
+              <motion.div
+                key="web"
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+                className="w-full h-full flex flex-col"
+              >
+                {/* Browser Header Mockup */}
+                <div className="h-9 md:h-11 bg-muted/80 backdrop-blur-md border-b border-border/50 flex items-center px-4 md:px-6 gap-2 md:gap-3 shrink-0">
+                  <div className="flex gap-1.5 md:gap-2">
+                    <div className="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-border" />
+                    <div className="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-border" />
+                    <div className="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-border" />
+                  </div>
+                  <div className="mx-auto w-1/3 md:w-1/4 h-3 md:h-4 bg-border/40 rounded-full" />
+                </div>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-top"
+                  loading="lazy"
+                />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="mobile"
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+                className="w-full h-full flex items-center justify-center p-6 bg-muted/20"
+              >
+                {/* Modern Phone Frame - Sharper Corners */}
+                <div className="relative h-[95%] aspect-[9/19.5] rounded-[2rem] border-[10px] border-[#1a1a1b] bg-black shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)] overflow-hidden">
+                  {/* Modern Notch / Dynamic Island */}
+                  <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-24 h-5.5 bg-[#1a1a1b] rounded-full z-30 flex items-center justify-center">
+                    <div className="w-1 h-1 rounded-full bg-slate-800 mr-8" />
+                    <div className="w-6 h-0.5 bg-slate-800 rounded-full" />
+                  </div>
+                  
+                  <img
+                    src={project.mobileImage}
+                    alt={`${project.title} Mobile`}
+                    className="w-full h-full object-cover rounded-[0.8rem]"
+                  />
+                  
+                  {/* Side Buttons Mockup */}
+                  <div className="absolute top-20 -left-[11px] w-1 h-10 bg-[#1a1a1b] rounded-r-sm" />
+                  <div className="absolute top-34 -left-[11px] w-1 h-10 bg-[#1a1a1b] rounded-r-sm" />
+                  <div className="absolute top-28 -right-[11px] w-1 h-14 bg-[#1a1a1b] rounded-l-sm" />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          
+          {/* Glass Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none opacity-0 group-hover:opacity-40 transition-opacity" />
+        </div>
+      </div>
+
+      {/* Content Description Section */}
+      <div className={`lg:col-span-5 flex flex-col justify-center space-y-6 md:space-y-8 ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
+        <div>
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex items-center gap-3 mb-4"
+          >
+            {project.status && (
+              <>
+                <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] text-brand-orange px-3 py-1 bg-brand-orange/10 rounded-full border border-brand-orange/20">
+                  {project.status}
+                </span>
+                <div className="h-px w-8 bg-border" />
+              </>
+            )}
+            <button 
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="group/cs flex items-center gap-2 text-[10px] md:text-[11px] font-bold text-muted-foreground uppercase tracking-widest hover:text-brand-orange transition-colors"
+            >
+              Case Study 0{index + 1}
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-500 ${isExpanded ? 'rotate-180' : ''}`} />
+            </button>
+          </motion.div>
+          
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-foreground tracking-tight leading-[1.1] md:group-hover:text-brand-orange transition-colors duration-500">
+            {project.title}
+          </h3>
+        </div>
+
+        <div className="relative">
+          <AnimatePresence mode="wait">
+            {!isExpanded ? (
+              <motion.p
+                key="desc"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="text-base md:text-lg text-muted-foreground font-medium leading-relaxed max-w-xl"
+              >
+                {project.description}
+              </motion.p>
+            ) : (
+              <motion.div
+                key="cs-details"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="space-y-6 overflow-hidden"
+              >
+                <div className="space-y-3">
+                  <h4 className="text-[11px] font-black uppercase tracking-widest text-brand-orange flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5" /> The Challenge
+                  </h4>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed border-l-2 border-brand-orange/20 pl-4 italic">
+                    {project.problem || "Solving complex user friction points through architectural excellence and intuitive UI patterns."}
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <h4 className="text-[11px] font-black uppercase tracking-widest text-brand-orange flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5" /> The Approach
+                  </h4>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed border-l-2 border-brand-orange/20 pl-4">
+                    {project.approach || "Leveraging modern tech-stack components to create a scalable, performant solution centered around user needs."}
+                  </p>
+                </div>
+                <button 
+                  onClick={() => setIsExpanded(false)}
+                  className="text-[10px] font-black uppercase tracking-widest text-brand-orange hover:underline"
+                >
+                  Show Less
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        <div className="flex flex-wrap gap-2.5">
+          {project.technologies.slice(0, 5).map((tech) => (
+            <span key={tech} className="px-4 py-1.5 rounded-lg bg-muted/50 border border-border/50 text-[10px] md:text-[11px] font-black uppercase tracking-wider text-foreground/80 transition-all md:hover:border-brand-orange/40 md:hover:bg-brand-orange/5">
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap items-center gap-8 pt-4">
+          {(project.websiteUrl || project.demoUrl) && (
+            <a
+              href={project.websiteUrl || project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/link relative flex items-center gap-2 text-foreground font-black text-[11px] md:text-[12px] uppercase tracking-widest py-2 transition-all"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                View Live Project <ExternalLink className="w-4 h-4 text-brand-orange transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1" />
+              </span>
+              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-orange transform scale-x-0 group-hover/link:scale-x-100 transition-transform origin-left duration-300" />
+            </a>
+          )}
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group/link relative flex items-center gap-2 text-muted-foreground font-black text-[11px] md:text-[12px] uppercase tracking-widest py-2 transition-all md:hover:text-foreground"
+          >
+            <span className="relative z-10 flex items-center gap-2">
+              <Github className="w-4 h-4" /> Source Code
+            </span>
+            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-foreground/20 transform scale-x-0 group-hover/link:scale-x-100 transition-transform origin-left duration-300" />
+          </a>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 const ProjectsSection = () => {
   const sectionRef = useRef(null);
   const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
 
   const projects: Project[] = [
     {
+      id: 10,
+      title: "VisionSpa",
+      description: "A premium spa and wellness platform. Features an elegant booking system, service showcases, and a refined user interface designed to evoke relaxation and luxury.",
+      problem: "Traditional spa booking systems are often cluttered and uninspiring, failing to reflect the premium nature of the services offered.",
+      approach: "Built a high-end, visual-first platform using React and Tailwind, focusing on a minimal interface that guides users through a premium booking journey without friction.",
+      image: "/lovable-uploads/visionspaweb.png",
+      mobileImage: "/lovable-uploads/visionspamobile.png",
+      technologies: ["React", "TypeScript", "TailwindCSS", "Node.js", "Booking API"],
+      githubUrl: "https://github.com/CongoMusahAdama/visionspa",
+      websiteUrl: "https://visionspa.store/",
+      rating: 5
+    },
+    {
       id: 9,
       title: "FLA Purchase",
       description: "A bespoke tailoring and custom-print platform. Features real-time production tracking, secure escrow payments, and a seamless connection between clients and expert tailors.",
+      problem: "The custom tailoring industry lacks transparency in production timelines and payment security for both clients and creators.",
+      approach: "Implemented a custom production-tracking state machine and integrated a secure Escrow API to ensure trust throughout the manufacturing lifecycle.",
       image: "/lovable-uploads/fla.png",
       mobileImage: "/lovable-uploads/image copy 5.png",
       technologies: ["React", "TypeScript", "TailwindCSS", "Node.js", "Escrow API"],
@@ -38,6 +280,8 @@ const ProjectsSection = () => {
       id: 8,
       title: "Kultural Kompass",
       description: "Exploring culture, truth, and the tensions that shape our world. A dynamic podcast platform featuring automated episode fetching, a custom video player, and a refined brand-aligned interface.",
+      problem: "Standard podcast directories often lack the branding and custom interactivity required for premium, niche-focused cultural content.",
+      approach: "Designed a specialized content-delivery workflow using YouTube's Data API to automate episode releases within a custom-branded, interactive React frontend.",
       image: "/lovable-uploads/kultural project.png",
       mobileImage: "/lovable-uploads/Kultural mobile  4.png",
       technologies: ["React", "TypeScript", "TailwindCSS", "YouTube API", "Netlify"],
@@ -49,6 +293,8 @@ const ProjectsSection = () => {
       id: 7,
       title: "BrainBank",
       description: "Idea management reimagined. BrainBank is a tool that helps you capture, organize, prioritize, and execute ideas in one focused space. Built for ambitious thinkers, entrepreneurs, students, and creatives who want clarity not clutter.",
+      problem: "Note-taking apps are often too generic, making it difficult to prioritize high-level ideas from casual thoughts.",
+      approach: "Created a hierarchy-focused data structure that separates brainstorming from execution, optimized for rapid capture and intuitive prioritization.",
       image: "/lovable-uploads/brainbank.png",
       mobileImage: "/lovable-uploads/brainbank-mobile.png",
       technologies: ["React", "TypeScript", "TailwindCSS", "Vite"],
@@ -61,6 +307,8 @@ const ProjectsSection = () => {
       id: 6,
       title: "Supreme Masqueraders Society Platform",
       description: "A responsive digital hub showcasing history, events, and media with role-based dashboards for members and admins. Features include forums, donations, event management, and content moderation to strengthen community engagement.",
+      problem: "Cultural organizations often struggle with fragmented communication and difficulty in managing historical media and community engagement in one place.",
+      approach: "Developed a comprehensive community management system with role-based access control, donation tracking, and an archival media library to centralize organizational assets.",
       image: "/lovable-uploads/supreme-masqueraders.jpg",
       mobileImage: "/lovable-uploads/supreme-mobile.png",
       technologies: ["React", "TypeScript", "Node.js", "Payment Integration", "Analytics"],
@@ -72,6 +320,8 @@ const ProjectsSection = () => {
       id: 0,
       title: "Artisans Hub",
       description: "A platform giving Ghanaian artisans the spotlight they deserve by helping them sell products, get booked for services, and secure funding through AI-matched investor connections tailored to their craft focus.",
+      problem: "Local artisans often lack access to digital markets and struggle to find investors specifically interested in traditional craft focus.",
+      approach: "Integrated an AI-driven matching algorithm that connects artisans with tailored funding opportunities based on their specific niche and historical project metadata.",
       image: "/lovable-uploads/Screenshot (366).png",
       mobileImage: "/lovable-uploads/artisans-hub-mobile.png",
       technologies: ["React", "TypeScript", "Node.js", "MongoDB", "AI Matching"],
@@ -83,6 +333,8 @@ const ProjectsSection = () => {
       id: 1,
       title: "RealRate",
       description: "AI powered real estate platform providing accurate property price predictions and helping you find your dream home in Ghana",
+      problem: "High volatility and lack of reliable data in the real estate market make accurate property valuation difficult for Ghanaian homebuyers.",
+      approach: "Developed a Voting Regression machine learning model that analyzes historical sales data and location metrics to provide real-time price predictions.",
       image: "/lovable-uploads/067f6480-76cb-4a27-a4c3-2388ff2fbd51.png",
       technologies: ["FastAPI", "Voting Regression Model"],
       githubUrl: "https://github.com/CongoMusahAdama/rrate",
@@ -93,6 +345,8 @@ const ProjectsSection = () => {
       id: 2,
       title: "WeBarb",
       description: "WeBarb connects you with top-rated barbers for a professional haircut experience. Book appointments easily, pay securely, and enjoy grooming wherever you are.",
+      problem: "Users often face long wait times and inconsistent quality when looking for professional grooming services in unfamiliar locations.",
+      approach: "Built a location-aware booking engine with a peer-review system and secure micro-payments to ensure quality and reliability for users on the move.",
       image: "/lovable-uploads/webarb.png",
       mobileImage: "/lovable-uploads/webarb-mobile.png",
       technologies: ["MongoDB", "Express", "JavaScript", "Node.js", "React", "Vite"],
@@ -104,6 +358,8 @@ const ProjectsSection = () => {
       id: 3,
       title: "AgriLync",
       description: "AgriLync is an AI-powered platform aimed at transforming African agriculture and improving financial access.",
+      problem: "Small-scale farmers in Africa struggle to access credit due to lack of traditional credit scoring data and modern agricultural insights.",
+      approach: "Leveraged satellite imagery and AI modeling to create alternative credit scores for farmers, facilitating financial access and providing predictive crop insights.",
       image: "/lovable-uploads/agrilync-new.png",
       mobileImage: "/lovable-uploads/agrilync-mobile.png",
       technologies: ["MongoDB", "Express", "TypeScript", "React", "Vite"],
@@ -115,6 +371,8 @@ const ProjectsSection = () => {
       id: 4,
       title: "Mizrmo Carpool",
       description: "A carpool platform for finding and sharing rides. Users can create ride offers or join existing ones for efficient transportation.",
+      problem: "Inefficient commuting patterns lead to higher transportation costs and increased urban traffic congestion.",
+      approach: "Designed a route-matching algorithm that optimizes ride-shares in real-time based on destination proximity and user preferences.",
       image: "/lovable-uploads/mizrmo.png",
       technologies: ["Nest.js", "Node.js", "TypeScript", "PostgreSQL"],
       githubUrl: "https://github.com/CongoMusahAdama",
@@ -124,6 +382,8 @@ const ProjectsSection = () => {
       id: 5,
       title: "SikaSoft",
       description: "An all-in-one suite for financial management and operations. Lower costs, improve efficiency, and gain full control using Suite SikaSoft's unified platform tailored for Microfinance, Co-operative, and Susu institutions.",
+      problem: "Microfinance institutions often use fragmented legacy systems that slow down operations and increase the risk of data loss.",
+      approach: "Developed a mission-critical financial suite that unifies accounting, member management, and reporting into a single, high-reliability platform.",
       image: "/lovable-uploads/sikasoft.png",
       technologies: ["JavaScript", "AJAX", "jQuery", "PHP"],
       githubUrl: "https://github.com/CongoMusahAdama",
@@ -133,159 +393,62 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 md:py-24 bg-muted/30" ref={sectionRef}>
-      <div className="container mx-auto px-5 md:px-6">
-        <div className="text-center mb-16 md:mb-20">
-          <h2 className="text-4xl lg:text-5xl font-display font-black text-foreground mb-4 uppercase">
-            Featured <span className="curvy-underline text-brand-orange">Projects</span>
-          </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            A collection of projects that showcase my skills and passion for creating digital solutions.
-          </p>
+    <section id="projects" className="py-24 md:py-32 bg-background relative overflow-hidden" ref={sectionRef}>
+      {/* Dynamic Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-brand-orange/5 rounded-full blur-[120px]" />
+        <div className="absolute top-[20%] -right-[10%] w-[35%] h-[35%] bg-brand-orange/5 rounded-full blur-[100px]" />
+        <div className="absolute -bottom-[10%] left-[20%] w-[30%] h-[30%] bg-brand-orange/5 rounded-full blur-[100px]" />
+      </div>
+
+      <div className="container mx-auto px-5 md:px-6 relative z-10">
+        <div className="max-w-4xl mx-auto text-center mb-20 md:mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-foreground uppercase mb-6 leading-tight">
+              Selected <span className="curvy-underline text-brand-orange">Works</span>
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
+              A curated showcase of technical architecture and visual design, bridging the gap between complex logic and seamless user experience.
+            </p>
+          </motion.div>
         </div>
 
-        <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-16">
-          {projects.map((project, index) => (<motion.div
-            key={project.id}
-            className="relative w-full rounded-[2rem] border border-slate-200 dark:border-white/10 shadow-3xl overflow-hidden bg-white dark:bg-[#0A0A0B] group transition-all duration-300 hover:border-brand-orange/30 hover:shadow-2xl"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{
-              duration: 0.5,
-              ease: "easeOut",
-              delay: index * 0.1
-            }}
-          >
-            {/* Browser-style Title Bar - Always Dark */}
-            <div className="h-12 bg-slate-50 dark:bg-white/[0.03] border-b border-slate-200 dark:border-white/10 flex items-center px-6 md:px-8 justify-between">
-              <div className="flex gap-2.5">
-                <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/40" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/40" />
-                <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/40" />
-              </div>
-              <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold font-mono">
-                PROJECT {index + 1}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 xl:grid-cols-5 gap-0">
-              {/* Project Visual - Theme Aware Mockup Background */}
-              <div className={`xl:col-span-3 relative bg-slate-100 dark:bg-[#0D0D0E] p-4 sm:p-6 lg:p-12 flex items-center justify-center overflow-hidden ${index % 2 === 0 ? 'xl:order-1' : 'xl:order-2'}`}>
-                {/* Subtle Pattern Mesh */}
-                <div className="absolute inset-0 opacity-[0.03]"
-                  style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }}
-                />
-
-                <div className="relative flex items-center justify-center gap-4 md:gap-8 w-full h-full z-10">
-                  {/* Desktop Screenshot - Full Width on Mobile, Side-by-Side on Desktop */}
-                  <motion.div
-                    className="relative w-full sm:w-[95%] xl:w-[90%] aspect-[16/10] rounded-xl overflow-hidden border border-white/10 shadow-3xl bg-black transition-all duration-500 md:group-hover:scale-[1.02]"
-                  >
-                    <img
-                      src={project.image}
-                      alt={`${project.title} Desktop`}
-                      className="w-full h-full object-cover object-top"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-                  </motion.div>
-
-                  {/* Mobile View - Hidden on mobile view, shown from 'sm' upwards in side-by-side */}
-                  {project.mobileImage && (
-                    <motion.div
-                      className="relative w-[32%] aspect-[9/19.5] rounded-[2.5rem] border-[8px] border-[#18181B] bg-black shadow-[0_40px_80px_rgba(0,0,0,0.9)] overflow-hidden shrink-0 hidden sm:block md:group-hover:translate-y-[-12px] transition-transform duration-500"
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      <img
-                        src={project.mobileImage}
-                        alt={`${project.title} Mobile`}
-                        className="w-full h-full object-contain"
-                      />
-                      {/* Premium Notch element */}
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[35%] h-[4.5%] bg-[#18181B] rounded-b-2xl z-30" />
-                    </motion.div>
-                  )}
-                </div>
-              </div>
-
-              {/* Project Info - Taking remaining columns */}
-              <div className={`xl:col-span-2 p-8 sm:p-10 lg:p-16 flex flex-col justify-center border-slate-200 dark:border-white/10 ${index % 2 === 0 ? 'xl:order-2 xl:border-l' : 'xl:order-1 xl:border-r'}`}>
-                <div className="flex justify-between items-start mb-5 sm:mb-6">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-orange/10 text-brand-orange text-[9px] sm:text-[10px] font-bold uppercase tracking-widest w-fit font-mono">
-                    {project.status || "Live Project"}
-                  </div>
-                  {project.rating && (
-                    <div className="flex gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <svg
-                          key={i}
-                          className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${i < project.rating! ? 'text-brand-orange fill-brand-orange' : 'text-slate-300 dark:text-slate-700 fill-slate-300 dark:fill-slate-700'}`}
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                        </svg>
-                      ))}
-                    </div>
-                  )}
-                </div>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-4 sm:mb-6 tracking-tight text-slate-900 dark:text-white">{project.title}</h3>
-                <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed mb-8 font-mono font-medium">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-8 sm:mb-10">
-                  {project.technologies.slice(0, 6).map((tech) => (
-                    <span key={tech} className="px-3 py-1 rounded bg-slate-100 border-slate-200 dark:bg-white/5 text-slate-700 dark:text-slate-300 text-[9px] sm:text-[10px] font-bold font-mono uppercase tracking-wider border dark:border-white/5">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex flex-wrap items-center gap-6 mt-auto">
-                  {(project.websiteUrl || project.demoUrl) && (
-                    <a
-                      href={project.websiteUrl || project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-brand-orange font-bold md:hover:text-brand-orange/80 transition-all text-[11px] uppercase tracking-widest min-h-[44px] tap-highlight-none"
-                    >
-                      Live Demo <ExternalLink className="w-4 h-4" />
-                    </a>
-                  )}
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-slate-500 font-bold md:hover:text-slate-900 dark:md:hover:text-white transition-colors font-sans text-[11px] uppercase tracking-widest min-h-[44px] tap-highlight-none"
-                  >
-                    <Github className="w-4 h-4" /> Source
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+        <div className="max-w-7xl mx-auto space-y-24 md:space-y-32">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
 
+        {/* View All Projects Footer */}
         <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
+          className="mt-24 md:mt-32 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
         >
-          <a
-            href="https://github.com/CongoMusahAdama"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center text-brand-orange hover:text-brand-orange/80 font-medium"
-          >
-            <span className="mr-2">View all projects</span>
-            <Github className="w-5 h-5" />
-          </a>
+          <div className="inline-flex items-center flex-col gap-6">
+            <div className="h-16 w-px bg-gradient-to-b from-brand-orange to-transparent" />
+            <Button
+              variant="outline"
+              size="lg"
+              className="rounded-full border-2 border-brand-orange text-brand-orange font-black uppercase tracking-widest hover:bg-brand-orange hover:text-white transition-all h-14 px-10 group"
+              asChild
+            >
+              <a
+                href="https://github.com/CongoMusahAdama"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Explore Repository
+                <Github className="ml-2 w-5 h-5 transition-transform group-hover:rotate-12" />
+              </a>
+            </Button>
+          </div>
         </motion.div>
       </div>
     </section>

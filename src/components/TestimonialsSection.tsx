@@ -14,6 +14,15 @@ interface Testimonial {
 const TestimonialsSection = () => {
   const testimonials: Testimonial[] = [
     {
+      id: "05",
+      name: "Florence",
+      role: "CEO",
+      company: "VisionSpa",
+      avatar: "/lovable-uploads/angelic.png",
+      content: "I really admire the work on our platform. The project has significantly boosted our sales and streamlined our booking process. Amazing results!",
+      rating: 5,
+    },
+    {
       id: "01",
       name: "Kwame Oteng",
       role: "Founder",

@@ -21,7 +21,7 @@ const AboutSection = () => {
               <img
                 src="/lovable-uploads/profile.jpeg"
                 alt="Congo Musah Adama"
-                className="w-full h-full object-cover rounded-2xl shadow-xl grayscale md:hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover rounded-2xl shadow-xl transition-all duration-700"
               />
             </motion.div>
 
