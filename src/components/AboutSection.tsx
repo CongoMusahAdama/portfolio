@@ -44,7 +44,7 @@ const AboutSection = () => {
               {/* Tiled Professional Features */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-10 border-t border-border/20">
                 {[
-                  { title: "API Development", desc: "Robust, scalable backend architectures.", icon: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" },
+                  { title: "Problem Solving", desc: "Robust, scalable backend architectures.", icon: "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" },
                   { title: "Strategic Thinking", desc: "Strategic thinking with intelligent details.", icon: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" },
                   { title: "Architectural", desc: "Designing maintainable system structures.", icon: "M2 3h20v14H2zM8 21h8M12 17v4" },
                 ].map((feature, i) => (
