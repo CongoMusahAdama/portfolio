@@ -67,17 +67,17 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="py-8 bg-background relative overflow-hidden flex items-center"
+      className="py-10 bg-background relative overflow-hidden flex items-center border-y border-border/40"
       ref={sectionRef}
     >
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 max-w-6xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
           <div className="flex-shrink-0">
-            <h2 className="text-2xl lg:text-3xl font-black text-foreground tracking-tight uppercase">What I <span className="curvy-underline text-brand-orange">Do</span></h2>
+            <h2 className="text-xl lg:text-2xl font-black text-foreground tracking-tighter uppercase">What I <span className="curvy-underline text-brand-orange">Do</span></h2>
           </div>
 
           <motion.div
-            className="flex flex-wrap justify-center lg:justify-end gap-x-8 gap-y-4"
+            className="flex flex-wrap justify-center lg:justify-start gap-x-10 gap-y-6 flex-1 px-4 lg:px-12"
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}
             variants={containerVariants}
@@ -85,13 +85,13 @@ const ServicesSection = () => {
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="flex items-center gap-3 group"
+                className="flex items-center gap-4 group cursor-default"
                 variants={itemVariants}
               >
-                <div className="w-8 h-8 rounded-lg bg-brand-orange/10 flex items-center justify-center group-hover:bg-brand-orange transition-colors">
-                  <service.icon className="w-4 h-4 text-brand-orange group-hover:text-white transition-colors" />
+                <div className="w-10 h-10 rounded-full bg-muted/50 flex items-center justify-center md:group-hover:bg-brand-orange border border-transparent md:group-hover:border-brand-orange/20 transition-all duration-500">
+                  <service.icon className="w-4 h-4 text-brand-orange md:group-hover:text-white transition-colors duration-500" />
                 </div>
-                <span className="text-xs sm:text-sm font-bold text-foreground">
+                <span className="text-[11px] font-black text-foreground uppercase tracking-wider opacity-60 md:group-hover:opacity-100 transition-opacity duration-500">
                   {service.title}
                 </span>
               </motion.div>
@@ -104,9 +104,11 @@ const ServicesSection = () => {
             transition={{ delay: 0.8 }}
             className="flex-shrink-0"
           >
-            <Button asChild size="sm" className="bg-brand-orange hover:bg-brand-orange/90 text-white font-bold rounded-full text-[10px] px-4">
-              <Link to="/services">All Services</Link>
-            </Button>
+            <Link to="/services">
+              <Button size="sm" variant="outline" className="border-border/60 text-foreground font-black rounded-none text-[9px] px-6 h-10 tracking-[0.2em] uppercase hover:bg-foreground hover:text-background transition-all">
+                All Services
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </div>
