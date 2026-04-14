@@ -13,7 +13,13 @@ const AboutSection = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             
             {/* Left: Narrative Focus */}
-            <div className="lg:col-span-5 space-y-6">
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-5 space-y-6"
+            >
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-foreground uppercase leading-[0.9]">
                 About <br /> <span className="text-brand-orange">Me</span>
               </h2>
@@ -28,10 +34,16 @@ const AboutSection = () => {
                   Community Builder
                 </span>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right: Detailed Narrative */}
-            <div className="lg:col-span-7 space-y-10">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              className="lg:col-span-7 space-y-10"
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm md:text-base text-muted-foreground leading-relaxed font-medium">
                 <p>
                   I'm a self-taught <span className="text-foreground font-black">Software Engineer</span> based in Ghana. I bridge the gap between technical complexity, user-centered design, and <span className="text-foreground font-black">Machine Learning</span>.
@@ -56,12 +68,12 @@ const AboutSection = () => {
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                     className="group"
                   >
-                    <div className="w-6 h-6 mb-3 text-muted-foreground group-hover:text-brand-orange transition-colors duration-500">
+                    <div className="w-6 h-6 mb-3 text-brand-orange">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                         <path strokeLinecap="round" strokeLinejoin="round" d={feature.icon} />
                       </svg>
                     </div>
-                    <h4 className="text-[10px] font-black uppercase tracking-widest text-foreground group-hover:text-brand-orange transition-colors">{feature.title}</h4>
+                    <h4 className="text-[10px] font-black uppercase tracking-widest text-brand-orange">{feature.title}</h4>
                     <p className="text-[9px] text-muted-foreground font-bold mt-1">{feature.desc}</p>
                   </motion.div>
                 ))}
@@ -81,7 +93,7 @@ const AboutSection = () => {
                   </Button>
                 </Link>
               </motion.div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

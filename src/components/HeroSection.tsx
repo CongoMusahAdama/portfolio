@@ -31,11 +31,25 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
           
           {/* Left Content (Text) - First on mobile */}
-          <div className="lg:col-span-7 order-1 lg:order-1 flex flex-col gap-6 md:gap-8 relative">
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 0.2
+                }
+              }
+            }}
+            className="lg:col-span-7 order-1 lg:order-1 flex flex-col gap-6 md:gap-8 relative"
+          >
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="flex items-center gap-3"
             >
               <div className="flex flex-col">
@@ -50,9 +64,11 @@ const HeroSection = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="relative"
             >
               <h1 className="text-[2.6rem] md:text-7xl lg:text-8xl font-display font-black leading-[1.05] tracking-tight text-foreground relative">
@@ -87,18 +103,22 @@ const HeroSection = () => {
             </motion.div>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-muted-foreground text-xs md:text-base max-w-md leading-relaxed text-left"
             >
               Congo Musah Adama — A Product Builder who uses <span className="text-foreground font-semibold">engineering</span> as a tool to create impactful digital solutions.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-wrap items-center gap-4 pt-2 md:pt-4"
             >
               <Button
@@ -134,14 +154,14 @@ const HeroSection = () => {
                 </a>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
 
           {/* Right Content (Image) - Second on mobile, slightly larger */}
           <div className="lg:col-span-5 order-2 lg:order-2 relative flex items-center justify-center mt-0 lg:mt-0">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, x: 50, scale: 0.95 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
               className="relative w-full max-w-[210px] md:max-w-md lg:max-w-lg"
             >
               <img

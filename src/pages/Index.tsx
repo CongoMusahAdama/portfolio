@@ -14,28 +14,7 @@ import ScrollToTop from '@/components/ScrollToTop';
 
 const Index = () => {
 
-  useEffect(() => {
-    // Animation for elements with .slide-in class
-    const handleScroll = () => {
-      const elements = document.querySelectorAll('.slide-in');
-
-      elements.forEach((element) => {
-        const elementPosition = element.getBoundingClientRect();
-        const isVisible = elementPosition.top < window.innerHeight * 0.85;
-
-        if (isVisible) {
-          element.classList.add('active');
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on initial load
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  // Framer Motion will handle animations per section
 
   return (
     <div className="min-h-screen bg-background">

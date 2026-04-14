@@ -8,10 +8,6 @@ import useIntersectionObserver from '@/hooks/use-intersection-observer';
 import TechPattern from './TechPattern';
 
 const ServicesSection = () => {
-  const sectionRef = useRef(null);
-  const isVisible = useIntersectionObserver(sectionRef, {
-    threshold: 0.1,
-  });
 
   const services = [
     {
@@ -68,18 +64,24 @@ const ServicesSection = () => {
     <section
       id="services"
       className="py-10 bg-background relative overflow-hidden flex items-center border-y border-border/40"
-      ref={sectionRef}
     >
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
-          <div className="flex-shrink-0">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="flex-shrink-0"
+          >
             <h2 className="text-xl lg:text-2xl font-black text-foreground tracking-tighter uppercase">What I <span className="curvy-underline text-brand-orange">Do</span></h2>
-          </div>
+          </motion.div>
 
           <motion.div
             className="flex flex-wrap justify-center lg:justify-start gap-x-10 gap-y-6 flex-1 px-4 lg:px-12"
             initial="hidden"
-            animate={isVisible ? "visible" : "hidden"}
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
           >
             {services.map((service, index) => (
@@ -99,9 +101,10 @@ const ServicesSection = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ delay: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
             className="flex-shrink-0"
           >
             <Link to="/services">
