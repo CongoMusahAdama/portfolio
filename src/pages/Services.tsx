@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { Button } from "@/components/ui/button";
-import { Code, Bot, Check, MessageCircle, Smartphone, Server, Database, Brain } from "lucide-react";
+import { Code, Bot, Check, MessageCircle, Smartphone, Server, Database, Brain, Share2, Megaphone } from "lucide-react";
 import useIntersectionObserver from "@/hooks/use-intersection-observer";
 import TechPattern from "@/components/TechPattern";
 
@@ -50,6 +50,16 @@ const Services = () => {
       icon: Database,
       title: "Database Design & Management",
       description: "Expert design, optimization, and security for efficient and protected data storage."
+    },
+    {
+      icon: Share2,
+      title: "Social Media Management",
+      description: "Strategic management of social media platforms to increase brand awareness, engagement, and conversion."
+    },
+    {
+      icon: Megaphone,
+      title: "Content Strategist",
+      description: "Planning, developing, and managing content that resonates with your audience and achieves business objectives."
     }
   ];
 

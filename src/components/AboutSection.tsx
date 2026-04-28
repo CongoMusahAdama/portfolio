@@ -31,7 +31,11 @@ const AboutSection = () => {
                 </span>
                 <span className="flex items-center gap-2 px-3 py-1 bg-muted/30 border border-border/50 text-[10px] font-black uppercase tracking-widest text-foreground">
                   <span className="w-1 h-1 rounded-full bg-brand-orange animate-pulse" />
-                  Community Builder
+                  Social Media Manager
+                </span>
+                <span className="flex items-center gap-2 px-3 py-1 bg-muted/30 border border-border/50 text-[10px] font-black uppercase tracking-widest text-foreground">
+                  <span className="w-1 h-1 rounded-full bg-brand-orange animate-pulse" />
+                  Content Strategist
                 </span>
               </div>
             </motion.div>
@@ -46,7 +50,7 @@ const AboutSection = () => {
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm md:text-base text-muted-foreground leading-relaxed font-medium">
                 <p>
-                  I'm a self-taught <span className="text-foreground font-black">Software Engineer</span> based in Ghana. I bridge the gap between technical complexity, user-centered design, and <span className="text-foreground font-black">Machine Learning</span>.
+                  I'm a self-taught <span className="text-foreground font-black">Software Engineer</span> based in Ghana. I bridge the gap between technical complexity, <span className="text-foreground font-black">Content Strategy</span>, and <span className="text-foreground font-black">Machine Learning</span>.
                 </p>
                 <p>
                   Outside of code, I'm an agricultural innovator and product thinker, dedicated to creating solutions that serve diverse industries and solve practical challenges.

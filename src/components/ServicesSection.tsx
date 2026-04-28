@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Code, Bot, Brain, Smartphone, Server, Database } from 'lucide-react';
+import { Code, Bot, Brain, Smartphone, Server, Database, Share2, Megaphone } from 'lucide-react';
 import useIntersectionObserver from '@/hooks/use-intersection-observer';
 import TechPattern from './TechPattern';
 
@@ -33,6 +33,14 @@ const ServicesSection = () => {
     {
       icon: Database,
       title: "Database Design & Management",
+    },
+    {
+      icon: Share2,
+      title: "Social Media Management",
+    },
+    {
+      icon: Megaphone,
+      title: "Content Strategist",
     }
   ];
 

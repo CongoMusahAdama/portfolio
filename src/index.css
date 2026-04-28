@@ -150,18 +150,20 @@
   transform: translateY(0);
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
+@layer utilities {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
-  100% {
-    transform: translateX(-50%);
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
   }
-}
-
-.animate-scroll {
-  animation: scroll 30s linear infinite;
 }
 
 .pause-animation:hover .animate-scroll {
