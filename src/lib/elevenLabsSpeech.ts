@@ -1,21 +1,25 @@
 const MODEL_ID = "eleven_multilingual_v2";
 
+/** Taiwo — young natural West African male (ElevenLabs voice library). */
+export const DEFAULT_GHANA_VOICE_ID = "CaroURy2Tqx0hGMqPyp8";
+
 type ElevenLabsOptions = {
   stability?: number;
   similarityBoost?: number;
   style?: number;
 };
 
-/** Casual, natural delivery — lower stability = less “script reading”. */
+/** Young, casual West African delivery — low stability = less “script reading”. */
 const DEFAULT_VOICE_SETTINGS: ElevenLabsOptions = {
-  stability: 0.36,
-  similarityBoost: 0.78,
-  style: 0.52,
+  stability: 0.25,
+  similarityBoost: 0.85,
+  style: 0.58,
 };
 
+export const getElevenLabsVoiceId = (): string =>
+  import.meta.env.VITE_ELEVENLABS_VOICE_ID?.trim() || DEFAULT_GHANA_VOICE_ID;
+
 export const isElevenLabsConfigured = (): boolean => {
-  const voiceId = import.meta.env.VITE_ELEVENLABS_VOICE_ID;
-  if (!voiceId) return false;
   if (import.meta.env.VITE_ELEVENLABS_API_KEY) return true;
   return import.meta.env.DEV;
 };
@@ -24,11 +28,7 @@ export async function fetchElevenLabsSpeech(
   text: string,
   options: ElevenLabsOptions = {},
 ): Promise<Blob> {
-  const voiceId = import.meta.env.VITE_ELEVENLABS_VOICE_ID;
-  if (!voiceId) {
-    throw new Error("Missing VITE_ELEVENLABS_VOICE_ID");
-  }
-
+  const voiceId = getElevenLabsVoiceId();
   const apiKey = import.meta.env.VITE_ELEVENLABS_API_KEY;
   const useDevProxy = import.meta.env.DEV && !apiKey;
 
@@ -56,6 +56,7 @@ export async function fetchElevenLabsSpeech(
     body: JSON.stringify({
       text,
       model_id: MODEL_ID,
+      language_code: "en",
       voice_settings: {
         stability,
         similarity_boost: similarityBoost,
@@ -71,4 +72,4 @@ export async function fetchElevenLabsSpeech(
   }
 
   return response.blob();
-}
+};

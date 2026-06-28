@@ -175,7 +175,7 @@
   animation-play-state: paused;
 }
 
-/* Mascot skate animation lives in tailwind.config.ts (animate-mascot-skate) */
+/* Mascot groove animation lives in tailwind.config.ts (animate-mascot-groove) */
 
 .curvy-underline {
   position: relative;

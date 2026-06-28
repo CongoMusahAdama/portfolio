@@ -9,15 +9,15 @@ import {
 } from "react";
 import { DancingMascot } from "@/components/DancingMascot";
 import { SoundtrackProgress } from "@/components/SoundtrackProgress";
-import { aboutSpeechScript } from "@/data/aboutStory";
+import { checkLocalSoundtrack, siteSoundtrack } from "@/data/soundtrack";
+import { toast } from "@/hooks/use-toast";
 import {
-  fetchElevenLabsSpeech,
-  isElevenLabsConfigured,
-} from "@/lib/elevenLabsSpeech";
-import {
-  configureYoungMaleUtterance,
-  speakWhenVoicesReady,
-} from "@/lib/speechVoice";
+  createYouTubeSoundtrackPlayer,
+  playYouTubeSoundtrack,
+  type YouTubePlayer,
+} from "@/lib/youtubePlayer";
+
+type PlaybackSource = "none" | "local" | "youtube";
 
 type SiteSoundtrackContextValue = {
   isPlaying: boolean;
@@ -31,115 +31,186 @@ const SiteSoundtrackContext = createContext<SiteSoundtrackContextValue | null>(
 
 export const SiteSoundtrackProvider = ({ children }: { children: ReactNode }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const blobUrlRef = useRef<string | null>(null);
-  const cachedAudioRef = useRef<Blob | null>(null);
+  const youtubeRef = useRef<YouTubePlayer | null>(null);
+  const youtubeReadyRef = useRef<Promise<YouTubePlayer> | null>(null);
+  const sourceRef = useRef<PlaybackSource>("none");
+  const localAvailableRef = useRef<boolean | null>(null);
+  const progressTimerRef = useRef<number | null>(null);
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  const cleanupAudio = useCallback(() => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.src = "";
-      audioRef.current = null;
-    }
-    if (blobUrlRef.current) {
-      URL.revokeObjectURL(blobUrlRef.current);
-      blobUrlRef.current = null;
+  const clearProgressTimer = useCallback(() => {
+    if (progressTimerRef.current !== null) {
+      window.clearInterval(progressTimerRef.current);
+      progressTimerRef.current = null;
     }
   }, []);
 
   const stopAll = useCallback(() => {
-    window.speechSynthesis.cancel();
-    cleanupAudio();
-    setIsPlaying(false);
-    setProgress(0);
-  }, [cleanupAudio]);
+    clearProgressTimer();
 
-  useEffect(() => {
-    window.speechSynthesis.getVoices();
-    return () => stopAll();
-  }, [stopAll]);
-
-  const playWithWebSpeech = useCallback(() => {
-    window.speechSynthesis.cancel();
-
-    const startSpeech = () => {
-      const utterance = new SpeechSynthesisUtterance(aboutSpeechScript);
-      configureYoungMaleUtterance(utterance);
-
-      utterance.onstart = () => {
-        setIsPlaying(true);
-        setProgress(0);
-      };
-      utterance.onend = () => {
-        setIsPlaying(false);
-        setProgress(0);
-      };
-      utterance.onerror = () => {
-        setIsPlaying(false);
-        setProgress(0);
-      };
-      utterance.onboundary = (event) => {
-        if (aboutSpeechScript.length > 0 && event.charIndex >= 0) {
-          setProgress(Math.min(1, event.charIndex / aboutSpeechScript.length));
-        }
-      };
-
-      window.speechSynthesis.speak(utterance);
-    };
-
-    speakWhenVoicesReady(startSpeech);
-  }, []);
-
-  const playWithElevenLabs = useCallback(async () => {
-    cleanupAudio();
-
-    if (!cachedAudioRef.current) {
-      cachedAudioRef.current = await fetchElevenLabsSpeech(aboutSpeechScript);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
     }
 
-    const url = URL.createObjectURL(cachedAudioRef.current);
-    blobUrlRef.current = url;
+    if (youtubeRef.current) {
+      youtubeRef.current.pauseVideo();
+      youtubeRef.current.stopVideo();
+    }
 
-    const audio = new Audio(url);
-    audioRef.current = audio;
+    sourceRef.current = "none";
+    setIsPlaying(false);
+    setProgress(0);
+  }, [clearProgressTimer]);
 
-    audio.onplay = () => setIsPlaying(true);
-    audio.onpause = () => setIsPlaying(false);
+  useEffect(() => {
+    return () => {
+      stopAll();
+      youtubeRef.current?.destroy();
+      youtubeRef.current = null;
+      audioRef.current = null;
+    };
+  }, [stopAll]);
+
+  const startProgressTimer = useCallback(
+    (getProgress: () => number) => {
+      clearProgressTimer();
+      progressTimerRef.current = window.setInterval(() => {
+        setProgress(getProgress());
+      }, 250);
+    },
+    [clearProgressTimer],
+  );
+
+  const resolveLocalAvailability = useCallback(async () => {
+    if (localAvailableRef.current !== null) {
+      return localAvailableRef.current;
+    }
+
+    localAvailableRef.current = await checkLocalSoundtrack(siteSoundtrack.localSrc);
+    return localAvailableRef.current;
+  }, []);
+
+  const playLocal = useCallback(async () => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio(siteSoundtrack.localSrc);
+      audioRef.current.preload = "auto";
+    }
+
+    const audio = audioRef.current;
+    sourceRef.current = "local";
+
     audio.onended = () => stopAll();
+    audio.onpause = () => {
+      if (sourceRef.current === "local") {
+        setIsPlaying(false);
+        clearProgressTimer();
+      }
+    };
     audio.ontimeupdate = () => {
       if (audio.duration) {
         setProgress(audio.currentTime / audio.duration);
       }
     };
-    audio.onerror = () => stopAll();
 
     await audio.play();
-  }, [cleanupAudio, stopAll]);
+    setIsPlaying(true);
+    startProgressTimer(() =>
+      audio.duration ? audio.currentTime / audio.duration : 0,
+    );
+  }, [clearProgressTimer, startProgressTimer, stopAll]);
+
+  const getYouTubePlayer = useCallback(async () => {
+    if (youtubeRef.current) return youtubeRef.current;
+
+    if (!youtubeReadyRef.current) {
+      youtubeReadyRef.current = createYouTubeSoundtrackPlayer(
+        siteSoundtrack.youtubeId,
+        {
+          onPlaying: () => setIsPlaying(true),
+          onPaused: () => {
+            if (sourceRef.current === "youtube") {
+              setIsPlaying(false);
+              clearProgressTimer();
+            }
+          },
+          onEnded: () => stopAll(),
+        },
+      )
+        .then((player) => {
+          youtubeRef.current = player;
+          return player;
+        })
+        .catch((error) => {
+          youtubeReadyRef.current = null;
+          throw error;
+        });
+    }
+
+    return youtubeReadyRef.current;
+  }, [clearProgressTimer, stopAll]);
+
+  const playYouTube = useCallback(async () => {
+    const player = await getYouTubePlayer();
+    sourceRef.current = "youtube";
+    playYouTubeSoundtrack(player);
+    setIsPlaying(true);
+    startProgressTimer(() => {
+      const duration = player.getDuration();
+      if (!duration) return 0;
+      return player.getCurrentTime() / duration;
+    });
+  }, [getYouTubePlayer, startProgressTimer]);
 
   const toggle = useCallback(async () => {
     const audioPlaying =
+      sourceRef.current === "local" &&
       audioRef.current &&
-      !audioRef.current.paused &&
-      !audioRef.current.ended;
+      !audioRef.current.paused;
 
-    if (window.speechSynthesis.speaking || audioPlaying) {
+    const youtubePlaying =
+      sourceRef.current === "youtube" &&
+      youtubeRef.current &&
+      youtubeRef.current.getPlayerState?.() === 1;
+
+    if (audioPlaying || youtubePlaying || isPlaying) {
       stopAll();
       return;
     }
 
-    if (isElevenLabsConfigured()) {
-      try {
-        await playWithElevenLabs();
-        return;
-      } catch (error) {
-        console.warn("ElevenLabs unavailable, falling back to browser speech:", error);
-        cachedAudioRef.current = null;
-      }
-    }
+    try {
+      const hasLocal = await resolveLocalAvailability();
 
-    playWithWebSpeech();
-  }, [playWithElevenLabs, playWithWebSpeech, stopAll]);
+      if (hasLocal) {
+        try {
+          await playLocal();
+          return;
+        } catch (localError) {
+          console.warn("Local soundtrack failed, trying YouTube:", localError);
+          localAvailableRef.current = false;
+          stopAll();
+        }
+      }
+
+      await playYouTube();
+    } catch (error) {
+      console.warn("Soundtrack playback failed:", error);
+      stopAll();
+      toast({
+        title: "Could not play soundtrack",
+        description: `Add ${siteSoundtrack.localSrc.replace(/^\//, "public/")} or check your connection.`,
+        variant: "destructive",
+      });
+    }
+  }, [
+    isPlaying,
+    playLocal,
+    playYouTube,
+    resolveLocalAvailability,
+    stopAll,
+  ]);
 
   return (
     <SiteSoundtrackContext.Provider value={{ isPlaying, progress, toggle }}>

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { PlayOutlineIcon, PauseOutlineIcon } from "@/components/PlayOutlineIcon";
 import { useSiteSoundtrack } from "@/context/SiteSoundtrackContext";
+import { siteSoundtrack } from "@/data/soundtrack";
 
 type SiteSoundtrackButtonProps = {
   className?: string;
@@ -17,7 +18,11 @@ export const SiteSoundtrackButton = ({
     <button
       type="button"
       onClick={toggle}
-      aria-label={isPlaying ? "Pause site soundtrack" : "Play site soundtrack"}
+      aria-label={
+        isPlaying
+          ? `Pause ${siteSoundtrack.title} by ${siteSoundtrack.artist}`
+          : `Play ${siteSoundtrack.title} by ${siteSoundtrack.artist}`
+      }
       aria-pressed={isPlaying}
       className={className}
     >

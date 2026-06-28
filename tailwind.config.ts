@@ -122,9 +122,10 @@ export default {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-50%)" },
         },
-        "mascot-skate": {
-          "0%, 100%": { transform: "translateY(0) translateX(0)" },
-          "50%": { transform: "translateY(-6px) translateX(3px)" },
+        "mascot-groove": {
+          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+          "33%": { transform: "translateY(-5px) rotate(-1.5deg)" },
+          "66%": { transform: "translateY(-2px) rotate(1deg)" },
         },
       },
       animation: {
@@ -133,7 +134,7 @@ export default {
         "fade-in-up": "fade-in-up 0.10s ease-out",
         "fade-in": "fade-in 0.15s ease-out",
         "awards-marquee": "awards-marquee 36s linear infinite",
-        "mascot-skate": "mascot-skate 1.2s ease-in-out infinite",
+        "mascot-groove": "mascot-groove 1.4s ease-in-out infinite",
       },
     },
   },

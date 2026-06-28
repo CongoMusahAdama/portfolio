@@ -31,7 +31,7 @@ const HeroSection = () => {
                 },
               },
             }}
-            className="lg:col-span-7 order-1 lg:order-1 flex flex-col gap-6 md:gap-8 relative"
+            className="lg:col-span-7 order-1 lg:order-1 flex flex-col gap-6 md:gap-8 relative z-10 min-w-0"
           >
             <motion.div
               variants={{
@@ -58,7 +58,7 @@ const HeroSection = () => {
                 visible: { opacity: 1, y: 0 },
               }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-3xl"
+              className="relative w-full max-w-3xl min-w-0 lg:pr-2"
             >
               {/* Curly arrow — outside text flow so lines stay aligned */}
               <div className="absolute -left-24 md:-left-40 top-[38%] hidden md:block select-none pointer-events-none w-24 md:w-32 h-24 md:h-32 -translate-y-1/2">
@@ -87,15 +87,26 @@ const HeroSection = () => {
                 </svg>
               </div>
 
-              <h1 className="flex flex-col items-start text-left font-display font-black tracking-tight text-foreground w-full max-w-full">
-                <span className="block text-[clamp(1.75rem,8.5vw,2.15rem)] leading-[0.95] sm:text-[2.75rem] md:text-7xl lg:text-8xl md:leading-none">
-                  Building Digital
+              <h1 className="flex flex-col items-start text-left font-display font-black tracking-tight text-foreground w-full max-w-full min-w-0">
+                {/* Mobile: original 3-line layout */}
+                <span className="block text-[clamp(1.75rem,8.5vw,2.15rem)] leading-[0.95] sm:text-[2.75rem] md:text-7xl md:leading-none lg:hidden">
+                  Building{" "}
+                  <span className="text-brand-orange">Digital</span>
                 </span>
-                <span className="block text-[clamp(1.75rem,8.5vw,2.15rem)] leading-[0.95] sm:text-[2.75rem] md:text-7xl lg:text-8xl mt-1 md:mt-2 md:leading-none">
+                <span className="block text-[clamp(1.75rem,8.5vw,2.15rem)] leading-[0.95] sm:text-[2.75rem] md:text-7xl mt-1 md:mt-2 md:leading-none lg:hidden">
                   Products That
                 </span>
-                <span className="block text-[clamp(1.75rem,8.5vw,2.15rem)] leading-[0.95] sm:text-[2.75rem] md:text-7xl lg:text-8xl mt-1 md:mt-2 md:leading-none">
+                <span className="block text-[clamp(1.75rem,8.5vw,2.15rem)] leading-[0.95] sm:text-[2.75rem] md:text-7xl mt-1 md:mt-2 md:leading-none lg:hidden">
                   Matter
+                </span>
+
+                {/* Desktop: 2 lines, orange Digital, smaller line 2 to avoid image overlap */}
+                <span className="hidden lg:block whitespace-nowrap text-6xl xl:text-7xl 2xl:text-8xl leading-none">
+                  Building{" "}
+                  <span className="text-brand-orange">Digital</span>
+                </span>
+                <span className="hidden lg:block whitespace-nowrap text-5xl xl:text-6xl 2xl:text-7xl mt-2 leading-none">
+                  Products That Matter
                 </span>
               </h1>
             </motion.div>
@@ -182,7 +193,7 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Right Content (Image) */}
-          <div className="lg:col-span-5 order-2 lg:order-2 relative flex items-center justify-center lg:justify-end">
+          <div className="lg:col-span-5 order-2 lg:order-2 relative z-0 flex items-center justify-center lg:justify-end">
             <motion.div
               initial={{ opacity: 0, x: 50, scale: 0.95 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}

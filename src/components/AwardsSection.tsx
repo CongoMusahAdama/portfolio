@@ -41,7 +41,7 @@ const gallerySlides = awards.flatMap((award) =>
     src,
     title: award.title,
     subtitle: award.subtitle,
-  }))
+  })),
 );
 
 const marqueeSlides = [...gallerySlides, ...gallerySlides];
@@ -73,28 +73,30 @@ const AwardsSection = () => {
         <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2">
           <div className="group relative overflow-hidden bg-neutral-950">
             <div
-              className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-neutral-950 to-transparent sm:w-24"
+              className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-neutral-950 to-transparent sm:w-24"
               aria-hidden
             />
             <div
-              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-neutral-950 to-transparent sm:w-24"
+              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-neutral-950 to-transparent sm:w-24"
               aria-hidden
             />
 
             <div
-              className="hidden sm:flex w-max animate-awards-marquee group-hover:[animation-play-state:paused] motion-reduce:hidden"
+              className="flex w-max animate-awards-marquee group-hover:[animation-play-state:paused] motion-reduce:hidden"
               aria-label="Recognition photos carousel"
             >
               {marqueeSlides.map((slide, index) => (
                 <div
                   key={`${slide.src}-${index}`}
-                  className="group/slide relative h-[200px] w-[min(42vw,320px)] shrink-0 overflow-hidden border-r border-neutral-800 sm:h-[230px] sm:w-[min(32vw,340px)] md:h-[250px] md:w-[min(26vw,360px)] lg:w-[min(22vw,380px)]"
+                  className="group/slide relative h-[180px] w-[min(72vw,280px)] shrink-0 overflow-hidden border-r border-neutral-800 sm:h-[230px] sm:w-[min(32vw,340px)] md:h-[250px] md:w-[min(26vw,360px)] lg:w-[min(22vw,380px)]"
                 >
                   <img
                     src={slide.src}
                     alt={`${slide.title} — ${slide.subtitle}`}
                     className="h-full w-full object-cover object-center grayscale transition-all duration-700 group-hover/slide:grayscale-0 group-hover/slide:scale-[1.03]"
-                    loading="lazy"
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority={index === 0 ? "high" : "auto"}
                     draggable={false}
                   />
                   <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-2.5 pb-2 pt-8 opacity-0 transition-opacity duration-300 group-hover/slide:opacity-100">
@@ -105,7 +107,7 @@ const AwardsSection = () => {
               ))}
             </div>
 
-            <div className="flex snap-x snap-mandatory overflow-x-auto no-scrollbar sm:hidden">
+            <div className="hidden motion-reduce:flex snap-x snap-mandatory overflow-x-auto no-scrollbar">
               {gallerySlides.map((slide, index) => (
                 <div
                   key={`${slide.src}-static-${index}`}
@@ -115,7 +117,8 @@ const AwardsSection = () => {
                     src={slide.src}
                     alt={`${slide.title} — ${slide.subtitle}`}
                     className="h-full w-full object-cover object-center grayscale"
-                    loading="lazy"
+                    loading="eager"
+                    decoding="async"
                   />
                 </div>
               ))}
