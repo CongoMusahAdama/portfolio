@@ -17,7 +17,7 @@ const LearningSection = () => {
 
     return (
         <section className="py-6 bg-background border-b border-border/40 overflow-hidden">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-5 sm:px-6">
                 <motion.div
                     className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10"
                     initial={{ opacity: 0, y: 10 }}

@@ -1,0 +1,218 @@
+<svg
+    viewBox="0 0 360 260"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden
+  >
+    <defs>
+      <filter id="mascot-screen-glow" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="2" result="blur" />
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
+
+    {/* ── Layer 1: Chair (behind character) ── */}
+    <g stroke="#1a1a1a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="72" y1="214" x2="72" y2="232" />
+      <line x1="72" y1="232" x2="52" y2="242" />
+      <line x1="72" y1="232" x2="92" y2="242" />
+      <line x1="72" y1="232" x2="58" y2="226" />
+      <line x1="72" y1="232" x2="86" y2="226" />
+      <circle cx="52" cy="244" r="4" fill="#1e3a5f" />
+      <circle cx="92" cy="244" r="4" fill="#1e3a5f" />
+      <circle cx="58" cy="228" r="4" fill="#1e3a5f" />
+      <circle cx="86" cy="228" r="4" fill="#1e3a5f" />
+      <circle cx="72" cy="246" r="4" fill="#1e3a5f" />
+    </g>
+    <rect
+      x="66"
+      y="196"
+      width="12"
+      height="20"
+      rx="2"
+      fill="#1e3a5f"
+      stroke="#1a1a1a"
+      strokeWidth="2.2"
+    />
+    <path
+      d="M34 188 L34 82 Q34 52 54 46 L60 44 Q66 42 68 52 L70 82 L70 188"
+      fill="#1e3a5f"
+      stroke="#1a1a1a"
+      strokeWidth="2.2"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M54 44 Q62 30 74 32 L78 42"
+      fill="#1e3a5f"
+      stroke="#1a1a1a"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+    />
+    <rect
+      x="28"
+      y="142"
+      width="12"
+      height="40"
+      rx="5"
+      fill="#243b5c"
+      stroke="#1a1a1a"
+      strokeWidth="2.2"
+    />
+    <path
+      d="M36 188 L112 188 L108 202 L40 202 Z"
+      fill="#243b5c"
+      stroke="#1a1a1a"
+      strokeWidth="2.2"
+      strokeLinejoin="round"
+    />
+
+    {/* ── Layer 2: Desk legs (behind seat) ── */}
+    <rect x="162" y="170" width="6" height="58" rx="1" fill="#252525" stroke="#1a1a1a" strokeWidth="2" />
+    <rect x="322" y="170" width="6" height="58" rx="1" fill="#252525" stroke="#1a1a1a" strokeWidth="2" />
+
+    {/* ── Layer 3: Character body ── */}
+    <path
+      d="M100 170 L90 148 L84 126 L80 114"
+      stroke="#1e293b"
+      strokeWidth="13"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M114 174 L122 150 L128 130 L132 118"
+      stroke="#1e293b"
+      strokeWidth="13"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M74 112 L90 108 L96 114 L80 120 Z"
+      fill="#f8fafc"
+      stroke="#1a1a1a"
+      strokeWidth="2"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M126 116 L140 114 L144 120 L130 124 Z"
+      fill="#f8fafc"
+      stroke="#1a1a1a"
+      strokeWidth="2"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M90 114 Q84 104 88 92 L100 78 Q112 70 122 74 L132 84 Q138 96 134 110 L128 124 Q120 134 108 132 L96 126 Q88 120 90 114 Z"
+      fill="#f05a28"
+      stroke="#1a1a1a"
+      strokeWidth="2.2"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M102 114 Q110 118 120 114"
+      stroke="#1a1a1a"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      opacity="0.5"
+    />
+
+    {/* Head */}
+    <circle cx="106" cy="64" r="22" fill="#e8945f" stroke="#1a1a1a" strokeWidth="2.2" />
+    <path
+      d="M82 58 Q84 38 106 34 Q128 34 132 54 L132 62 Q128 56 106 54 Q84 56 82 62 Z"
+      fill="#3b82f6"
+      stroke="#1a1a1a"
+      strokeWidth="2.2"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M130 54 L152 60 L130 66 Z"
+      fill="#3b82f6"
+      stroke="#1a1a1a"
+      strokeWidth="2"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M122 62 L128 66 L122 70 Z"
+      fill="#d97848"
+      stroke="#1a1a1a"
+      strokeWidth="1.4"
+      strokeLinejoin="round"
+    />
+    <circle cx="116" cy="58" r="2" fill="#1a1a1a" />
+    <path d="M118 72 Q122 74 124 72" stroke="#1a1a1a" strokeWidth="1.6" strokeLinecap="round" />
+    <path
+      d="M112 74 Q116 84 122 80 Q124 76 120 72 Q114 70 112 74 Z"
+      fill="#c46a30"
+      stroke="#1a1a1a"
+      strokeWidth="1.6"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M114 76 L115 80 M118 78 L119 82 M121 76 L122 79"
+      stroke="#1a1a1a"
+      strokeWidth="1"
+      strokeLinecap="round"
+      opacity="0.45"
+    />
+    <circle cx="112" cy="60" r="9" fill="none" stroke="#1a1a1a" strokeWidth="2" />
+    <path d="M121 60 L126 58" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round" />
+    <line x1="103" y1="60" x2="98" y2="59" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round" />
+
+    {/* ── Layer 4: Desk surface ── */}
+    <rect
+      x="148"
+      y="162"
+      width="196"
+      height="8"
+      rx="1"
+      fill="#252525"
+      stroke="#1a1a1a"
+      strokeWidth="2.2"
+    />
+
+    {/* ── Layer 5: Laptop ── */}
+    <rect
+      x="210"
+      y="154"
+      width="72"
+      height="7"
+      rx="1.5"
+      fill="#2d3748"
+      stroke="#1a1a1a"
+      strokeWidth="2"
+    />
+    <path
+      d="M206 154 L218 108 L286 108 L298 154 Z"
+      fill="#2d3748"
+      stroke="#1a1a1a"
+      strokeWidth="2.2"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M220 112 L284 112 L280 148 L224 148 Z"
+      fill="#3b82f6"
+      stroke="#1a1a1a"
+      strokeWidth="1.6"
+      filter="url(#mascot-screen-glow)"
+      opacity="0.92"
+    />
+    <path d="M226 118 L248 118 L246 132 L228 132 Z" fill="#60a5fa" opacity="0.35" />
+
+    {/* ── Layer 6: Arms & hands on keyboard (top) ── */}
+    <path
+      d="M128 88 L176 106"
+      stroke="#e8945f"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+    <path
+      d="M132 100 L178 112"
+      stroke="#e8945f"
+      strokeWidth="10"
+      strokeLinecap="round"
+    />
+    <ellipse cx="180" cy="108" rx="7" ry="6" fill="#e8945f" stroke="#1a1a1a" strokeWidth="1.8" />
+    <ellipse cx="176" cy="114" rx="7" ry="6" fill="#e8945f" stroke="#1a1a1a" strokeWidth="1.8" />
+  </svg>

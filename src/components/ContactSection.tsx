@@ -1,5 +1,3 @@
-
-
 // Contact Section Component
 import { MessageCircle, Github, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
@@ -11,14 +9,16 @@ const ContactSection = () => {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
-    <section id="contact" className="py-20 md:py-24 bg-muted/30">
+    <section id="contact" className="py-16 md:py-24 bg-muted/30 scroll-mt-24">
       <div className="container mx-auto px-5 md:px-6">
-        <div className="text-center mb-16 md:mb-20">
-          <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-4 uppercase">
-            Get <span className="curvy-underline text-brand-orange">In Touch</span>
+        <div className="text-center mb-12 md:mb-20">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-4 uppercase tracking-tight">
+            Get{" "}
+            <span className="curvy-underline text-brand-orange">In Touch</span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Ready to start a project together? Let's discuss how we can bring your ideas to life.
+            Ready to start a project together? Let's discuss how we can bring
+            your ideas to life.
           </p>
         </div>
 
@@ -34,7 +34,13 @@ const ContactSection = () => {
             whileHover={{ scale: 1.03 }}
             transition={{ duration: 0.2 }}
           >
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp chat" className="block tap-highlight-none">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open WhatsApp chat"
+              className="block tap-highlight-none"
+            >
               <img
                 src="/lovable-uploads/764f9228-d9ad-428d-ab65-0610222686ec.png"
                 alt="WhatsApp QR Code"
@@ -68,7 +74,9 @@ const ContactSection = () => {
           transition={{ delay: 0.2, duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <span className="text-sm uppercase tracking-widest text-muted-foreground/60 font-bold font-mono">Follow Me</span>
+          <span className="text-sm uppercase tracking-widest text-muted-foreground/60 font-bold font-mono">
+            Follow Me
+          </span>
           <div className="flex gap-4 items-center justify-center">
             <a
               href="https://github.com/CongoMusahAdama"
@@ -89,7 +97,20 @@ const ContactSection = () => {
               aria-label="X"
             >
               <div className="p-2.5 bg-black rounded-full text-white shadow-lg shadow-black/10">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+                </svg>
               </div>
             </a>
             <a

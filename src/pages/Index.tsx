@@ -1,30 +1,25 @@
-
-import { useEffect } from 'react';
-import Header from '@/components/Header';
-import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
-import SkillsSection from '@/components/SkillsSection';
-import LearningSection from '@/components/LearningSection';
-import ServicesSection from '@/components/ServicesSection';
-import ProjectsSection from '@/components/ProjectsSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import ContactSection from '@/components/ContactSection';
-import Footer from '@/components/Footer';
-import ScrollToTop from '@/components/ScrollToTop';
+import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
+import GitHubContributionsSection from "@/components/GitHubContributionsSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import SystemsSection from "@/components/SystemsSection";
+import LearningSection from "@/components/LearningSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
-
   // Framer Motion will handle animations per section
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen overflow-x-hidden bg-background">
       <Header />
       <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <SkillsSection />
-      <LearningSection />
+      <GitHubContributionsSection />
       <ProjectsSection />
+      <SystemsSection />
+      <LearningSection />
       <TestimonialsSection />
       <ContactSection />
       <Footer />

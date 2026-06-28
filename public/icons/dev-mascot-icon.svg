@@ -1,0 +1,48 @@
+<svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="300" fill="#000000"/>
+  <!-- Left sneaker -->
+  <path d="M78 248 H118 L122 268 H74 Z" fill="#3B82F6" stroke="#0A0A0A" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M74 268 H122 V276 H74 Z" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="4"/>
+  <!-- Right sneaker -->
+  <path d="M182 248 H222 L226 268 H178 Z" fill="#3B82F6" stroke="#0A0A0A" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M178 268 H226 V276 H178 Z" fill="#FFFFFF" stroke="#0A0A0A" stroke-width="4"/>
+  <!-- Left leg -->
+  <path d="M98 198 L90 248 H106 L114 198 Z" fill="#3B82F6" stroke="#0A0A0A" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Right leg -->
+  <path d="M202 198 L194 248 H210 L218 198 Z" fill="#3B82F6" stroke="#0A0A0A" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Hoodie torso -->
+  <path d="M82 128 C82 110 106 100 150 100 C194 100 218 110 218 128 L224 198 C224 210 198 218 150 218 C102 218 76 210 76 198 Z" fill="#FBBF24" stroke="#0A0A0A" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M96 128 C96 108 120 94 150 94 C180 94 204 108 204 128" fill="#F59E0B" stroke="#0A0A0A" stroke-width="4" stroke-linejoin="round"/>
+  <text x="150" y="168" text-anchor="middle" fill="#0A0A0A" font-size="16" font-weight="900" font-family="system-ui, sans-serif" letter-spacing="0.5">build it</text>
+  <path d="M138 128 V144" stroke="#F97316" stroke-width="4" stroke-linecap="round"/>
+  <path d="M162 128 V144" stroke="#F97316" stroke-width="4" stroke-linecap="round"/>
+  <!-- Laptop -->
+  <rect x="210" y="152" width="52" height="36" rx="4" fill="#64748B" stroke="#0A0A0A" stroke-width="4"/>
+  <rect x="216" y="158" width="40" height="24" rx="2" fill="#38BDF8" stroke="#0A0A0A" stroke-width="3"/>
+  <path d="M204 190 H262 L254 200 H212 Z" fill="#64748B" stroke="#0A0A0A" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="222" y="164" width="16" height="3" rx="1" fill="#FFFFFF"/>
+  <rect x="222" y="172" width="26" height="3" rx="1" fill="#FFFFFF" opacity="0.85"/>
+  <!-- Left arm -->
+  <path d="M82 134 L52 82" stroke="#FBBF24" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="52" cy="82" r="14" fill="#E8A86B" stroke="#0A0A0A" stroke-width="4"/>
+  <path d="M46 74 L52 64 L58 74" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right arm -->
+  <path d="M218 134 L248 72" stroke="#FBBF24" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="248" cy="72" r="14" fill="#E8A86B" stroke="#0A0A0A" stroke-width="4"/>
+  <path d="M242 66 L248 56 L254 62 M254 56 L254 66" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Head -->
+  <circle cx="150" cy="68" r="34" fill="#E8A86B" stroke="#0A0A0A" stroke-width="4"/>
+  <!-- Low-cut taper fade hair -->
+  <path d="M116 48 C116 30 132 20 150 20 C168 20 184 30 184 48 C184 38 168 30 150 30 C132 30 116 38 116 48 Z" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M116 48 C114 58 114 68 118 76" fill="#0A0A0A" opacity="0.55"/>
+  <path d="M184 48 C186 58 186 68 182 76" fill="#0A0A0A" opacity="0.55"/>
+  <!-- Glasses -->
+  <circle cx="136" cy="70" r="12" fill="none" stroke="#1E293B" stroke-width="4"/>
+  <circle cx="164" cy="70" r="12" fill="none" stroke="#1E293B" stroke-width="4"/>
+  <path d="M148 70 H152" stroke="#1E293B" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="136" cy="72" r="4" fill="#1E293B"/>
+  <circle cx="164" cy="72" r="4" fill="#1E293B"/>
+  <!-- Beard -->
+  <path d="M124 86 C124 98 136 106 150 106 C164 106 176 98 176 86 C170 94 160 98 150 98 C140 98 130 94 124 86 Z" fill="#5C4033" stroke="#0A0A0A" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M136 84 Q150 90 164 84" stroke="#0A0A0A" stroke-width="3" stroke-linecap="round" fill="none"/>
+</svg>

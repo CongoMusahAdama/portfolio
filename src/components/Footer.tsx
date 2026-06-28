@@ -1,19 +1,19 @@
-
 import { Github, Mail, MapPin, Phone } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-background pt-12 pb-8 border-t border-border/40">
+    <footer className="bg-background pt-10 sm:pt-12 pb-[max(2rem,env(safe-area-inset-bottom))] border-t border-border/40">
       <div className="container mx-auto px-5 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
           <div className="flex flex-col items-start text-left">
             <h3 className="font-bold text-xl md:text-2xl tracking-tighter text-foreground mb-4">
               Congo Musah Adama
             </h3>
             <p className="text-muted-foreground mb-6 leading-relaxed max-w-sm text-sm">
-              Building scalable systems and reliable APIs. Let's collaborate to bring your ideas to life.
+              Building scalable systems and reliable APIs. Let's collaborate to
+              bring your ideas to life.
             </p>
             <div className="flex items-center gap-4">
               <a
@@ -35,7 +35,20 @@ const Footer = () => {
                 aria-label="X"
               >
                 <div className="p-2.5 bg-black rounded-full text-white shadow-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                    <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+                  </svg>
                 </div>
               </a>
               <a
@@ -46,16 +59,32 @@ const Footer = () => {
                 aria-label="LinkedIn"
               >
                 <div className="p-2.5 bg-[#0077b5] rounded-full text-white shadow-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
                 </div>
               </a>
             </div>
           </div>
 
           <div className="flex flex-col items-start text-left">
-            <h3 className="font-bold text-foreground mb-4 text-xs uppercase tracking-widest text-brand-orange/80">Quick Links</h3>
+            <h3 className="font-bold text-foreground mb-4 text-xs uppercase tracking-widest text-brand-orange/80">
+              Quick Links
+            </h3>
             <ul className="space-y-3">
-              {['About', 'Skills', 'Projects', 'Testimonials'].map((item) => (
+              {["About", "Skills", "Projects", "Testimonials"].map((item) => (
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
@@ -69,25 +98,39 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col items-start text-left">
-            <h3 className="font-bold text-foreground mb-4 text-xs uppercase tracking-widest text-brand-orange/80">Contact Info</h3>
+            <h3 className="font-bold text-foreground mb-4 text-xs uppercase tracking-widest text-brand-orange/80">
+              Contact Info
+            </h3>
             <ul className="space-y-4">
               <li className="flex items-center gap-3 group">
                 <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-brand-orange/10 text-brand-orange">
                   <Phone className="w-4 h-4" />
                 </div>
-                <a href="tel:+233531878243" className="text-muted-foreground md:hover:text-foreground text-sm font-medium">+233 531 878 243</a>
+                <a
+                  href="tel:+233531878243"
+                  className="text-muted-foreground md:hover:text-foreground text-sm font-medium"
+                >
+                  +233 531 878 243
+                </a>
               </li>
               <li className="flex items-center gap-3 group">
                 <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-brand-orange/10 text-brand-orange">
                   <Mail className="w-4 h-4" />
                 </div>
-                <a href="mailto:amusahcongo@gmail.com" className="text-muted-foreground md:hover:text-foreground text-sm font-medium">amusahcongo@gmail.com</a>
+                <a
+                  href="mailto:amusahcongo@gmail.com"
+                  className="text-muted-foreground md:hover:text-foreground text-sm font-medium break-all"
+                >
+                  amusahcongo@gmail.com
+                </a>
               </li>
               <li className="flex items-center gap-3 group">
                 <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-brand-orange/10 text-brand-orange">
                   <MapPin className="w-4 h-4" />
                 </div>
-                <span className="text-muted-foreground text-sm font-medium">Accra & Takoradi, Ghana</span>
+                <span className="text-muted-foreground text-sm font-medium">
+                  Accra & Takoradi, Ghana
+                </span>
               </li>
             </ul>
           </div>
