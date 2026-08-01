@@ -330,7 +330,7 @@ const ProjectsSection = () => {
         "Escrow API",
       ],
       githubUrl: "https://github.com/CongoMusahAdama/fla",
-      websiteUrl: "https://fadlanstore.netlify.app/",
+      websiteUrl: "https://www.flamingo-store1.com/",
       rating: 5,
     },
     {
@@ -500,9 +500,10 @@ const ProjectsSection = () => {
   ];
 
   const projectOrder = [
-    "Artisans Hub",
+    "FLA Purchase",
     "SikaSoft",
     "Mizrmo Carpool",
+    "Artisans Hub",
     "AgriLync",
     "BrainBank",
   ];
