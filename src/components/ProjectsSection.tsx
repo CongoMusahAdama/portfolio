@@ -290,6 +290,116 @@ const ProjectsSection = () => {
 
   const allProjects: Project[] = [
     {
+      id: 11,
+      title: "Westlife Motors",
+      description:
+        "Trusted automobile dealer from Takoradi — importing premium vehicles from America, Europe, Japan, and China for customers across Ghana and Côte d'Ivoire.",
+      problem:
+        "Buyers in West Africa struggle to find reliable, transparent access to quality imported vehicles with clear inventory and local support.",
+      approach:
+        "Built a full inventory and enquiry platform with vehicle listings, 360° views, and enquiry/buy flows so customers can browse and book viewings with confidence.",
+      image: "/lovable-uploads/westlife-web.jpg",
+      mobileImage: "/lovable-uploads/westlife-mobile.png",
+      technologies: [
+        "React",
+        "Vite",
+        "MongoDB",
+        "Node.js",
+        "Cloudinary",
+      ],
+      githubUrl: "https://github.com/CongoMusahAdama/westlife",
+      websiteUrl: "https://westlife-motors-kappa.vercel.app/",
+      rating: 5,
+    },
+    {
+      id: 12,
+      title: "HARV DREAMS",
+      description:
+        "Bold Ghanaian streetwear brand for dreamers who refuse to quit — purpose-driven apparel with a clean shop, cart, and collection experience.",
+      problem:
+        "Emerging fashion brands need a storefront that matches their identity while handling inventory, sold-out states, and smooth checkout.",
+      approach:
+        "Built a minimalist e-commerce experience with product grids, size/qty selection, wishlist, and account flows so shoppers can browse and buy with clarity.",
+      image: "/lovable-uploads/harvdreams-web.png",
+      mobileImage: "/lovable-uploads/harvdreams-mobile.png",
+      technologies: [
+        "React",
+        "TypeScript",
+        "TailwindCSS",
+        "Supabase",
+        "Vite",
+      ],
+      githubUrl: "https://github.com/CongoMusahAdama/dreamweave-ecom",
+      websiteUrl: "https://harvdreams.com/",
+      rating: 5,
+    },
+    {
+      id: 13,
+      title: "Scentiva Aura",
+      description:
+        "Premium fragrance & lifestyle store from Takoradi — browse curated scents, find your signature, and order in two taps via WhatsApp.",
+      problem:
+        "Buying fragrance online often feels impersonal, with no guidance on scent matching and friction at checkout.",
+      approach:
+        "Built a dark luxury shop with a scent-discovery quiz, curated collections, and WhatsApp-first ordering so customers can find and confirm their fragrance fast.",
+      image: "/lovable-uploads/scentiva-web.png",
+      mobileImage: "/lovable-uploads/scentiva-mobile.png",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "TailwindCSS",
+        "React",
+        "WhatsApp API",
+      ],
+      githubUrl: "https://github.com/CongoMusahAdama/scentiva",
+      websiteUrl: "https://scentivaaura.shop/",
+      rating: 5,
+    },
+    {
+      id: 14,
+      title: "PM Holdings",
+      description:
+        "Official brand site for Nana Quasi-Wusu (The Finest MC) — Takoradi-based broadcaster, hypeman, and entertainment consultant uniting entertainment, fashion, modeling, and foundation work under “Excellence is my Hallmark.”",
+      problem:
+        "Multi-venture public figures need one polished home for booking, brand stories, and foundation outreach without scattering audiences across channels.",
+      approach:
+        "Built a multi-page portfolio with booking CTAs, venture hubs (entertainment, fashion, modeling), and a dedicated PM Foundation section for scholarships and community service.",
+      image: "/lovable-uploads/pmholdings-web.jpg",
+      mobileImage: "/lovable-uploads/pmholdings-mobile.png",
+      technologies: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "TailwindCSS",
+        "Framer Motion",
+      ],
+      githubUrl: "https://github.com/CongoMusahAdama/pmholdings",
+      websiteUrl: "https://www.pmholdingsgh.com/",
+      rating: 5,
+    },
+    {
+      id: 15,
+      title: "Future-Link Services",
+      description:
+        "Skills. Business. Income. — workforce training, skills-to-income programmes, SME support, community impact, and smart event check-in to help people grow, earn, and succeed.",
+      problem:
+        "Organizers and learners need one place for training, SME support, and event registration without juggling disconnected tools.",
+      approach:
+        "Built a services and events platform with browseable conferences/AGMs, registration flows, and smart check-in so organizers and attendees can discover and run events smoothly.",
+      image: "/lovable-uploads/futurelink-web.jpg",
+      mobileImage: "/lovable-uploads/futurelink-mobile.png",
+      technologies: [
+        "React",
+        "Vite",
+        "TailwindCSS",
+        "Node.js",
+        "MongoDB",
+      ],
+      githubUrl: "https://github.com/CongoMusahAdama/futurelink",
+      websiteUrl: "https://www.future-linkservices.com/",
+      rating: 5,
+    },
+    {
       id: 10,
       title: "VisionSpa",
       description:
@@ -501,11 +611,21 @@ const ProjectsSection = () => {
 
   const projectOrder = [
     "FLA Purchase",
-    "SikaSoft",
+    "HARV DREAMS",
     "Mizrmo Carpool",
-    "Artisans Hub",
-    "AgriLync",
+    "Westlife Motors",
+    "Scentiva Aura",
+    "PM Holdings",
+    "Future-Link Services",
+    "VisionSpa",
+    "Kultural Kompass",
     "BrainBank",
+    "Supreme Masqueraders Society Platform",
+    "Artisans Hub",
+    "RealRate",
+    "WeBarb",
+    "AgriLync",
+    "SikaSoft",
   ];
 
   const projects = [...allProjects].sort((a, b) => {
