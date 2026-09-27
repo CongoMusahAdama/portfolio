@@ -36,6 +36,12 @@ export const nowLately = [
     cover:
       "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/13/36/6c/13366c3c-8735-a917-5688-e20bcb4e20ab/artwork.jpg/100x100bb.jpg",
   },
+  {
+    num: "04",
+    title: "2000s Old Ghana Gospel Mix",
+    artist: "Various Artists",
+    cover: "/assets/now/gospel-mix.jpg",
+  },
 ];
 
 type FavouriteItem =

@@ -8,7 +8,7 @@ const sectionLabel = "font-mono text-xs text-muted-foreground";
 const bodyText = "text-sm leading-relaxed text-foreground/80";
 
 const About = () => {
-  const profileImage = "/lovable-uploads/profile.jpeg";
+  const profileImage = "/assets/profile.png";
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background">

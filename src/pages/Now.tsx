@@ -42,12 +42,17 @@ const Now = () => (
           <dl className="space-y-8">
             <div className="space-y-1">
               <dt className={sectionLabel}>Building</dt>
-              <dd className={bodyText}>
-                <span className="text-brand-orange">MantroOps</span>{" "}
-                <span className="text-muted-foreground">(CMMS)</span> — an engineering
-                operations platform for firms in Ghana and similar markets. One base for
-                assets, maintenance, work orders, approvals, and reporting — with ML/AI
-                that predicts what may fail and prescribes how teams should respond.
+              <dd className={`space-y-4 ${bodyText}`}>
+                <p>
+                  <span className="text-brand-orange font-semibold">Agrilync Nexus</span> — a Ghana-based AgriFinTech and advisory platform that connects smallholder farmers with farm investors and partner organizations through a structured, transparent finance-first model supported by training, AI-powered advisory, and an agent network.
+                </p>
+                <p>
+                  <span className="text-brand-orange font-semibold">MantroOps</span>{" "}
+                  <span className="text-muted-foreground">(CMMS)</span> — an engineering
+                  operations platform for firms in Ghana and similar markets. One base for
+                  assets, maintenance, work orders, approvals, and reporting — with ML/AI
+                  that predicts what may fail and prescribes how teams should respond.
+                </p>
               </dd>
             </div>
 
