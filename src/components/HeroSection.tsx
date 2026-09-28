@@ -119,7 +119,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-muted-foreground text-sm sm:text-base max-w-md leading-relaxed text-left"
             >
-              Congo Musah Adama — A Product Builder who uses{" "}
+              Congo Musah Adams — A Product Builder who uses{" "}
               <span className="text-foreground font-semibold">engineering</span>{" "}
               as a tool to create impactful digital solutions.
             </motion.p>
@@ -206,7 +206,7 @@ const HeroSection = () => {
             >
               <img
                 src="/lovable-uploads/profilelove-transparent.png"
-                alt="Congo Musah Adama"
+                alt="Congo Musah Adams"
                 className="w-full max-h-[320px] sm:max-h-[360px] md:max-h-[420px] lg:max-h-[460px] h-auto object-contain object-bottom transition-transform duration-700 md:hover:scale-105"
               />
             </motion.div>

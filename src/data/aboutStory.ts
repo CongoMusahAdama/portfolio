@@ -8,7 +8,7 @@ export type AboutSection = {
 export const aboutSections: AboutSection[] = [
   {
     label: "Hey",
-    text: "I'm Congo Musah Adama, a software engineer based in Takoradi, Ghana. I build software systems and products that actually matter here and across Africa.",
+    text: "I'm Congo Musah Adams, a software engineer based in Takoradi, Ghana. I build software systems and products that actually matter here and across Africa.",
   },
   {
     label: "How it started",
@@ -34,7 +34,7 @@ export const aboutSections: AboutSection[] = [
 /**
  * Spoken intro for ElevenLabs — like talking to a friend, not reading a bio.
  */
-export const aboutSpeechScript = `Hey! I'm Congo Musah Adama.
+export const aboutSpeechScript = `Hey! I'm Congo Musah Adams.
 
 I'm a software engineer based in Takoradi, Ghana. I build software systems and products that actually matter — here at home and across Africa.
 

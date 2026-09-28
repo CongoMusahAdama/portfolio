@@ -183,7 +183,7 @@ const Now = () => (
         </div>
         <p className="font-mono text-xs text-muted-foreground">
           © {new Date().getFullYear()}{" "}
-          <span className="text-foreground">Congo Musah Adama</span> · Takoradi, Ghana
+          <span className="text-foreground">Congo Musah Adams</span> · Takoradi, Ghana
         </p>
       </footer>
     </main>

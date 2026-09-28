@@ -22,7 +22,7 @@ const About = () => {
             <figure className="mx-auto shrink-0 sm:mx-0 sm:sticky sm:top-28">
               <img
                 src={profileImage}
-                alt="Congo Musah Adama"
+                alt="Congo Musah Adams"
                 className="h-28 w-28 rounded-full object-cover object-[center_12%] ring-1 ring-border/50 sm:h-32 sm:w-32"
               />
             </figure>

@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
           <div className="flex flex-col items-start text-left">
             <h3 className="font-bold text-xl md:text-2xl tracking-tighter text-foreground mb-4">
-              Congo Musah Adama
+              Congo Musah Adams
             </h3>
             <p className="text-muted-foreground mb-6 leading-relaxed max-w-sm text-sm">
               Building scalable systems and reliable APIs. Let's collaborate to
@@ -138,7 +138,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-6 border-t border-border/40 text-center">
           <p className="text-xs text-muted-foreground/60 font-medium">
-            © 2025 Congo Musah Adama. All rights reserved.
+            © 2025 Congo Musah Adams. All rights reserved.
           </p>
         </div>
       </div>
