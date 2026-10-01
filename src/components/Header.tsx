@@ -18,7 +18,7 @@ const navLinks = [
   { title: "About", href: "/about", external: false, isSection: false },
   { title: "Now", href: "/now", external: false, isSection: false },
   { title: "Projects", href: "#projects", external: false, isSection: true },
-  { title: "Blog", href: "https://dev.to/congomusah", external: true, isSection: false },
+  { title: "Blog", href: "/blog", external: false, isSection: false },
 ];
 
 const cellClass = (active: boolean) =>
@@ -48,7 +48,9 @@ const Header = () => {
   };
 
   const isActive = (href: string, isSection: boolean) =>
-    !isSection && !href.startsWith("#") && location.pathname === href;
+    !isSection &&
+    !href.startsWith("#") &&
+    (location.pathname === href || (href !== "/" && location.pathname.startsWith(`${href}/`)));
 
   const renderLink = (link: (typeof navLinks)[number], className: string) => {
     if (link.external) {
@@ -121,7 +123,7 @@ const Header = () => {
             <button
               type="button"
               onClick={() => handleSectionClick("#contact")}
-              className="ml-2 border-2 border-ink px-4 py-2 font-mono text-[12px] font-semibold uppercase tracking-[0.14em] text-ink transition-colors hover:bg-ink hover:text-canvas"
+              className="ml-2 hidden whitespace-nowrap border-2 border-ink px-4 py-2 font-mono text-[12px] font-semibold uppercase tracking-[0.14em] text-ink transition-colors hover:bg-ink hover:text-canvas lg:block"
             >
               Talk to me
             </button>

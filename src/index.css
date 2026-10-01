@@ -162,6 +162,155 @@
   }
 }
 
+.blog-prose {
+  color: rgb(var(--ink-rgb) / 0.85);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  overflow-wrap: break-word;
+}
+
+.blog-prose > * + * {
+  margin-top: 1.25em;
+}
+
+@media (max-width: 639px) {
+  .blog-prose {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .blog-prose pre {
+    margin-inline: -1.25rem;
+    border-inline: 0;
+  }
+}
+
+.blog-prose h1,
+.blog-prose h2,
+.blog-prose h3,
+.blog-prose h4 {
+  color: rgb(var(--ink-rgb));
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-top: 2em;
+}
+
+.blog-prose h1 { font-size: 1.9em; }
+.blog-prose h2 { font-size: 1.6em; }
+.blog-prose h3 { font-size: 1.3em; }
+.blog-prose h4 { font-size: 1.1em; }
+
+.blog-prose h1 .anchor,
+.blog-prose h2 .anchor,
+.blog-prose h3 .anchor,
+.blog-prose h4 .anchor {
+  display: none;
+}
+
+.blog-prose a {
+  color: rgb(var(--ink-rgb));
+  text-decoration: underline;
+  text-decoration-color: #5fbee6;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.blog-prose a:hover {
+  background: #efdca4;
+  color: #141414;
+}
+
+.blog-prose strong {
+  color: rgb(var(--ink-rgb));
+  font-weight: 600;
+}
+
+.blog-prose ul,
+.blog-prose ol {
+  padding-left: 1.4em;
+}
+
+.blog-prose ul { list-style: square; }
+.blog-prose ol { list-style: decimal; }
+
+.blog-prose li + li {
+  margin-top: 0.4em;
+}
+
+.blog-prose li::marker {
+  color: #f05a28;
+}
+
+.blog-prose blockquote {
+  border-left: 4px solid #e3a92f;
+  background: rgb(var(--ink-rgb) / 0.04);
+  padding: 0.75em 1.25em;
+  font-style: italic;
+}
+
+.blog-prose img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  margin-inline: auto;
+  border: 2px solid rgb(var(--ink-rgb));
+}
+
+.blog-prose a:has(> img) {
+  background: none;
+  text-decoration: none;
+}
+
+.blog-prose hr {
+  border: 0;
+  border-top: 1px dashed rgb(var(--ink-rgb) / 0.3);
+  margin-block: 2.5em;
+}
+
+.blog-prose :not(pre) > code {
+  background: rgb(var(--ink-rgb) / 0.08);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.88em;
+  padding: 0.1em 0.35em;
+}
+
+.blog-prose pre {
+  background: #161616;
+  color: #f5f5f5;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85em;
+  line-height: 1.65;
+  overflow-x: auto;
+  padding: 1.1em 1.25em;
+  border: 2px solid rgb(var(--ink-rgb));
+}
+
+.blog-prose .highlight__panel {
+  display: none;
+}
+
+.blog-prose table {
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.blog-prose th,
+.blog-prose td {
+  border: 1px solid rgb(var(--ink-rgb) / 0.2);
+  padding: 0.5em 0.75em;
+  text-align: left;
+}
+
+.blog-prose iframe {
+  aspect-ratio: 16 / 9;
+  border: 2px solid rgb(var(--ink-rgb));
+  height: auto;
+  width: 100%;
+}
+
 @keyframes pill-drift-a {
   0%,
   100% {

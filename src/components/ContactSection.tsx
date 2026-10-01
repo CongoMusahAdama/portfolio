@@ -1,5 +1,6 @@
 import { ArrowUpRight, Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { motion } from "framer-motion";
+import { QRCodeSVG } from "qrcode.react";
 import { CornerHandles, PixelHeading, UnderlineLink } from "@/components/canvas/Canvas";
 
 const whatsappNumber = "233509154727";
@@ -80,11 +81,14 @@ const ContactSection = () => {
           className="mx-auto hidden md:mx-0 md:block"
         >
           <div className="relative animate-wiggle bg-white p-3 pb-12 shadow-[0_10px_30px_rgba(0,0,0,0.12)]">
-            <img
-              src="/lovable-uploads/764f9228-d9ad-428d-ab65-0610222686ec.png"
-              alt="WhatsApp QR Code"
-              className="h-52 w-52 object-contain sm:h-60 sm:w-60"
-              loading="lazy"
+            <QRCodeSVG
+              value={whatsappUrl}
+              level="M"
+              marginSize={2}
+              fgColor="#141414"
+              bgColor="#ffffff"
+              title="WhatsApp QR code"
+              className="h-52 w-52 sm:h-60 sm:w-60"
             />
             <p className="absolute bottom-3 left-0 right-0 text-center font-hand text-2xl text-on-color">scan me!</p>
           </div>

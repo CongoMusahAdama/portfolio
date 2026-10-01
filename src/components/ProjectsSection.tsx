@@ -11,7 +11,7 @@ import {
   type Project,
 } from "@/data/projects";
 
-const FEATURED_COUNT = 6;
+const FEATURED_COUNT = 10;
 
 const folderThemes = [
   { bg: "#5fbee6", fg: "#141414", line: "#141414" },
@@ -20,7 +20,17 @@ const folderThemes = [
   { bg: "#a6d9bb", fg: "#141414", line: "#141414" },
   { bg: "#d8365d", fg: "#ffffff", line: "#ffffff" },
   { bg: "#efdca4", fg: "#141414", line: "#141414" },
+  { bg: "#45261c", fg: "#ffffff", line: "#ffffff" },
+  { bg: "#f2bfcd", fg: "#141414", line: "#141414" },
+  { bg: "#5fb57f", fg: "#141414", line: "#141414" },
+  { bg: "#b5ddf0", fg: "#141414", line: "#141414" },
 ];
+
+const tabLabels: Record<string, string> = {
+  "Future-Link Services": "Future-Link",
+  "Kultural Kompass": "Kultural K.",
+  "Supreme Masqueraders Society Platform": "SMS Platform",
+};
 
 const FolderCard = ({
   project,
@@ -49,7 +59,7 @@ const FolderCard = ({
         style={{ left: tabLeft, background: theme.bg, color: theme.fg }}
       >
         <span className="truncate font-mono text-[11px] font-semibold uppercase tracking-[0.08em]">
-          <span className="opacity-60">{number}</span> {project.title}
+          <span className="opacity-60">{number}</span> {tabLabels[project.title] ?? project.title}
         </span>
       </div>
 

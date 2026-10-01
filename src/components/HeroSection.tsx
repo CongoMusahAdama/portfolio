@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Github, Linkedin, Mail, Twitter } from "lucide-react";
-import { CornerHandles, FloatingPill, Squiggle } from "@/components/canvas/Canvas";
+import { CornerHandles, Squiggle } from "@/components/canvas/Canvas";
 
 const rise = {
   hidden: { opacity: 0, y: 16 },
@@ -131,13 +131,6 @@ const HeroSection = () => {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
           className="relative mx-auto mt-10 w-[210px] sm:mt-0 sm:w-[250px] lg:mx-0 lg:mr-6 lg:w-[290px]"
         >
-          <div className="absolute -right-12 -top-14 z-20 origin-top-right scale-[0.82] sm:-right-6 sm:-top-20 sm:scale-100 lg:-right-12">
-            <FloatingPill bg="#d8365d" fg="#ffffff" label="Software engineer" drift="a" arrowSide="left" />
-          </div>
-          <div className="absolute -left-14 bottom-14 z-20 origin-bottom-left scale-[0.82] sm:-left-20 sm:bottom-24 sm:scale-100 lg:-left-24">
-            <FloatingPill bg="#e3a92f" label="Ghana · GMT" drift="b" arrowSide="right" />
-          </div>
-
           <img
             src="/lovable-uploads/profilelove-transparent.png"
             alt="Congo Musah Adams"

@@ -55,12 +55,20 @@ const About = () => {
             <div className="grid grid-cols-1 items-center gap-12 p-6 sm:p-10 md:grid-cols-[minmax(0,1fr)_auto] md:gap-14 md:p-14">
               <div className="min-w-0">
                 <h2 className="text-3xl font-semibold leading-[1.15] tracking-tight text-ink sm:text-4xl md:text-5xl">
-                  I'm Congo{" "}
-                  <img
-                    src="/assets/profile-pill.jpg"
-                    alt=""
-                    className="inline-block h-[0.95em] w-[1.45em] rounded-full border-2 border-ink bg-white object-cover align-[-0.1em]"
-                  />{" "}
+                  I'm <span className="sr-only">Congo</span>
+                  <span aria-hidden className="whitespace-nowrap">
+                    C
+                    <motion.img
+                      src="/assets/profile-o.jpg"
+                      alt=""
+                      initial={{ opacity: 0, scale: 0.4, rotate: -120 }}
+                      whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                      viewport={{ once: true, amount: 1 }}
+                      transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                      className="mx-[0.03em] inline-block h-[0.9em] w-[0.9em] rounded-full border-[0.06em] border-ink bg-white object-cover align-[-0.1em]"
+                    />
+                    ngo
+                  </span>{" "}
                   — I build software that matters here and across Africa.
                 </h2>
                 <p className="mt-6 max-w-xl text-base leading-relaxed text-ink/75 md:text-lg">{intro?.text}</p>

@@ -12,13 +12,14 @@ const footerLinks = [
   { label: "About", to: "/about" },
   { label: "Now", to: "/now" },
   { label: "Work", to: "/work" },
+  { label: "Blog", to: "/blog" },
 ];
 
 const socialLinks = [
   { label: "GitHub", href: "https://github.com/CongoMusahAdama" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/congo-musah-ad-deen-766bb3224/" },
   { label: "X", href: "https://twitter.com/1real_vee" },
-  { label: "Blog", href: "https://dev.to/congomusah" },
+  { label: "Dev.to", href: "https://dev.to/musah_congoadama_736fd38" },
 ];
 
 const Footer = () => {
