@@ -1,10 +1,9 @@
 import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import {
-  buildSystemRows,
-  fetchGitHubLanguages,
-} from "@/data/techStack";
+import { buildSystemRows, fetchGitHubLanguages } from "@/data/techStack";
+import { TechStackCarouselBar } from "@/components/TechStackCarousel";
+import { HandKicker, LabelTag, PixelHeading, SelectionBox } from "@/components/canvas/Canvas";
 
 const SystemsSection = () => {
   const { data: githubLanguages, isLoading } = useQuery({
@@ -13,59 +12,52 @@ const SystemsSection = () => {
     staleTime: 1000 * 60 * 60,
   });
 
-  const systemRows = useMemo(
-    () => buildSystemRows(githubLanguages ?? []),
-    [githubLanguages]
-  );
+  const systemRows = useMemo(() => buildSystemRows(githubLanguages ?? []), [githubLanguages]);
 
   return (
-    <section
-      id="systems"
-      className="py-16 md:py-28 bg-background text-foreground border-t border-border/40 scroll-mt-24"
-    >
-      <div className="container mx-auto px-5 sm:px-6 md:px-10 max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-12 md:mb-16"
-        >
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black tracking-tight">
-            <span className="text-muted-foreground">02</span>
-            <span className="text-brand-orange mx-2 md:mx-3">/</span>
-            <span className="text-foreground">Systems</span>
-          </h2>
-          <p className="mt-4 text-sm md:text-base text-muted-foreground max-w-xl leading-relaxed">
+    <section id="systems" className="scroll-mt-24 pb-20 pt-10 md:pb-28">
+      <TechStackCarouselBar />
+
+      <div className="mx-auto mt-16 w-full max-w-5xl px-5 sm:px-8 md:mt-24">
+        <div className="mb-12 flex flex-col items-center text-center md:mb-16">
+          <HandKicker>what i build with</HandKicker>
+          <PixelHeading lines={["SYSTEMS"]} className="mt-3 text-[clamp(3rem,12vw,7rem)]" />
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-ink/70 md:text-base">
             {isLoading
-              ? "Loading your stack from GitHub…"
+              ? "Loading my stack from GitHub…"
               : "Languages and tools I use day to day — synced with my GitHub repos where available."}
           </p>
-        </motion.div>
-
-        <div className="border-t border-border/50">
-          {systemRows.map((row, index) => (
-            <motion.div
-              key={row.label}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.06,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="grid grid-cols-1 md:grid-cols-[minmax(140px,200px)_1fr] gap-3 md:gap-10 py-8 md:py-10 border-b border-border/50"
-            >
-              <span className="text-sm md:text-base text-muted-foreground font-mono tracking-wide">
-                {row.label}
-              </span>
-              <p className="text-base md:text-lg text-foreground font-medium leading-relaxed">
-                {row.items.join(", ")}
-              </p>
-            </motion.div>
-          ))}
         </div>
+
+        <LabelTag bg="#5fb57f">Stack</LabelTag>
+        <SelectionBox color="#5fb57f" fill="rgb(var(--paper-rgb))">
+          <dl className="divide-y divide-ink/10">
+            {systemRows.map((row, index) => (
+              <motion.div
+                key={row.label}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.45, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col gap-2.5 px-4 py-4 sm:flex-row sm:items-start sm:gap-6 sm:px-5 sm:py-5 md:px-8 md:py-6"
+              >
+                <dt className="shrink-0 pt-1 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-ink/50 sm:w-40">
+                  {row.label}
+                </dt>
+                <dd className="flex flex-wrap gap-2">
+                  {row.items.map((item) => (
+                    <span
+                      key={item}
+                      className="border border-ink/25 bg-canvas px-2 py-0.5 text-[13px] font-medium text-ink sm:px-2.5 sm:py-1 sm:text-sm transition-colors hover:border-ink hover:bg-c-cream hover:text-on-color"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </dd>
+              </motion.div>
+            ))}
+          </dl>
+        </SelectionBox>
       </div>
     </section>
   );

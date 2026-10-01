@@ -1,38 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 220 13% 18%;
+    --background: 48 33% 97%;
+    --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 13% 18%;
+    --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 18%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 220 13% 18%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 0 0% 8%;
+    --primary-foreground: 48 33% 97%;
 
-    --secondary: 220 13% 95%;
-    --secondary-foreground: 220 13% 18%;
+    --secondary: 40 14% 90%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 220 13% 95%;
-    --muted-foreground: 220 13% 45%;
+    --muted: 40 14% 92%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 220 13% 95%;
-    --accent-foreground: 220 13% 18%;
+    --accent: 40 14% 90%;
+    --accent-foreground: 0 0% 8%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 220 13% 18%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 8%;
 
     --radius: 0.5rem;
 
@@ -40,41 +38,48 @@
     --orange-foreground: 0 0% 100%;
     --cyan: 186 80% 50%;
     --cyan-foreground: 0 0% 98%;
+
+    --canvas-rgb: 250 249 245;
+    --paper-rgb: 255 255 255;
+    --ink-rgb: 20 20 20;
+    --folder-rgb: 233 231 226;
+    --canvas-line: rgba(20, 20, 20, 0.055);
   }
 
   .dark {
-    --background: 220 13% 5%;
-    --foreground: 0 0% 95%;
+    --background: 0 0% 7%;
+    --foreground: 45 30% 93%;
 
-    --card: 220 13% 5%;
-    --card-foreground: 0 0% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 45 30% 93%;
 
-    --popover: 220 13% 5%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 45 30% 93%;
 
-    --primary: 0 0% 95%;
-    --primary-foreground: 220 13% 5%;
+    --primary: 45 30% 93%;
+    --primary-foreground: 0 0% 7%;
 
-    --secondary: 220 13% 10%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 45 30% 93%;
 
-    --muted: 220 13% 10%;
-    --muted-foreground: 220 13% 63%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 62%;
 
-    --accent: 220 13% 10%;
-    --accent-foreground: 0 0% 95%;
+    --accent: 0 0% 14%;
+    --accent-foreground: 45 30% 93%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 15%;
-    --input: 220 13% 15%;
-    --ring: 0 0% 95%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 45 30% 93%;
 
-    --orange: 14 100% 57%;
-    --orange-foreground: 0 0% 98%;
-    --cyan: 186 80% 50%;
-    --cyan-foreground: 0 0% 98%;
+    --canvas-rgb: 17 17 17;
+    --paper-rgb: 26 26 26;
+    --ink-rgb: 242 239 230;
+    --folder-rgb: 38 38 38;
+    --canvas-line: rgba(255, 255, 255, 0.045);
   }
 }
 
@@ -91,7 +96,12 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply text-ink font-sans antialiased;
+    background-color: rgb(var(--canvas-rgb));
+    background-image:
+      linear-gradient(var(--canvas-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--canvas-line) 1px, transparent 1px);
+    background-size: 170px 170px;
     line-height: 1.6;
     overflow-x: hidden;
     width: 100%;
@@ -103,15 +113,16 @@
   h4,
   h5,
   h6 {
-    @apply text-foreground font-display font-bold tracking-tight;
-    font-family: "Courier New", Courier, monospace;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    @apply font-sans font-semibold tracking-tight;
     line-height: 1.2;
+  }
+
+  ::selection {
+    background: rgba(95, 190, 230, 0.55);
+    color: #141414;
   }
 }
 
-/* Mobile-First Utilities */
 @layer utilities {
   .min-h-screen-dvh {
     min-height: 100dvh;
@@ -129,73 +140,191 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-}
 
-.font-mono {
-  font-family: "IBM Plex Mono", monospace;
-}
+  .folder-tab {
+    clip-path: polygon(0 0, calc(100% - 44px) 0, 100% 100%, 0 100%);
+  }
 
-/* Hero section background responsiveness */
-@media (max-width: 768px) {
-  #hero {
-    background-attachment: scroll !important;
+  .folder-tab-mid {
+    clip-path: polygon(44px 0, calc(100% - 44px) 0, 100% 100%, 0 100%);
+  }
+
+  .folder-chip {
+    clip-path: polygon(0 0, 38% 0, 48% 26%, 100% 26%, 100% 100%, 0 100%);
+  }
+
+  .hard-shadow {
+    box-shadow: 3px 3px 0 rgb(var(--ink-rgb) / 0.9);
+  }
+
+  .hard-shadow-lg {
+    box-shadow: 6px 6px 0 rgb(var(--ink-rgb) / 0.9);
   }
 }
 
-.slide-in {
-  opacity: 0;
-  transform: translateY(50px);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
-}
-
-.slide-in.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@layer utilities {
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-
-    100% {
-      transform: translateX(-50%);
-    }
+@keyframes pill-drift-a {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-14deg);
   }
-
-  .animate-scroll {
-    animation: scroll 30s linear infinite;
+  50% {
+    transform: translateY(48px) rotate(1deg);
   }
 }
 
-.pause-animation:hover .animate-scroll {
-  animation-play-state: paused;
+@keyframes pill-drift-b {
+  0%,
+  100% {
+    transform: translateY(0) rotate(9deg);
+  }
+  50% {
+    transform: translateY(-42px) rotate(-3deg);
+  }
 }
 
-/* Mascot groove animation lives in tailwind.config.ts (animate-mascot-groove) */
-
-.curvy-underline {
-  position: relative;
-  display: inline-block;
+@keyframes roll360 {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.curvy-underline::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  width: 100%;
-  height: 12px;
-  background-image: url("data:image/svg+xml,%3Csvg width='300' height='12' viewBox='0 0 300 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 9.5C50 3.5 100 3.5 150 6.5C200 9.5 250 9.5 298 2.5' stroke='%23FF5724' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  z-index: 1;
-  pointer-events: none;
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
 }
 
-.curvy-underline-white::after {
-  background-image: url("data:image/svg+xml,%3Csvg width='300' height='12' viewBox='0 0 300 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 9.5C50 3.5 100 3.5 150 6.5C200 9.5 250 9.5 298 2.5' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes arrow-through {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes status-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes lightbox-zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes lightbox-snap-next {
+  0% {
+    opacity: 0.3;
+    transform: translateX(28px) scale(0.985);
+  }
+  65% {
+    transform: translateX(-4px) scale(1.003);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes lightbox-snap-prev {
+  0% {
+    opacity: 0.3;
+    transform: translateX(-28px) scale(0.985);
+  }
+  65% {
+    transform: translateX(4px) scale(1.003);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.animate-pill-a {
+  animation: pill-drift-a 9s ease-in-out infinite;
+}
+
+.animate-pill-b {
+  animation: pill-drift-b 7s ease-in-out infinite;
+}
+
+.animate-roll {
+  animation: roll360 6s linear infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 5s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+.animate-status-pulse {
+  animation: status-pulse 2.8s ease-in-out infinite;
+}
+
+.animate-arrow-through {
+  animation: arrow-through 1.1s linear infinite paused;
+}
+
+.group:hover .animate-arrow-through {
+  animation-play-state: running;
+}
+
+.animate-lightbox-zoom {
+  animation: lightbox-zoom 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-lightbox-snap-next {
+  animation: lightbox-snap-next 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-lightbox-snap-prev {
+  animation: lightbox-snap-prev 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.contact-plate:hover .tile-roll {
+  animation: roll360 2.6s linear infinite;
+}
+
+.contact-plate:hover .tile-roll-rev {
+  animation: roll360 3.4s linear infinite reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pill-a,
+  .animate-pill-b,
+  .animate-roll,
+  .animate-wiggle,
+  .animate-float,
+  .animate-status-pulse {
+    animation: none;
+  }
 }

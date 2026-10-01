@@ -3,17 +3,15 @@ import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { useTheme } from "@/components/ThemeProvider";
 import {
-  ArrowLeft,
   BarChart3,
   ChevronDown,
   ExternalLink,
   GitBranch,
   Github,
   GitPullRequest,
-  Search,
   Star,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { LabelTag, SelectionBox } from "@/components/canvas/Canvas";
 
 const GITHUB_USERNAME = "CongoMusahAdama";
 const CONTRIBUTIONS_API = `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}`;
@@ -318,29 +316,29 @@ const GitHubContributionsSection = () => {
     <>
       <div className="flex flex-col xl:flex-row xl:items-start xl:justify-between gap-6 mb-6">
         <div>
-          <h2 className="text-lg md:text-xl font-black tracking-tight text-foreground">
+          <h2 className="text-lg md:text-xl font-semibold tracking-tight text-ink">
             {contributionsLoading
               ? "Loading contributions..."
               : `${totalContributions.toLocaleString()} contributions in ${yearLabel}`}
           </h2>
-          <p className="mt-2 text-sm text-muted-foreground max-w-xl">
+          <p className="mt-2 text-sm text-ink/55 max-w-xl">
             A live snapshot of my coding activity on GitHub — commits, pull
             requests, issues, and reviews over time.
           </p>
         </div>
 
         <div className="flex flex-col items-start xl:items-end gap-2 shrink-0">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink/55">
             Year
           </span>
           <div className="flex flex-col gap-1">
             <button
               type="button"
               onClick={() => setSelectedYear("last")}
-              className={`rounded-lg px-3 py-1.5 text-sm font-semibold text-left transition-colors ${
+              className={`px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-[0.1em] text-left transition-colors ${
                 selectedYear === "last"
-                  ? "bg-[#0969da] text-white"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "bg-c-blue text-on-color"
+                  : "text-ink/55 hover:text-ink"
               }`}
             >
               Last year
@@ -350,10 +348,10 @@ const GitHubContributionsSection = () => {
                 key={year}
                 type="button"
                 onClick={() => setSelectedYear(year)}
-                className={`rounded-lg px-3 py-1.5 text-sm font-semibold text-left transition-colors ${
+                className={`px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-[0.1em] text-left transition-colors ${
                   selectedYear === year
-                    ? "bg-[#0969da] text-white"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "bg-c-blue text-on-color"
+                    : "text-ink/55 hover:text-ink"
                 }`}
               >
                 {year}
@@ -363,9 +361,9 @@ const GitHubContributionsSection = () => {
         </div>
       </div>
 
-      <div className="rounded-2xl border border-border/50 bg-card p-4 md:p-5 overflow-x-auto">
+      <div className="border border-ink/15 bg-canvas p-4 md:p-5 overflow-x-auto">
         {contributionsLoading ? (
-          <div className="h-[132px] flex items-center justify-center text-sm text-muted-foreground">
+          <div className="h-[132px] flex items-center justify-center text-sm text-ink/55">
             Fetching contribution graph...
           </div>
         ) : (
@@ -376,7 +374,7 @@ const GitHubContributionsSection = () => {
                 {monthPositions.map(({ label, weekIndex }) => (
                   <span
                     key={`${label}-${weekIndex}`}
-                    className="absolute text-[11px] font-medium text-muted-foreground"
+                    className="absolute text-[11px] font-medium text-ink/55"
                     style={{ left: `${weekIndex * 14}px` }}
                   >
                     {label}
@@ -388,7 +386,7 @@ const GitHubContributionsSection = () => {
                 {DAY_LABELS.map((day, index) => (
                   <span
                     key={day}
-                    className={`h-[11px] text-[10px] leading-none text-muted-foreground ${
+                    className={`h-[11px] text-[10px] leading-none text-ink/55 ${
                       index % 2 === 0 ? "opacity-100" : "opacity-0"
                     }`}
                   >
@@ -409,7 +407,7 @@ const GitHubContributionsSection = () => {
                         <div
                           key={day.date}
                           title={`${day.count} contribution${day.count === 1 ? "" : "s"} on ${day.date}`}
-                          className="h-[11px] w-[11px] rounded-[2px] border border-black/5 dark:border-white/5"
+                          className="h-[11px] w-[11px]  border border-black/5 dark:border-white/5"
                           style={{ backgroundColor: palette[level] }}
                         />
                       );
@@ -419,12 +417,12 @@ const GitHubContributionsSection = () => {
               </div>
             </div>
 
-            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-[11px] text-muted-foreground">
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-[11px] text-ink/55">
               <a
                 href={`https://github.com/${GITHUB_USERNAME}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 hover:text-foreground transition-colors"
+                className="inline-flex items-center gap-1 hover:text-ink transition-colors"
               >
                 Learn how we count contributions
                 <ChevronDown className="w-3 h-3" />
@@ -434,7 +432,7 @@ const GitHubContributionsSection = () => {
                 {palette.map((color) => (
                   <span
                     key={color}
-                    className="h-[11px] w-[11px] rounded-[2px] border border-black/5 dark:border-white/5"
+                    className="h-[11px] w-[11px]  border border-black/5 dark:border-white/5"
                     style={{ backgroundColor: color }}
                   />
                 ))}
@@ -450,12 +448,12 @@ const GitHubContributionsSection = () => {
   const renderReposPanel = () => (
     <div className="space-y-3">
       <div className="mb-6">
-        <h2 className="text-lg md:text-xl font-black tracking-tight text-foreground">
+        <h2 className="text-lg md:text-xl font-semibold tracking-tight text-ink">
           {reposLoading
             ? "Loading repositories..."
             : `${user?.public_repos ?? repos?.length ?? 0} public repositories`}
         </h2>
-        <p className="mt-2 text-sm text-muted-foreground max-w-xl">
+        <p className="mt-2 text-sm text-ink/55 max-w-xl">
           Recently updated open-source projects from my GitHub profile.
         </p>
       </div>
@@ -465,7 +463,7 @@ const GitHubContributionsSection = () => {
           {[0, 1, 2, 3].map((i) => (
             <div
               key={i}
-              className="h-20 rounded-2xl border border-border/50 bg-card animate-pulse"
+              className="h-20 border border-ink/15 bg-canvas animate-pulse"
             />
           ))}
         </div>
@@ -477,22 +475,22 @@ const GitHubContributionsSection = () => {
                 href={repo.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 rounded-2xl border border-border/50 bg-card px-4 py-4 hover:border-brand-orange/40 hover:bg-brand-orange/5 transition-colors"
+                className="group flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border border-ink/15 bg-canvas px-4 py-4 hover:border-ink hover:bg-c-cream/40 transition-colors"
               >
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
-                    <Github className="w-4 h-4 text-brand-orange shrink-0" />
-                    <span className="font-semibold text-foreground group-hover:text-brand-orange transition-colors truncate">
+                    <Github className="w-4 h-4 text-ink/70 shrink-0" />
+                    <span className="font-semibold text-ink group-hover:underline transition-colors truncate">
                       {repo.name}
                     </span>
                   </div>
                   {repo.description && (
-                    <p className="text-xs text-muted-foreground mt-1 line-clamp-2 sm:line-clamp-1 pl-6">
+                    <p className="text-xs text-ink/55 mt-1 line-clamp-2 sm:line-clamp-1 pl-6">
                       {repo.description}
                     </p>
                   )}
                 </div>
-                <div className="flex items-center gap-4 shrink-0 text-xs text-muted-foreground pl-6 sm:pl-0">
+                <div className="flex items-center gap-4 shrink-0 text-xs text-ink/55 pl-6 sm:pl-0">
                   {repo.language && <span>{repo.language}</span>}
                   {repo.stargazers_count > 0 && (
                     <span className="inline-flex items-center gap-1">
@@ -508,7 +506,7 @@ const GitHubContributionsSection = () => {
           ))}
         </ul>
       ) : (
-        <p className="text-sm text-muted-foreground">No repositories found.</p>
+        <p className="text-sm text-ink/55">No repositories found.</p>
       )}
     </div>
   );
@@ -516,10 +514,10 @@ const GitHubContributionsSection = () => {
   const renderActivityPanel = () => (
     <div className="space-y-3">
       <div className="mb-6">
-        <h2 className="text-lg md:text-xl font-black tracking-tight text-foreground">
+        <h2 className="text-lg md:text-xl font-semibold tracking-tight text-ink">
           {eventsLoading ? "Loading activity..." : "Recent public activity"}
         </h2>
-        <p className="mt-2 text-sm text-muted-foreground max-w-xl">
+        <p className="mt-2 text-sm text-ink/55 max-w-xl">
           Latest pushes, pull requests, and events from my GitHub timeline.
         </p>
       </div>
@@ -529,7 +527,7 @@ const GitHubContributionsSection = () => {
           {[0, 1, 2, 3, 4].map((i) => (
             <div
               key={i}
-              className="h-14 rounded-2xl border border-border/50 bg-card animate-pulse"
+              className="h-14 border border-ink/15 bg-canvas animate-pulse"
             />
           ))}
         </div>
@@ -538,107 +536,69 @@ const GitHubContributionsSection = () => {
           {events.map((event) => (
             <li
               key={event.id}
-              className="flex items-start gap-3 rounded-2xl border border-border/50 bg-card px-4 py-3"
+              className="flex items-start gap-3 border border-ink/15 bg-canvas px-4 py-3"
             >
-              <div className="mt-0.5 w-8 h-8 rounded-full bg-brand-orange/10 flex items-center justify-center shrink-0">
-                <GitPullRequest className="w-3.5 h-3.5 text-brand-orange" />
+              <div className="mt-0.5 w-8 h-8 rounded-full bg-c-mint flex items-center justify-center shrink-0">
+                <GitPullRequest className="w-3.5 h-3.5 text-ink/70" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-sm text-foreground font-medium leading-snug">
+                <p className="text-sm text-ink font-medium leading-snug">
                   {describeEvent(event)}
                 </p>
                 <a
                   href={event.repo.url.replace("api.github.com/repos", "github.com")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-muted-foreground hover:text-brand-orange transition-colors mt-0.5 inline-block truncate max-w-full"
+                  className="text-xs text-ink/55 hover:text-ink transition-colors mt-0.5 inline-block truncate max-w-full"
                 >
                   {event.repo.name}
                 </a>
               </div>
-              <span className="text-[11px] text-muted-foreground shrink-0 pt-0.5">
+              <span className="text-[11px] text-ink/55 shrink-0 pt-0.5">
                 {formatRelativeTime(event.created_at)}
               </span>
             </li>
           ))}
         </ul>
       ) : (
-        <p className="text-sm text-muted-foreground">No recent activity found.</p>
+        <p className="text-sm text-ink/55">No recent activity found.</p>
       )}
     </div>
   );
 
   return (
-    <section
-      id="activity"
-      className="relative py-16 md:py-24 bg-muted/30 overflow-hidden border-t border-border/40"
-    >
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-6xl mx-auto"
-        >
-          <div className="rounded-[20px] sm:rounded-[28px] border border-border/60 bg-card shadow-[0_24px_80px_-32px_rgba(15,23,42,0.18)] overflow-hidden">
-            <div className="px-4 md:px-6 py-4 border-b border-border/50 bg-card/80">
-              <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-                <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                  <button
-                    type="button"
-                    className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border/60 hover:bg-muted/60 transition-colors"
-                    aria-label="Back"
-                  >
-                    <ArrowLeft className="w-4 h-4" />
-                  </button>
-                  <span className="font-medium">Open Source</span>
-                  <span className="text-border">/</span>
-                  <div className="inline-flex items-center gap-2 text-foreground font-semibold">
-                    <Github className="w-4 h-4 text-brand-orange" />
-                    {GITHUB_USERNAME}
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <div className="hidden sm:flex -space-x-2">
-                    {[user?.avatar_url].filter(Boolean).map((avatar) => (
-                      <img
-                        key={avatar}
-                        src={avatar}
-                        alt={GITHUB_USERNAME}
-                        className="h-8 w-8 rounded-full border-2 border-card object-cover"
-                      />
-                    ))}
-                  </div>
-                  <button
-                    type="button"
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors"
-                    aria-label="Search"
-                  >
-                    <Search className="w-4 h-4" />
-                  </button>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="rounded-full h-9 px-4 text-xs font-semibold border-border/60"
-                  >
-                    <a
-                      href={
-                        user?.html_url ??
-                        `https://github.com/${GITHUB_USERNAME}`
-                      }
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      View Profile
-                      <ExternalLink className="w-3.5 h-3.5 ml-2" />
-                    </a>
-                  </Button>
+    <section id="activity" className="relative scroll-mt-24 px-4 py-16 sm:px-8 md:py-24">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="mx-auto max-w-6xl"
+      >
+        <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
+          <LabelTag bg="#5fb57f" className="mb-0">
+            Open source · {GITHUB_USERNAME}
+          </LabelTag>
+          <p className="font-hand text-2xl text-ink">shipping in public, daily-ish</p>
+        </div>
+        <SelectionBox color="#5fb57f" fill="rgb(var(--paper-rgb))">
+          <div className="border-b border-ink/10 px-4 py-4 md:px-6">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+              <div className="flex items-center gap-3">
+                {user?.avatar_url && (
+                  <img
+                    src={user.avatar_url}
+                    alt={GITHUB_USERNAME}
+                    className="h-9 w-9 rounded-full border-2 border-ink object-cover"
+                  />
+                )}
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-ink">{user?.login ?? GITHUB_USERNAME}</p>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-ink/50">github.com/{GITHUB_USERNAME}</p>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-2 mt-5">
+              <div className="flex flex-wrap items-center gap-2">
                 {tabs.map((tab) => {
                   const Icon = tab.icon;
                   const isActive = activeTab === tab.id;
@@ -647,55 +607,56 @@ const GitHubContributionsSection = () => {
                       key={tab.id}
                       type="button"
                       onClick={() => setActiveTab(tab.id)}
-                      className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold transition-colors ${
-                        isActive
-                          ? "bg-foreground text-background"
-                          : "text-muted-foreground hover:bg-muted/70 hover:text-foreground"
+                      className={`inline-flex items-center gap-2 px-3 py-2 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors ${
+                        isActive ? "bg-c-blue text-on-color" : "bg-ink/5 text-ink hover:bg-c-cream hover:text-on-color"
                       }`}
                     >
-                      <Icon className="w-3.5 h-3.5" />
+                      <Icon className="h-3.5 w-3.5" />
                       {tab.label}
                     </button>
                   );
                 })}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-[240px_minmax(0,1fr)]">
-              <aside className="border-b lg:border-b-0 lg:border-r border-border/50 bg-muted/20 p-4 md:p-5">
-                <div className="grid grid-cols-2 lg:grid-cols-1 gap-3">
-                {sidebarStats.map((stat) => {
-                  const Icon = stat.icon;
-                  return (
-                    <div
-                      key={stat.label}
-                      className="rounded-2xl border border-border/50 bg-card px-4 py-4 shadow-sm"
-                    >
-                      <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                        <Icon className="w-3.5 h-3.5 text-brand-orange" />
-                        {stat.label}
-                      </div>
-                      <div className="mt-3 text-2xl font-black tracking-tight text-foreground">
-                        {stat.value}
-                      </div>
-                      <div className="mt-1 text-xs text-muted-foreground">
-                        {stat.hint}
-                      </div>
-                    </div>
-                  );
-                })}
-                </div>
-              </aside>
-
-              <div className="p-4 md:p-6 lg:p-8">
-                {activeTab === "contributions" && renderContributionsPanel()}
-                {activeTab === "repos" && renderReposPanel()}
-                {activeTab === "activity" && renderActivityPanel()}
+                <a
+                  href={user?.html_url ?? `https://github.com/${GITHUB_USERNAME}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border-2 border-ink px-3 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-ink transition-colors hover:bg-ink hover:text-canvas"
+                >
+                  View profile
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
               </div>
             </div>
           </div>
-        </motion.div>
-      </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-[240px_minmax(0,1fr)]">
+            <aside className="border-b border-ink/10 p-4 md:p-5 lg:border-b-0 lg:border-r">
+              <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
+                {sidebarStats.map((stat, index) => {
+                  const Icon = stat.icon;
+                  const tint = ["#b5ddf0", "#a6d9bb", "#efdca4", "#f2bfcd"][index % 4];
+                  return (
+                    <div key={stat.label} className="px-4 py-4 text-on-color" style={{ background: tint }}>
+                      <div className="flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] opacity-70">
+                        <Icon className="h-3.5 w-3.5" />
+                        {stat.label}
+                      </div>
+                      <div className="mt-2 font-pixel text-3xl font-bold tracking-tight">{stat.value}</div>
+                      <div className="mt-1 text-xs opacity-70">{stat.hint}</div>
+                    </div>
+                  );
+                })}
+              </div>
+            </aside>
+
+            <div className="p-4 md:p-6 lg:p-8">
+              {activeTab === "contributions" && renderContributionsPanel()}
+              {activeTab === "repos" && renderReposPanel()}
+              {activeTab === "activity" && renderActivityPanel()}
+            </div>
+          </div>
+        </SelectionBox>
+      </motion.div>
     </section>
   );
 };

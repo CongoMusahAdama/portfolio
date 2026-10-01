@@ -8,20 +8,20 @@ export type AboutSection = {
 export const aboutSections: AboutSection[] = [
   {
     label: "Hey",
-    text: "I'm Congo Musah Adams, a software engineer based in Takoradi, Ghana. I build software systems and products that actually matter here and across Africa.",
+    text: "I spend my days on system architecture and infrastructure design — using engineering as a tool to build products across agritech, fintech, edtech, and logistics. These are environments where reliability, security, and scale aren't optional. My role is to turn complex requirements into architecture that is resilient, maintainable, and built to grow — so the product simply works.",
   },
   {
     label: "How it started",
-    text: "2020 — joined a masquerade club, got into a WordPress training, built my first site. That was the moment. Ideas turning into something real on the internet just clicked for me.",
+    text: "2020 — joined a masquerade club, got into a WordPress training, built my first site. That was the moment. Ideas turning into something real on the internet just clicked for me, and I've been shipping ever since.",
   },
   {
-    label: "University days",
-    text: "Went to the University of Energy and Natural Resources (UENR) for Agricultural Science & Technology while doing remote dev on the side. Agriculture plus tech shaped how I think about real problems in emerging markets.",
-    highlights: ["Agricultural Science & Technology"],
+    label: "How I work",
+    text: "I've shipped as a team of one and alongside founders and bigger teams, for clients in Ghana and abroad. I've had clean specs, and I've had requirements change mid-build. I've worked inside legacy systems and built platforms from scratch. What stays consistent is asking good questions, thinking through the failure modes, and shipping things that hold up.",
+    highlights: ["asking good questions", "thinking through the failure modes", "shipping things that hold up"],
   },
   {
     label: "What I do now",
-    text: "Software engineer with a strong focus on system design — scalable architectures, RESTful APIs, and reliable distributed systems. During my national service I sharpened my product mindset working closely with founders. Now I'm going deep on machine learning — building models that predict, decide, and improve over time.",
+    text: "Day to day that means system design — scalable architectures, RESTful APIs, and reliable backends — paired with a product mindset that comes from building closely with founders. Now I'm going deep on machine learning — building models that predict, decide, and improve over time.",
     highlights: [
       "system design",
       "RESTful APIs",
@@ -40,11 +40,9 @@ I'm a software engineer based in Takoradi, Ghana. I build software systems and p
 
 So, how did I get into this? Back in 2020, I joined a masquerade club. They organised a WordPress training, and I built my first website. Honestly? That was the moment for me. Watching an idea become something real on the internet — I was hooked.
 
-I studied Agricultural Science and Technology at the University of Energy and Natural Resources — UENR — but I kept taking remote dev work on the side. Mixing agriculture with tech really changed how I see problems — especially in Ghana and other emerging markets.
+These days I focus on system architecture and infrastructure design, using engineering as a tool to build products across agritech, fintech, edtech, and logistics. My role is to turn complex requirements into architecture that is resilient, maintainable, and built to grow.
 
-I've worked with teams here and abroad — RESTful backends, Agile, shipping with distributed crews. Went full-time into software in 2022.
-
-During my national service, I worked closely with founders and teams shipping real products. That's where my product mindset really clicked — clarity, collaboration, building stuff people actually use.
+I've shipped as a team of one and alongside founders and bigger teams, here and abroad. Clean specs, changing requirements, legacy systems, greenfield builds — what stays the same is asking good questions, thinking through what can break, and shipping things that hold up.
 
 These days I'm focused on system design — scalable architectures, secure software systems, and how all the pieces fit together. And I'm going deep on machine learning — teaching systems to predict, decide, and improve over time.
 

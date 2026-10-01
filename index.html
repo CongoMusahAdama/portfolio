@@ -19,14 +19,22 @@
   <meta name="twitter:site" content="@1real_vee" />
   <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@400..800&family=Caveat:wght@400..700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Instrument+Sans:wght@400..700&display=swap"
+    rel="stylesheet" />
+
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/lovable-uploads/ad4fce9f-936a-49dd-a850-844ccbc26dce.png" />
-  <meta name="theme-color" content="#0b0d10" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#faf9f5" />
   <script>
     (function () {
-      var key = "portfolio-theme-v2";
+      var key = "portfolio-theme-v3";
       var stored = localStorage.getItem(key);
-      var theme = stored || "dark";
+      var theme = stored || "light";
       var isDark =
         theme === "dark" ||
         (theme === "system" &&

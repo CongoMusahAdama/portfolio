@@ -1,58 +1,47 @@
-
 import { motion } from "framer-motion";
 
+const learningItems = [
+  {
+    name: "Machine Learning",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
+    bg: "#f2bfcd",
+  },
+  {
+    name: "Product Development",
+    icon: "/lovable-uploads/product-dev-icon.png",
+    bg: "#b5ddf0",
+  },
+];
+
 const LearningSection = () => {
-    const learningItems = [
-        {
-            name: "Machine Learning",
-            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
-            color: "text-brand-orange"
-        },
-        {
-            name: "Product Development",
-            icon: "/lovable-uploads/product-dev-icon.png",
-            color: "text-blue-500"
-        }
-    ];
-
-    return (
-        <section className="py-6 bg-background border-b border-border/40 overflow-hidden">
-            <div className="container mx-auto px-5 sm:px-6">
-                <motion.div
-                    className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <div className="flex items-center gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
-                        <h3 className="text-[10px] sm:text-xs uppercase tracking-[0.3em] font-bold text-muted-foreground/60 font-display">
-                            Currently Learning
-                        </h3>
-                    </div>
-
-                    <div className="flex items-center gap-8 sm:gap-12">
-                        {learningItems.map((item, idx) => (
-                            <div key={idx} className="flex items-center gap-2.5 group cursor-default">
-                                <div className="relative">
-                                    <div className="absolute inset-0 bg-brand-orange/20 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                                    <img
-                                        src={item.icon}
-                                        alt={item.name}
-                                        className="w-5 h-5 sm:w-6 sm:h-6 object-contain relative z-10 filter transition-transform group-hover:scale-110"
-                                    />
-                                </div>
-                                <span className="text-xs sm:text-sm font-bold text-foreground tracking-tight group-hover:text-brand-orange transition-colors">
-                                    {item.name}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                </motion.div>
-            </div>
-        </section>
-    );
+  return (
+    <section className="border-y border-ink/10 bg-paper">
+      <motion.div
+        className="mx-auto flex w-full max-w-6xl flex-col items-center justify-center gap-4 px-5 py-5 sm:flex-row sm:gap-8"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <p className="flex items-center gap-2.5 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-ink/60">
+          <span className="h-2 w-2 animate-status-pulse rounded-full bg-c-pink" />
+          Currently learning
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          {learningItems.map((item) => (
+            <span
+              key={item.name}
+              className="flex items-center gap-2 px-3 py-1.5 text-sm font-semibold text-on-color"
+              style={{ background: item.bg }}
+            >
+              <img src={item.icon} alt="" className="h-5 w-5 object-contain" />
+              {item.name}
+            </span>
+          ))}
+        </div>
+      </motion.div>
+    </section>
+  );
 };
 
 export default LearningSection;

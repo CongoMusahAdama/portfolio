@@ -1,217 +1,149 @@
-import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Github, Linkedin, Twitter, Mail } from "lucide-react";
 import { motion } from "framer-motion";
+import { ArrowUpRight, Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { CornerHandles, FloatingPill, Squiggle } from "@/components/canvas/Canvas";
+
+const rise = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
+};
+
+const socials = [
+  { label: "Email amusahcongo@gmail.com", href: "mailto:amusahcongo@gmail.com", Icon: Mail },
+  { label: "GitHub", href: "https://github.com/CongoMusahAdama", Icon: Github },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/congo-musah-ad-deen-766bb3224/", Icon: Linkedin },
+  { label: "Twitter", href: "https://twitter.com/1real_vee", Icon: Twitter },
+];
+
+const scrollToProjects = () =>
+  document.getElementById("projects")?.scrollIntoView({ behavior: "smooth", block: "start" });
 
 const HeroSection = () => {
   return (
-    <section
-      id="hero"
-      className="relative min-h-[min(90dvh,900px)] bg-background flex flex-col pt-[max(5.5rem,calc(env(safe-area-inset-top)+4.5rem))] md:pt-32 overflow-hidden"
-    >
-      {/* Background Vertical Lines */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]">
-        <div className="container mx-auto h-full px-6 flex justify-between">
-          {[...Array(8)].map((_, i) => (
-            <div key={i} className="w-[1px] h-full bg-foreground" />
-          ))}
-        </div>
-      </div>
+    <section id="hero" className="relative px-5 pb-8 pt-10 sm:px-8 sm:pb-14 md:pb-28 md:pt-16">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_auto]">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{ visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } } }}
+          className="relative z-10 flex min-w-0 flex-col items-start"
+        >
+          <motion.div variants={rise} className="mb-5 flex flex-col items-start text-ink">
+            <p className="font-hand text-2xl leading-none sm:text-3xl">hi, my name is congo</p>
+            <Squiggle className="mt-1 text-c-pink" />
+          </motion.div>
 
-      <div className="container mx-auto px-5 sm:px-6 relative z-10 flex-1 flex flex-col justify-center pb-10 sm:pb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
-          {/* Left Content (Text) - First on mobile */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={{
-              visible: {
-                transition: {
-                  staggerChildren: 0.1,
-                  delayChildren: 0.2,
-                },
-              },
-            }}
-            className="lg:col-span-7 order-1 lg:order-1 flex flex-col gap-6 md:gap-8 relative z-10 min-w-0"
-          >
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-wrap items-center gap-2 max-w-full"
+          <motion.div variants={rise} className="relative mb-8 mt-2 max-w-full">
+            <span className="absolute -top-8 right-2 z-20 -rotate-6 bg-c-yellow px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-on-color shadow-[2px_2px_0_rgba(20,20,20,0.85)] sm:-right-6">
+              Product builder
+            </span>
+            <div className="group relative px-4 py-4 transition-colors duration-300 hover:bg-ink sm:px-6 sm:py-5"
+              style={{ boxShadow: "0 0 0 1px #5fbee6" }}
             >
-              <div className="flex flex-col min-w-0 flex-1">
-                <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                  <span className="text-[10px] sm:text-xs font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] text-brand-orange leading-snug">
-                    Software Engineer & Machine Learning
-                  </span>
-                  <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4 text-brand-orange shrink-0" />
-                </div>
-                <div className="h-[1px] w-full bg-brand-orange/30 mt-1" />
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-3xl min-w-0 lg:pr-2"
-            >
-              {/* Curly arrow — outside text flow so lines stay aligned */}
-              <div className="absolute -left-24 md:-left-40 top-[38%] hidden md:block select-none pointer-events-none w-24 md:w-32 h-24 md:h-32 -translate-y-1/2">
-                <svg
-                  viewBox="0 0 115 100"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="text-brand-orange w-full h-full opacity-90"
-                >
-                  <path
-                    d="M5 85 C 15 95 35 90 45 70 C 50 45 35 30 25 50 C 15 70 45 95 75 90 C 95 85 105 65 108 45"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="none"
-                  />
-                  <path
-                    d="M98 58 L 108 45 L 115 55"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="none"
-                  />
-                </svg>
-              </div>
-
-              <h1 className="flex flex-col items-start text-left font-display font-black tracking-tight text-foreground w-full max-w-full min-w-0">
-                {/* Mobile: original 3-line layout */}
-                <span className="block text-[clamp(1.75rem,8.5vw,2.15rem)] leading-[0.95] sm:text-[2.75rem] md:text-7xl md:leading-none lg:hidden">
-                  Building{" "}
-                  <span className="text-brand-orange">Digital</span>
+              <CornerHandles color="#5fbee6" />
+              <h1 className="flex flex-col items-start font-pixel font-bold tracking-tight text-ink transition-colors duration-300 group-hover:text-canvas">
+                <span className="block text-[clamp(2rem,10.4vw,2.6rem)] leading-[1] sm:text-[2.75rem] md:text-7xl lg:hidden">
+                  Building <span className="text-brand-orange">Digital</span>
                 </span>
-                <span className="block text-[clamp(1.75rem,8.5vw,2.15rem)] leading-[0.95] sm:text-[2.75rem] md:text-7xl mt-1 md:mt-2 md:leading-none lg:hidden">
+                <span className="mt-1 block text-[clamp(2rem,10.4vw,2.6rem)] leading-[1] sm:text-[2.75rem] md:mt-2 md:text-7xl lg:hidden">
                   Products That
                 </span>
-                <span className="block text-[clamp(1.75rem,8.5vw,2.15rem)] leading-[0.95] sm:text-[2.75rem] md:text-7xl mt-1 md:mt-2 md:leading-none lg:hidden">
+                <span className="mt-1 block text-[clamp(2rem,10.4vw,2.6rem)] leading-[1] sm:text-[2.75rem] md:mt-2 md:text-7xl lg:hidden">
                   Matter
                 </span>
 
-                {/* Desktop: 2 lines, orange Digital, smaller line 2 to avoid image overlap */}
-                <span className="hidden lg:block whitespace-nowrap text-6xl xl:text-7xl 2xl:text-8xl leading-none">
-                  Building{" "}
-                  <span className="text-brand-orange">Digital</span>
+                <span className="hidden whitespace-nowrap text-6xl leading-none lg:block xl:text-7xl">
+                  Building <span className="text-brand-orange">Digital</span>
                 </span>
-                <span className="hidden lg:block whitespace-nowrap text-5xl xl:text-6xl 2xl:text-7xl mt-2 leading-none">
+                <span className="mt-3 hidden whitespace-nowrap text-5xl leading-none lg:block xl:text-6xl">
                   Products That Matter
                 </span>
               </h1>
-            </motion.div>
-
-            <motion.p
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-muted-foreground text-sm sm:text-base max-w-md leading-relaxed text-left"
-            >
-              Congo Musah Adams — A Product Builder who uses{" "}
-              <span className="text-foreground font-semibold">engineering</span>{" "}
-              as a tool to create impactful digital solutions.
-            </motion.p>
-
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-2 md:pt-4"
-            >
-              <Button
-                onClick={() =>
-                  document
-                    .getElementById("projects")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className="w-full sm:w-auto px-6 md:px-8 font-black min-h-[48px] py-4 md:py-7 bg-foreground text-background hover:bg-foreground/90 rounded-none uppercase text-[10px] md:text-xs tracking-widest transition-all"
-              >
-                View Projects
-              </Button>
-
-              <Button
-                variant="outline"
-                className="w-full sm:w-auto px-6 md:px-8 font-black min-h-[48px] py-4 md:py-7 border-2 border-foreground/20 hover:border-brand-orange hover:text-brand-orange rounded-none uppercase text-[10px] md:text-xs tracking-widest transition-all gap-2"
-                asChild
-              >
-                <a
-                  href="https://flowcv.com/resume/wtaak1n6a414"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Download CV
-                </a>
-              </Button>
-              <div className="flex items-center justify-center sm:justify-start gap-5 px-0 pt-2 sm:pt-0 sm:px-0 sm:mt-0 w-full sm:w-auto">
-                <a
-                  href="mailto:amusahcongo@gmail.com"
-                  className="flex items-center justify-center min-h-[44px] min-w-[44px] text-foreground/40 hover:text-foreground transition-all group/mail"
-                  aria-label="Email amusahcongo@gmail.com"
-                >
-                  <Mail className="w-5 h-5 group-hover/mail:text-brand-orange transition-colors" />
-                </a>
-                <a
-                  href="https://github.com/CongoMusahAdama"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center min-h-[44px] min-w-[44px] text-foreground/40 hover:text-foreground transition-all"
-                >
-                  <Github className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/congo-musah-ad-deen-766bb3224/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center min-h-[44px] min-w-[44px] text-foreground/40 hover:text-foreground transition-all"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://twitter.com/1real_vee"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center min-h-[44px] min-w-[44px] text-foreground/40 hover:text-foreground transition-all"
-                >
-                  <Twitter className="w-5 h-5" />
-                </a>
-              </div>
-            </motion.div>
+            </div>
+            <span className="absolute -bottom-5 left-4 z-20 rotate-3 bg-c-pink px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-white shadow-[2px_2px_0_rgba(20,20,20,0.85)]">
+              Machine learning
+            </span>
           </motion.div>
 
-          {/* Right Content (Image) */}
-          <div className="lg:col-span-5 order-2 lg:order-2 relative z-0 flex items-center justify-center lg:justify-end">
-            <motion.div
-              initial={{ opacity: 0, x: 50, scale: 0.95 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{
-                duration: 2.5,
-                ease: [0.16, 1, 0.3, 1],
-                delay: 0.6,
-              }}
-              className="relative w-full max-w-[160px] sm:max-w-[220px] md:max-w-[280px] lg:max-w-[320px] mx-auto lg:mx-0"
+          <motion.p
+            variants={rise}
+            className="mb-4 mt-4 flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-ink/70"
+          >
+            <span className="h-2 w-2 shrink-0 rounded-full bg-c-blue" />
+            Software Engineer &amp; Machine Learning · Ghana
+          </motion.p>
+
+          <motion.p variants={rise} className="max-w-xl text-base leading-relaxed text-ink/75 sm:text-lg">
+            Congo Musah Adams — A Product Builder who uses{" "}
+            <span className="bg-c-cream px-1 font-semibold text-on-color">engineering</span> as a tool to create
+            impactful digital solutions.
+          </motion.p>
+
+          <motion.div variants={rise} className="mt-8 grid w-full grid-cols-2 gap-3 sm:mt-9 sm:flex sm:w-auto sm:flex-wrap sm:items-center sm:gap-4">
+            <button
+              type="button"
+              onClick={scrollToProjects}
+              className="group relative inline-flex min-h-[52px] items-center justify-between gap-2 bg-on-color py-2 pl-3.5 pr-2 text-white dark:bg-ink dark:text-canvas sm:justify-start sm:gap-4 sm:pl-3"
             >
-              <img
-                src="/lovable-uploads/profilelove-transparent.png"
-                alt="Congo Musah Adams"
-                className="w-full max-h-[320px] sm:max-h-[360px] md:max-h-[420px] lg:max-h-[460px] h-auto object-contain object-bottom transition-transform duration-700 md:hover:scale-105"
-              />
-            </motion.div>
+              <span className="hidden h-4 w-4 shrink-0 bg-c-pink sm:block" />
+              <span className="whitespace-nowrap font-mono text-[11px] font-semibold uppercase tracking-[0.1em] sm:text-sm sm:tracking-[0.14em]">
+                View projects
+              </span>
+              <span className="flex h-8 w-8 shrink-0 items-center justify-start overflow-hidden rounded-full bg-c-blue text-on-color sm:h-9 sm:w-9">
+                <span className="flex w-[200%] shrink-0 animate-arrow-through">
+                  <ArrowUpRight className="mx-[10px] h-4 w-4 rotate-45" />
+                  <ArrowUpRight className="mx-[10px] h-4 w-4 rotate-45" />
+                </span>
+              </span>
+              <span className="pointer-events-none opacity-0 transition-opacity group-hover:opacity-100">
+                <CornerHandles color="#5fbee6" size={9} />
+              </span>
+            </button>
+
+            <a
+              href="https://flowcv.com/resume/wtaak1n6a414"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[52px] items-center justify-center whitespace-nowrap border-2 border-ink px-3 font-mono text-[11px] font-semibold uppercase tracking-[0.1em] text-ink transition-colors hover:bg-ink hover:text-canvas sm:px-6 sm:text-sm sm:tracking-[0.14em]"
+            >
+              Download CV
+            </a>
+
+            <div className="col-span-2 mt-1 flex items-center gap-2 sm:ml-2 sm:mt-0">
+              {socials.map(({ label, href, Icon }) => (
+                <a
+                  key={href}
+                  href={href}
+                  aria-label={label}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-ink/5 text-ink transition-colors hover:bg-c-cream hover:text-on-color"
+                >
+                  <Icon className="h-[18px] w-[18px]" />
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
+          className="relative mx-auto mt-10 w-[210px] sm:mt-0 sm:w-[250px] lg:mx-0 lg:mr-6 lg:w-[290px]"
+        >
+          <div className="absolute -right-12 -top-14 z-20 origin-top-right scale-[0.82] sm:-right-6 sm:-top-20 sm:scale-100 lg:-right-12">
+            <FloatingPill bg="#d8365d" fg="#ffffff" label="Software engineer" drift="a" arrowSide="left" />
           </div>
-        </div>
+          <div className="absolute -left-14 bottom-14 z-20 origin-bottom-left scale-[0.82] sm:-left-20 sm:bottom-24 sm:scale-100 lg:-left-24">
+            <FloatingPill bg="#e3a92f" label="Ghana · GMT" drift="b" arrowSide="right" />
+          </div>
+
+          <img
+            src="/lovable-uploads/profilelove-transparent.png"
+            alt="Congo Musah Adams"
+            className="block h-auto w-full object-contain"
+          />
+        </motion.div>
       </div>
     </section>
   );

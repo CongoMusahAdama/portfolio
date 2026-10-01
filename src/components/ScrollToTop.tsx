@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronUp } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import { useSiteSoundtrack } from "@/context/SiteSoundtrackContext";
 
 const ScrollToTop = () => {
@@ -11,7 +11,7 @@ const ScrollToTop = () => {
       setIsVisible(window.scrollY > 300);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -24,15 +24,14 @@ const ScrollToTop = () => {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed left-4 bottom-[max(1rem,calc(env(safe-area-inset-bottom)+0.75rem))] sm:left-6 sm:bottom-6 p-3 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full bg-brand-orange text-white shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-brand-orange/50 z-30 ${
-        showButton
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 translate-y-4 pointer-events-none"
+      className={`hard-shadow fixed bottom-[max(1rem,calc(env(safe-area-inset-bottom)+0.75rem))] right-4 z-30 flex h-10 w-10 items-center justify-center gap-2 border-2 border-ink bg-paper font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-ink transition-all duration-300 hover:-translate-y-0.5 hover:bg-c-cream hover:text-on-color sm:bottom-6 sm:left-6 sm:right-auto sm:h-11 sm:w-auto sm:px-3 ${
+        showButton ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
       }`}
       aria-label="Scroll to top"
       aria-hidden={!showButton}
     >
-      <ChevronUp className="w-6 h-6" />
+      <ArrowUp className="h-4 w-4" />
+      <span className="hidden sm:inline">Top</span>
     </button>
   );
 };

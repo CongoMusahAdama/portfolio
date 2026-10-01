@@ -9,13 +9,14 @@ import { SiteSoundtrackProvider } from "@/context/SiteSoundtrackContext";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Now from "./pages/Now";
+import Work from "./pages/Work";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme-v2">
+    <ThemeProvider defaultTheme="light" storageKey="portfolio-theme-v3">
       <SiteSoundtrackProvider>
         <TooltipProvider>
           <Toaster />
@@ -25,6 +26,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
               <Route path="/now" element={<Now />} />
+              <Route path="/work" element={<Work />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
