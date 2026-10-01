@@ -1,5 +1,9 @@
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { HandKicker, PixelHeading } from "@/components/canvas/Canvas";
+
+const AUTO_SWIPE_MS = 4000;
+const RESUME_AFTER_TOUCH_MS = 6000;
 
 interface Testimonial {
   id: string;
@@ -77,6 +81,72 @@ const noteStyles = [
 ];
 
 const TestimonialsSection = () => {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const activeRef = useRef(0);
+  const pausedRef = useRef(false);
+  const resumeTimer = useRef<number>();
+  const [active, setActive] = useState(0);
+
+  const scrollToCard = (index: number) => {
+    const scroller = scrollerRef.current;
+    const card = scroller?.children[index] as HTMLElement | undefined;
+    if (!scroller || !card) return;
+    scroller.scrollTo({
+      left: card.offsetLeft - (scroller.clientWidth - card.offsetWidth) / 2,
+      behavior: "smooth",
+    });
+  };
+
+  const handleScroll = () => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+    const center = scroller.scrollLeft + scroller.clientWidth / 2;
+    let nearest = 0;
+    let best = Infinity;
+    Array.from(scroller.children).forEach((child, index) => {
+      const el = child as HTMLElement;
+      const distance = Math.abs(el.offsetLeft + el.offsetWidth / 2 - center);
+      if (distance < best) {
+        best = distance;
+        nearest = index;
+      }
+    });
+    activeRef.current = nearest;
+    setActive(nearest);
+  };
+
+  const pauseAutoSwipe = () => {
+    pausedRef.current = true;
+    window.clearTimeout(resumeTimer.current);
+  };
+
+  const resumeAutoSwipeLater = () => {
+    window.clearTimeout(resumeTimer.current);
+    resumeTimer.current = window.setTimeout(() => {
+      pausedRef.current = false;
+    }, RESUME_AFTER_TOUCH_MS);
+  };
+
+  useEffect(() => {
+    const mobile = window.matchMedia("(max-width: 767px)");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let inView = false;
+    const observer = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+    }, { threshold: 0.5 });
+    if (scrollerRef.current) observer.observe(scrollerRef.current);
+
+    const timer = window.setInterval(() => {
+      if (!mobile.matches || reducedMotion.matches || !inView || pausedRef.current || document.hidden) return;
+      scrollToCard((activeRef.current + 1) % testimonials.length);
+    }, AUTO_SWIPE_MS);
+    return () => {
+      observer.disconnect();
+      window.clearInterval(timer);
+      window.clearTimeout(resumeTimer.current);
+    };
+  }, []);
+
   return (
     <section id="testimonials" className="scroll-mt-24 px-5 py-20 sm:px-8 md:py-28">
       <div className="mx-auto w-full max-w-6xl">
@@ -88,10 +158,13 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        <p className="-mt-6 mb-4 text-center font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-ink/50 md:hidden">
-          Swipe →
-        </p>
-        <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 pt-2 sm:-mx-8 sm:px-8 md:mx-0 md:block md:columns-2 md:gap-8 md:overflow-visible md:p-0 lg:columns-3">
+        <div
+          ref={scrollerRef}
+          onScroll={handleScroll}
+          onTouchStart={pauseAutoSwipe}
+          onTouchEnd={resumeAutoSwipeLater}
+          className="no-scrollbar relative -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 pt-2 sm:-mx-8 sm:px-8 md:mx-0 md:block md:columns-2 md:gap-8 md:overflow-visible md:p-0 lg:columns-3"
+        >
           {testimonials.map((t, index) => {
             const style = noteStyles[index % noteStyles.length];
             return (
@@ -128,6 +201,24 @@ const TestimonialsSection = () => {
               </motion.figure>
             );
           })}
+        </div>
+
+        <div className="mt-4 flex justify-center gap-2 md:hidden">
+          {testimonials.map((t, index) => (
+            <button
+              key={t.id}
+              type="button"
+              aria-label={`Show testimonial from ${t.name}`}
+              onClick={() => {
+                pauseAutoSwipe();
+                scrollToCard(index);
+                resumeAutoSwipeLater();
+              }}
+              className={`h-2.5 border border-ink transition-all duration-300 ${
+                index === active ? "w-7 bg-ink" : "w-2.5 bg-transparent"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>

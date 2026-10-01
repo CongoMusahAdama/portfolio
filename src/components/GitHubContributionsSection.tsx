@@ -16,6 +16,13 @@ import { LabelTag, SelectionBox } from "@/components/canvas/Canvas";
 const GITHUB_USERNAME = "CongoMusahAdama";
 const CONTRIBUTIONS_API = `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}`;
 
+const ACHIEVEMENTS = [
+  { name: "Pair Extraordinaire", slug: "pair-extraordinaire", hint: "Co-authored merged pull requests" },
+  { name: "YOLO", slug: "yolo", hint: "Merged a pull request without review" },
+  { name: "Pull Shark", slug: "pull-shark", hint: "Opened pull requests that got merged" },
+  { name: "Quickdraw", slug: "quickdraw", hint: "Closed an issue or PR within 5 minutes" },
+];
+
 type ContributionDay = {
   date: string;
   count: number;
@@ -331,7 +338,7 @@ const GitHubContributionsSection = () => {
           <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink/55">
             Year
           </span>
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-wrap gap-1 xl:flex-col">
             <button
               type="button"
               onClick={() => setSelectedYear("last")}
@@ -646,6 +653,32 @@ const GitHubContributionsSection = () => {
                     </div>
                   );
                 })}
+              </div>
+
+              <div className="mt-5 border-t border-ink/10 pt-4">
+                <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-ink/55">
+                  Achievements
+                </p>
+                <div className="flex flex-wrap gap-2.5 lg:flex-nowrap lg:justify-between lg:gap-0">
+                  {ACHIEVEMENTS.map((badge) => (
+                    <a
+                      key={badge.slug}
+                      href={`https://github.com/${GITHUB_USERNAME}?tab=achievements&achievement=${badge.slug}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`${badge.name} — ${badge.hint}`}
+                      aria-label={`GitHub achievement: ${badge.name}`}
+                      className="block h-12 w-12 shrink-0 rounded-full transition-transform lg:h-11 lg:w-11 duration-300 hover:-translate-y-1 hover:rotate-6"
+                    >
+                      <img
+                        src={`/achievements/${badge.slug}.png`}
+                        alt={badge.name}
+                        loading="lazy"
+                        className="h-full w-full rounded-full object-cover"
+                      />
+                    </a>
+                  ))}
+                </div>
               </div>
             </aside>
 
