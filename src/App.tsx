@@ -13,6 +13,7 @@ import Work from "./pages/Work";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
+import PageLoader from "./components/PageLoader";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <PageLoader />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />

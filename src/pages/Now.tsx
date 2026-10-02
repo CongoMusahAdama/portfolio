@@ -33,7 +33,7 @@ const Now = () => (
         <PixelHeading as="h1" lines={["NOW"]} className="mt-3 text-[clamp(4.5rem,20vw,11rem)]" />
         <p className="mt-4 flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-ink/60">
           <span className="h-2 w-2 animate-status-pulse rounded-full bg-c-green" />
-          Updated June 2026
+          Updated October 2026
         </p>
       </div>
 
@@ -53,6 +53,36 @@ const Now = () => (
                 <span className="text-ink/50">(CMMS)</span> — an engineering operations platform for firms in Ghana and
                 similar markets. One base for assets, maintenance, work orders, approvals, and reporting — with ML/AI
                 that predicts what may fail and prescribes how teams should respond.
+              </p>
+            </div>
+          </Row>
+
+          <Row label="Selling">
+            <div className="space-y-3">
+              <p>
+                <span className="bg-c-cream px-1 font-semibold text-on-color">Scentiva Aura</span> — my perfume brand,
+                open 24/7. They say nobody is born an entrepreneur… so I&apos;m out here getting reborn as one.{" "}
+                <span className="font-semibold text-ink">Techpreneur</span>,{" "}
+                <span className="font-semibold text-ink">moneypreneur</span>, and now officially a{" "}
+                <span className="font-hand text-2xl leading-none text-brand-orange">smellpreneur.</span>
+              </p>
+              <p>
+                Business is booming at the <span className="italic">&ldquo;how much?&rdquo;</span> stage. People ask,
+                spray the tester on both wrists, sniff for a full minute, say{" "}
+                <span className="italic">&ldquo;I&apos;ll get back to you&rdquo;</span>… and get back to absolutely no
+                one. Currently recruiting customers who don&apos;t just ask —{" "}
+                <span className="font-hand text-2xl leading-none text-brand-orange">they patronize.</span>
+              </p>
+              <p>
+                If that&apos;s you,{" "}
+                <a
+                  href="https://scentivaaura.shop/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-ink underline decoration-c-blue decoration-2 underline-offset-4 transition-colors hover:bg-c-cream hover:text-on-color"
+                >
+                  come smell expensive ↗
+                </a>
               </p>
             </div>
           </Row>

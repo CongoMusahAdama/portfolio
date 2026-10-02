@@ -1,5 +1,10 @@
 export const nowBooks = [
   {
+    title: "AI Engineering",
+    meta: "Chip Huyen",
+    cover: "/assets/now/ai-engineering.jpg",
+  },
+  {
     title: "Rich Dad Poor Dad",
     meta: "Robert Kiyosaki",
     cover: "https://covers.openlibrary.org/b/isbn/9781612680194-S.jpg",
