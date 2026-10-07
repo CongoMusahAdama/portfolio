@@ -46,7 +46,7 @@ export const techCategories: TechCategory[] = [
       },
       {
         name: "NestJS",
-        icon: "/lovable-uploads/nestjs-logo.png",
+        icon: "/uploads/nestjs-logo.png",
         useCase: "Modular Node.js framework",
       },
       {
@@ -61,7 +61,7 @@ export const techCategories: TechCategory[] = [
       },
       {
         name: "Laravel",
-        icon: "/lovable-uploads/45b9016d-6f41-4e74-9e2d-14e144508968.png",
+        icon: "/uploads/45b9016d-6f41-4e74-9e2d-14e144508968.png",
         useCase: "Elegant PHP web platform",
       },
     ],
@@ -111,7 +111,7 @@ export const techCategories: TechCategory[] = [
       },
       {
         name: "AWS",
-        icon: "/lovable-uploads/7a3ccb94-8f5d-44e0-97b9-1611fc4e75e9.png",
+        icon: "/uploads/7a3ccb94-8f5d-44e0-97b9-1611fc4e75e9.png",
         useCase: "Scalable cloud services",
       },
     ],
@@ -146,22 +146,22 @@ export const techCategories: TechCategory[] = [
     skills: [
       {
         name: "Cursor",
-        icon: "/lovable-uploads/cursor-logo.png",
+        icon: "/uploads/cursor-logo.png",
         useCase: "AI-enhanced coding editor",
       },
       {
         name: "Claude",
-        icon: "/lovable-uploads/claude.png",
+        icon: "/uploads/claude.png",
         useCase: "Advanced AI analysis & coding",
       },
       {
         name: "Perplexity",
-        icon: "/lovable-uploads/perplexity.png",
+        icon: "/uploads/perplexity.png",
         useCase: "AI-powered research & search",
       },
       {
         name: "Antigravity",
-        icon: "/lovable-uploads/antigravity-logo.png",
+        icon: "/uploads/antigravity-logo.png",
         useCase: "Advanced agentic automation",
       },
     ],
@@ -191,7 +191,7 @@ export const techCategories: TechCategory[] = [
       },
       {
         name: "Discord",
-        icon: "/lovable-uploads/discord-logo.png",
+        icon: "/uploads/discord-logo.png",
         useCase: "Community & dev support",
       },
       {
@@ -254,12 +254,12 @@ export const carouselTools = [
   { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
   { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
   { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-  { name: "NestJS", icon: "/lovable-uploads/nestjs-logo.png" },
+  { name: "NestJS", icon: "/uploads/nestjs-logo.png" },
   { name: "FastAPI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
   { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
   { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
   { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-  { name: "AWS", icon: "/lovable-uploads/7a3ccb94-8f5d-44e0-97b9-1611fc4e75e9.png" },
+  { name: "AWS", icon: "/uploads/7a3ccb94-8f5d-44e0-97b9-1611fc4e75e9.png" },
   { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-  { name: "Cursor", icon: "/lovable-uploads/cursor-logo.png" },
+  { name: "Cursor", icon: "/uploads/cursor-logo.png" },
 ];

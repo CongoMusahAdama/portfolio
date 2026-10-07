@@ -132,7 +132,7 @@ const HeroSection = () => {
           className="relative mx-auto mt-10 w-[210px] sm:mt-0 sm:w-[250px] lg:mx-0 lg:mr-6 lg:w-[290px]"
         >
           <img
-            src="/lovable-uploads/profilelove-transparent.png"
+            src="/uploads/profilelove-transparent.png"
             alt="Congo Musah Adams"
             className="block h-auto w-full object-contain"
           />

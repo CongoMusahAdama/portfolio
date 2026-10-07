@@ -8,7 +8,7 @@ const learningItems = [
   },
   {
     name: "Product Development",
-    icon: "/lovable-uploads/product-dev-icon.png",
+    icon: "/uploads/product-dev-icon.png",
     bg: "#b5ddf0",
   },
 ];

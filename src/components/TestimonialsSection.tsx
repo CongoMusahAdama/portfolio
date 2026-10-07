@@ -20,7 +20,7 @@ const testimonials: Testimonial[] = [
     name: "Nana Quasi-Wusu (PM)",
     role: "The Finest MC",
     company: "PM Holdings",
-    avatar: "/lovable-uploads/nana-quasi-wusu.jpg",
+    avatar: "/uploads/nana-quasi-wusu.jpg",
     content:
       "Elite, great and awesome! Congo is a genius — he delivered a website that truly reflects my standard and my personality. I love it. It's mind-blowing!",
   },
@@ -29,7 +29,7 @@ const testimonials: Testimonial[] = [
     name: "Florence",
     role: "CEO",
     company: "VisionSpa",
-    avatar: "/lovable-uploads/angelic.png",
+    avatar: "/uploads/angelic.png",
     content:
       "I really admire the work on our platform. The project has significantly boosted our sales and streamlined our booking process. Amazing results!",
   },
@@ -38,7 +38,7 @@ const testimonials: Testimonial[] = [
     name: "Kwame Oteng",
     role: "Founder",
     company: "Mizrmo Technologies",
-    avatar: "/lovable-uploads/dd834d92-de8f-4f21-9878-9cc88ffbb39e.png",
+    avatar: "/uploads/dd834d92-de8f-4f21-9878-9cc88ffbb39e.png",
     content:
       "Highly impressed with the APIs and backend development. Congo delivered scalable solutions that perfectly matched our requirements. Truly professional!",
   },
@@ -47,7 +47,7 @@ const testimonials: Testimonial[] = [
     name: "Jerry Temakloe",
     role: "Founder & Creative Entrepreneur",
     company: "Carve Studio",
-    avatar: "/lovable-uploads/e7a271ed-34b5-4117-b716-6c44c58df08d.png",
+    avatar: "/uploads/e7a271ed-34b5-4117-b716-6c44c58df08d.png",
     content:
       "Congo's expertise in microservices architecture transformed our monolithic application into a scalable, maintainable system. His documentation skills are excellent too!",
   },
@@ -56,7 +56,7 @@ const testimonials: Testimonial[] = [
     name: "Prof. Daniel Addo-Mensah",
     role: "Lecturer & Head of Industrial Attachment",
     company: "University of Energy and Natural Resources",
-    avatar: "/lovable-uploads/5548e7ab-7bc7-436a-877b-caab2b5d82c6.png",
+    avatar: "/uploads/5548e7ab-7bc7-436a-877b-caab2b5d82c6.png",
     content:
       "Congo's ability to turn impactful ideas into digital platforms is insane — from understanding users' pain points to building solutions they actually want.",
   },
@@ -65,7 +65,7 @@ const testimonials: Testimonial[] = [
     name: "Host of Kultural Kompass",
     role: "Founder & Host",
     company: "Kultural Kompass",
-    avatar: "/lovable-uploads/kultural.png",
+    avatar: "/uploads/kultural.png",
     content:
       "I love the approach to product where ideas are easily turned into great digital solutions that resonate with the audience and target interests. Wonderful work!",
   },

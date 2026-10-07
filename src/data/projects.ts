@@ -49,8 +49,8 @@ const allProjects: Project[] = [
       "Buyers in West Africa struggle to find reliable, transparent access to quality imported vehicles with clear inventory and local support.",
     approach:
       "Built a full inventory and enquiry platform with vehicle listings, 360° views, and enquiry/buy flows so customers can browse and book viewings with confidence.",
-    image: "/lovable-uploads/westlife-web.jpg",
-    mobileImage: "/lovable-uploads/westlife-mobile.png",
+    image: "/uploads/westlife-web.jpg",
+    mobileImage: "/uploads/westlife-mobile.png",
     technologies: [
       "React",
       "Vite",
@@ -71,8 +71,8 @@ const allProjects: Project[] = [
       "Emerging fashion brands need a storefront that matches their identity while handling inventory, sold-out states, and smooth checkout.",
     approach:
       "Built a minimalist e-commerce experience with product grids, size/qty selection, wishlist, and account flows so shoppers can browse and buy with clarity.",
-    image: "/lovable-uploads/harvdreams-web.png",
-    mobileImage: "/lovable-uploads/harvdreams-mobile.png",
+    image: "/uploads/harvdreams-web.png",
+    mobileImage: "/uploads/harvdreams-mobile.png",
     technologies: [
       "React",
       "TypeScript",
@@ -93,8 +93,8 @@ const allProjects: Project[] = [
       "Buying fragrance online often feels impersonal, with no guidance on scent matching and friction at checkout.",
     approach:
       "Built a dark luxury shop with a scent-discovery quiz, curated collections, and WhatsApp-first ordering so customers can find and confirm their fragrance fast.",
-    image: "/lovable-uploads/scentiva-web.png",
-    mobileImage: "/lovable-uploads/scentiva-mobile.png",
+    image: "/uploads/scentiva-web.png",
+    mobileImage: "/uploads/scentiva-mobile.png",
     technologies: [
       "Next.js",
       "TypeScript",
@@ -115,8 +115,8 @@ const allProjects: Project[] = [
       "Multi-venture public figures need one polished home for booking, brand stories, and foundation outreach without scattering audiences across channels.",
     approach:
       "Built a multi-page portfolio with booking CTAs, venture hubs (entertainment, fashion, modeling), and a dedicated PM Foundation section for scholarships and community service.",
-    image: "/lovable-uploads/pmholdings-web-v2.jpg",
-    mobileImage: "/lovable-uploads/pmholdings-mobile.png",
+    image: "/uploads/pmholdings-web-v2.jpg",
+    mobileImage: "/uploads/pmholdings-mobile.png",
     technologies: [
       "React",
       "TypeScript",
@@ -137,8 +137,8 @@ const allProjects: Project[] = [
       "Organizers and learners need one place for training, SME support, and event registration without juggling disconnected tools.",
     approach:
       "Built a services and events platform with browseable conferences/AGMs, registration flows, and smart check-in so organizers and attendees can discover and run events smoothly.",
-    image: "/lovable-uploads/futurelink-web.jpg",
-    mobileImage: "/lovable-uploads/futurelink-mobile.png",
+    image: "/uploads/futurelink-web.jpg",
+    mobileImage: "/uploads/futurelink-mobile.png",
     technologies: [
       "React",
       "Vite",
@@ -159,8 +159,8 @@ const allProjects: Project[] = [
       "Traditional spa booking systems are often cluttered and uninspiring, failing to reflect the premium nature of the services offered.",
     approach:
       "Built a high-end, visual-first platform using React and Tailwind, focusing on a minimal interface that guides users through a premium booking journey without friction.",
-    image: "/lovable-uploads/visionspaweb.png",
-    mobileImage: "/lovable-uploads/visionspamobile.png",
+    image: "/uploads/visionspaweb.png",
+    mobileImage: "/uploads/visionspamobile.png",
     technologies: [
       "React",
       "TypeScript",
@@ -181,8 +181,8 @@ const allProjects: Project[] = [
       "The custom tailoring industry lacks transparency in production timelines and payment security for both clients and creators.",
     approach:
       "Implemented a custom production-tracking state machine and integrated a secure Escrow API to ensure trust throughout the manufacturing lifecycle.",
-    image: "/lovable-uploads/fla.png",
-    mobileImage: "/lovable-uploads/image copy 5.png",
+    image: "/uploads/fla.png",
+    mobileImage: "/uploads/image copy 5.png",
     technologies: [
       "React",
       "TypeScript",
@@ -203,8 +203,8 @@ const allProjects: Project[] = [
       "Standard podcast directories often lack the branding and custom interactivity required for premium, niche-focused cultural content.",
     approach:
       "Designed a specialized content-delivery workflow using YouTube's Data API to automate episode releases within a custom-branded, interactive React frontend.",
-    image: "/lovable-uploads/kultural project.png",
-    mobileImage: "/lovable-uploads/Kultural mobile  4.png",
+    image: "/uploads/kultural project.png",
+    mobileImage: "/uploads/Kultural mobile  4.png",
     technologies: [
       "React",
       "TypeScript",
@@ -225,8 +225,8 @@ const allProjects: Project[] = [
       "Note-taking apps are often too generic, making it difficult to prioritize high-level ideas from casual thoughts.",
     approach:
       "Created a hierarchy-focused data structure that separates brainstorming from execution, optimized for rapid capture and intuitive prioritization.",
-    image: "/lovable-uploads/brainbank.png",
-    mobileImage: "/lovable-uploads/brainbank-mobile.png",
+    image: "/uploads/brainbank.png",
+    mobileImage: "/uploads/brainbank-mobile.png",
     technologies: ["React", "TypeScript", "TailwindCSS", "Vite"],
     githubUrl: "https://github.com/CongoMusahAdama/Brainbank",
     websiteUrl: "https://brainbanc.netlify.app/",
@@ -241,8 +241,8 @@ const allProjects: Project[] = [
       "Cultural organizations often struggle with fragmented communication and difficulty in managing historical media and community engagement in one place.",
     approach:
       "Developed a comprehensive community management system with role-based access control, donation tracking, and an archival media library to centralize organizational assets.",
-    image: "/lovable-uploads/supreme-masqueraders.jpg",
-    mobileImage: "/lovable-uploads/supreme-mobile.png",
+    image: "/uploads/supreme-masqueraders.jpg",
+    mobileImage: "/uploads/supreme-mobile.png",
     technologies: [
       "React",
       "TypeScript",
@@ -263,8 +263,8 @@ const allProjects: Project[] = [
       "Local artisans often lack access to digital markets and struggle to find investors specifically interested in traditional craft focus.",
     approach:
       "Integrated an AI-driven matching algorithm that connects artisans with tailored funding opportunities based on their specific niche and historical project metadata.",
-    image: "/lovable-uploads/Screenshot (366).png",
-    mobileImage: "/lovable-uploads/artisans-hub-mobile.png",
+    image: "/uploads/Screenshot (366).png",
+    mobileImage: "/uploads/artisans-hub-mobile.png",
     technologies: [
       "React",
       "TypeScript",
@@ -285,7 +285,7 @@ const allProjects: Project[] = [
       "High volatility and lack of reliable data in the real estate market make accurate property valuation difficult for Ghanaian homebuyers.",
     approach:
       "Developed a Voting Regression machine learning model that analyzes historical sales data and location metrics to provide real-time price predictions.",
-    image: "/lovable-uploads/067f6480-76cb-4a27-a4c3-2388ff2fbd51.png",
+    image: "/uploads/067f6480-76cb-4a27-a4c3-2388ff2fbd51.png",
     technologies: ["FastAPI", "Voting Regression Model"],
     githubUrl: "https://github.com/CongoMusahAdama/rrate",
     rating: 4,
@@ -299,8 +299,8 @@ const allProjects: Project[] = [
       "Users often face long wait times and inconsistent quality when looking for professional grooming services in unfamiliar locations.",
     approach:
       "Built a location-aware booking engine with a peer-review system and secure micro-payments to ensure quality and reliability for users on the move.",
-    image: "/lovable-uploads/webarb.png",
-    mobileImage: "/lovable-uploads/webarb-mobile.png",
+    image: "/uploads/webarb.png",
+    mobileImage: "/uploads/webarb-mobile.png",
     technologies: [
       "MongoDB",
       "Express",
@@ -322,8 +322,8 @@ const allProjects: Project[] = [
       "Small-scale farmers in Africa struggle to access credit due to lack of traditional credit scoring data and modern agricultural insights.",
     approach:
       "Leveraged satellite imagery and AI modeling to create alternative credit scores for farmers, facilitating financial access and providing predictive crop insights.",
-    image: "/lovable-uploads/agrilync-new.png",
-    mobileImage: "/lovable-uploads/agrilync-mobile.png",
+    image: "/uploads/agrilync-new.png",
+    mobileImage: "/uploads/agrilync-mobile.png",
     technologies: ["MongoDB", "Express", "TypeScript", "React", "Vite"],
     githubUrl: "https://github.com/CongoMusahAdama/agrilync-protoype",
     websiteUrl: "https://agri-lync.netlify.app",
@@ -338,7 +338,7 @@ const allProjects: Project[] = [
       "Inefficient commuting patterns lead to higher transportation costs and increased urban traffic congestion.",
     approach:
       "Designed a route-matching algorithm that optimizes ride-shares in real-time based on destination proximity and user preferences.",
-    image: "/lovable-uploads/mizrmo.png",
+    image: "/uploads/mizrmo.png",
     technologies: ["Nest.js", "Node.js", "TypeScript", "PostgreSQL"],
     githubUrl: "https://github.com/CongoMusahAdama",
     rating: 4,
@@ -352,7 +352,7 @@ const allProjects: Project[] = [
       "Microfinance institutions often use fragmented legacy systems that slow down operations and increase the risk of data loss.",
     approach:
       "Developed a mission-critical financial suite that unifies accounting, member management, and reporting into a single, high-reliability platform.",
-    image: "/lovable-uploads/sikasoft.png",
+    image: "/uploads/sikasoft.png",
     technologies: ["JavaScript", "AJAX", "jQuery", "PHP"],
     githubUrl: "https://github.com/CongoMusahAdama",
     websiteUrl: "https://sikasoftonline.com/",
