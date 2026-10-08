@@ -6,7 +6,7 @@ import AwardsSection from "@/components/AwardsSection";
 import { ColorTag, HandKicker, LabelTag, PixelHeading, SelectionBox, StickyNote } from "@/components/canvas/Canvas";
 import { aboutSections, highlightAboutText } from "@/data/aboutStory";
 
-const profileImage = "/assets/profile.png";
+const profileImage = "/uploads/hero-portrait.png";
 
 const engineeringTags = [
   { label: "Payment Infrastructure", bg: "#e3a92f", tile: true },
@@ -111,7 +111,7 @@ const About = () => {
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="relative mx-auto w-56 bg-white p-3 pb-10 shadow-[0_10px_30px_rgba(0,0,0,0.12)] md:mx-0"
               >
-                <img src={profileImage} alt="Congo Musah Adams" className="aspect-[4/5] w-full object-cover object-[center_12%]" />
+                <img src={profileImage} alt="Congo Musah Adams" className="aspect-[4/5] w-full object-cover object-bottom" />
                 <figcaption className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
                   <span className="rounded-full bg-on-color px-3 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-white">
                     Congo M. Adams
