@@ -42,20 +42,23 @@ const HeroSection = () => {
               <CornerHandles color="#5fbee6" />
               <h1 className="flex flex-col items-start font-pixel font-bold tracking-tight text-ink transition-colors duration-300 group-hover:text-canvas">
                 <span className="block text-[clamp(2rem,10.4vw,2.6rem)] leading-[1] sm:text-[2.75rem] md:text-7xl lg:hidden">
-                  Building <span className="text-brand-orange">Digital</span>
+                  Engineering <span className="text-brand-orange">Digital</span>
                 </span>
                 <span className="mt-1 block text-[clamp(2rem,10.4vw,2.6rem)] leading-[1] sm:text-[2.75rem] md:mt-2 md:text-7xl lg:hidden">
-                  Products That
+                  Systems That Work
                 </span>
                 <span className="mt-1 block text-[clamp(2rem,10.4vw,2.6rem)] leading-[1] sm:text-[2.75rem] md:mt-2 md:text-7xl lg:hidden">
-                  Matter
+                  While You Sleep
                 </span>
 
                 <span className="hidden whitespace-nowrap text-6xl leading-none lg:block xl:text-7xl">
-                  Building <span className="text-brand-orange">Digital</span>
+                  Engineering <span className="text-brand-orange">Digital</span>
                 </span>
                 <span className="mt-3 hidden whitespace-nowrap text-5xl leading-none lg:block xl:text-6xl">
-                  Products That Matter
+                  Systems That Work
+                </span>
+                <span className="mt-3 hidden whitespace-nowrap text-5xl leading-none lg:block xl:text-6xl">
+                  While You Sleep
                 </span>
               </h1>
             </div>
@@ -100,12 +103,10 @@ const HeroSection = () => {
             </button>
 
             <a
-              href="https://flowcv.com/resume/wtaak1n6a414"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:amusahcongo@gmail.com?subject=CV%20Request%20from%20Portfolio&body=Hi%20Congo,%0A%0AI%20was%20looking%20at%20your%20portfolio%20and%20would%20love%20to%20request%20access%20to%20your%20CV.%0A%0AThanks,"
               className="inline-flex min-h-[52px] items-center justify-center whitespace-nowrap border-2 border-ink px-3 font-mono text-[11px] font-semibold uppercase tracking-[0.1em] text-ink transition-colors hover:bg-ink hover:text-canvas sm:px-6 sm:text-sm sm:tracking-[0.14em]"
             >
-              Download CV
+              Request CV
             </a>
 
             <div className="col-span-2 mt-1 flex items-center gap-2 sm:ml-2 sm:mt-0">
