@@ -41,13 +41,13 @@ const HeroSection = () => {
             >
               <CornerHandles color="#5fbee6" />
               <h1 className="flex flex-col items-start font-pixel font-bold tracking-tight text-ink transition-colors duration-300 group-hover:text-canvas">
-                <span className="block text-[clamp(2rem,10.4vw,2.6rem)] leading-[1] sm:text-[2.75rem] md:text-7xl lg:hidden">
+                <span className="block text-[clamp(1.5rem,8.5vw,2.4rem)] leading-[1] sm:text-[2.75rem] md:text-7xl lg:hidden">
                   Engineering <span className="text-brand-orange">Digital</span>
                 </span>
-                <span className="mt-1 block text-[clamp(2rem,10.4vw,2.6rem)] leading-[1] sm:text-[2.75rem] md:mt-2 md:text-7xl lg:hidden">
+                <span className="mt-1 block text-[clamp(1.5rem,8.5vw,2.4rem)] leading-[1] sm:text-[2.75rem] md:mt-2 md:text-7xl lg:hidden">
                   Systems That Work
                 </span>
-                <span className="mt-1 block text-[clamp(2rem,10.4vw,2.6rem)] leading-[1] sm:text-[2.75rem] md:mt-2 md:text-7xl lg:hidden">
+                <span className="mt-1 block text-[clamp(1.5rem,8.5vw,2.4rem)] leading-[1] sm:text-[2.75rem] md:mt-2 md:text-7xl lg:hidden">
                   While You Sleep
                 </span>
 
